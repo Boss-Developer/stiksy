@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-011",
+  "identifier": "stiksy-pk-011",
+  "title": "Gol Gappay Khilao",
+  "name": "Gol Gappay Khilao",
+  "publisher": "Stiksy",
+  "category": "Desi Food",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "desi-food"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-011-01",
+      "file": "01.webp",
+      "caption": "Gol gappay khilao",
+      "accessibilityText": "Gol Gappay Khilao: Gol gappay khilao",
+      "emojis": [
+        "😋"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33746,
+      "sha256": "120c72f3729dd6ff2bde3fb07ed3654594058b9625ae99fdfbf404676dacfed0",
+      "quality": 68,
+      "renderSha256": "d4e5b6b090d352b61d6c6d5cec1b89234156dffcc20022e0a01eb65d723cf920"
+    },
+    {
+      "id": "stiksy-pk-011-02",
+      "file": "02.webp",
+      "caption": "Teekha pani please",
+      "accessibilityText": "Gol Gappay Khilao: Teekha pani please",
+      "emojis": [
+        "😋"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28368,
+      "sha256": "f08653e5142818ad65e99ce3a931ad6f181ec694e7675b341ffade33455c2c4a",
+      "quality": 68,
+      "renderSha256": "4e1836b90a15a9d37cf6cf648a28f0e302b2621b2c8bbe7714f4144376e13b80"
+    },
+    {
+      "id": "stiksy-pk-011-03",
+      "file": "03.webp",
+      "caption": "Ek aur gol gappa",
+      "accessibilityText": "Gol Gappay Khilao: Ek aur gol gappa",
+      "emojis": [
+        "😋"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29872,
+      "sha256": "e0df586cf25ee1812bc41599070ec54b48a6d5f816bf4b61ffc1a711236aacf8",
+      "quality": 68,
+      "renderSha256": "0be3baeb82e59f31df91a0aa3c98e90ef2e9be6e6fb2b5539b86d38d1c4df212"
+    },
+    {
+      "id": "stiksy-pk-011-04",
+      "file": "04.webp",
+      "caption": "Aaj gol gappa mood",
+      "accessibilityText": "Gol Gappay Khilao: Aaj gol gappa mood",
+      "emojis": [
+        "😋"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 24350,
+      "sha256": "e4655084a2d5b4d167cae733d91555f8348be84b40a4063a774b8bc09f98954a",
+      "quality": 68,
+      "renderSha256": "16f767bbb6e9e1ce7ff553503b909d3044a09954e32778b0aba1162978e94681"
+    },
+    {
+      "id": "stiksy-pk-011-05",
+      "file": "05.webp",
+      "caption": "Meetha bhi daalo",
+      "accessibilityText": "Gol Gappay Khilao: Meetha bhi daalo",
+      "emojis": [
+        "😋"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29870,
+      "sha256": "27c8ed9778f9ac6fe9a0ceae58b6a0cef298b1628526fddaed8a4b03bd9ec1aa",
+      "quality": 68,
+      "renderSha256": "642c31f4d67cc42cefe2ae463ddf735de9443e8feaa467e162ab659212764c03"
+    },
+    {
+      "id": "stiksy-pk-011-06",
+      "file": "06.webp",
+      "caption": "Chalo stall pe",
+      "accessibilityText": "Gol Gappay Khilao: Chalo stall pe",
+      "emojis": [
+        "😋"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22824,
+      "sha256": "6b9aac6f30e72209277662efe441af96766698e735d6f1e40c864d6569366f72",
+      "quality": 68,
+      "renderSha256": "97fbc90cbe5f7473762a5c6901a9abb61b1f721093dc0fe7e497a12a46d77fcd"
+    },
+    {
+      "id": "stiksy-pk-011-07",
+      "file": "07.webp",
+      "caption": "Khatta meetha scene",
+      "accessibilityText": "Gol Gappay Khilao: Khatta meetha scene",
+      "emojis": [
+        "😋"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31002,
+      "sha256": "e4646a0f83575496a2d6a31835562019ebe2cf1bebd7a6e18646ef08e7c38dfb",
+      "quality": 68,
+      "renderSha256": "988ec00662d650c2fafdf465c1b933a0ad321b51949f4bdc38bf6089d5a090e1"
+    },
+    {
+      "id": "stiksy-pk-011-08",
+      "file": "08.webp",
+      "caption": "Gol gappa challenge",
+      "accessibilityText": "Gol Gappay Khilao: Gol gappa challenge",
+      "emojis": [
+        "😋"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32312,
+      "sha256": "c44d2c5453d39b15492b12523ddf2de0a639a40e77a3026b042c04205afcecde",
+      "quality": 68,
+      "renderSha256": "8250dfe3837d64511de85cd4a2ea4421a95520dbda9bd1f144f8a28397a85678"
+    },
+    {
+      "id": "stiksy-pk-011-09",
+      "file": "09.webp",
+      "caption": "Pani zara tez ho",
+      "accessibilityText": "Gol Gappay Khilao: Pani zara tez ho",
+      "emojis": [
+        "😋"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33034,
+      "sha256": "105052cd633c2fb126748dae4dfcd7b3a0640d38f496241d252cab95be397bfa",
+      "quality": 68,
+      "renderSha256": "755af066f728db3ab34c78066eee2fbac4fc2107322709a0893e42d6fa1e9ce3"
+    },
+    {
+      "id": "stiksy-pk-011-10",
+      "file": "10.webp",
+      "caption": "Last wala bada dena",
+      "accessibilityText": "Gol Gappay Khilao: Last wala bada dena",
+      "emojis": [
+        "😋"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34136,
+      "sha256": "707457e5e50c1053203eeea2eb6ac91439dd87e83dd422dbfcd9f136219923b4",
+      "quality": 68,
+      "renderSha256": "a494d4e216c8ae0aaa03486f09c15a3cf8ad94c3504f317b3fc6e8304bc7d133"
+    }
+  ]
+}

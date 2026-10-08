@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-036",
+  "identifier": "stiksy-pk-036",
+  "title": "Dhol Bajao!",
+  "name": "Dhol Bajao!",
+  "publisher": "Stiksy",
+  "category": "Wedding & Dhol",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "wedding-dhol"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-036-01",
+      "file": "01.webp",
+      "caption": "Dhol bajao!",
+      "accessibilityText": "Dhol Bajao!: Dhol bajao!",
+      "emojis": [
+        "🥁"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33344,
+      "sha256": "fd039249b757dbbcb3405b112c0a74cfee02997b973119e01adb62ba4c8236f7",
+      "quality": 68,
+      "renderSha256": "ab8daa566fd3800b3f9d886178934c619b3c1bcdfd6d803553185e6b17e46115"
+    },
+    {
+      "id": "stiksy-pk-036-02",
+      "file": "02.webp",
+      "caption": "Bhangra pao bhai",
+      "accessibilityText": "Dhol Bajao!: Bhangra pao bhai",
+      "emojis": [
+        "🥁"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29938,
+      "sha256": "1f3e67002c44bbb5fbb2b9c0893b6ce48831ddfef662a2de8269aaefc96ff6b3",
+      "quality": 68,
+      "renderSha256": "dc4bccd3283df5a3e76a2880ed0b8ec57dc93659eeb2f007ef8eb4d6e2933a9a"
+    },
+    {
+      "id": "stiksy-pk-036-03",
+      "file": "03.webp",
+      "caption": "Dhol ki thaap pe",
+      "accessibilityText": "Dhol Bajao!: Dhol ki thaap pe",
+      "emojis": [
+        "🥁"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31984,
+      "sha256": "024fe3c038f6e26e578d1719f7db017e765080009e533aae26b4f027383fe43e",
+      "quality": 68,
+      "renderSha256": "cd23e35105daa8fad2f1b4c0eefcd9c9d02bde017ed854889b186e5d62205319"
+    },
+    {
+      "id": "stiksy-pk-036-04",
+      "file": "04.webp",
+      "caption": "Aaj nachna banta hai",
+      "accessibilityText": "Dhol Bajao!: Aaj nachna banta hai",
+      "emojis": [
+        "🥁"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 24696,
+      "sha256": "3f6700b10fe3a6c7e30a5a0cf31964a96e1a555f9e2b676aad6355be944c28b9",
+      "quality": 68,
+      "renderSha256": "7b5d31e0efee917e39d25d4635b5cf336490ed744205c3af34209de34ff0f3f5"
+    },
+    {
+      "id": "stiksy-pk-036-05",
+      "file": "05.webp",
+      "caption": "Mehndi ka beat",
+      "accessibilityText": "Dhol Bajao!: Mehndi ka beat",
+      "emojis": [
+        "🥁"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31420,
+      "sha256": "50cceb26fa59826e4622bac4541b76d9d622a918fcc5f8f143e6b3d037f4cc89",
+      "quality": 68,
+      "renderSha256": "fbf193cf02fcd1437930d5dc4224a827b52c03bac0ed5c2b3d378d859a8ef01e"
+    },
+    {
+      "id": "stiksy-pk-036-06",
+      "file": "06.webp",
+      "caption": "Nach le yaar",
+      "accessibilityText": "Dhol Bajao!: Nach le yaar",
+      "emojis": [
+        "🥁"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 24290,
+      "sha256": "d429540e6e3ca742a8f1feb443fae719ebbd798d00f95daaaaf38445b5a87ca3",
+      "quality": 68,
+      "renderSha256": "5a9ebddac9e443b915f6524e31e917c5aabcd0c25a50c71d2bab877df6aaead7"
+    },
+    {
+      "id": "stiksy-pk-036-07",
+      "file": "07.webp",
+      "caption": "Dhol zara zor se",
+      "accessibilityText": "Dhol Bajao!: Dhol zara zor se",
+      "emojis": [
+        "🥁"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33054,
+      "sha256": "f418437c036b4632c87290c062a73f56687f2233b6483ee92900cb81b85adc42",
+      "quality": 68,
+      "renderSha256": "437391b3c75dcc5cede637b9357fe71b190910c0fcb3c088ea056b40879bff7f"
+    },
+    {
+      "id": "stiksy-pk-036-08",
+      "file": "08.webp",
+      "caption": "Full shaadi vibes",
+      "accessibilityText": "Dhol Bajao!: Full shaadi vibes",
+      "emojis": [
+        "🥁"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34018,
+      "sha256": "f7698e474afa839efbec7bad63e3eef4aae94a2c9c0319228a7bd12497b82016",
+      "quality": 68,
+      "renderSha256": "f11d3842673586b0f534f4761a04a6438f4716ddca52a88f94695b2e1b0507c8"
+    },
+    {
+      "id": "stiksy-pk-036-09",
+      "file": "09.webp",
+      "caption": "Saari family floor pe",
+      "accessibilityText": "Dhol Bajao!: Saari family floor pe",
+      "emojis": [
+        "🥁"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 37692,
+      "sha256": "046a89d536048f720fd5f842151adf2b5533c723160da0e24c9c83da730f1170",
+      "quality": 68,
+      "renderSha256": "058b285685248579ab7d40ae10d92d3613a74d7e1b15ad0f7223fa76d29f8ec0"
+    },
+    {
+      "id": "stiksy-pk-036-10",
+      "file": "10.webp",
+      "caption": "Beat rukni nahi chahiye",
+      "accessibilityText": "Dhol Bajao!: Beat rukni nahi chahiye",
+      "emojis": [
+        "🥁"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 37452,
+      "sha256": "02b488fd7be3a894efa2f322327abf19944cc3c73bfd5892ee6ff2b968a46342",
+      "quality": 68,
+      "renderSha256": "77520a86022c873ae07f4ae3eb55ed7bdafb0a55cbe29c5b8068a35013d0506b"
+    }
+  ]
+}

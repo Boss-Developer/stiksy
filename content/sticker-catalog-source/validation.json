@@ -1,0 +1,18 @@
+{
+  "packs": 40,
+  "stickers": 400,
+  "uniqueStickerFiles": 400,
+  "stickerBytes": 11627502,
+  "largestStickerBytes": 42850,
+  "serverFolderBytes": 13123096,
+  "checks": [
+    "512x512 WebP",
+    "transparent alpha",
+    "all stickers below 100 KiB",
+    "96x96 tray PNG below 50 KiB",
+    "40 packs x 10 stickers",
+    "unique IDs and file hashes",
+    "relative paths and manifest checksums",
+    "10 distinct captions per pack"
+  ]
+}

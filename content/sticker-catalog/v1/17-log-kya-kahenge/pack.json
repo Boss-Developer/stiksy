@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-017",
+  "identifier": "stiksy-pk-017",
+  "title": "Log Kya Kahenge?",
+  "name": "Log Kya Kahenge?",
+  "publisher": "Stiksy",
+  "category": "Family & Mehmaan",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "family-mehmaan"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-017-01",
+      "file": "01.webp",
+      "caption": "Log kya kahenge?",
+      "accessibilityText": "Log Kya Kahenge?: Log kya kahenge?",
+      "emojis": [
+        "🤭"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31766,
+      "sha256": "dda01b7b6c08a48ae1c56eb4762ac239fbc751a2ca014c143c8dda449136e39c",
+      "quality": 68,
+      "renderSha256": "18340a760d792766d201d3029d010d2fcf089a28613fe1c6e27c8339122d78cb"
+    },
+    {
+      "id": "stiksy-pk-017-02",
+      "file": "02.webp",
+      "caption": "Logon ka kaam kehna",
+      "accessibilityText": "Log Kya Kahenge?: Logon ka kaam kehna",
+      "emojis": [
+        "🤭"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27718,
+      "sha256": "10361d5891be7a14a225ec05ba26e333e3c8c9b7922832d91b592558f9386018",
+      "quality": 68,
+      "renderSha256": "106cd774d1592047b518cb3679efc5efce44cb6cf5df5c7eab4c3e7d79b8fb04"
+    },
+    {
+      "id": "stiksy-pk-017-03",
+      "file": "03.webp",
+      "caption": "Aunty ko sab pata hai",
+      "accessibilityText": "Log Kya Kahenge?: Aunty ko sab pata hai",
+      "emojis": [
+        "🤭"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28818,
+      "sha256": "7b34a572427ee1b0a53dde2c0fd44bef2dc292950dc68f6ff817db0e3e0ad1d6",
+      "quality": 68,
+      "renderSha256": "b1344a53f9267bb134ff10d9417266078772fb1a2bebef7a2a5a25ecd0faa443"
+    },
+    {
+      "id": "stiksy-pk-017-04",
+      "file": "04.webp",
+      "caption": "Mohallay ki breaking news",
+      "accessibilityText": "Log Kya Kahenge?: Mohallay ki breaking news",
+      "emojis": [
+        "🤭"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26494,
+      "sha256": "41aef9eb56584aed0ebab3d616e8ef54c709d194fbc2d18ebdea1dd1d80eadb3",
+      "quality": 68,
+      "renderSha256": "2d896b790e29baf7bee02b59faf31f1b4275c706d4d2efae0b2b702c6019ed27"
+    },
+    {
+      "id": "stiksy-pk-017-05",
+      "file": "05.webp",
+      "caption": "Phir se wohi baat",
+      "accessibilityText": "Log Kya Kahenge?: Phir se wohi baat",
+      "emojis": [
+        "🤭"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27944,
+      "sha256": "680dc008945560d11f30dd3ade4fd9df6b85c3d1c956a3229748c0cc6d05e2c2",
+      "quality": 68,
+      "renderSha256": "7445526d0cccdd68f9825eb266526fc0e0055f4541d93049b1966f9974f2de90"
+    },
+    {
+      "id": "stiksy-pk-017-06",
+      "file": "06.webp",
+      "caption": "Apni marzi bhi kuch hai",
+      "accessibilityText": "Log Kya Kahenge?: Apni marzi bhi kuch hai",
+      "emojis": [
+        "🤭"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22912,
+      "sha256": "bc4216a5be3fd3f2996d50614a6ca6a00c05515a00406b67571c3c50784ac37c",
+      "quality": 68,
+      "renderSha256": "87670c34224e7578d6628eca140d077c6badabbd84e990a801cf0ac2802a0a5f"
+    },
+    {
+      "id": "stiksy-pk-017-07",
+      "file": "07.webp",
+      "caption": "Aunty radar on",
+      "accessibilityText": "Log Kya Kahenge?: Aunty radar on",
+      "emojis": [
+        "🤭"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28670,
+      "sha256": "19b7789629c07240efa2355922e28bf81e6e34784f439118fa853348bb7b3ec5",
+      "quality": 68,
+      "renderSha256": "0ddd7c5a34651acd66e64ecf8af6f32175273542bed12adc424f2bebb6a67953"
+    },
+    {
+      "id": "stiksy-pk-017-08",
+      "file": "08.webp",
+      "caption": "Bas khush rehna hai",
+      "accessibilityText": "Log Kya Kahenge?: Bas khush rehna hai",
+      "emojis": [
+        "🤭"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30364,
+      "sha256": "264594e4d70eace0a751ec29e9b9544bd2a4e4ba2eb36a9d43e6f87e0558d1e0",
+      "quality": 68,
+      "renderSha256": "96eef6f2bbcb498d1fb7cf9389f491df2790e7f2bb61fdc589dedbdbd135032c"
+    },
+    {
+      "id": "stiksy-pk-017-09",
+      "file": "09.webp",
+      "caption": "Sab ko jawab chahiye",
+      "accessibilityText": "Log Kya Kahenge?: Sab ko jawab chahiye",
+      "emojis": [
+        "🤭"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34802,
+      "sha256": "02e854faf4e4b6864446aa4168ccb4324c901fd358a1992fe3944f40d1f1852c",
+      "quality": 68,
+      "renderSha256": "8dc4e7032f169e0406225befbf5d4ca8adb4311483f6c4e129bd3f85bc849b08"
+    },
+    {
+      "id": "stiksy-pk-017-10",
+      "file": "10.webp",
+      "caption": "Log bhi na, yaar",
+      "accessibilityText": "Log Kya Kahenge?: Log bhi na, yaar",
+      "emojis": [
+        "🤭"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32260,
+      "sha256": "ad3447570d9143a88aff8a2236e95b072941f1df70114b2caf943e59ca08b260",
+      "quality": 68,
+      "renderSha256": "ad35a5a349b5731413b9e4257c2f8bef86d5d0c21d1d4813dc576b3bec374c93"
+    }
+  ]
+}

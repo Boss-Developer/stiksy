@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-028",
+  "identifier": "stiksy-pk-028",
+  "title": "Allah Khair Kare",
+  "name": "Allah Khair Kare",
+  "publisher": "Stiksy",
+  "category": "Dua & Greetings",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "dua-greetings"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-028-01",
+      "file": "01.webp",
+      "caption": "Allah khair kare",
+      "accessibilityText": "Allah Khair Kare: Allah khair kare",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30406,
+      "sha256": "6d70f5fc10be6f7bfefb230cccf770c3e1e71cbece10f18084c833df6cec3777",
+      "quality": 68,
+      "renderSha256": "632522a14a937a92c1211597562d61ee3f7d26f722ca27380f71f1baf62c9c5c"
+    },
+    {
+      "id": "stiksy-pk-028-02",
+      "file": "02.webp",
+      "caption": "Allah asaani kare",
+      "accessibilityText": "Allah Khair Kare: Allah asaani kare",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26516,
+      "sha256": "9c83cad263c1d517844914e39b06d35739b992448762e713a887c712f074339b",
+      "quality": 68,
+      "renderSha256": "130ee1742ad260c715037eb5816bf49699235805b470809a17cda94ddb39fb00"
+    },
+    {
+      "id": "stiksy-pk-028-03",
+      "file": "03.webp",
+      "caption": "Allah hifazat kare",
+      "accessibilityText": "Allah Khair Kare: Allah hifazat kare",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29066,
+      "sha256": "7a428d1d4af80a78df02063c8d4fedbada661504d2721bbde5b433908672018a",
+      "quality": 68,
+      "renderSha256": "777add6797e75b4da2d1990be37d57160fa7a5dfaaa74e5ca9fc4cc077869b01"
+    },
+    {
+      "id": "stiksy-pk-028-04",
+      "file": "04.webp",
+      "caption": "Sab khair ho",
+      "accessibilityText": "Allah Khair Kare: Sab khair ho",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 20882,
+      "sha256": "6202518502af02e6fa9c76291125e4c56ade2edc99b67213dd0339fa457e9d1f",
+      "quality": 68,
+      "renderSha256": "563ce858aaabd419a0135f375edc5d6b563afa14259f2fcfc43e501461b3f3f3"
+    },
+    {
+      "id": "stiksy-pk-028-05",
+      "file": "05.webp",
+      "caption": "Allah behtar karega",
+      "accessibilityText": "Allah Khair Kare: Allah behtar karega",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27388,
+      "sha256": "771807b801c02536f8dcf29d292bec82b35e844715d7752a9de04babfc2b894e",
+      "quality": 68,
+      "renderSha256": "4238ce3ab6fc16eb907097d57dbc1bd3a9b67036f0de1f444742d2cdaa82638e"
+    },
+    {
+      "id": "stiksy-pk-028-06",
+      "file": "06.webp",
+      "caption": "InshaAllah sab theek",
+      "accessibilityText": "Allah Khair Kare: InshaAllah sab theek",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22820,
+      "sha256": "40cf44075dda5ea04b0e5fb12f49da5f02cbc788a1dc63e05eee96071dd793fd",
+      "quality": 68,
+      "renderSha256": "28cab7b0ea5233aee05e005098652fe55169a9bee0919606ddece6d1eb2cec54"
+    },
+    {
+      "id": "stiksy-pk-028-07",
+      "file": "07.webp",
+      "caption": "Allah ka karam hai",
+      "accessibilityText": "Allah Khair Kare: Allah ka karam hai",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28528,
+      "sha256": "eccf3c39a75543afea118d367e77cb84b5eac822c4122450eeef6b73630cd57c",
+      "quality": 68,
+      "renderSha256": "605fd7b566a96273b626d45650f6ddf8626e8b403c0f4098943f2ca64ecbd666"
+    },
+    {
+      "id": "stiksy-pk-028-08",
+      "file": "08.webp",
+      "caption": "Allah madad kare",
+      "accessibilityText": "Allah Khair Kare: Allah madad kare",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30054,
+      "sha256": "c1d12e7de4b714d760aedd9a618aa278f612b9a755681690b728a64236971e89",
+      "quality": 68,
+      "renderSha256": "35e2dd5c6b73c5bfb82d9b8d9b618d3c2075b224d6d3dd6da42c0cd839568835"
+    },
+    {
+      "id": "stiksy-pk-028-09",
+      "file": "09.webp",
+      "caption": "Khair ki dua hai",
+      "accessibilityText": "Allah Khair Kare: Khair ki dua hai",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32322,
+      "sha256": "43913b564eb1927e498c093f568fc69cb09b0899d7d820d810f92fe34bcdb0cd",
+      "quality": 68,
+      "renderSha256": "75805df7254237897690843b2abe81650235e906fac022388405ab5dba7eb039"
+    },
+    {
+      "id": "stiksy-pk-028-10",
+      "file": "10.webp",
+      "caption": "Ameen, ya Rabb",
+      "accessibilityText": "Allah Khair Kare: Ameen, ya Rabb",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31942,
+      "sha256": "1671db4131196863c855ae4f12c5128388135d2a13272a9ed4b618631f3c0954",
+      "quality": 68,
+      "renderSha256": "2f6c0e5a329a14808cb458c2bebc902b4b7cde5d086ce97b4aa6cf9d9968ae97"
+    }
+  ]
+}

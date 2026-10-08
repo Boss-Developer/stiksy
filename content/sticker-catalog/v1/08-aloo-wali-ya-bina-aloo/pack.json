@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-008",
+  "identifier": "stiksy-pk-008",
+  "title": "Aloo Wali Ya Bina Aloo?",
+  "name": "Aloo Wali Ya Bina Aloo?",
+  "publisher": "Stiksy",
+  "category": "Desi Food",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "desi-food"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-008-01",
+      "file": "01.webp",
+      "caption": "Aloo wali ya bina aloo?",
+      "accessibilityText": "Aloo Wali Ya Bina Aloo?: Aloo wali ya bina aloo?",
+      "emojis": [
+        "🥔"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31916,
+      "sha256": "cb9b6564ea6257b5570c29726173368df8c6e63fbd9dcae14fb7fd79c9aedbca",
+      "quality": 68,
+      "renderSha256": "b8b1fff18946fbb60bb67b6341f51012d53321b3f33dbe5c370ed2fface29dae"
+    },
+    {
+      "id": "stiksy-pk-008-02",
+      "file": "02.webp",
+      "caption": "Aloo zaroor hona chahiye",
+      "accessibilityText": "Aloo Wali Ya Bina Aloo?: Aloo zaroor hona chahiye",
+      "emojis": [
+        "🥔"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25962,
+      "sha256": "bbc5644b4bb5a321e88bf1401700e419141499bd533768c370dd8e2eb2611b97",
+      "quality": 68,
+      "renderSha256": "3d2724de64c05b85dbe1f6646492c09cda9d666c72d641543c58190baea58d57"
+    },
+    {
+      "id": "stiksy-pk-008-03",
+      "file": "03.webp",
+      "caption": "Bina aloo bhi chalegi",
+      "accessibilityText": "Aloo Wali Ya Bina Aloo?: Bina aloo bhi chalegi",
+      "emojis": [
+        "🥔"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28034,
+      "sha256": "f5beafe4d64e861ddc2811412729d530be8a6a567740507b29a048656f29b0e6",
+      "quality": 68,
+      "renderSha256": "af8bc2aa444ae111be7084f3856668f5cbafca6959f2057a8b18a3c8308e8a4e"
+    },
+    {
+      "id": "stiksy-pk-008-04",
+      "file": "04.webp",
+      "caption": "Biryani pe debate",
+      "accessibilityText": "Aloo Wali Ya Bina Aloo?: Biryani pe debate",
+      "emojis": [
+        "🥔"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 21094,
+      "sha256": "a27813892a7dca15c28f14fc6ee17b2a6a07e3e859b00c9810ce3c08385cf149",
+      "quality": 68,
+      "renderSha256": "39b54c8a794cfb48c8a4355f43b6eadcdd75cefbb6e081518ebc77655af34107"
+    },
+    {
+      "id": "stiksy-pk-008-05",
+      "file": "05.webp",
+      "caption": "Team aloo hazir hai",
+      "accessibilityText": "Aloo Wali Ya Bina Aloo?: Team aloo hazir hai",
+      "emojis": [
+        "🥔"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25456,
+      "sha256": "fb4304d699a7ac1b5ced0d6d0d168b07a0de7d9837e818db91eac802b96b7f58",
+      "quality": 68,
+      "renderSha256": "94349512bc2dc59942da20e2ea8a2722a2509a9815375c16c0c8007e9c4c0674"
+    },
+    {
+      "id": "stiksy-pk-008-06",
+      "file": "06.webp",
+      "caption": "Aloo mera hai",
+      "accessibilityText": "Aloo Wali Ya Bina Aloo?: Aloo mera hai",
+      "emojis": [
+        "🥔"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 20364,
+      "sha256": "998432200eb5a2a61139133a9055bc043c9befc405a3fd5e4247fc3119f58366",
+      "quality": 68,
+      "renderSha256": "f446cafa8846b528b582895cfa1f9e8df1d1411f47f05897c3952ce581c4000c"
+    },
+    {
+      "id": "stiksy-pk-008-07",
+      "file": "07.webp",
+      "caption": "Plate mein aloo kahan?",
+      "accessibilityText": "Aloo Wali Ya Bina Aloo?: Plate mein aloo kahan?",
+      "emojis": [
+        "🥔"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27598,
+      "sha256": "0875b34fd82022f37bc6fd3bff594fcb1804784cf49a8f57be86d91b4d68c402",
+      "quality": 68,
+      "renderSha256": "d88dd221316af812e6eec34fd9d529509d2502a3108fd420bf7295bbd53d586b"
+    },
+    {
+      "id": "stiksy-pk-008-08",
+      "file": "08.webp",
+      "caption": "Aloo ke baghair adhoori",
+      "accessibilityText": "Aloo Wali Ya Bina Aloo?: Aloo ke baghair adhoori",
+      "emojis": [
+        "🥔"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31102,
+      "sha256": "00115d2c425579c982ce4656218e2b5947a1a66c148a68228e8264a562a62b4a",
+      "quality": 68,
+      "renderSha256": "273e35e81e07516cb9cdf1dcd0d0292e77c590e760b406918e314ad806045b9b"
+    },
+    {
+      "id": "stiksy-pk-008-09",
+      "file": "09.webp",
+      "caption": "Biryani hai, behas nahi",
+      "accessibilityText": "Aloo Wali Ya Bina Aloo?: Biryani hai, behas nahi",
+      "emojis": [
+        "🥔"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33184,
+      "sha256": "c91961cb957fa5a4ed955ca7e6878b08724f6a0b96979ba7a3c2b33284ac7bc1",
+      "quality": 68,
+      "renderSha256": "12cb4e71d491dda48215b363ce0eb5213753c9acd308907bd10ccda7d5e1612b"
+    },
+    {
+      "id": "stiksy-pk-008-10",
+      "file": "10.webp",
+      "caption": "Aloo pe dosti pakki",
+      "accessibilityText": "Aloo Wali Ya Bina Aloo?: Aloo pe dosti pakki",
+      "emojis": [
+        "🥔"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30866,
+      "sha256": "0c6b8a185c5791f7e2abf87a4337218fcfb203c4728cc66671248e8e8336f1e9",
+      "quality": 68,
+      "renderSha256": "5b35c00da686463401299c96b4a271b40b2ba9f859cf7d764f48e9c0bda63dcc"
+    }
+  ]
+}

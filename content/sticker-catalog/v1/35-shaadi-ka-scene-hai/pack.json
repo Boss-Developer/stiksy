@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-035",
+  "identifier": "stiksy-pk-035",
+  "title": "Shaadi Ka Scene Hai",
+  "name": "Shaadi Ka Scene Hai",
+  "publisher": "Stiksy",
+  "category": "Wedding & Dhol",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "wedding-dhol"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-035-01",
+      "file": "01.webp",
+      "caption": "Shaadi ka scene hai",
+      "accessibilityText": "Shaadi Ka Scene Hai: Shaadi ka scene hai",
+      "emojis": [
+        "💃"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32188,
+      "sha256": "d54cff5050c36abe45f4e86085259692c99c1ca11cf7e3f4225452ee9f7173ce",
+      "quality": 68,
+      "renderSha256": "6a2cf7e92d3cdce8f1f5004fe35cd890700fcb132ab477c191c8d814099eb961"
+    },
+    {
+      "id": "stiksy-pk-035-02",
+      "file": "02.webp",
+      "caption": "Baraat aa gayi",
+      "accessibilityText": "Shaadi Ka Scene Hai: Baraat aa gayi",
+      "emojis": [
+        "💃"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26018,
+      "sha256": "ec916a2abe17aaaa9b8214c218c7f95c817775685c1643e0c1c90c423f574313",
+      "quality": 68,
+      "renderSha256": "b659431c45a61b17374c4f459e18533c4f4f9adb57fd749ccc1613b2d37c6c3e"
+    },
+    {
+      "id": "stiksy-pk-035-03",
+      "file": "03.webp",
+      "caption": "Mehndi pe aa jana",
+      "accessibilityText": "Shaadi Ka Scene Hai: Mehndi pe aa jana",
+      "emojis": [
+        "💃"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28232,
+      "sha256": "a72e8f06b61e71d67c6f200f12eb34e3fbccffffe8af646b3d5634f6446a48a0",
+      "quality": 68,
+      "renderSha256": "7dc03ed44cd9947d86031b31f61c04c2ff2d1b6bcae6caf20a6151a0b86670a2"
+    },
+    {
+      "id": "stiksy-pk-035-04",
+      "file": "04.webp",
+      "caption": "Dulha ready hai",
+      "accessibilityText": "Shaadi Ka Scene Hai: Dulha ready hai",
+      "emojis": [
+        "💃"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 24090,
+      "sha256": "5e0d282836c035964d83d0f55090184d96c104ec7eb984b6a4e32fa528b6ff16",
+      "quality": 68,
+      "renderSha256": "27a283199f41517dbe7a8f0d21caf23da83892ee9d5af7b0ca6084a517113095"
+    },
+    {
+      "id": "stiksy-pk-035-05",
+      "file": "05.webp",
+      "caption": "Dance practice karo",
+      "accessibilityText": "Shaadi Ka Scene Hai: Dance practice karo",
+      "emojis": [
+        "💃"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27284,
+      "sha256": "9ef6189f5d6109d5345f22d715015c896a4d6add3e11cb6d21881e5cf800c5f2",
+      "quality": 68,
+      "renderSha256": "9e8f6ec40f584db296d7e950b8e8d4c8f0b59a51c8b3e070e16340fb90ba25d6"
+    },
+    {
+      "id": "stiksy-pk-035-06",
+      "file": "06.webp",
+      "caption": "Shaadi mubarak!",
+      "accessibilityText": "Shaadi Ka Scene Hai: Shaadi mubarak!",
+      "emojis": [
+        "💃"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22020,
+      "sha256": "dca60589099b131efc0ef1a7f61e6eb9f87ba3c31b1108747fe561747c9a2fb0",
+      "quality": 68,
+      "renderSha256": "e30d4f8af48fbe381b1e6de45413d8c5d1ee392fec33b6e14485a3871a7128fb"
+    },
+    {
+      "id": "stiksy-pk-035-07",
+      "file": "07.webp",
+      "caption": "Joota chhupa lo",
+      "accessibilityText": "Shaadi Ka Scene Hai: Joota chhupa lo",
+      "emojis": [
+        "💃"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28990,
+      "sha256": "afb82905b0b712e2c5ff35d265dbdef459d56e325ae9237656a2e0d1da48d455",
+      "quality": 68,
+      "renderSha256": "bff521d44cec12323e299b9b8927f31a019ece2b2320cc8e1a1a679f5b2ef1b3"
+    },
+    {
+      "id": "stiksy-pk-035-08",
+      "file": "08.webp",
+      "caption": "Family photo time",
+      "accessibilityText": "Shaadi Ka Scene Hai: Family photo time",
+      "emojis": [
+        "💃"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29216,
+      "sha256": "de6dfd3f68f003f2a8e2dca53fb1c472b3dac4fc038ac96f9f8928876d26b174",
+      "quality": 68,
+      "renderSha256": "554cfb26abc670410d3442630a5ac5eaaae49ab86abb98f6b8b89643515682c8"
+    },
+    {
+      "id": "stiksy-pk-035-09",
+      "file": "09.webp",
+      "caption": "Aaj full tayyari",
+      "accessibilityText": "Shaadi Ka Scene Hai: Aaj full tayyari",
+      "emojis": [
+        "💃"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31856,
+      "sha256": "e118427be2212706a3fab56f0adcf4197a4bc43416678530fd3e880e632511b1",
+      "quality": 68,
+      "renderSha256": "43fcec66efdfcdf534f350ca59032fa4339c4bc7e29bc82addd98143f32ccc6a"
+    },
+    {
+      "id": "stiksy-pk-035-10",
+      "file": "10.webp",
+      "caption": "Walima pe milte hain",
+      "accessibilityText": "Shaadi Ka Scene Hai: Walima pe milte hain",
+      "emojis": [
+        "💃"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32128,
+      "sha256": "18dd6867d8e8ad22c2667865b5831aa30a334a45b169a4b4528d6edcc25708ab",
+      "quality": 68,
+      "renderSha256": "46b7230f220dd7fc3be2349e63beb3bbcd3f127882468c65598b54c12f9274ee"
+    }
+  ]
+}

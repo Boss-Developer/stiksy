@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-004",
+  "identifier": "stiksy-pk-004",
+  "title": "Chai Aur Gup Shup",
+  "name": "Chai Aur Gup Shup",
+  "publisher": "Stiksy",
+  "category": "Chai & Gup Shup",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "chai-gup-shup"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-004-01",
+      "file": "01.webp",
+      "caption": "Chai aur gup shup",
+      "accessibilityText": "Chai Aur Gup Shup: Chai aur gup shup",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32084,
+      "sha256": "44ec43e82f4851df9dcd424690732bf863ecabf410da73cf783fca8aa033d56e",
+      "quality": 68,
+      "renderSha256": "7f3d07dce6151f36452bea74676e6867bbb2438b487b973ec17ca9d591eee95f"
+    },
+    {
+      "id": "stiksy-pk-004-02",
+      "file": "02.webp",
+      "caption": "Baitho, baat karte hain",
+      "accessibilityText": "Chai Aur Gup Shup: Baitho, baat karte hain",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28454,
+      "sha256": "cfbc5d9ad3110b99689ae53944fb3dfc95c7d0990a81926e9385dafb90bba5cd",
+      "quality": 68,
+      "renderSha256": "a367e3c0c64d0b864ff974aea45f9f6f5326cb5ddbe6e78fd4d3ff46df57ad61"
+    },
+    {
+      "id": "stiksy-pk-004-03",
+      "file": "03.webp",
+      "caption": "Chai pe sab batao",
+      "accessibilityText": "Chai Aur Gup Shup: Chai pe sab batao",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29268,
+      "sha256": "1dfad2600eb0dc1f4882b22acd9af58574f15072c5d29974c063c8166a85dcdb",
+      "quality": 68,
+      "renderSha256": "7d035a55b6fce9548f558a9e464cf0af4194c3c1bfad9afb2e58ce61fc45c252"
+    },
+    {
+      "id": "stiksy-pk-004-04",
+      "file": "04.webp",
+      "caption": "Gup shup shuru",
+      "accessibilityText": "Chai Aur Gup Shup: Gup shup shuru",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 21412,
+      "sha256": "1d399c72cb6a2e056871fd0a65777c8aec5c311d95a88802e77e93208e477281",
+      "quality": 68,
+      "renderSha256": "06727f434fd0f1e538b4bb1ba065c83609d9bea7b42ae63f0c73a733e52d2478"
+    },
+    {
+      "id": "stiksy-pk-004-05",
+      "file": "05.webp",
+      "caption": "Kya khabar hai?",
+      "accessibilityText": "Chai Aur Gup Shup: Kya khabar hai?",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27938,
+      "sha256": "7cf3c264ee8ec3623e5424a8d2ab7e7e3fd405bb81cb22e225c9ff350e13154e",
+      "quality": 68,
+      "renderSha256": "8f1acd810af10f3ba4afaac9bb9898b163341c75568ecbc17e85350996bff7cf"
+    },
+    {
+      "id": "stiksy-pk-004-06",
+      "file": "06.webp",
+      "caption": "Chai pe gossip",
+      "accessibilityText": "Chai Aur Gup Shup: Chai pe gossip",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 21960,
+      "sha256": "678d8b4cd58fb354c9d9baf0d63f8ed738da5df453d2ef9d5e130e66cbb98d8c",
+      "quality": 68,
+      "renderSha256": "0db618cb93ffa9f4d14c891eb991ec6dafb4bb084c89ad2868aebb05d417470b"
+    },
+    {
+      "id": "stiksy-pk-004-07",
+      "file": "07.webp",
+      "caption": "Aaj ki mehfil",
+      "accessibilityText": "Chai Aur Gup Shup: Aaj ki mehfil",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29788,
+      "sha256": "9a729f8644caa1a3041b8711f9fe43437377507885980f13de57b3cd4c43338a",
+      "quality": 68,
+      "renderSha256": "f0d7f5bb44a7f6abf7b917eb1156182edb24f3c2898f7ba4f0b22ae2c6ce239c"
+    },
+    {
+      "id": "stiksy-pk-004-08",
+      "file": "08.webp",
+      "caption": "Yaaron wali chai",
+      "accessibilityText": "Chai Aur Gup Shup: Yaaron wali chai",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31284,
+      "sha256": "1802acfd530787d8526bf132b2235fffd4d25bf846333a42824dbe4199235d91",
+      "quality": 68,
+      "renderSha256": "7e785fb5bed89a683afcc8ee524fbd129864d1e8ef3b5aada67090b165b6aac8"
+    },
+    {
+      "id": "stiksy-pk-004-09",
+      "file": "09.webp",
+      "caption": "Baaton ka silsila",
+      "accessibilityText": "Chai Aur Gup Shup: Baaton ka silsila",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31966,
+      "sha256": "7d226bce2d88347806227fa6166e1ef2bebdd77999fc62da2695322dd8855e1c",
+      "quality": 68,
+      "renderSha256": "5cf0c85cef25f762d9c4554a8e54180b9395507dd987f8457d32a1f001b32a77"
+    },
+    {
+      "id": "stiksy-pk-004-10",
+      "file": "10.webp",
+      "caption": "Chai pe catch up",
+      "accessibilityText": "Chai Aur Gup Shup: Chai pe catch up",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32756,
+      "sha256": "9c65cb12ab410d692dcf3ad56b643dc06658bb74de0f31c4bd1ef77b39542a62",
+      "quality": 68,
+      "renderSha256": "cfe4dc31b45fe5f5dbad35e5161e987067c0e421d6d3f54d0b8cd43f65f69f81"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-018",
+  "identifier": "stiksy-pk-018",
+  "title": "Bijli Phir Chali Gayi",
+  "name": "Bijli Phir Chali Gayi",
+  "publisher": "Stiksy",
+  "category": "Daily Desi Life",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "daily-desi-life"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-018-01",
+      "file": "01.webp",
+      "caption": "Bijli phir chali gayi",
+      "accessibilityText": "Bijli Phir Chali Gayi: Bijli phir chali gayi",
+      "emojis": [
+        "💡"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34220,
+      "sha256": "730d9b22030eabdfbedd8a6dde87c391888c1b4aa157063efb1b97abe31d57e0",
+      "quality": 68,
+      "renderSha256": "7bb2e092647c09843ed78b7faaef05f92a83982a3fd841c2972cef8fe8751b7d"
+    },
+    {
+      "id": "stiksy-pk-018-02",
+      "file": "02.webp",
+      "caption": "UPS bhi jawab de gaya",
+      "accessibilityText": "Bijli Phir Chali Gayi: UPS bhi jawab de gaya",
+      "emojis": [
+        "💡"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29670,
+      "sha256": "bcdc760de05df34dc6fcc2d223e71f2926104012055b1c8990f6f5fdb9e1693c",
+      "quality": 68,
+      "renderSha256": "cf6437a45b6e9244a2e13b9e6d171510c51b0ff631226365f20c517976b64a9b"
+    },
+    {
+      "id": "stiksy-pk-018-03",
+      "file": "03.webp",
+      "caption": "Pankha kab chalega?",
+      "accessibilityText": "Bijli Phir Chali Gayi: Pankha kab chalega?",
+      "emojis": [
+        "💡"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32150,
+      "sha256": "96e4c5b8281bccac479245861dc8f4f0dacd4513b4a9e04aaad34b869bc1bb1e",
+      "quality": 68,
+      "renderSha256": "4a9328f37629894e0d492fda47af5d47a6bab63c2f5404a9acadf74630e70062"
+    },
+    {
+      "id": "stiksy-pk-018-04",
+      "file": "04.webp",
+      "caption": "Light aa gayi!",
+      "accessibilityText": "Bijli Phir Chali Gayi: Light aa gayi!",
+      "emojis": [
+        "💡"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22432,
+      "sha256": "da825cb3f6338415e302058e0b05c865e908c6bbe43a5703d0e993034f00a35e",
+      "quality": 68,
+      "renderSha256": "e02bf55af0626cacaaba6bf21939449e86b732e3b91db5d05373b92720a521a3"
+    },
+    {
+      "id": "stiksy-pk-018-05",
+      "file": "05.webp",
+      "caption": "Mobile charge kar lo",
+      "accessibilityText": "Bijli Phir Chali Gayi: Mobile charge kar lo",
+      "emojis": [
+        "💡"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30016,
+      "sha256": "65f22fd8dcbce84e054711df0f2960ebeac1c357c02b10a61773203987a761bf",
+      "quality": 68,
+      "renderSha256": "c03f5743d54902010a3ac6222b96e4a4255bcceefe2fb0b42b929dc8e1b2f9f7"
+    },
+    {
+      "id": "stiksy-pk-018-06",
+      "file": "06.webp",
+      "caption": "Load shedding mode",
+      "accessibilityText": "Bijli Phir Chali Gayi: Load shedding mode",
+      "emojis": [
+        "💡"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25004,
+      "sha256": "1629f538fbd09dde3e2a5aab73603a540663b067c48f7dbbd9ad0c3402a20366",
+      "quality": 68,
+      "renderSha256": "ccd6f7aa3aa381aaff5c1bf3e3a3eea84d8bc30580c1eb87837d92d3b5db82fa"
+    },
+    {
+      "id": "stiksy-pk-018-07",
+      "file": "07.webp",
+      "caption": "Garmi ka scene hai",
+      "accessibilityText": "Bijli Phir Chali Gayi: Garmi ka scene hai",
+      "emojis": [
+        "💡"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31396,
+      "sha256": "b6bb8e6d7446455f7663142e6c5d51a962efd7ea2230a9762e071cf6b0a06372",
+      "quality": 68,
+      "renderSha256": "b0ee2f6a3446c6e901c51f9c39b6e79c843fa74da5a231d1246918fb6ff76135"
+    },
+    {
+      "id": "stiksy-pk-018-08",
+      "file": "08.webp",
+      "caption": "Mombatti kahan hai?",
+      "accessibilityText": "Bijli Phir Chali Gayi: Mombatti kahan hai?",
+      "emojis": [
+        "💡"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33558,
+      "sha256": "1fc4691a2d5a5d8dd051dd57141fd2a8e6ea99536876dc7caf35548a9132f0a4",
+      "quality": 68,
+      "renderSha256": "836f36bc6f2c577cab9d795a994bcb88b8393d2627076d6dbd139070e872208c"
+    },
+    {
+      "id": "stiksy-pk-018-09",
+      "file": "09.webp",
+      "caption": "Bijli ka intezar",
+      "accessibilityText": "Bijli Phir Chali Gayi: Bijli ka intezar",
+      "emojis": [
+        "💡"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33108,
+      "sha256": "7cd1b6cbf36b54bd6c6002898703fd7de1afe5f03342e14d4ba2a0d8578a8fdd",
+      "quality": 68,
+      "renderSha256": "be2c5fef2721144eebbf38b888f4113e918bfb755ecf4c8257a5aa35fe09d2b7"
+    },
+    {
+      "id": "stiksy-pk-018-10",
+      "file": "10.webp",
+      "caption": "Bas inverter bacha le",
+      "accessibilityText": "Bijli Phir Chali Gayi: Bas inverter bacha le",
+      "emojis": [
+        "💡"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 35210,
+      "sha256": "467f17a7fff160fb94d04fe2cebf467b2f43c047e8ab895b6a28ffa15a3aabe8",
+      "quality": 68,
+      "renderSha256": "7d18fac52a6104d440299b7a8057a180aa5e8a9ab2d5a5c0878d4e0544b6f4d4"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-010",
+  "identifier": "stiksy-pk-010",
+  "title": "Samosay Lao Bhai",
+  "name": "Samosay Lao Bhai",
+  "publisher": "Stiksy",
+  "category": "Desi Food",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "desi-food"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-010-01",
+      "file": "01.webp",
+      "caption": "Samosay lao bhai",
+      "accessibilityText": "Samosay Lao Bhai: Samosay lao bhai",
+      "emojis": [
+        "🥟"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33566,
+      "sha256": "12841b54506bed86b0b9f359ce28adedcf930d7d7e98919a9aa953b55717a7a1",
+      "quality": 68,
+      "renderSha256": "06989282f9d956c2b7585abadf33ff6a69d675a8f058276068203c9ecfb84adc"
+    },
+    {
+      "id": "stiksy-pk-010-02",
+      "file": "02.webp",
+      "caption": "Chutney bhi chahiye",
+      "accessibilityText": "Samosay Lao Bhai: Chutney bhi chahiye",
+      "emojis": [
+        "🥟"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29258,
+      "sha256": "6b5f9b65f7dfe799f278718e0d69c82f30106d73b5352d9c1e645f94ddcef652",
+      "quality": 68,
+      "renderSha256": "2e93e20448828bc1ac118c5e306556f0dd52a24e13d52b66a0294cfce940b364"
+    },
+    {
+      "id": "stiksy-pk-010-03",
+      "file": "03.webp",
+      "caption": "Ek samosa mera",
+      "accessibilityText": "Samosay Lao Bhai: Ek samosa mera",
+      "emojis": [
+        "🥟"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29648,
+      "sha256": "a569667bf38984a5cc1bc9123542b9d24007fabad441dc0051e295fed0856788",
+      "quality": 68,
+      "renderSha256": "b4bbfc9cf477fe513907a62d857be806b2cb4933f25fdae822546ef3c944064d"
+    },
+    {
+      "id": "stiksy-pk-010-04",
+      "file": "04.webp",
+      "caption": "Garam samosay hazir",
+      "accessibilityText": "Samosay Lao Bhai: Garam samosay hazir",
+      "emojis": [
+        "🥟"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25826,
+      "sha256": "26c6f35353ab26316122ee35d9984509fbc4936e18e7bba3424c757eaa0e510d",
+      "quality": 68,
+      "renderSha256": "091f10fc921cce7a61e00c4a91007b3cea94388130d09a5b1d746d870c93c9ba"
+    },
+    {
+      "id": "stiksy-pk-010-05",
+      "file": "05.webp",
+      "caption": "Chai ke saathi",
+      "accessibilityText": "Samosay Lao Bhai: Chai ke saathi",
+      "emojis": [
+        "🥟"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28722,
+      "sha256": "9ef603865282e5199b5f0c07b6147ee0ae10b33bf8de6f957900d3ba505744f0",
+      "quality": 68,
+      "renderSha256": "e469515decc8155cd1a8e9a40fc16bb34c0b095703a3d729255845d6596f59eb"
+    },
+    {
+      "id": "stiksy-pk-010-06",
+      "file": "06.webp",
+      "caption": "Samosa party",
+      "accessibilityText": "Samosay Lao Bhai: Samosa party",
+      "emojis": [
+        "🥟"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23068,
+      "sha256": "7d88a0d86e237e1dc453ee89749d356684b1a344f550dfcf50d6aa7fc1d77121",
+      "quality": 68,
+      "renderSha256": "a9357983cf7078cd3f3d56bf9b6cf5b542ce9295f196808f2c332d9fdb829c6a"
+    },
+    {
+      "id": "stiksy-pk-010-07",
+      "file": "07.webp",
+      "caption": "Aakhri samosa mera",
+      "accessibilityText": "Samosay Lao Bhai: Aakhri samosa mera",
+      "emojis": [
+        "🥟"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31230,
+      "sha256": "1a298a2efb070bf926db56b44e163b8ea21b04aaaf86c4775d24a6338d3bed11",
+      "quality": 68,
+      "renderSha256": "f5541a63a241d20eca977c0007beb98f870bb80f76af2079d80de36e6ea6de43"
+    },
+    {
+      "id": "stiksy-pk-010-08",
+      "file": "08.webp",
+      "caption": "Crunch ka scene",
+      "accessibilityText": "Samosay Lao Bhai: Crunch ka scene",
+      "emojis": [
+        "🥟"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31696,
+      "sha256": "8fdd168596246c3be90c615dd36307bf8aa56234429410720e456784d445ee2d",
+      "quality": 68,
+      "renderSha256": "eaa87cb9c7c159c45dabd89170d78e60a2b86aaff3a876d6e9ede1c4e0a67bf4"
+    },
+    {
+      "id": "stiksy-pk-010-09",
+      "file": "09.webp",
+      "caption": "Aaj snack banta hai",
+      "accessibilityText": "Samosay Lao Bhai: Aaj snack banta hai",
+      "emojis": [
+        "🥟"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 35912,
+      "sha256": "52cc471ccc8fcf2cc33245c400bd7f535b49b506292395c9ba20fee73e1b19e7",
+      "quality": 68,
+      "renderSha256": "6ff58291703e065a53386034401b7ca79cf4a9923c4c571cc13f8a3b5ce84706"
+    },
+    {
+      "id": "stiksy-pk-010-10",
+      "file": "10.webp",
+      "caption": "Do aur pack kar do",
+      "accessibilityText": "Samosay Lao Bhai: Do aur pack kar do",
+      "emojis": [
+        "🥟"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33878,
+      "sha256": "0238c2829da6f6c28dfe072059256126aa35ec46396c136d0b7efb134ee57034",
+      "quality": 68,
+      "renderSha256": "31ab3503904cf34ad8ce553f227138bd67e1f5018c72d60a57ee13d1b98b3748"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-031",
+  "identifier": "stiksy-pk-031",
+  "title": "Jumma Mubarak",
+  "name": "Jumma Mubarak",
+  "publisher": "Stiksy",
+  "category": "Dua & Greetings",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "dua-greetings"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-031-01",
+      "file": "01.webp",
+      "caption": "Jumma Mubarak",
+      "accessibilityText": "Jumma Mubarak: Jumma Mubarak",
+      "emojis": [
+        "🕌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34796,
+      "sha256": "c02dc72f121c1dd3e5e3214de0e3c0eb4dece95797b866a3956a6ddb2373607d",
+      "quality": 68,
+      "renderSha256": "eb786c72b6b3470d940929a473bb55af1707d0b7ed9c40f1ef0bcacfcfcb8a56"
+    },
+    {
+      "id": "stiksy-pk-031-02",
+      "file": "02.webp",
+      "caption": "Jumma ki barkat",
+      "accessibilityText": "Jumma Mubarak: Jumma ki barkat",
+      "emojis": [
+        "🕌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30004,
+      "sha256": "ee24f246e872583dede82e2b144d1eafe9a88fa7ace1a6c3d3097946be7f7c1e",
+      "quality": 68,
+      "renderSha256": "3e3e07cb8f2eb64e9e1955cd5aa690359c28a0eea17fbef27e3ef7f124499d4b"
+    },
+    {
+      "id": "stiksy-pk-031-03",
+      "file": "03.webp",
+      "caption": "Dua ka din hai",
+      "accessibilityText": "Jumma Mubarak: Dua ka din hai",
+      "emojis": [
+        "🕌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31518,
+      "sha256": "51b9e2ef9367d4ff020bc9277f9faa272264a73fef9bd318448121e7d811d273",
+      "quality": 68,
+      "renderSha256": "2459cff7ac2181ea775719ab95fa2dca50918f9946cd6cb164f587c66c7a1494"
+    },
+    {
+      "id": "stiksy-pk-031-04",
+      "file": "04.webp",
+      "caption": "Khair aur barkat ho",
+      "accessibilityText": "Jumma Mubarak: Khair aur barkat ho",
+      "emojis": [
+        "🕌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25528,
+      "sha256": "ecb19061663a103a22a6307dc9196ef8b87d4c2ec62a9f474521a901dbe74d0c",
+      "quality": 68,
+      "renderSha256": "7011f4f9acd92cdde0829c0867e4c4e77ecc2eaa99f640bc50a6aa092e266745"
+    },
+    {
+      "id": "stiksy-pk-031-05",
+      "file": "05.webp",
+      "caption": "Jumma ki roshni",
+      "accessibilityText": "Jumma Mubarak: Jumma ki roshni",
+      "emojis": [
+        "🕌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31506,
+      "sha256": "e8cc6f1e31021934e93ea2df7c2176f7f3f9aad2838bfb94ca16a4c75b29f28f",
+      "quality": 68,
+      "renderSha256": "664277206e50e31b92b85e41c4374a5e460bae2ee6f75279fed6425328c1eb7f"
+    },
+    {
+      "id": "stiksy-pk-031-06",
+      "file": "06.webp",
+      "caption": "Allah rehmat kare",
+      "accessibilityText": "Jumma Mubarak: Allah rehmat kare",
+      "emojis": [
+        "🕌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26044,
+      "sha256": "88636f547c1986f40e0e7b721af6959d0524cf216406165f391b2f76b4fd90c7",
+      "quality": 68,
+      "renderSha256": "979fb58b06775da7e484518277f5d715a00dbfbf0d6b33ed16e4eb8a911b2573"
+    },
+    {
+      "id": "stiksy-pk-031-07",
+      "file": "07.webp",
+      "caption": "Dua mein yaad rakhein",
+      "accessibilityText": "Jumma Mubarak: Dua mein yaad rakhein",
+      "emojis": [
+        "🕌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33322,
+      "sha256": "69ef1ede1369ac681bfa361635a33c518381c2b1500bb0964c8caa5fc819272a",
+      "quality": 68,
+      "renderSha256": "2254167872e341812195829809859ea46fb4738434c3c6bfea7d25dfd74f4a4d"
+    },
+    {
+      "id": "stiksy-pk-031-08",
+      "file": "08.webp",
+      "caption": "Sukoon bhara Jumma",
+      "accessibilityText": "Jumma Mubarak: Sukoon bhara Jumma",
+      "emojis": [
+        "🕌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34656,
+      "sha256": "b758b25e5fa8a78934432a8bd365c7965e00a8987a68c50309331acc5313b9e3",
+      "quality": 68,
+      "renderSha256": "66cbab8ef6357098a930a4584338e537e193ad8b1033ca1e237989785d87563f"
+    },
+    {
+      "id": "stiksy-pk-031-09",
+      "file": "09.webp",
+      "caption": "Neki ka irada",
+      "accessibilityText": "Jumma Mubarak: Neki ka irada",
+      "emojis": [
+        "🕌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34676,
+      "sha256": "53ab49929a62304d8fb66357412588fd06a11a2be9e01072876b5a0b70a0be2e",
+      "quality": 68,
+      "renderSha256": "b1b0aaf28a0a72751408bb19b61ce6c1d3a6c57411014750fdf8e04853e03c0a"
+    },
+    {
+      "id": "stiksy-pk-031-10",
+      "file": "10.webp",
+      "caption": "Aap ko Jumma Mubarak",
+      "accessibilityText": "Jumma Mubarak: Aap ko Jumma Mubarak",
+      "emojis": [
+        "🕌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 37834,
+      "sha256": "24a6fd8c830a8e6c990a16a7be2f33fcbd3e7ccf3e7f17ca53ef1af163fae7ff",
+      "quality": 68,
+      "renderSha256": "fc14c485fc6ad7d28c0e6657adf95f3050bf9ce825e2956050a9a05d83790d13"
+    }
+  ]
+}

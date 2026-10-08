@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-037",
+  "identifier": "stiksy-pk-037",
+  "title": "Pakistan Zindabad",
+  "name": "Pakistan Zindabad",
+  "publisher": "Stiksy",
+  "category": "Pakistan & Cricket",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "pakistan-cricket"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-037-01",
+      "file": "01.webp",
+      "caption": "Pakistan Zindabad",
+      "accessibilityText": "Pakistan Zindabad: Pakistan Zindabad",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28422,
+      "sha256": "ff095599c9708be0309890bd6aea7919ba0475b720c416dfbd50a22033703b6a",
+      "quality": 68,
+      "renderSha256": "b5b3d8d3392b72887a475242d0e7716de9c4a568ba06082e3880990dc60eb738"
+    },
+    {
+      "id": "stiksy-pk-037-02",
+      "file": "02.webp",
+      "caption": "Dil se Pakistan",
+      "accessibilityText": "Pakistan Zindabad: Dil se Pakistan",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23270,
+      "sha256": "7f1e18529aae888d961260199669063eb0471d61a0da9e117c7b713f211713ae",
+      "quality": 68,
+      "renderSha256": "79574acb8b255fb8079c905e58910d9630d7bb684aeeb297004611eaa83d9375"
+    },
+    {
+      "id": "stiksy-pk-037-03",
+      "file": "03.webp",
+      "caption": "Apna watan pyara",
+      "accessibilityText": "Pakistan Zindabad: Apna watan pyara",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25654,
+      "sha256": "d5f18e1c59cabe962f96efd98046389a882450bf9ad475ea739b0e7e5a9442e5",
+      "quality": 68,
+      "renderSha256": "84839012be8dbbe26f025c3a61cd50135f25b54d291e15699ab845cc3ecc2be5"
+    },
+    {
+      "id": "stiksy-pk-037-04",
+      "file": "04.webp",
+      "caption": "Sabz hilali parcham",
+      "accessibilityText": "Pakistan Zindabad: Sabz hilali parcham",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 19806,
+      "sha256": "77efdc5b9d7679180faef8e97dbca6f2b1d657b45d8f68bcb313334d465848c1",
+      "quality": 68,
+      "renderSha256": "46cf118dfd3f522862b160378fedd8edc77c4fdfeb665bf5c21487afd5ab3de8"
+    },
+    {
+      "id": "stiksy-pk-037-05",
+      "file": "05.webp",
+      "caption": "Pakistan meri jaan",
+      "accessibilityText": "Pakistan Zindabad: Pakistan meri jaan",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 24526,
+      "sha256": "e4fa90ed21a1c93701c92377cc600530c0f1b77ab47bae8c90bd2a4d8f896e5e",
+      "quality": 68,
+      "renderSha256": "e78203a673201d5d869b8d19984addfa8b261b924decb2c1035efd1fc4e16be1"
+    },
+    {
+      "id": "stiksy-pk-037-06",
+      "file": "06.webp",
+      "caption": "Watan ka fakhar",
+      "accessibilityText": "Pakistan Zindabad: Watan ka fakhar",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 20028,
+      "sha256": "615bbd38be93ede5aaae14ce5d07ccee8c225343389a1d2dd7cfd2b07c65903f",
+      "quality": 68,
+      "renderSha256": "62509b32864b2f57cb1134cdbd02bcb625c209d00143e5d58360a39fbc1aa2d6"
+    },
+    {
+      "id": "stiksy-pk-037-07",
+      "file": "07.webp",
+      "caption": "Hum Pakistani hain",
+      "accessibilityText": "Pakistan Zindabad: Hum Pakistani hain",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25362,
+      "sha256": "8f14804ff621fb0f940e38f3bdba776c1636b07e3c9bf32374abb86118074ae8",
+      "quality": 68,
+      "renderSha256": "ad8b9919183a061cc7b7916c3f0b5d03d4c0b44034ec5b0fc073522ee858a6f1"
+    },
+    {
+      "id": "stiksy-pk-037-08",
+      "file": "08.webp",
+      "caption": "Pakistan se mohabbat",
+      "accessibilityText": "Pakistan Zindabad: Pakistan se mohabbat",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27304,
+      "sha256": "a688b5cf94b049380088a27146e22ba4f8c8e296dc96c2216b797979ac75fe10",
+      "quality": 68,
+      "renderSha256": "7a74fd3aa327f11b03a0d953164f6239e7d44aec17d29cd2a8ed5f02875e8e04"
+    },
+    {
+      "id": "stiksy-pk-037-09",
+      "file": "09.webp",
+      "caption": "Jashn-e-Azadi mubarak",
+      "accessibilityText": "Pakistan Zindabad: Jashn-e-Azadi mubarak",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31948,
+      "sha256": "1b36afa8e466499c3ebee3bca5b99c2e7b1db38f2ba77e05a2f4bbe183a674da",
+      "quality": 68,
+      "renderSha256": "aa06d81111e4ad885bcd8e57498c0af46b5413fd5ce2b9f4453afb88e3b4f238"
+    },
+    {
+      "id": "stiksy-pk-037-10",
+      "file": "10.webp",
+      "caption": "Pakistani aur proud",
+      "accessibilityText": "Pakistan Zindabad: Pakistani aur proud",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28914,
+      "sha256": "44ed6e14c5e9c904e3c9a2009c9378f2c095eddd1d463407de8460933a4c0a37",
+      "quality": 68,
+      "renderSha256": "dc04712d953a2777b7dd51b1cdfc55004fefeb5526d014015b1c11a0a1a2981b"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-019",
+  "identifier": "stiksy-pk-019",
+  "title": "Wi-Fi Ka Password Do",
+  "name": "Wi-Fi Ka Password Do",
+  "publisher": "Stiksy",
+  "category": "Daily Desi Life",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "daily-desi-life"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-019-01",
+      "file": "01.webp",
+      "caption": "Wi-Fi ka password do",
+      "accessibilityText": "Wi-Fi Ka Password Do: Wi-Fi ka password do",
+      "emojis": [
+        "📶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32088,
+      "sha256": "e690e7334e6b234377d54bf235f5084ca1a62431322b367bff0cae746c54e758",
+      "quality": 68,
+      "renderSha256": "fc04ce0ee91f9b448fd96827e8f65dfbb208e9478cbe2c2af7a5a1654d056102"
+    },
+    {
+      "id": "stiksy-pk-019-02",
+      "file": "02.webp",
+      "caption": "Net slow hai yaar",
+      "accessibilityText": "Wi-Fi Ka Password Do: Net slow hai yaar",
+      "emojis": [
+        "📶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27080,
+      "sha256": "4066c6fa67a2d353c97a1e2fff6fe6245093f83c8531e880cca67543db473178",
+      "quality": 68,
+      "renderSha256": "539c4218438242adfffce575aeb70248627339ad445da731b719afec72b3d82b"
+    },
+    {
+      "id": "stiksy-pk-019-03",
+      "file": "03.webp",
+      "caption": "Router restart karo",
+      "accessibilityText": "Wi-Fi Ka Password Do: Router restart karo",
+      "emojis": [
+        "📶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28222,
+      "sha256": "af2fe7e81d50dce96a09f3664e1b83c2b7403a6c42b7328a3ae3c125a2ef61d8",
+      "quality": 68,
+      "renderSha256": "f6ce453678b13923dd3c3c359f921ffa840e302b6845345522dda438043003b1"
+    },
+    {
+      "id": "stiksy-pk-019-04",
+      "file": "04.webp",
+      "caption": "Signal kahan gaya?",
+      "accessibilityText": "Wi-Fi Ka Password Do: Signal kahan gaya?",
+      "emojis": [
+        "📶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22272,
+      "sha256": "428edb349804d455d93efe31ee4a80665c4784aa6b46d1a02d454097e1a0949a",
+      "quality": 68,
+      "renderSha256": "46bdca400a25c7a07e2273dba12aa829d7a205d48f7fe86810388662ab59348e"
+    },
+    {
+      "id": "stiksy-pk-019-05",
+      "file": "05.webp",
+      "caption": "Password phir badla?",
+      "accessibilityText": "Wi-Fi Ka Password Do: Password phir badla?",
+      "emojis": [
+        "📶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27588,
+      "sha256": "0077e2f8f8ffd411c6b5fec1b72f7cc0c021e7295d468a0883c36d16e9f525eb",
+      "quality": 68,
+      "renderSha256": "c16568ce33a0358b46f25e27e2eed0b11be0a8e5793da0e989b0ccc9a3e07c0e"
+    },
+    {
+      "id": "stiksy-pk-019-06",
+      "file": "06.webp",
+      "caption": "Connected, shukar hai",
+      "accessibilityText": "Wi-Fi Ka Password Do: Connected, shukar hai",
+      "emojis": [
+        "📶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22430,
+      "sha256": "f439adf3ce2af945f3464a11f689adb916bdaa94dc7dc100e834a27e36eaa180",
+      "quality": 68,
+      "renderSha256": "5b6421a50b0906c654ec1a069a7ce615b51371aaa0cec30dcc496792a622d4ba"
+    },
+    {
+      "id": "stiksy-pk-019-07",
+      "file": "07.webp",
+      "caption": "Data khatam ho gaya",
+      "accessibilityText": "Wi-Fi Ka Password Do: Data khatam ho gaya",
+      "emojis": [
+        "📶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30078,
+      "sha256": "4050171a935e12bfcc6ca61d4b42de151732c69b3416d8a3549d4a75a28ac45e",
+      "quality": 68,
+      "renderSha256": "98fcf5298164b8eb1a21dc899ed78a4eeafffdc4b2afb2ddbab124535fc5c81e"
+    },
+    {
+      "id": "stiksy-pk-019-08",
+      "file": "08.webp",
+      "caption": "Buffering ne maar diya",
+      "accessibilityText": "Wi-Fi Ka Password Do: Buffering ne maar diya",
+      "emojis": [
+        "📶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30802,
+      "sha256": "aabdbc0f9853163869336e67e28d2f96108b19b46da74164726f359c41f97c72",
+      "quality": 68,
+      "renderSha256": "7de0f2e8cf824d105fdc4321c1cd4e09de99722c9b035e92df3eb6a30c14d830"
+    },
+    {
+      "id": "stiksy-pk-019-09",
+      "file": "09.webp",
+      "caption": "Net aa gaya!",
+      "accessibilityText": "Wi-Fi Ka Password Do: Net aa gaya!",
+      "emojis": [
+        "📶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29908,
+      "sha256": "b21742345ab9149c1ecb9932c8e73542a2aeb10f762148ddcd7af6d4b9aec69c",
+      "quality": 68,
+      "renderSha256": "a437b9a4b233e5a951d43ab8662f1670bbf0681e031bdfa1e5c2c8eb07953bf0"
+    },
+    {
+      "id": "stiksy-pk-019-10",
+      "file": "10.webp",
+      "caption": "Bas Wi-Fi chahiye",
+      "accessibilityText": "Wi-Fi Ka Password Do: Bas Wi-Fi chahiye",
+      "emojis": [
+        "📶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32104,
+      "sha256": "1a978d63c42e867642d52cd4eb3f1ecb57809c36ac16547ba9a7c54d804bb078",
+      "quality": 68,
+      "renderSha256": "5bdb4a8a54f90ff41a0a19545985481bdba2633ac320c88dfdd3526c9c7c2482"
+    }
+  ]
+}

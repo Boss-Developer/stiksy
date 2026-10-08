@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-012",
+  "identifier": "stiksy-pk-012",
+  "title": "Aaj Dawat Hai!",
+  "name": "Aaj Dawat Hai!",
+  "publisher": "Stiksy",
+  "category": "Desi Food",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "desi-food"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-012-01",
+      "file": "01.webp",
+      "caption": "Aaj dawat hai!",
+      "accessibilityText": "Aaj Dawat Hai!: Aaj dawat hai!",
+      "emojis": [
+        "🍽️"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 40350,
+      "sha256": "3f1edb88e7d4363197439bfd86e3caea450f3a283f44546b394cc4465cd50a3d",
+      "quality": 68,
+      "renderSha256": "7f8a22e38244c219d2250acbbca8cf1392ec9fc4601e215f1be546b5c18d486f"
+    },
+    {
+      "id": "stiksy-pk-012-02",
+      "file": "02.webp",
+      "caption": "Sab ko bula lo",
+      "accessibilityText": "Aaj Dawat Hai!: Sab ko bula lo",
+      "emojis": [
+        "🍽️"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34840,
+      "sha256": "54777c5d509380666ffc5a497ed2899deb066890c46c5624335ee37aca605bf6",
+      "quality": 68,
+      "renderSha256": "877e5d545069ca4bb15be562937a0e2cc180e0b742c24d3b6953b23f74142d8c"
+    },
+    {
+      "id": "stiksy-pk-012-03",
+      "file": "03.webp",
+      "caption": "Dawat pe aa jana",
+      "accessibilityText": "Aaj Dawat Hai!: Dawat pe aa jana",
+      "emojis": [
+        "🍽️"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 38184,
+      "sha256": "c6de9fb37b25eaa359b812b3380e89bab2c62086b5297cce53480c0442adba44",
+      "quality": 68,
+      "renderSha256": "e07db5013a67681e808be89a21860d276fad08ba6bcca8e107e70d5fc591686a"
+    },
+    {
+      "id": "stiksy-pk-012-04",
+      "file": "04.webp",
+      "caption": "Table tayyar hai",
+      "accessibilityText": "Aaj Dawat Hai!: Table tayyar hai",
+      "emojis": [
+        "🍽️"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29022,
+      "sha256": "dff546da3afbbfbf540bc0ff06c4dee2ad60b056113c31d634bf25c3f72e4998",
+      "quality": 68,
+      "renderSha256": "a608c73367f0f7518006538a06e4b6c707989b27210b3a7f7935a99bd1bb97c3"
+    },
+    {
+      "id": "stiksy-pk-012-05",
+      "file": "05.webp",
+      "caption": "Khana lag gaya",
+      "accessibilityText": "Aaj Dawat Hai!: Khana lag gaya",
+      "emojis": [
+        "🍽️"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 36906,
+      "sha256": "4390fddcc67de5eebfc26c544a51e712f87e604f2233e82aee7db7935a116ed3",
+      "quality": 68,
+      "renderSha256": "0f25fa2811b3181d90af3ac2fcdffa96afa1a3b6903d2d0adb99f8eaded4969f"
+    },
+    {
+      "id": "stiksy-pk-012-06",
+      "file": "06.webp",
+      "caption": "Pet bhar ke khana",
+      "accessibilityText": "Aaj Dawat Hai!: Pet bhar ke khana",
+      "emojis": [
+        "🍽️"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29302,
+      "sha256": "8f33b8676eec80a02d8de835ada8785fe216183028717d5bcabe8253f1426811",
+      "quality": 68,
+      "renderSha256": "a1bb4d05cf0c57d52925df863cac7ab8a01e9795c7ab125598e146b73665a059"
+    },
+    {
+      "id": "stiksy-pk-012-07",
+      "file": "07.webp",
+      "caption": "Aaj mehfil saje gi",
+      "accessibilityText": "Aaj Dawat Hai!: Aaj mehfil saje gi",
+      "emojis": [
+        "🍽️"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 39372,
+      "sha256": "64f630b7b907db4c00d618fbb41627ce7c1b68c632e23ca37908f7d89c18dbd9",
+      "quality": 68,
+      "renderSha256": "63e3e649d51a63d986b60a7a6caf5436b7f4e97a33f57b95bad72934c5b1872b"
+    },
+    {
+      "id": "stiksy-pk-012-08",
+      "file": "08.webp",
+      "caption": "Dawat hamari taraf",
+      "accessibilityText": "Aaj Dawat Hai!: Dawat hamari taraf",
+      "emojis": [
+        "🍽️"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 39082,
+      "sha256": "3c9dec55d5e48de99b8c88f0876378a43ad22adb0e84606875e90fe988cd1c93",
+      "quality": 68,
+      "renderSha256": "c7dcdeb74fe8f38a160ba132fb0af0e434d0bab50366533d8f1c53c4039f78bd"
+    },
+    {
+      "id": "stiksy-pk-012-09",
+      "file": "09.webp",
+      "caption": "Bhook le kar aana",
+      "accessibilityText": "Aaj Dawat Hai!: Bhook le kar aana",
+      "emojis": [
+        "🍽️"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 42392,
+      "sha256": "da14361df2d37a582bae607658ef14fe7ae135b91c3426794687ea1dde0d0487",
+      "quality": 68,
+      "renderSha256": "6c221c1b9edfd2d9956ff6ea645652a7bf0bdbbd0448da5a77c8930d11b3d410"
+    },
+    {
+      "id": "stiksy-pk-012-10",
+      "file": "10.webp",
+      "caption": "Ghar ka khana, wah!",
+      "accessibilityText": "Aaj Dawat Hai!: Ghar ka khana, wah!",
+      "emojis": [
+        "🍽️"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 42794,
+      "sha256": "ddac90cf461fa2a9c2cd8b74ec6c64183edf0fd9950456ff09c388317254298f",
+      "quality": 68,
+      "renderSha256": "90f99fd00f2c5a4f492dcf57677920333f8b51d05a07d0ea6bd20573035c2e70"
+    }
+  ]
+}

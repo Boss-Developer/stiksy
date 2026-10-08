@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-024",
+  "identifier": "stiksy-pk-024",
+  "title": "Full Desi Mode",
+  "name": "Full Desi Mode",
+  "publisher": "Stiksy",
+  "category": "Desi Reactions",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "desi-reactions"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-024-01",
+      "file": "01.webp",
+      "caption": "Full desi mode",
+      "accessibilityText": "Full Desi Mode: Full desi mode",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22836,
+      "sha256": "9959f9b224b0b6a0499d0f8da20157282edc55efc7b669bf6f330b23f4a84c60",
+      "quality": 68,
+      "renderSha256": "566eff32e193c756ffab9e90dc8babb66d07451ca7d284018b2c1236d13810ac"
+    },
+    {
+      "id": "stiksy-pk-024-02",
+      "file": "02.webp",
+      "caption": "Apna desi swag",
+      "accessibilityText": "Full Desi Mode: Apna desi swag",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 20802,
+      "sha256": "52dc5419f7b6ef22696e3f155d5dca4ee32d53c9414480a9902145818680d4de",
+      "quality": 68,
+      "renderSha256": "e3e9148c490be1ed3415761f7c43ce1850d0d4f8c9c805be63274f5bd55646bd"
+    },
+    {
+      "id": "stiksy-pk-024-03",
+      "file": "03.webp",
+      "caption": "Dil se Pakistani",
+      "accessibilityText": "Full Desi Mode: Dil se Pakistani",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 20918,
+      "sha256": "3a36e065ff2ee3796df14f0a570c3a33cf68032446e3c4396ab95aa581260fd2",
+      "quality": 68,
+      "renderSha256": "df6a9207aaaecafd250c4195b91817359c0ae36808e05637ada71751cf1d7ad7"
+    },
+    {
+      "id": "stiksy-pk-024-04",
+      "file": "04.webp",
+      "caption": "Kurta ready hai",
+      "accessibilityText": "Full Desi Mode: Kurta ready hai",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 17370,
+      "sha256": "79c9aaa9c7f33aade75a4ec767736fef3dd4a3d3b5da0353f485a713bbb82bcf",
+      "quality": 68,
+      "renderSha256": "57181e3bd1d878b529b35b91f2b578e85653004ca67f1c15f80f93fab71752ad"
+    },
+    {
+      "id": "stiksy-pk-024-05",
+      "file": "05.webp",
+      "caption": "Desi vibes only",
+      "accessibilityText": "Full Desi Mode: Desi vibes only",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 20766,
+      "sha256": "d427edce36832192b995641cb25e32bd4cd07e0c309c68cd478198ad8fb49b31",
+      "quality": 68,
+      "renderSha256": "bfefb80e995259b3e90c088829e77e2ec532c9957167c63a8539028df8fde816"
+    },
+    {
+      "id": "stiksy-pk-024-06",
+      "file": "06.webp",
+      "caption": "Apni baat hi aur hai",
+      "accessibilityText": "Full Desi Mode: Apni baat hi aur hai",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 17386,
+      "sha256": "5f507266f9b2812f77cbdc3b10a5045ad77165f7ffc038f83eb5428e6cf959fc",
+      "quality": 68,
+      "renderSha256": "e49c0f5b670d00382dd766735545929fa7053b44e3d25cff13c1f5d4134341e7"
+    },
+    {
+      "id": "stiksy-pk-024-07",
+      "file": "07.webp",
+      "caption": "Shalwar kameez scene",
+      "accessibilityText": "Full Desi Mode: Shalwar kameez scene",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23388,
+      "sha256": "42ea5e53b0548255df24c3a6b1f860774ec08a434f13e8573c96f4284c88fb89",
+      "quality": 68,
+      "renderSha256": "f7da042f1cf46038c096110d91377c8a625f598bb9e79a3aff4f74f05fc470a5"
+    },
+    {
+      "id": "stiksy-pk-024-08",
+      "file": "08.webp",
+      "caption": "Khussa pehen ke aao",
+      "accessibilityText": "Full Desi Mode: Khussa pehen ke aao",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 24054,
+      "sha256": "92df9ee27142fea27140b229dc82d12f2867c51ac39126edab38e3d347f4f4b5",
+      "quality": 68,
+      "renderSha256": "c601ffc3a5e73d0404b2462e3024ea06d6eeaab80673e37b7422bc0c1ffd5b0e"
+    },
+    {
+      "id": "stiksy-pk-024-09",
+      "file": "09.webp",
+      "caption": "Desi rehna hai",
+      "accessibilityText": "Full Desi Mode: Desi rehna hai",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23942,
+      "sha256": "d70b284491b896402d3c4236858e62b85269d5dff445e1b47e63b14cfa4c0579",
+      "quality": 68,
+      "renderSha256": "2be882ec3e895cd2d595fa538afe1575ce59357831fd16ecb9b1087bf43b776a"
+    },
+    {
+      "id": "stiksy-pk-024-10",
+      "file": "10.webp",
+      "caption": "Apna andaaz alag",
+      "accessibilityText": "Full Desi Mode: Apna andaaz alag",
+      "emojis": [
+        "🇵🇰"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 24646,
+      "sha256": "54b6df7665ec21b318ac858278eaf68301432ea5445de9ea8796abe3f6e162b9",
+      "quality": 68,
+      "renderSha256": "3edaced8b4fb680b7daa7d06e6f5fe83fbb9b2d8e84916b9aeeecd0e1c3d80fa"
+    }
+  ]
+}

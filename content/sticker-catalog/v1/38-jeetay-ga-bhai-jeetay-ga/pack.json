@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-038",
+  "identifier": "stiksy-pk-038",
+  "title": "Jeetay Ga Bhai Jeetay Ga",
+  "name": "Jeetay Ga Bhai Jeetay Ga",
+  "publisher": "Stiksy",
+  "category": "Pakistan & Cricket",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "pakistan-cricket"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-038-01",
+      "file": "01.webp",
+      "caption": "Jeetay ga bhai jeetay ga",
+      "accessibilityText": "Jeetay Ga Bhai Jeetay Ga: Jeetay ga bhai jeetay ga",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 35468,
+      "sha256": "3997e136c2c37937125e64cc6ace522efaf596ed517ff8299c38874e125ce2e9",
+      "quality": 68,
+      "renderSha256": "6b4848b2a73363d0851c78cd4a3e3500bc473e07d289ab2de7e809d145b2d7c8"
+    },
+    {
+      "id": "stiksy-pk-038-02",
+      "file": "02.webp",
+      "caption": "Pakistan jeetay ga",
+      "accessibilityText": "Jeetay Ga Bhai Jeetay Ga: Pakistan jeetay ga",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27826,
+      "sha256": "7e99c7d9c4f070186395ab8a2c78ba7d5770d39b962fc1171c0ca9796948fab7",
+      "quality": 68,
+      "renderSha256": "d6ce5d182c671051c5505f0fa124343dc03604a970a23ae304997438b6c6fa18"
+    },
+    {
+      "id": "stiksy-pk-038-03",
+      "file": "03.webp",
+      "caption": "Jeet apni hogi",
+      "accessibilityText": "Jeetay Ga Bhai Jeetay Ga: Jeet apni hogi",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29080,
+      "sha256": "9702a9b97f71f1d17bd245ede95ae7010cc45268f7ec16c5f3deac201239efeb",
+      "quality": 68,
+      "renderSha256": "89c4bb500e49b1b2af08e6ecff336cc346b8d90171104d2f33f239a5280729b1"
+    },
+    {
+      "id": "stiksy-pk-038-04",
+      "file": "04.webp",
+      "caption": "Match ka mood hai",
+      "accessibilityText": "Jeetay Ga Bhai Jeetay Ga: Match ka mood hai",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 21876,
+      "sha256": "7195cc27db1d1f63b8ac60d4216dfe9b0b5bb8d37d0f72acd777bbab8ef196d1",
+      "quality": 68,
+      "renderSha256": "d7959fee73e51b60c5933393f0263f0812c4be1538443c954e773e7fb1b74c23"
+    },
+    {
+      "id": "stiksy-pk-038-05",
+      "file": "05.webp",
+      "caption": "Team green, dil green",
+      "accessibilityText": "Jeetay Ga Bhai Jeetay Ga: Team green, dil green",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28288,
+      "sha256": "44cea6db37151503de5e4968dbb736d820e0db00ce4a186578ac5f093d684aaa",
+      "quality": 68,
+      "renderSha256": "1dc1c3be60fc63bcc457b9f17bb84987dcb97b26e56e55d912df7fd60d9f1285"
+    },
+    {
+      "id": "stiksy-pk-038-06",
+      "file": "06.webp",
+      "caption": "Aaj ka match apna",
+      "accessibilityText": "Jeetay Ga Bhai Jeetay Ga: Aaj ka match apna",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23022,
+      "sha256": "dc1fc65bb75563c8a3f6368c2f2042dc24aad60dc1902e30c6460e1352a53dd2",
+      "quality": 68,
+      "renderSha256": "9c68684fe3e8bb4c4211d97d32a5557c62e14f89e79cf9c50b543f4649419865"
+    },
+    {
+      "id": "stiksy-pk-038-07",
+      "file": "07.webp",
+      "caption": "Dua bhi, cheer bhi",
+      "accessibilityText": "Jeetay Ga Bhai Jeetay Ga: Dua bhi, cheer bhi",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29572,
+      "sha256": "4e58adea6a5930f14fe6dc797560d391881594b62d4cf8639a033085e46aa1e1",
+      "quality": 68,
+      "renderSha256": "631632e4c5192495fab4dd2cda8a4fb5cfee6628872a2e26bad55ed2ab76f1b9"
+    },
+    {
+      "id": "stiksy-pk-038-08",
+      "file": "08.webp",
+      "caption": "Come on, Pakistan!",
+      "accessibilityText": "Jeetay Ga Bhai Jeetay Ga: Come on, Pakistan!",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31508,
+      "sha256": "8f0728d34e34c7dda07f67db201dfae391b1df224ecdad5d2ed51f2841f0d38d",
+      "quality": 68,
+      "renderSha256": "120108d40f7af4108be4fc01f62381901c6408b31dc1335291e82f8309d5599c"
+    },
+    {
+      "id": "stiksy-pk-038-09",
+      "file": "09.webp",
+      "caption": "Score batao bhai",
+      "accessibilityText": "Jeetay Ga Bhai Jeetay Ga: Score batao bhai",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33182,
+      "sha256": "ac57e7fb7bd9ffe71686e93156a8685baf6ac27cc558991a36b02782d2afe84e",
+      "quality": 68,
+      "renderSha256": "132f9c0aea98a1a03fefa68c9d3a9af3685ff869d7e137ece5b78701fcc87dc9"
+    },
+    {
+      "id": "stiksy-pk-038-10",
+      "file": "10.webp",
+      "caption": "Jeet pe chai pakki",
+      "accessibilityText": "Jeetay Ga Bhai Jeetay Ga: Jeet pe chai pakki",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33190,
+      "sha256": "ddcefad945f559d233b9d4ccfb714af6b08117e4b2ce66a51030f154371c3f33",
+      "quality": 68,
+      "renderSha256": "ab68fa10280939506de3f8c0858ab54499706d7c48ed359216c3ff46ceecbd57"
+    }
+  ]
+}

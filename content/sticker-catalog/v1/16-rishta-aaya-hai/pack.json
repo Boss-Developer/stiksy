@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-016",
+  "identifier": "stiksy-pk-016",
+  "title": "Rishta Aaya Hai",
+  "name": "Rishta Aaya Hai",
+  "publisher": "Stiksy",
+  "category": "Family & Mehmaan",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "family-mehmaan"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-016-01",
+      "file": "01.webp",
+      "caption": "Rishta aaya hai",
+      "accessibilityText": "Rishta Aaya Hai: Rishta aaya hai",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31422,
+      "sha256": "4b94024d91a1eea5c4987432796907a212899321007250e3b953b5c100d0271b",
+      "quality": 68,
+      "renderSha256": "750ceb71c5d6e2e13463e0dc7d5729886f14646da907b273e98896c53d4e0816"
+    },
+    {
+      "id": "stiksy-pk-016-02",
+      "file": "02.webp",
+      "caption": "Chai sambhal ke dena",
+      "accessibilityText": "Rishta Aaya Hai: Chai sambhal ke dena",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27456,
+      "sha256": "bd5d8d93a29ba37e7f598d788d4164c35eb0fda33f1f02c613652244da10d335",
+      "quality": 68,
+      "renderSha256": "1dacb029612bc0b7dfb63bc0660d02dbcb95ba02f237b9e967a9b6e34ac27b70"
+    },
+    {
+      "id": "stiksy-pk-016-03",
+      "file": "03.webp",
+      "caption": "Baat pakki samjhein?",
+      "accessibilityText": "Rishta Aaya Hai: Baat pakki samjhein?",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29872,
+      "sha256": "a415e7f9193abde92df08393d3047598cbadf355a54043c09532e7fd0cefa7c7",
+      "quality": 68,
+      "renderSha256": "b5cdf54a5a9aeb1436f99a99bb763ba9eeef1c7d4630e2ca552c47d104d3f2ea"
+    },
+    {
+      "id": "stiksy-pk-016-04",
+      "file": "04.webp",
+      "caption": "Bas dua karo",
+      "accessibilityText": "Rishta Aaya Hai: Bas dua karo",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22594,
+      "sha256": "3ed3b9ad6f1f977ecdd72e3496d40c24aebe525aa95febfea750e02ac7a249dd",
+      "quality": 68,
+      "renderSha256": "5acd5aa5a3ba46bbc75036fee72431890e6070cbc1ea1a5b1e37d9d5fbc5aef5"
+    },
+    {
+      "id": "stiksy-pk-016-05",
+      "file": "05.webp",
+      "caption": "Family meeting hai",
+      "accessibilityText": "Rishta Aaya Hai: Family meeting hai",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28262,
+      "sha256": "e0fd4b36de4f54cefa7be619d66d5bd81d34317138ab4865235a6f9926174d48",
+      "quality": 68,
+      "renderSha256": "ec8556aa7a24272b9fe6d958200038460d207416ead6dd70dfb08c552e38d7ca"
+    },
+    {
+      "id": "stiksy-pk-016-06",
+      "file": "06.webp",
+      "caption": "Tasveer dikhao pehle",
+      "accessibilityText": "Rishta Aaya Hai: Tasveer dikhao pehle",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23376,
+      "sha256": "4b96cff9fcd7ed81f7e439889a87505aae7ac6b201550b8dab9ef32e8c586f84",
+      "quality": 68,
+      "renderSha256": "512f85c394e674374790f9629ade4cfab2b2a8af80a9fa08287dcb4fcb770490"
+    },
+    {
+      "id": "stiksy-pk-016-07",
+      "file": "07.webp",
+      "caption": "Ji, soch ke batayenge",
+      "accessibilityText": "Rishta Aaya Hai: Ji, soch ke batayenge",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29916,
+      "sha256": "eba491c82c3cc1d2f3e09ab6e8501c7b9e2cf85745cc3cae33117295b7fd9e4d",
+      "quality": 68,
+      "renderSha256": "76b1721e1db377cf72f190fbff9a83bee983bc7cc6df035b7c3f349cd31d7067"
+    },
+    {
+      "id": "stiksy-pk-016-08",
+      "file": "08.webp",
+      "caption": "Aaj thora formal ho",
+      "accessibilityText": "Rishta Aaya Hai: Aaj thora formal ho",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30792,
+      "sha256": "297fcb09b3373ecc43c595f2fe4d4ef065d800adc9516177db6248b433348f3c",
+      "quality": 68,
+      "renderSha256": "c8488e791e2ac937311f13dc59ddb9bda1545b5786e52c5e8f3946234078776a"
+    },
+    {
+      "id": "stiksy-pk-016-09",
+      "file": "09.webp",
+      "caption": "Sab ki nazar idhar",
+      "accessibilityText": "Rishta Aaya Hai: Sab ki nazar idhar",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32702,
+      "sha256": "02849ddd08477eb633a032dbf76a73cddbd73691a95e65f4ed308757cbfd32b5",
+      "quality": 68,
+      "renderSha256": "889b0197eba66ee092a35444368c04bde06f9ec2ed322789fbfc5f4ad2db8482"
+    },
+    {
+      "id": "stiksy-pk-016-10",
+      "file": "10.webp",
+      "caption": "Rishta wali chai",
+      "accessibilityText": "Rishta Aaya Hai: Rishta wali chai",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32096,
+      "sha256": "01efd43dc01152db801c08b053b9f155c0d69e63989383a9a82ecc7d489cf933",
+      "quality": 68,
+      "renderSha256": "e945eb9c075247fc031b3049dc6861c42f87b49ed6e114d41115338299351855"
+    }
+  ]
+}

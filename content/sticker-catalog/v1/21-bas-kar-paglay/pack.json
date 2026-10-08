@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-021",
+  "identifier": "stiksy-pk-021",
+  "title": "Bas Kar Paglay",
+  "name": "Bas Kar Paglay",
+  "publisher": "Stiksy",
+  "category": "Desi Reactions",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "desi-reactions"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-021-01",
+      "file": "01.webp",
+      "caption": "Bas kar paglay",
+      "accessibilityText": "Bas Kar Paglay: Bas kar paglay",
+      "emojis": [
+        "😂"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29096,
+      "sha256": "a70896db416f594bab5363832954958075a7ae4f542452610614f6d177641e4a",
+      "quality": 68,
+      "renderSha256": "114f2c1ab7511158eafa3cb011669cbf81ed752acfa4d336ba7a5fe1d97c84de"
+    },
+    {
+      "id": "stiksy-pk-021-02",
+      "file": "02.webp",
+      "caption": "Hansa hansa ke maar diya",
+      "accessibilityText": "Bas Kar Paglay: Hansa hansa ke maar diya",
+      "emojis": [
+        "😂"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26104,
+      "sha256": "06f8049f9a3427330190a37fe9eda5a3f9ebf36bb46c15c7e4a87fca1a4ed2f9",
+      "quality": 68,
+      "renderSha256": "c6af84acfadbe3dc1505cda79ad9ee7a7da3f95ebb099f90b3b3a22b7ef24206"
+    },
+    {
+      "id": "stiksy-pk-021-03",
+      "file": "03.webp",
+      "caption": "Yaar tu bhi na",
+      "accessibilityText": "Bas Kar Paglay: Yaar tu bhi na",
+      "emojis": [
+        "😂"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26136,
+      "sha256": "be0d7811a8346964ffd02ad0e56c4b8122717c405a2d327bacf4e52456c61aa5",
+      "quality": 68,
+      "renderSha256": "85dce070468837c20d8cf6fb2526a60ee2772100e78a2c061ae34853e7650208"
+    },
+    {
+      "id": "stiksy-pk-021-04",
+      "file": "04.webp",
+      "caption": "Itna bhi nahi",
+      "accessibilityText": "Bas Kar Paglay: Itna bhi nahi",
+      "emojis": [
+        "😂"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 20170,
+      "sha256": "302381ce9299a804976b18ba33fddfd967cceb137bfb3f995c0b91dcf401f3f6",
+      "quality": 68,
+      "renderSha256": "657d0d9b6e07543233d7c191d005046d0459883863f867be0facaa74f497fc8d"
+    },
+    {
+      "id": "stiksy-pk-021-05",
+      "file": "05.webp",
+      "caption": "Pet dukh gaya hans ke",
+      "accessibilityText": "Bas Kar Paglay: Pet dukh gaya hans ke",
+      "emojis": [
+        "😂"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26974,
+      "sha256": "576f0c749c969f37c4ed9227a1b178f2b303c24aa35975d650ed984be008b350",
+      "quality": 68,
+      "renderSha256": "b2f99dd4979d6a600e39f03078df8bb268258b7d095654829a02d4288acd1ff6"
+    },
+    {
+      "id": "stiksy-pk-021-06",
+      "file": "06.webp",
+      "caption": "Kya banda hai tu",
+      "accessibilityText": "Bas Kar Paglay: Kya banda hai tu",
+      "emojis": [
+        "😂"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 21568,
+      "sha256": "5486bbe67fe0ebb8ae120d5137dceabd9a84f8c361f5e3787b2b1380e2f22bc3",
+      "quality": 68,
+      "renderSha256": "a61d3f3e5cb7118664450424dff714ac672ab7bbb49e336761ea815f1161ae79"
+    },
+    {
+      "id": "stiksy-pk-021-07",
+      "file": "07.webp",
+      "caption": "Hansi nahi ruk rahi",
+      "accessibilityText": "Bas Kar Paglay: Hansi nahi ruk rahi",
+      "emojis": [
+        "😂"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26616,
+      "sha256": "ca5e06e2862c22cb3dd707eb86233dd901cbf3ed0a9cb86af37b88c68c33ffef",
+      "quality": 68,
+      "renderSha256": "e49962d5b349b0f5aab13460a77a2a667d7d2122cde4875dc5bf4fd1a05c1631"
+    },
+    {
+      "id": "stiksy-pk-021-08",
+      "file": "08.webp",
+      "caption": "Bohat tez ho beta",
+      "accessibilityText": "Bas Kar Paglay: Bohat tez ho beta",
+      "emojis": [
+        "😂"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28620,
+      "sha256": "f5088c2ed239de94d3b4f5afb461b553b004252a60ad9d8a6b306f0afd7cde16",
+      "quality": 68,
+      "renderSha256": "f4db4fef8fa4ab9a2b4d241f5b1f2aadfefa736327c4f300ddbecfc10f477bb4"
+    },
+    {
+      "id": "stiksy-pk-021-09",
+      "file": "09.webp",
+      "caption": "Bas ab reham karo",
+      "accessibilityText": "Bas Kar Paglay: Bas ab reham karo",
+      "emojis": [
+        "😂"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31112,
+      "sha256": "d3a4fc06ae38820f8df586d0236a7d30fa3bef170b1dd75515fe1d75f72e094f",
+      "quality": 68,
+      "renderSha256": "a162d8a6dea146c7755260e62241e82175d937512fa717a159a50548297872db"
+    },
+    {
+      "id": "stiksy-pk-021-10",
+      "file": "10.webp",
+      "caption": "Full comedy chal rahi hai",
+      "accessibilityText": "Bas Kar Paglay: Full comedy chal rahi hai",
+      "emojis": [
+        "😂"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32282,
+      "sha256": "9e698490b0d51407f3a9dded70e09506fcfc34cb181ab50e2ac0a605112e3372",
+      "quality": 68,
+      "renderSha256": "5830861062a4383656804172866763c2c0e01546d6471fd97191aa412b6b5b1a"
+    }
+  ]
+}

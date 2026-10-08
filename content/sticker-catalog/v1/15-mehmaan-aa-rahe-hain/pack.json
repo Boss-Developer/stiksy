@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-015",
+  "identifier": "stiksy-pk-015",
+  "title": "Mehmaan Aa Rahe Hain",
+  "name": "Mehmaan Aa Rahe Hain",
+  "publisher": "Stiksy",
+  "category": "Family & Mehmaan",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "family-mehmaan"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-015-01",
+      "file": "01.webp",
+      "caption": "Mehmaan aa rahe hain",
+      "accessibilityText": "Mehmaan Aa Rahe Hain: Mehmaan aa rahe hain",
+      "emojis": [
+        "🏠"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 40146,
+      "sha256": "bcc970f5495fcc84fcadb54c4dfa82ff7bbae1e8aaffe0ef8cadf0e729f7838e",
+      "quality": 68,
+      "renderSha256": "876b1c0dafe319296ddbbf30da27541a74df54c3c396e9bd65b7aa69ed40ae44"
+    },
+    {
+      "id": "stiksy-pk-015-02",
+      "file": "02.webp",
+      "caption": "Cushion seedhay karo",
+      "accessibilityText": "Mehmaan Aa Rahe Hain: Cushion seedhay karo",
+      "emojis": [
+        "🏠"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33652,
+      "sha256": "9c7cce971527411effc058428902d656d2bbdc4bdc80b18ba599e7b45fb293ff",
+      "quality": 68,
+      "renderSha256": "ae3000dc803a3c1569bce7eddd0cb67addfc42946dc2f5819a87f4243a144913"
+    },
+    {
+      "id": "stiksy-pk-015-03",
+      "file": "03.webp",
+      "caption": "Drawing room tayyar",
+      "accessibilityText": "Mehmaan Aa Rahe Hain: Drawing room tayyar",
+      "emojis": [
+        "🏠"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 36394,
+      "sha256": "a012d15989e67250993c6968167d602f2512d8036283759e8dd69e0386c5de8a",
+      "quality": 68,
+      "renderSha256": "802b6c590995e7dbb777a4d65c7732d6c9ffbc4df80061cac3e856c70d619c0c"
+    },
+    {
+      "id": "stiksy-pk-015-04",
+      "file": "04.webp",
+      "caption": "Chai ki tray lao",
+      "accessibilityText": "Mehmaan Aa Rahe Hain: Chai ki tray lao",
+      "emojis": [
+        "🏠"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26724,
+      "sha256": "8a4d7616aa37a26594bec4b2071643b33b8c1e338ba655d4d94f67d35a85ecbf",
+      "quality": 68,
+      "renderSha256": "5914506ecf61811f2b3c585f30a696488117c08b3c4ff560052386219fc44a4e"
+    },
+    {
+      "id": "stiksy-pk-015-05",
+      "file": "05.webp",
+      "caption": "Mehmaan hamari rehmat",
+      "accessibilityText": "Mehmaan Aa Rahe Hain: Mehmaan hamari rehmat",
+      "emojis": [
+        "🏠"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33578,
+      "sha256": "bee876483adc74b62ea93d22225ceeb6e6cc757db9c1d63ce3564917da1ae81a",
+      "quality": 68,
+      "renderSha256": "92d3429393e88e601c8b38be3e0505c480fdfbfd9bb6189aac8f681263643bbf"
+    },
+    {
+      "id": "stiksy-pk-015-06",
+      "file": "06.webp",
+      "caption": "Biscuit chhupa do",
+      "accessibilityText": "Mehmaan Aa Rahe Hain: Biscuit chhupa do",
+      "emojis": [
+        "🏠"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27664,
+      "sha256": "d7f09a7f345700ec0895a779818001dbf09f1178fb97d3df22799fd035ab830c",
+      "quality": 68,
+      "renderSha256": "0b52ccf2668c2bd625638cbcd70e8608af254784978ff4c680ee1422e120cd65"
+    },
+    {
+      "id": "stiksy-pk-015-07",
+      "file": "07.webp",
+      "caption": "Extra cups nikaalo",
+      "accessibilityText": "Mehmaan Aa Rahe Hain: Extra cups nikaalo",
+      "emojis": [
+        "🏠"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 35990,
+      "sha256": "2ce9ba8e444b38c0093385226a4613cf10042e418bcc45ca3034de84f77b3a82",
+      "quality": 68,
+      "renderSha256": "5151cd610deffef69924f5287c6c54e92302c54ab4019ec34d04d00c667a4fc8"
+    },
+    {
+      "id": "stiksy-pk-015-08",
+      "file": "08.webp",
+      "caption": "Darwaza kholo bhai",
+      "accessibilityText": "Mehmaan Aa Rahe Hain: Darwaza kholo bhai",
+      "emojis": [
+        "🏠"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 36180,
+      "sha256": "0cefdbf4a870597376d97df2807ba5dc319400ae7892913d1b4767f8878a2407",
+      "quality": 68,
+      "renderSha256": "b37823c5986d3563d9acb7700a7ee39581be381cf6e6e3d2f651df2502ab90f1"
+    },
+    {
+      "id": "stiksy-pk-015-09",
+      "file": "09.webp",
+      "caption": "Aaiye, tashreef rakhiye",
+      "accessibilityText": "Mehmaan Aa Rahe Hain: Aaiye, tashreef rakhiye",
+      "emojis": [
+        "🏠"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 42850,
+      "sha256": "d2d5726ccace48924a2eca3d5cac732b6b206b2fe6ba50cb93dee096d157a8bb",
+      "quality": 68,
+      "renderSha256": "9801c1875c9f352b811da1c0853891a6cff382b67327045c76407466946a57c2"
+    },
+    {
+      "id": "stiksy-pk-015-10",
+      "file": "10.webp",
+      "caption": "Ghar ki ronak aa gayi",
+      "accessibilityText": "Mehmaan Aa Rahe Hain: Ghar ki ronak aa gayi",
+      "emojis": [
+        "🏠"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 40616,
+      "sha256": "33c68826522df8aebd8283f2a7c19d86d50b07aeb13fbf79e5371e0b9ab35c51",
+      "quality": 68,
+      "renderSha256": "0132ce111ddb9c22525a7bec755e53d4d0e565bab7ccb92bca088eeef04bfe09"
+    }
+  ]
+}

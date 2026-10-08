@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-006",
+  "identifier": "stiksy-pk-006",
+  "title": "Mood Theek Hai",
+  "name": "Mood Theek Hai",
+  "publisher": "Stiksy",
+  "category": "Desi Reactions",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "desi-reactions"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-006-01",
+      "file": "01.webp",
+      "caption": "Mood theek hai",
+      "accessibilityText": "Mood Theek Hai: Mood theek hai",
+      "emojis": [
+        "😎"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32134,
+      "sha256": "f4864b34f0383c6275b4933f398294feaa9bafee79d50ae74e754a47c9d3f0cd",
+      "quality": 68,
+      "renderSha256": "b8a0220c302915b69558fea3d913d3bed384f63e64ea2101e18277f31b5936ea"
+    },
+    {
+      "id": "stiksy-pk-006-02",
+      "file": "02.webp",
+      "caption": "Aaj full chill",
+      "accessibilityText": "Mood Theek Hai: Aaj full chill",
+      "emojis": [
+        "😎"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26442,
+      "sha256": "1119eda0b7269e49203ef4f76791567285c9b939c3bb4f5f1fc48832d2534615",
+      "quality": 68,
+      "renderSha256": "7c016836201332446638e41f0e7a78b580c0a2ca8f4b07a2732a2a673e8a1d75"
+    },
+    {
+      "id": "stiksy-pk-006-03",
+      "file": "03.webp",
+      "caption": "Sab fit hai",
+      "accessibilityText": "Mood Theek Hai: Sab fit hai",
+      "emojis": [
+        "😎"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28460,
+      "sha256": "83c3289bb53521ae9ec2960fc2310c98bf579ba606b149c36bc1039b3dff2a26",
+      "quality": 68,
+      "renderSha256": "542724890082bd8f28042873b584eb4451d0434aa8ee07ab4af2900cffdd3586"
+    },
+    {
+      "id": "stiksy-pk-006-04",
+      "file": "04.webp",
+      "caption": "Apna mood set hai",
+      "accessibilityText": "Mood Theek Hai: Apna mood set hai",
+      "emojis": [
+        "😎"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23006,
+      "sha256": "4d935a9b9c8051079043462f66687b5237e09da90e5ff4b81cc8866d8874b29a",
+      "quality": 68,
+      "renderSha256": "935133a06f0c3607115acf9134d9a1fc867cf965465c8b77dad918268472e3fe"
+    },
+    {
+      "id": "stiksy-pk-006-05",
+      "file": "05.webp",
+      "caption": "Vibe achi hai",
+      "accessibilityText": "Mood Theek Hai: Vibe achi hai",
+      "emojis": [
+        "😎"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28186,
+      "sha256": "b245fee8b97e863f3012369db3a65939ed68cf04f0c6d39e6c12e585c82eb114",
+      "quality": 68,
+      "renderSha256": "f4dfba39d91fbb231d93e4efaa711cc6ac5e777321362e6fb7b37f11bfe50c96"
+    },
+    {
+      "id": "stiksy-pk-006-06",
+      "file": "06.webp",
+      "caption": "Dil khush kar diya",
+      "accessibilityText": "Mood Theek Hai: Dil khush kar diya",
+      "emojis": [
+        "😎"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23564,
+      "sha256": "70843f6d03c270edae648e0ceeeca773dbb1323fe56e09b7eadc091e476bdbdc",
+      "quality": 68,
+      "renderSha256": "7fc3cbf477825b113e8d7c571719b5194d34400fec02789487568451984db4c0"
+    },
+    {
+      "id": "stiksy-pk-006-07",
+      "file": "07.webp",
+      "caption": "Aaj tension nahi",
+      "accessibilityText": "Mood Theek Hai: Aaj tension nahi",
+      "emojis": [
+        "😎"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30130,
+      "sha256": "f4aaba961921307a9e39c0c39876c2dd7dec3b3f1c8c3009abf472278b4c1bd8",
+      "quality": 68,
+      "renderSha256": "8b0e4d605f895173d0242d1415e74b3f6b63d6ea4594ed0a91babc487c4823df"
+    },
+    {
+      "id": "stiksy-pk-006-08",
+      "file": "08.webp",
+      "caption": "Bas maze hi maze",
+      "accessibilityText": "Mood Theek Hai: Bas maze hi maze",
+      "emojis": [
+        "😎"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30714,
+      "sha256": "4b12cb3eefd71ea8841196fca5ca2b1cb9a74219c36fa3a1e222c3e816d8bf65",
+      "quality": 68,
+      "renderSha256": "811331ff9c596f1e66ae8f8a674edcc18cd8e53fa3e48501699186fc06cb8b5f"
+    },
+    {
+      "id": "stiksy-pk-006-09",
+      "file": "09.webp",
+      "caption": "Khush rehna hai",
+      "accessibilityText": "Mood Theek Hai: Khush rehna hai",
+      "emojis": [
+        "😎"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33366,
+      "sha256": "3dc270fc41b28a1fc4477b0683424617e219a96650f14120cc3042d98e07e732",
+      "quality": 68,
+      "renderSha256": "1aca3562bde0b7d238dc421954403d83ea69f77e45a92ca3c95b8fdbca4b5678"
+    },
+    {
+      "id": "stiksy-pk-006-10",
+      "file": "10.webp",
+      "caption": "Mood fresh ho gaya",
+      "accessibilityText": "Mood Theek Hai: Mood fresh ho gaya",
+      "emojis": [
+        "😎"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34424,
+      "sha256": "5b26c13fa6bef292a16e4a0ae6caf83bc1006672a8a9578374ff1b9a635e5761",
+      "quality": 68,
+      "renderSha256": "340cb12c704d2c93e18b04569ae9007ab52e1a2b6ab81182c1d33289ccca9ca2"
+    }
+  ]
+}
