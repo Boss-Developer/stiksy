@@ -1,0 +1,526 @@
+import '../../../custom_widgets/snackbars/app_snackbar.dart';
+
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../config/app_colors.dart';
+import '../../../services/sticker_export_service.dart';
+import '../../../services/template_access.dart';
+import '../../../custom_widgets/sticker_components.dart';
+import '../../model/sticker_template.dart';
+import '../editor/sticker_editor_view.dart';
+import '../create/custom_sticker_view.dart';
+import 'sticker_pack_detail_view.dart';
+
+class StickerPacksView extends StatefulWidget {
+  const StickerPacksView({super.key});
+  @override
+  State<StickerPacksView> createState() => _StickerPacksViewState();
+}
+
+class _StickerPacksViewState extends State<StickerPacksView> {
+  final prefs = Get.find<SharedPreferences>();
+  List<LocalStickerPack> nativePacks = [];
+  bool loadingPacks = false;
+  @override
+  void initState() {
+    super.initState();
+    refreshPacks();
+  }
+
+  Future<void> refreshPacks() async {
+    if (!StickerExportService.supported) return;
+    setState(() => loadingPacks = true);
+    try {
+      if (!(prefs.getBool('stiksy_packs_migrated') ?? false)) {
+        final oldNames = prefs.getStringList('stiksy_packs') ?? [];
+        final existing = await StickerExportService.packs();
+        for (final name in oldNames) {
+          if (!existing.any((p) => p.name == name)) {
+            existing.add(await StickerExportService.createPack(name));
+          }
+        }
+        await prefs.setBool('stiksy_packs_migrated', true);
+      }
+      final values = await StickerExportService.packs();
+      if (mounted) setState(() => nativePacks = values);
+    } catch (_) {
+      /* The Android bridge is unavailable in widget tests and other platforms. */
+    } finally {
+      if (mounted) setState(() => loadingPacks = false);
+    }
+  }
+
+  void notify(String text) {
+    if (mounted) {
+      text.showInfo();
+    }
+  }
+
+  Future<void> install(LocalStickerPack pack, bool business) async {
+    try {
+      final result = await StickerExportService.addToWhatsApp(
+        pack,
+        business: business,
+      );
+      notify(
+        result['status'] == 'added'
+            ? 'Pack added. Use WhatsApp’s sticker picker to send it.'
+            : result['status'] == 'rejected'
+            ? 'WhatsApp rejected this pack: ${result['message']}'
+            : 'Installation cancelled. Your pack is saved.',
+      );
+    } catch (e) {
+      notify(
+        e is PlatformException
+            ? e.message ?? 'Unable to add this pack.'
+            : 'Unable to add this pack.',
+      );
+    }
+  }
+
+  Future<void> newPack() async {
+    final name = TextEditingController();
+    final result = await showDialog<String>(
+      context: context,
+      builder: (c) => AlertDialog(
+        title: const Text('New sticker pack'),
+        content: TextField(
+          controller: name,
+          maxLength: 32,
+          autofocus: true,
+          decoration: const InputDecoration(hintText: 'Pack name'),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(c),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () {
+              if (name.text.trim().isNotEmpty) {
+                Navigator.pop(c, name.text.trim());
+              }
+            },
+            child: const Text('Create'),
+          ),
+        ],
+      ),
+    );
+    if (result == null) return;
+    try {
+      if (StickerExportService.supported) {
+        await StickerExportService.createPack(result);
+        await refreshPacks();
+      } else {
+        await prefs.setStringList('stiksy_packs', [
+          ...?prefs.getStringList('stiksy_packs'),
+          result,
+        ]);
+      }
+    } catch (e) {
+      notify(
+        e is PlatformException
+            ? e.message ?? 'Unable to create pack.'
+            : 'Unable to create pack.',
+      );
+    }
+    if (mounted) setState(() {});
+  }
+
+  Future<void> rename(LocalStickerPack pack) async {
+    final name = TextEditingController(text: pack.name);
+    final result = await showDialog<String>(
+      context: context,
+      builder: (c) => AlertDialog(
+        title: const Text('Rename pack'),
+        content: TextField(controller: name, maxLength: 32, autofocus: true),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(c),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () {
+              if (name.text.trim().isNotEmpty) {
+                Navigator.pop(c, name.text.trim());
+              }
+            },
+            child: const Text('Save'),
+          ),
+        ],
+      ),
+    );
+    if (result == null) return;
+    try {
+      await StickerExportService.renamePack(pack, result);
+      await refreshPacks();
+    } catch (e) {
+      notify(
+        e is PlatformException
+            ? e.message ?? 'Unable to rename pack.'
+            : 'Unable to rename pack.',
+      );
+    }
+  }
+
+  Future<void> detail(LocalStickerPack pack) async {
+    await Get.to(() => StickerPackDetailView(pack: pack));
+    await refreshPacks();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final drafts = prefs.getStringList('stiksy_drafts') ?? [];
+    final packs = prefs.getStringList('stiksy_packs') ?? [];
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'My Sticker Packs',
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            child: FilledButton.icon(
+              style: FilledButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                minimumSize: const Size(0, 34),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(9),
+                ),
+              ),
+              onPressed: newPack,
+              icon: const Icon(Icons.add, size: 16),
+              label: const Text('New Pack', style: TextStyle(fontSize: 12)),
+            ),
+          ),
+        ],
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(18),
+        children: [
+          if (drafts.isNotEmpty) ...[
+            const Text(
+              'Your saved designs',
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+            ),
+            const SizedBox(height: 12),
+            ...drafts.reversed.map((raw) {
+              final d = jsonDecode(raw) as Map<String, dynamic>;
+              final template = stickerTemplates.firstWhere(
+                (t) => t.id == d['template'],
+                orElse: () => customStickerTemplate,
+              );
+              return Card(
+                color: const Color(0xfffaf7f2),
+                child: ListTile(
+                  leading: Text(
+                    d['emoji'],
+                    style: const TextStyle(fontSize: 28),
+                  ),
+                  title: Text(
+                    (d['text'] as String? ?? '').isEmpty
+                        ? 'My custom sticker'
+                        : d['text'],
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  subtitle: const Text('Saved design · tap to edit'),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () async {
+                    await Get.to(
+                      () => StickerEditorView(
+                        template: template,
+                        initialDesign: d,
+                      ),
+                    );
+                    await refreshPacks();
+                    if (mounted) setState(() {});
+                  },
+                ),
+              );
+            }),
+            const SizedBox(height: 20),
+          ],
+          if (loadingPacks) const LinearProgressIndicator(),
+          ...nativePacks.map(
+            (pack) => Card(
+              color: const Color(0xfffaf7f2),
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        InkWell(
+                          onTap: () => detail(pack),
+                          child: SizedBox(
+                            width: 52,
+                            height: 52,
+                            child: pack.count == 0
+                                ? const Icon(
+                                    Icons.style_outlined,
+                                    color: AppColors.primary,
+                                  )
+                                : PackStickerThumbnail(
+                                    key: ValueKey(
+                                      '${pack.id}-cover-${pack.data['version']}',
+                                    ),
+                                    pack: pack,
+                                    file: pack.data['stickers'][0]['file'],
+                                  ),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            pack.name,
+                            style: const TextStyle(fontWeight: FontWeight.w800),
+                          ),
+                        ),
+                        Text('${pack.count}/30'),
+                        PopupMenuButton<String>(
+                          itemBuilder: (_) => [
+                            PopupMenuItem(
+                              value: 'whatsapp',
+                              enabled: pack.ready,
+                              child: const Text('Add to WhatsApp'),
+                            ),
+                            PopupMenuItem(
+                              value: 'business',
+                              enabled: pack.ready,
+                              child: const Text('Add to WhatsApp Business'),
+                            ),
+                            PopupMenuItem(
+                              value: 'add',
+                              child: Text('Create sticker'),
+                            ),
+                            PopupMenuItem(
+                              value: 'view',
+                              child: Text('View stickers'),
+                            ),
+                            PopupMenuItem(
+                              value: 'rename',
+                              child: Text('Rename pack'),
+                            ),
+                            PopupMenuItem(
+                              value: 'delete',
+                              child: Text('Delete pack'),
+                            ),
+                          ],
+                          onSelected: (value) async {
+                            if (value == 'whatsapp' || value == 'business') {
+                              await install(pack, value == 'business');
+                            } else if (value == 'view') {
+                              await detail(pack);
+                            } else if (value == 'rename') {
+                              await rename(pack);
+                            } else if (value == 'add') {
+                              await Get.to(
+                                () => StickerEditorView(
+                                  template: stickerTemplates.first,
+                                ),
+                              );
+                              await refreshPacks();
+                            } else {
+                              final remove = await showDialog<bool>(
+                                context: context,
+                                builder: (c) => AlertDialog(
+                                  title: Text('Delete ${pack.name}?'),
+                                  content: const Text(
+                                    'This removes the saved stickers in this pack from Stiksy.',
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () => Navigator.pop(c, false),
+                                      child: const Text('Cancel'),
+                                    ),
+                                    TextButton(
+                                      onPressed: () => Navigator.pop(c, true),
+                                      child: const Text('Delete'),
+                                    ),
+                                  ],
+                                ),
+                              );
+                              if (remove == true) {
+                                try {
+                                  await StickerExportService.deletePack(pack);
+                                  await refreshPacks();
+                                } catch (_) {
+                                  notify('Unable to delete pack.');
+                                }
+                              }
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                    if (pack.count > 0)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: InkWell(
+                          onTap: () => detail(pack),
+                          child: Row(
+                            children: (pack.data['stickers'] as List)
+                                .take(4)
+                                .map(
+                                  (v) => Padding(
+                                    padding: const EdgeInsets.only(right: 6),
+                                    child: SizedBox(
+                                      width: 46,
+                                      height: 46,
+                                      child: PackStickerThumbnail(
+                                        key: ValueKey(
+                                          '${pack.id}-${v['file']}',
+                                        ),
+                                        pack: pack,
+                                        file: v['file'],
+                                      ),
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                          ),
+                        ),
+                      ),
+                    Text(
+                      pack.ready
+                          ? 'Ready for WhatsApp'
+                          : 'Add ${3 - pack.count} more ${pack.count == 2 ? "sticker" : "stickers"} to install',
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: Colors.black54,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          if (!StickerExportService.supported)
+            ...packs.map(
+              (name) => Card(
+                child: ListTile(
+                  leading: const Icon(
+                    Icons.style_outlined,
+                    color: AppColors.primary,
+                  ),
+                  title: Text(name),
+                  subtitle: const Text('New pack · create your first sticker'),
+                  onTap: () => Get.to(
+                    () => StickerEditorView(template: stickerTemplates.first),
+                  ),
+                ),
+              ),
+            ),
+          const Text(
+            'Explore collections',
+            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+          ),
+          const SizedBox(height: 12),
+          ...['Urdu', 'Eid / Ramadan', 'Cricket', 'Funny'].map((category) {
+            final templates = stickerTemplates
+                .where((t) => t.category == category)
+                .toList();
+            return Container(
+              margin: const EdgeInsets.only(bottom: 14),
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: const Color(0xfffaf8f5),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 48,
+                        height: 48,
+                        child: Image.asset(
+                          'assets/stickers/${category == 'Funny'
+                              ? 'mood-cat'
+                              : category == 'Cricket'
+                              ? 'cricket'
+                              : category == 'Urdu'
+                              ? 'chai'
+                              : 'eid'}.webp',
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              category == 'Funny'
+                                  ? 'Daily Funny'
+                                  : category == 'Cricket'
+                                  ? 'Cricket Fever'
+                                  : category == 'Urdu'
+                                  ? 'Chai Vibes'
+                                  : 'Eid Special',
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                            Text(
+                              '${templates.length} templates',
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: Colors.black54,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Icon(Icons.chevron_right),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  Row(
+                    children: templates
+                        .take(4)
+                        .map(
+                          (t) => SizedBox(
+                            width: 62,
+                            height: 62,
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 6),
+                              child: InkWell(
+                                onTap: () async {
+                                  if (await TemplateAccess.allow(context, t)) {
+                                    await Get.to(
+                                      () => StickerEditorView(template: t),
+                                    );
+                                    await refreshPacks();
+                                  }
+                                },
+                                child: StickerArtwork(template: t),
+                              ),
+                            ),
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ],
+              ),
+            );
+          }),
+          const SizedBox(height: 12),
+          const Text(
+            'Save exported stickers into a pack. Packs with 3–30 stickers can be installed in WhatsApp on Android.',
+            style: TextStyle(color: Colors.black54, fontSize: 12),
+          ),
+        ],
+      ),
+    );
+  }
+}
