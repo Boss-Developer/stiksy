@@ -4,14 +4,13 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../services/ad_service.dart';
 
 class StiksyAd extends StatefulWidget {
-  const StiksyAd({super.key, this.native = false});
-  final bool native;
+  const StiksyAd({super.key});
   @override
   State<StiksyAd> createState() => _StiksyAdState();
 }
 
 class _StiksyAdState extends State<StiksyAd> {
-  AdWithView? ad;
+  NativeAd? ad;
   bool loaded = false, requested = false;
   @override
   void initState() {
@@ -32,29 +31,16 @@ class _StiksyAdState extends State<StiksyAd> {
       ad = null;
     }
 
-    ad = widget.native
-        ? NativeAd(
-            adUnitId: AdService.nativeId,
-            request: const AdRequest(),
-            listener: NativeAdListener(
-              onAdLoaded: success,
-              onAdFailedToLoad: failure,
-            ),
-            nativeTemplateStyle: NativeTemplateStyle(
-              templateType: TemplateType.small,
-              mainBackgroundColor: const Color(0xfff3f7f5),
-              cornerRadius: 14,
-            ),
-          )
-        : BannerAd(
-            adUnitId: AdService.bannerId,
-            request: const AdRequest(),
-            size: AdSize.banner,
-            listener: BannerAdListener(
-              onAdLoaded: success,
-              onAdFailedToLoad: failure,
-            ),
-          );
+    ad = NativeAd(
+      adUnitId: AdService.nativeId,
+      request: const AdRequest(),
+      listener: NativeAdListener(onAdLoaded: success, onAdFailedToLoad: failure),
+      nativeTemplateStyle: NativeTemplateStyle(
+        templateType: TemplateType.small,
+        mainBackgroundColor: const Color(0xfff3f7f5),
+        cornerRadius: 14,
+      ),
+    );
     ad!.load();
   }
 
@@ -73,10 +59,8 @@ class _StiksyAdState extends State<StiksyAd> {
             if (constraints.maxWidth < 320) return const SizedBox.shrink();
             return Center(
               child: SizedBox(
-                width: widget.native
-                    ? constraints.maxWidth.clamp(320, 400)
-                    : 320,
-                height: widget.native ? 120 : 50,
+                width: constraints.maxWidth.clamp(320, 400),
+                height: 120,
                 child: AdWidget(ad: ad!),
               ),
             );

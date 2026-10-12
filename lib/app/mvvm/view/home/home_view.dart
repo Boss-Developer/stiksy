@@ -8,6 +8,7 @@ import '../../../custom_widgets/stiksy_ads.dart';
 import '../../../custom_widgets/stiksy_crown.dart';
 import '../../model/sticker_template.dart';
 import '../../view_model/home/home_controller.dart';
+import '../catalog/catalog_view.dart';
 import '../create/custom_sticker_view.dart';
 import '../premium/premium_view.dart';
 import '../packs/sticker_packs_view.dart';
@@ -278,6 +279,15 @@ class HomeView extends GetView<HomeController> {
                       },
                     ),
                   ),
+                  heading(
+                    'Pakistani Sticker Packs',
+                    () => Get.to(() => const CatalogView()),
+                  ),
+                  const Text(
+                    '40 packs · download once, use offline',
+                    style: TextStyle(fontSize: 12, color: Colors.black54),
+                  ),
+                  const SizedBox(height: 14),
                   heading('Categories', () => controller.openCategory('All')),
                   GridView.count(
                     shrinkWrap: true,
@@ -350,7 +360,7 @@ class HomeView extends GetView<HomeController> {
                     selected: controller.favoritesOnly.value,
                     onSelected: (v) => controller.favoritesOnly.value = v,
                   ),
-                  const StiksyAd(native: true),
+                  const StiksyAd(),
                   Text(
                     '${controller.filtered.length} templates',
                     style: const TextStyle(color: Colors.black54),

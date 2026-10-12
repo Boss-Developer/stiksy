@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-034",
+  "identifier": "stiksy-pk-034",
+  "title": "Chand Raat Mubarak",
+  "name": "Chand Raat Mubarak",
+  "publisher": "Stiksy",
+  "category": "Eid & Ramadan",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "eid-ramadan"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-034-01",
+      "file": "01.webp",
+      "caption": "Chand Raat Mubarak",
+      "accessibilityText": "Chand Raat Mubarak: Chand Raat Mubarak",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34898,
+      "sha256": "a0b4caf3ec0e65c068982197b720837c4a8a8126d497393bb137ba8d104cf8f5",
+      "quality": 68,
+      "renderSha256": "b87ca6000991ba52ae2338a305b072573db47f04d54677d50433a5b787c7eea0"
+    },
+    {
+      "id": "stiksy-pk-034-02",
+      "file": "02.webp",
+      "caption": "Chand nazar aa gaya",
+      "accessibilityText": "Chand Raat Mubarak: Chand nazar aa gaya",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30028,
+      "sha256": "b2547d90351eee0aac4ce6747949fc07d32ae18a918e2dafaee09eccfc665e85",
+      "quality": 68,
+      "renderSha256": "107c7428e27ee249b990294794ef8d4e75b5a4f6a3b58ede073ab6a87f11975c"
+    },
+    {
+      "id": "stiksy-pk-034-03",
+      "file": "03.webp",
+      "caption": "Mehndi ka rang hai",
+      "accessibilityText": "Chand Raat Mubarak: Mehndi ka rang hai",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31238,
+      "sha256": "7536e810d0f34d054e60d910cd0958967ca237efb2526b7f405c44e7f08017b2",
+      "quality": 68,
+      "renderSha256": "7bf7f8c3389595ae3a013ce0da43300ec6c665d50741c8327af2303b0537c282"
+    },
+    {
+      "id": "stiksy-pk-034-04",
+      "file": "04.webp",
+      "caption": "Chooriyan pehen lo",
+      "accessibilityText": "Chand Raat Mubarak: Chooriyan pehen lo",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25876,
+      "sha256": "17d3b5120427dab6256467853c3a39b587d566314770bd5f8ee6e7c659b433a3",
+      "quality": 68,
+      "renderSha256": "d38f268c8f0a278df542a8c210486bb1e7f947445f0f86732bc2d568aaf34734"
+    },
+    {
+      "id": "stiksy-pk-034-05",
+      "file": "05.webp",
+      "caption": "Kal Eid hai!",
+      "accessibilityText": "Chand Raat Mubarak: Kal Eid hai!",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29058,
+      "sha256": "676b65549cb2312a6a843362a383ac1833bce6793cbd1adc7c08849f6e1e766f",
+      "quality": 68,
+      "renderSha256": "3e0cc28a22742d252a1d81aeb17d30f299b9fa8cc31084a714319ce51f3bf739"
+    },
+    {
+      "id": "stiksy-pk-034-06",
+      "file": "06.webp",
+      "caption": "Chand raat ki ronak",
+      "accessibilityText": "Chand Raat Mubarak: Chand raat ki ronak",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23676,
+      "sha256": "2583f973dc22699c5053d1289f8f5402b24b67a544afbf1db0f10e67b16ecab8",
+      "quality": 68,
+      "renderSha256": "d9dfeb987e237404bbd814a6359deab1a5ec5e81a319261dda794bbbd308443a"
+    },
+    {
+      "id": "stiksy-pk-034-07",
+      "file": "07.webp",
+      "caption": "Shopping abhi baqi hai",
+      "accessibilityText": "Chand Raat Mubarak: Shopping abhi baqi hai",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33584,
+      "sha256": "3169682f05ca05a54eb239a4476b5422d9cbcd4a42713be3f347231f85efea41",
+      "quality": 68,
+      "renderSha256": "dc89e3d51416f058851e35d28462d7280c59fa82a814620617e66feebc13e3a2"
+    },
+    {
+      "id": "stiksy-pk-034-08",
+      "file": "08.webp",
+      "caption": "Mehndi lagwa lo",
+      "accessibilityText": "Chand Raat Mubarak: Mehndi lagwa lo",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32626,
+      "sha256": "d7b494f2c95527a93b925b1f9bdd2851d423b6425c5141d271ade9d86f7a74db",
+      "quality": 68,
+      "renderSha256": "1d1230543c71ce212f5447efddc9aa8f37fd5cc79e04e084e251455d97f4fca7"
+    },
+    {
+      "id": "stiksy-pk-034-09",
+      "file": "09.webp",
+      "caption": "Eid ki tayyari on",
+      "accessibilityText": "Chand Raat Mubarak: Eid ki tayyari on",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34420,
+      "sha256": "9dbccc5f27bda92090a60b06b0a1ba9771ea5bffdb3b1f3b147a35dccc1e5eeb",
+      "quality": 68,
+      "renderSha256": "6451ae34a52c3d1862a228ea577c592be64a1bb1f1f47d46e2ba0701866c0a3d"
+    },
+    {
+      "id": "stiksy-pk-034-10",
+      "file": "10.webp",
+      "caption": "Chand raat wali khushi",
+      "accessibilityText": "Chand Raat Mubarak: Chand raat wali khushi",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 36160,
+      "sha256": "25445730da53ac7e1df4c6388e135ced2feb6a26eafb261d6c79a04981430f24",
+      "quality": 68,
+      "renderSha256": "77377efcde6dac07e76b4f65ae01fc9c8c4d8ac193bac7a2396383714a5b6cec"
+    }
+  ]
+}

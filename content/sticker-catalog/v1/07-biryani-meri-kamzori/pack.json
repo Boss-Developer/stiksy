@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-007",
+  "identifier": "stiksy-pk-007",
+  "title": "Biryani Meri Kamzori",
+  "name": "Biryani Meri Kamzori",
+  "publisher": "Stiksy",
+  "category": "Desi Food",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "desi-food"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-007-01",
+      "file": "01.webp",
+      "caption": "Biryani meri kamzori",
+      "accessibilityText": "Biryani Meri Kamzori: Biryani meri kamzori",
+      "emojis": [
+        "🍛"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 39972,
+      "sha256": "073b5937248883005a8537a7f478e19fd7ba79b3e4bae476eee6fa93867e38e6",
+      "quality": 68,
+      "renderSha256": "f7a899004e0ccbf71f0346f831270dd10649e592675d08b39c2918795738d7fe"
+    },
+    {
+      "id": "stiksy-pk-007-02",
+      "file": "02.webp",
+      "caption": "Biryani ka plan hai",
+      "accessibilityText": "Biryani Meri Kamzori: Biryani ka plan hai",
+      "emojis": [
+        "🍛"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33712,
+      "sha256": "fd3fa65b41934508e303eb7095dc95b6926558d68a394e8292c88ecd6b96ec20",
+      "quality": 68,
+      "renderSha256": "8d7ca49b805285733e669bb06f986b57dc774f6372b869e8448de2332f85ca9a"
+    },
+    {
+      "id": "stiksy-pk-007-03",
+      "file": "03.webp",
+      "caption": "Dil biryani mangay",
+      "accessibilityText": "Biryani Meri Kamzori: Dil biryani mangay",
+      "emojis": [
+        "🍛"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 36196,
+      "sha256": "b92dc254c98570769d7c9e47727a9a2ee577040ff26bc6c79ab0332e6a607ed4",
+      "quality": 68,
+      "renderSha256": "8e7b5de392602d54eb09a65936ce39a1ac55a50b8c90526cf33156471bf2ed75"
+    },
+    {
+      "id": "stiksy-pk-007-04",
+      "file": "04.webp",
+      "caption": "Plate meri banao",
+      "accessibilityText": "Biryani Meri Kamzori: Plate meri banao",
+      "emojis": [
+        "🍛"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27710,
+      "sha256": "b4c849da9a59ae299eb0d232635ce9fa89c3635f97620ee86a2ecc49d37b935e",
+      "quality": 68,
+      "renderSha256": "7b0744e2ea6f54a3f10d255f8b36796edd4d52c27ada79098c35e56679b58764"
+    },
+    {
+      "id": "stiksy-pk-007-05",
+      "file": "05.webp",
+      "caption": "Biryani pe no sharing",
+      "accessibilityText": "Biryani Meri Kamzori: Biryani pe no sharing",
+      "emojis": [
+        "🍛"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 35228,
+      "sha256": "6a103a0e852a731d1e503bfbf887de040c56b6f04279fbdd374dd303d6a33593",
+      "quality": 68,
+      "renderSha256": "053bd4bff90efc0227be244fbe38d7018e4202c7f84e769eb08c3d3318975fbe"
+    },
+    {
+      "id": "stiksy-pk-007-06",
+      "file": "06.webp",
+      "caption": "Aaj biryani day",
+      "accessibilityText": "Biryani Meri Kamzori: Aaj biryani day",
+      "emojis": [
+        "🍛"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27166,
+      "sha256": "2738b9308159a1ae03d3707f79f63eb1a08a3f667291af91754231a555001443",
+      "quality": 68,
+      "renderSha256": "a41d42e40c6e0809b4d73a5b92c50404a8452df7c2bd61afe221e07bef79c836"
+    },
+    {
+      "id": "stiksy-pk-007-07",
+      "file": "07.webp",
+      "caption": "Raita bhi lao",
+      "accessibilityText": "Biryani Meri Kamzori: Raita bhi lao",
+      "emojis": [
+        "🍛"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 36518,
+      "sha256": "bf59e4866fe3a5788546e21b470c675bb393891f336d669354d4aa557974443e",
+      "quality": 68,
+      "renderSha256": "71e1074e261094532ccf5e5dde2722015306fd640a83af9918d7f041bc77a9c2"
+    },
+    {
+      "id": "stiksy-pk-007-08",
+      "file": "08.webp",
+      "caption": "Biryani se pyaar",
+      "accessibilityText": "Biryani Meri Kamzori: Biryani se pyaar",
+      "emojis": [
+        "🍛"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 37964,
+      "sha256": "977869cca6bfab1eca16e2669cdcddba8dcc929f251d671a3092912453407007",
+      "quality": 68,
+      "renderSha256": "02cbaa8bc4a5ac191fe09d4db46bcd1a65c57a39345ac241df136f848bd4f831"
+    },
+    {
+      "id": "stiksy-pk-007-09",
+      "file": "09.webp",
+      "caption": "Diet kal se",
+      "accessibilityText": "Biryani Meri Kamzori: Diet kal se",
+      "emojis": [
+        "🍛"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 37236,
+      "sha256": "498ad4f69f1b661115fafa02b175983e04d7d846edab792d96aa172d498e35b8",
+      "quality": 68,
+      "renderSha256": "58977358658421b053558b9f59df63d1ca06bec102ef332ef75740ffc4dd880a"
+    },
+    {
+      "id": "stiksy-pk-007-10",
+      "file": "10.webp",
+      "caption": "Ek plate aur",
+      "accessibilityText": "Biryani Meri Kamzori: Ek plate aur",
+      "emojis": [
+        "🍛"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 37714,
+      "sha256": "c40aab36d3674fb281537aa7ed95b512d5821513b6f7712f406733b816b7487f",
+      "quality": 68,
+      "renderSha256": "7584c128329ff5cf11a3b6d9aea0ce6d50ec08a1697f7aada7100a4dab885a70"
+    }
+  ]
+}

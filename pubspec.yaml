@@ -1,4 +1,4 @@
-﻿name: stiksy
+name: stiksy
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -43,17 +43,14 @@ dependencies:
   logger: ^2.6.2
   google_fonts: ^6.3.3
   intl: ^0.20.2
-  timezone: ^0.10.0
-  flutter_local_notifications: ^19.5.0
   permission_handler: ^12.0.1
-  flutter_timezone: ^5.0.1
-  firebase_messaging: ^16.0.0
-  geolocator: ^14.0.0
-  googleapis_auth: ^2.0.0
   share_plus: ^13.3.1
   path_provider: ^2.1.6
   google_mobile_ads: ^9.1.0
   image_picker: ^1.2.4
+  supabase_flutter: ^2.18.0
+  flutter_secure_storage: ^11.2.0
+  crypto: ^3.0.7
 
 dev_dependencies:
   flutter_test:

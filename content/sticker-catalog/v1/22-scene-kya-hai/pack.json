@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-022",
+  "identifier": "stiksy-pk-022",
+  "title": "Scene Kya Hai?",
+  "name": "Scene Kya Hai?",
+  "publisher": "Stiksy",
+  "category": "Desi Reactions",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "desi-reactions"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-022-01",
+      "file": "01.webp",
+      "caption": "Scene kya hai?",
+      "accessibilityText": "Scene Kya Hai?: Scene kya hai?",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26526,
+      "sha256": "14203c9e86e5a154999bbdf4cc9ef7ea357e12f01e70bc31d2c581bfc9188df7",
+      "quality": 68,
+      "renderSha256": "2382530c644a694687f81f53327b76b01beeed4ef30103b10bd7d0015c2c7524"
+    },
+    {
+      "id": "stiksy-pk-022-02",
+      "file": "02.webp",
+      "caption": "Kahan chalna hai?",
+      "accessibilityText": "Scene Kya Hai?: Kahan chalna hai?",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22934,
+      "sha256": "b13c010a3d526119ff86d9c5a89f22318358b51fc97bfaa4870e2c92a16ad2d8",
+      "quality": 68,
+      "renderSha256": "6e07f74ae643ec42f1573953ca3f9b6c97006bd4a279aaa243df2b292c3dba09"
+    },
+    {
+      "id": "stiksy-pk-022-03",
+      "file": "03.webp",
+      "caption": "Plan batao bhai",
+      "accessibilityText": "Scene Kya Hai?: Plan batao bhai",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23362,
+      "sha256": "a20a8d9a9e28c0aa7d2d953946850cbed1eb4f0674ba4cc3b702c0a49d54f351",
+      "quality": 68,
+      "renderSha256": "0145f987435098c274e5d5119a9138de49532960183d61fdd191f0dcde022462"
+    },
+    {
+      "id": "stiksy-pk-022-04",
+      "file": "04.webp",
+      "caption": "Kya update hai?",
+      "accessibilityText": "Scene Kya Hai?: Kya update hai?",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 19698,
+      "sha256": "c1e067d737915f486872f589200371e494b35362ba10c7045702e03017622ee6",
+      "quality": 68,
+      "renderSha256": "bafdc4cc1a9d49403f2bdf17ff1144afa129c5355320b33b20609ed45c6a3072"
+    },
+    {
+      "id": "stiksy-pk-022-05",
+      "file": "05.webp",
+      "caption": "Sab ready hain?",
+      "accessibilityText": "Scene Kya Hai?: Sab ready hain?",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23360,
+      "sha256": "64313baf5680d808ee2aadf3a33debdebdb8d485ba2b8fa2a99b90942cd3ed71",
+      "quality": 68,
+      "renderSha256": "18ef8e30c05c408597c91d06e07d53b6b5f5f2fe6133d20a38571945ecd2ad3a"
+    },
+    {
+      "id": "stiksy-pk-022-06",
+      "file": "06.webp",
+      "caption": "Aaj ka kya program?",
+      "accessibilityText": "Scene Kya Hai?: Aaj ka kya program?",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 19902,
+      "sha256": "ec51c7a2cc41106f0a6a67213a9344a709060d3a1e20fd4f8235c2f382db9219",
+      "quality": 68,
+      "renderSha256": "72dff1d30cb26feaa6879745d9dd8842555eb895d19fe4c7885b8acb8063ae0b"
+    },
+    {
+      "id": "stiksy-pk-022-07",
+      "file": "07.webp",
+      "caption": "Group mein bata do",
+      "accessibilityText": "Scene Kya Hai?: Group mein bata do",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23946,
+      "sha256": "e730df63905190efb8029b99d9fc87df153236ae7431eee31a963352e55fe6f5",
+      "quality": 68,
+      "renderSha256": "b5908b9a8a05d0784727a2a71f21e568ddf87035719bc8835028e664ce6b1738"
+    },
+    {
+      "id": "stiksy-pk-022-08",
+      "file": "08.webp",
+      "caption": "Time confirm karo",
+      "accessibilityText": "Scene Kya Hai?: Time confirm karo",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 24840,
+      "sha256": "8cc1ce1a012e23b92312f25f1988a0600ce0f16e2dbc3cbdefd4763ee5b5a7f8",
+      "quality": 68,
+      "renderSha256": "e5d7aefdf5376ad975f9e983e8294efeaad8056149d50a27a33d058cdc134e7b"
+    },
+    {
+      "id": "stiksy-pk-022-09",
+      "file": "09.webp",
+      "caption": "Kaun kaun aa raha hai?",
+      "accessibilityText": "Scene Kya Hai?: Kaun kaun aa raha hai?",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30786,
+      "sha256": "74cab29e6c85913e426463bbbcfbf773c780b156a22621f577f45a3c4042f7ac",
+      "quality": 68,
+      "renderSha256": "defed2d53917e6ea0b2e77f919e017c920c7994509b19da3c33bae412909e163"
+    },
+    {
+      "id": "stiksy-pk-022-10",
+      "file": "10.webp",
+      "caption": "Scene clear karo",
+      "accessibilityText": "Scene Kya Hai?: Scene clear karo",
+      "emojis": [
+        "👀"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27428,
+      "sha256": "d87734806f14c69dbf358d6b487144f6d7ea0c8ea080e4ba332b88560ef418b0",
+      "quality": 68,
+      "renderSha256": "83d7fd70ba6c68d61a3c909f357265b42506378753eb269ce31f6214781c951a"
+    }
+  ]
+}

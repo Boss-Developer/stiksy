@@ -15,10 +15,6 @@ Future<void> main() async {
 
   LoggerService.banner(name: AppConfig.appName, env: 'debug');
 
-  // ✅ Uncomment when Firebase / Notifications are enabled:
-  // await Firebase.initializeApp();
-  // await NotificationService.initialize();
-
   Get.put<SharedPreferences>(
     await SharedPreferences.getInstance(),
     permanent: true,

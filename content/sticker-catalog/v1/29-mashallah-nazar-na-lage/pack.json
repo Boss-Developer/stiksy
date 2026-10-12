@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-029",
+  "identifier": "stiksy-pk-029",
+  "title": "MashAllah, Nazar Na Lage",
+  "name": "MashAllah, Nazar Na Lage",
+  "publisher": "Stiksy",
+  "category": "Dua & Greetings",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "dua-greetings"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-029-01",
+      "file": "01.webp",
+      "caption": "MashAllah, nazar na lage",
+      "accessibilityText": "MashAllah, Nazar Na Lage: MashAllah, nazar na lage",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34580,
+      "sha256": "2e079626269a39f52b582a986d84e68448de446fcd921d78b615d84522d34f80",
+      "quality": 68,
+      "renderSha256": "f98f9b5ecd2a919e030aadae103a588af7de005008f6d8acbab24ca559324c67"
+    },
+    {
+      "id": "stiksy-pk-029-02",
+      "file": "02.webp",
+      "caption": "MashAllah bohat pyaray",
+      "accessibilityText": "MashAllah, Nazar Na Lage: MashAllah bohat pyaray",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29780,
+      "sha256": "37c9bdab138dc3a1f1be92a313d9d4253340417e18b4b34ba2332e18a0d8c01c",
+      "quality": 68,
+      "renderSha256": "2e0581550e3b334cf8ee4263ea05fc63c5a9e7f3a6976390e32369f440700f3b"
+    },
+    {
+      "id": "stiksy-pk-029-03",
+      "file": "03.webp",
+      "caption": "Allah nazar se bachaye",
+      "accessibilityText": "MashAllah, Nazar Na Lage: Allah nazar se bachaye",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30830,
+      "sha256": "9f2c73127385f4f30c5dba447682f0e17c7ff22eb89066235de04c21cb9aa3ff",
+      "quality": 68,
+      "renderSha256": "61efc2102ce380ebe757bc7d0720b51ef6c61ff1790968f64139cc5abe19a41b"
+    },
+    {
+      "id": "stiksy-pk-029-04",
+      "file": "04.webp",
+      "caption": "Khush raho hamesha",
+      "accessibilityText": "MashAllah, Nazar Na Lage: Khush raho hamesha",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 24586,
+      "sha256": "3276a5acbe5822687d7de76ca613cdc9b601e0b5df2b227282382d0da61c5696",
+      "quality": 68,
+      "renderSha256": "299705be4ae569219fbd018dd4b2693bcbc75ba2d8b46c16ef1a00140e17bd52"
+    },
+    {
+      "id": "stiksy-pk-029-05",
+      "file": "05.webp",
+      "caption": "MashAllah, kamaal hai",
+      "accessibilityText": "MashAllah, Nazar Na Lage: MashAllah, kamaal hai",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28706,
+      "sha256": "2ba910c268959b4180b9d20f342228916db0ad9085d526b354ce2ddd0a572618",
+      "quality": 68,
+      "renderSha256": "d13de4d63ee5e87f2594423cde4c3568bbcfd48bd8345ac03959bbcf9f73111c"
+    },
+    {
+      "id": "stiksy-pk-029-06",
+      "file": "06.webp",
+      "caption": "Bohat barkat ho",
+      "accessibilityText": "MashAllah, Nazar Na Lage: Bohat barkat ho",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23060,
+      "sha256": "e38aace8de193af8cc138a7fcfa701c4e19ca9f134a573e19a859c932b7d1d46",
+      "quality": 68,
+      "renderSha256": "3b150b94f51f51a1b29b4ac3afcdbe8ae8444637e777dcaf0e611e43f14e94a6"
+    },
+    {
+      "id": "stiksy-pk-029-07",
+      "file": "07.webp",
+      "caption": "Allah salamat rakhe",
+      "accessibilityText": "MashAllah, Nazar Na Lage: Allah salamat rakhe",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31486,
+      "sha256": "961a247374fad6bf5b3a9c1f85e28c88c4a5ddaa11bc0c82453b6216f950defe",
+      "quality": 68,
+      "renderSha256": "c34053d5ece7a51225838e5f5adc43677efbddd3dd3fe73d60035da7284a1814"
+    },
+    {
+      "id": "stiksy-pk-029-08",
+      "file": "08.webp",
+      "caption": "MashAllah, dil khush",
+      "accessibilityText": "MashAllah, Nazar Na Lage: MashAllah, dil khush",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30886,
+      "sha256": "f94c0bd4bb4c20b809e5ebe1e459159ef734fc8644bc460dc56d889e97efefdd",
+      "quality": 68,
+      "renderSha256": "e61ac9bfd7b768841307bfd1c63c68d954522dfc17f04299727d9cd248dffc0b"
+    },
+    {
+      "id": "stiksy-pk-029-09",
+      "file": "09.webp",
+      "caption": "Khushiyan mubarak",
+      "accessibilityText": "MashAllah, Nazar Na Lage: Khushiyan mubarak",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 35090,
+      "sha256": "f6ed0e5f4a0dc5cad89f451e18aae857da929f9b4d51d3389c348ca4179f52c7",
+      "quality": 68,
+      "renderSha256": "c50b30909db48812856e10d013615e9618a5fe731cee1b54b73d398a0b7ed801"
+    },
+    {
+      "id": "stiksy-pk-029-10",
+      "file": "10.webp",
+      "caption": "Hamesha muskurate raho",
+      "accessibilityText": "MashAllah, Nazar Na Lage: Hamesha muskurate raho",
+      "emojis": [
+        "✨"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 35554,
+      "sha256": "5e822673e28de2fe0206091b6c2c4c84d614853dfeb4c10aa0aead6477184255",
+      "quality": 68,
+      "renderSha256": "4bbefcb9fc88cc4d7c796ceb62921e3211f4088b2a87bd484e9adcb19139f83f"
+    }
+  ]
+}

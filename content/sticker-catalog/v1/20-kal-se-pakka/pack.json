@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-020",
+  "identifier": "stiksy-pk-020",
+  "title": "Kal Se Pakka",
+  "name": "Kal Se Pakka",
+  "publisher": "Stiksy",
+  "category": "Daily Desi Life",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "daily-desi-life"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-020-01",
+      "file": "01.webp",
+      "caption": "Kal se pakka",
+      "accessibilityText": "Kal Se Pakka: Kal se pakka",
+      "emojis": [
+        "💪"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33500,
+      "sha256": "a0f8a685ec76f38ee9d8fe0304eac7f5c792aacd87e4962dc55c7b4f976c5e85",
+      "quality": 68,
+      "renderSha256": "340dfc41cfcd9c058b297b25cac0d9f15ece30647c43de6dbf9dc32e0dcdfdb8"
+    },
+    {
+      "id": "stiksy-pk-020-02",
+      "file": "02.webp",
+      "caption": "Monday se shuru",
+      "accessibilityText": "Kal Se Pakka: Monday se shuru",
+      "emojis": [
+        "💪"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29628,
+      "sha256": "e7b5bd085258ebc9467995e446bf4d29cac4d3d0ec22b78acc5d05ba02604f1b",
+      "quality": 68,
+      "renderSha256": "859becbf306a1db114103a0361aa9342b40e85adfe8a95679c7957af628d7ffa"
+    },
+    {
+      "id": "stiksy-pk-020-03",
+      "file": "03.webp",
+      "caption": "Aaj last cheat day",
+      "accessibilityText": "Kal Se Pakka: Aaj last cheat day",
+      "emojis": [
+        "💪"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32362,
+      "sha256": "59f5c3c0f58c225525f314fcbe65031b4253fa982547a087250ba421f0b72570",
+      "quality": 68,
+      "renderSha256": "b4f89909127d6e2e25c3755848b046d93930d9e1612370513cef7e9458746ad0"
+    },
+    {
+      "id": "stiksy-pk-020-04",
+      "file": "04.webp",
+      "caption": "Is baar serious hoon",
+      "accessibilityText": "Kal Se Pakka: Is baar serious hoon",
+      "emojis": [
+        "💪"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25268,
+      "sha256": "cb4a1136ae2a3e3e4596ebcbad1fdff57749b3f83b698bd555d18c17604ec183",
+      "quality": 68,
+      "renderSha256": "ea2643db03f1abe584884ebe72afee3c8d86e4ace72d1453114a761d76cfa8be"
+    },
+    {
+      "id": "stiksy-pk-020-05",
+      "file": "05.webp",
+      "caption": "Bas ek din aur",
+      "accessibilityText": "Kal Se Pakka: Bas ek din aur",
+      "emojis": [
+        "💪"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30316,
+      "sha256": "bfc55303befbaca3c83ee64fc2d65b5a8f498499cb468fad25d1eacf56fcd266",
+      "quality": 68,
+      "renderSha256": "1ae9dc17807a4496dd90fd7260753d6244cf04302ce45ac5a1ab1a1ca73d4545"
+    },
+    {
+      "id": "stiksy-pk-020-06",
+      "file": "06.webp",
+      "caption": "Kal ka plan solid",
+      "accessibilityText": "Kal Se Pakka: Kal ka plan solid",
+      "emojis": [
+        "💪"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 24416,
+      "sha256": "08204c8139ada1ed7d2246186a184df9cd52ab594f526926533a27cba6d952b3",
+      "quality": 68,
+      "renderSha256": "b1c203ccfc355df4d84ac49dfe05c238581d1f0761ea2d9a63f680a9146b34e3"
+    },
+    {
+      "id": "stiksy-pk-020-07",
+      "file": "07.webp",
+      "caption": "Pakka promise yaar",
+      "accessibilityText": "Kal Se Pakka: Pakka promise yaar",
+      "emojis": [
+        "💪"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33516,
+      "sha256": "29b528bf181d1c74c70ad2cc41d9f9e30fe2b9152342f0bba766943124e6a97f",
+      "quality": 68,
+      "renderSha256": "e3ba0894505bd290dd96e7a0ff44ca849e0c7de4f063c64152a53d2cb9cc03f5"
+    },
+    {
+      "id": "stiksy-pk-020-08",
+      "file": "08.webp",
+      "caption": "Alarm laga diya",
+      "accessibilityText": "Kal Se Pakka: Alarm laga diya",
+      "emojis": [
+        "💪"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33146,
+      "sha256": "a8dbf368cab3c4e47280f3d70e52986dfc7c793fc9bed23e7596b16826f46f38",
+      "quality": 68,
+      "renderSha256": "dac16ad75ef1dd975e20d991ec29fec2d7aa2a8fca8952e093d8379f8f95bd6b"
+    },
+    {
+      "id": "stiksy-pk-020-09",
+      "file": "09.webp",
+      "caption": "Abki baar karna hai",
+      "accessibilityText": "Kal Se Pakka: Abki baar karna hai",
+      "emojis": [
+        "💪"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 37404,
+      "sha256": "cd62677a7cca054d3596b4649904b2d0b3b99c1ef34651f94242bf080ddda3fc",
+      "quality": 68,
+      "renderSha256": "c6d0de015aff1d1516597c5c3cd8d3ee09707d42d09dc3e9edcbb13f20e2922f"
+    },
+    {
+      "id": "stiksy-pk-020-10",
+      "file": "10.webp",
+      "caption": "Kal aa hi jayega",
+      "accessibilityText": "Kal Se Pakka: Kal aa hi jayega",
+      "emojis": [
+        "💪"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 35750,
+      "sha256": "05fed52e67d18983e956f852dcdb6d60c841c362f00a474cab2525dfbcf7dd4c",
+      "quality": 68,
+      "renderSha256": "894fd196a062957d87bb96466a812b97edc5e3c4c4606e8c1c05107008143d9c"
+    }
+  ]
+}

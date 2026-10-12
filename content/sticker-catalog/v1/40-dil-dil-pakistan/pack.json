@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-040",
+  "identifier": "stiksy-pk-040",
+  "title": "Dil Dil Pakistan",
+  "name": "Dil Dil Pakistan",
+  "publisher": "Stiksy",
+  "category": "Pakistan & Cricket",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "pakistan-cricket"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-040-01",
+      "file": "01.webp",
+      "caption": "Dil dil Pakistan",
+      "accessibilityText": "Dil Dil Pakistan: Dil dil Pakistan",
+      "emojis": [
+        "💚"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28406,
+      "sha256": "86553c1bc7958acb14da47093c1fb006542db77522fd81b46da195c3186fb813",
+      "quality": 68,
+      "renderSha256": "f5be03e1ba3a3933f60a699c0c417c7e2005d27b7c33e9b83b6a85974c8b82b7"
+    },
+    {
+      "id": "stiksy-pk-040-02",
+      "file": "02.webp",
+      "caption": "Jaan jaan Pakistan",
+      "accessibilityText": "Dil Dil Pakistan: Jaan jaan Pakistan",
+      "emojis": [
+        "💚"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25944,
+      "sha256": "2c9f50811f1d4b7432448546d99e2a4605e12b4a678a2bad8f1a0e74544f612c",
+      "quality": 68,
+      "renderSha256": "94792900d0d44585853a02c4eb799f58339abadc479cacb58c10b642c1d687b4"
+    },
+    {
+      "id": "stiksy-pk-040-03",
+      "file": "03.webp",
+      "caption": "Dil mein Pakistan",
+      "accessibilityText": "Dil Dil Pakistan: Dil mein Pakistan",
+      "emojis": [
+        "💚"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26530,
+      "sha256": "c17c9087b705724533a65d94669e84f5babc3788bae37c997d23f114f23003ae",
+      "quality": 68,
+      "renderSha256": "1d15623a1aa6a468faea8032de677b02360efde4cc46e8b7afee07991f5fbc51"
+    },
+    {
+      "id": "stiksy-pk-040-04",
+      "file": "04.webp",
+      "caption": "Apna sabz dil",
+      "accessibilityText": "Dil Dil Pakistan: Apna sabz dil",
+      "emojis": [
+        "💚"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 18366,
+      "sha256": "f36366075e9c182b8eed35397f63873198faa2694ee948d25256a096d510531b",
+      "quality": 68,
+      "renderSha256": "50aa185f7299bbc2266c903254d3662203a67b46aa436735f916b7b3d5193f94"
+    },
+    {
+      "id": "stiksy-pk-040-05",
+      "file": "05.webp",
+      "caption": "Pakistan se dil laga",
+      "accessibilityText": "Dil Dil Pakistan: Pakistan se dil laga",
+      "emojis": [
+        "💚"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25880,
+      "sha256": "dd9d0492617816f2a0039553824136c5c74a43f092606d2c7c12b5b837d6af5d",
+      "quality": 68,
+      "renderSha256": "b41c8a154cdcee1c2bfd86fea323a4486f5536f2d4112990315ce2913af9e324"
+    },
+    {
+      "id": "stiksy-pk-040-06",
+      "file": "06.webp",
+      "caption": "Mera dil Pakistani",
+      "accessibilityText": "Dil Dil Pakistan: Mera dil Pakistani",
+      "emojis": [
+        "💚"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 20752,
+      "sha256": "0446438f58ddedcadc9483b9049491171f531592f26fa46558ace89f056c24bc",
+      "quality": 68,
+      "renderSha256": "c307cfae591a3c89500470666b876b898bd994b93addf23c51fff37df8aa84a4"
+    },
+    {
+      "id": "stiksy-pk-040-07",
+      "file": "07.webp",
+      "caption": "Watan ki mohabbat",
+      "accessibilityText": "Dil Dil Pakistan: Watan ki mohabbat",
+      "emojis": [
+        "💚"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27778,
+      "sha256": "f653d2680caf8fbdd7f5d04d1911685bdad1e0c545fbe66955a9ca9e4b1010d6",
+      "quality": 68,
+      "renderSha256": "347b3619bdd9707ee09cdf444b50e50cfe08dcb908300100bd77cbbb213243ce"
+    },
+    {
+      "id": "stiksy-pk-040-08",
+      "file": "08.webp",
+      "caption": "Har dil Pakistan",
+      "accessibilityText": "Dil Dil Pakistan: Har dil Pakistan",
+      "emojis": [
+        "💚"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27268,
+      "sha256": "c01e9409744487cb3ae43947479fecf427ae5883e31b2e4e49df18441bdcc55c",
+      "quality": 68,
+      "renderSha256": "d353e173debf5705a1844f54fa93a84f268af963f99b28298adc76cdc7d43d65"
+    },
+    {
+      "id": "stiksy-pk-040-09",
+      "file": "09.webp",
+      "caption": "Pakistan, tu hi jaan",
+      "accessibilityText": "Dil Dil Pakistan: Pakistan, tu hi jaan",
+      "emojis": [
+        "💚"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32332,
+      "sha256": "c9e39c6aed2fc2054df3d05cddae029620c7eb7efa8aeb83e612c1580bc39c92",
+      "quality": 68,
+      "renderSha256": "88ab90071d9cf2ed08adf7e95ea8ff7d3d047e9f9e87302b72afd49911b9f474"
+    },
+    {
+      "id": "stiksy-pk-040-10",
+      "file": "10.webp",
+      "caption": "Dil se watan ke naam",
+      "accessibilityText": "Dil Dil Pakistan: Dil se watan ke naam",
+      "emojis": [
+        "💚"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30836,
+      "sha256": "01fb762ed0ca4a24a8f5d349dbac428e4b18a6da9a2341201504a91817e596cb",
+      "quality": 68,
+      "renderSha256": "54eff8d76f44376c004db041430bffa19e633cd1eaf778c59e0c7453dfba2ae4"
+    }
+  ]
+}

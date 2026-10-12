@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-003",
+  "identifier": "stiksy-pk-003",
+  "title": "Chai Meri Jaan",
+  "name": "Chai Meri Jaan",
+  "publisher": "Stiksy",
+  "category": "Chai & Gup Shup",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "chai-gup-shup"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-003-01",
+      "file": "01.webp",
+      "caption": "Chai meri jaan",
+      "accessibilityText": "Chai Meri Jaan: Chai meri jaan",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28914,
+      "sha256": "cf5fddcd30b4cf80bd3979d6c8b537019c2b5c64baa02d8da14869db06fc948d",
+      "quality": 68,
+      "renderSha256": "88a99e016046a49dc9655f6db3f4dca9155c89be64cebb8bf447962afd86d50e"
+    },
+    {
+      "id": "stiksy-pk-003-02",
+      "file": "02.webp",
+      "caption": "Chai se ishq hai",
+      "accessibilityText": "Chai Meri Jaan: Chai se ishq hai",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 24670,
+      "sha256": "1bf0c207708f1c946b9ba6c3acf8ce05688def550a91df60dc064724ce1b7d05",
+      "quality": 68,
+      "renderSha256": "da8c5149d28b437101b6c2f664e70e04edca961751d66352aa9ab39136b64297"
+    },
+    {
+      "id": "stiksy-pk-003-03",
+      "file": "03.webp",
+      "caption": "Dil chai chai kare",
+      "accessibilityText": "Chai Meri Jaan: Dil chai chai kare",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26736,
+      "sha256": "d8447c50bb8aa5344accb482484ef1c66a6b88dfa4c738b569bce9f0261ad756",
+      "quality": 68,
+      "renderSha256": "3694445823e85c9176cf702796a89a8eecf559e8d46fe9bf3ce73cf4e749dc6a"
+    },
+    {
+      "id": "stiksy-pk-003-04",
+      "file": "04.webp",
+      "caption": "Meri chai, meri marzi",
+      "accessibilityText": "Chai Meri Jaan: Meri chai, meri marzi",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22024,
+      "sha256": "b337e57eaa82336484dba666581910257dcc7d2c0cc17dc27f1f30bf120f7494",
+      "quality": 68,
+      "renderSha256": "c18c70eb52a2fd8fe97ff3e977c11dd34a9177aeeac41c5566b40f30f9d0ffec"
+    },
+    {
+      "id": "stiksy-pk-003-05",
+      "file": "05.webp",
+      "caption": "Chai wali mohabbat",
+      "accessibilityText": "Chai Meri Jaan: Chai wali mohabbat",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25872,
+      "sha256": "c31d10c3d66fad4fe0a9b9c51d3276894facc8163f7793952a8d3832d77685fe",
+      "quality": 68,
+      "renderSha256": "d17e40bb6d6ae4d4f368b3112e9449c5b656963fa49d466b9aa31d99396b8c9d"
+    },
+    {
+      "id": "stiksy-pk-003-06",
+      "file": "06.webp",
+      "caption": "Chai ka deewana",
+      "accessibilityText": "Chai Meri Jaan: Chai ka deewana",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 21418,
+      "sha256": "57ae801a355cabb6d76e840e1b02d16dfc288844015876b3943e14f3e3bb2a0e",
+      "quality": 68,
+      "renderSha256": "b36a877e65f21995537b69097dca18afccc955b874a8040a46e550cd24427ff3"
+    },
+    {
+      "id": "stiksy-pk-003-07",
+      "file": "07.webp",
+      "caption": "Tum aur meri chai",
+      "accessibilityText": "Chai Meri Jaan: Tum aur meri chai",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26866,
+      "sha256": "4d3c14b6ee35bf947e106069cbce07bdee09bcd255b6ddeb416da7b2c447a7e3",
+      "quality": 68,
+      "renderSha256": "ac8f6350bbce0878bc1b0c329aa81f45e89f8f44b499b7aa8909677c40993f7a"
+    },
+    {
+      "id": "stiksy-pk-003-08",
+      "file": "08.webp",
+      "caption": "Chai se dil laga",
+      "accessibilityText": "Chai Meri Jaan: Chai se dil laga",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28474,
+      "sha256": "d325df6c669a8c2f7a67eac5e743b72533ae39510f43f0d673106b3cc5c17a59",
+      "quality": 68,
+      "renderSha256": "c50a99b309dbf0b50867cc8acf8ff0a2811436e3ee6945ececa7af9b46d89b2f"
+    },
+    {
+      "id": "stiksy-pk-003-09",
+      "file": "09.webp",
+      "caption": "Chai forever",
+      "accessibilityText": "Chai Meri Jaan: Chai forever",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28972,
+      "sha256": "980cfa7d68196780ac2b09d50d3afea2bdc7224f5f3ca34dd75ae9e3cdefdc8d",
+      "quality": 68,
+      "renderSha256": "88d9591a643e6c542866bdfc4826d772542415698f918e4de143811195e74f6a"
+    },
+    {
+      "id": "stiksy-pk-003-10",
+      "file": "10.webp",
+      "caption": "Chai hi sukoon hai",
+      "accessibilityText": "Chai Meri Jaan: Chai hi sukoon hai",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30350,
+      "sha256": "f10d05e9e7d7d6eabf5040e60d952d04ace432a8401aa723b660bd11e86ac7b6",
+      "quality": 68,
+      "renderSha256": "6995bda7ff6e42e84606b97327d3109ff2a7d5d2a801bd04596928a466f087f1"
+    }
+  ]
+}

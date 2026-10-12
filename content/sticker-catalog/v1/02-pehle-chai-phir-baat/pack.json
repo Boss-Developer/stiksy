@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-002",
+  "identifier": "stiksy-pk-002",
+  "title": "Pehle Chai, Phir Baat",
+  "name": "Pehle Chai, Phir Baat",
+  "publisher": "Stiksy",
+  "category": "Chai & Gup Shup",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "chai-gup-shup"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-002-01",
+      "file": "01.webp",
+      "caption": "Pehle chai, phir baat",
+      "accessibilityText": "Pehle Chai, Phir Baat: Pehle chai, phir baat",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32634,
+      "sha256": "19349c97a2f1cb4e5097c2af57f49b57d58c6da564e28e8968a4e0629732eb05",
+      "quality": 68,
+      "renderSha256": "92296da3a38f5df5e138d1db68e7ad177fd4651dc62ff3a1792e6a9287135217"
+    },
+    {
+      "id": "stiksy-pk-002-02",
+      "file": "02.webp",
+      "caption": "Chai ke baad sochenge",
+      "accessibilityText": "Pehle Chai, Phir Baat: Chai ke baad sochenge",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28566,
+      "sha256": "849c76caba37769aefb7225ddb764cfabddfabae3e71b6ac3e584dfc24b136e7",
+      "quality": 68,
+      "renderSha256": "4ed6b1c4b2d99e6e51a0604a88f377a92902b3d9400ef1a9696381c290250371"
+    },
+    {
+      "id": "stiksy-pk-002-03",
+      "file": "03.webp",
+      "caption": "Baat baad mein",
+      "accessibilityText": "Pehle Chai, Phir Baat: Baat baad mein",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28174,
+      "sha256": "1df78e46607e0322844e6848a1cb7c12f9d2664c82909afeef93e577b06d65b6",
+      "quality": 68,
+      "renderSha256": "c93b3a161335f1704a0f45eb7d2ce7fde7e7af9b5cd4124957f3285d210599b6"
+    },
+    {
+      "id": "stiksy-pk-002-04",
+      "file": "04.webp",
+      "caption": "Chai se start karo",
+      "accessibilityText": "Pehle Chai, Phir Baat: Chai se start karo",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25258,
+      "sha256": "6cc7b3c0419ec4637b4951f54a34e05f60d40336f5d5432d5d7e76675350e61b",
+      "quality": 68,
+      "renderSha256": "e0ad6b758b352e3a7bbd09f99fe258618acf1c63d6dda494ee226245a40540e2"
+    },
+    {
+      "id": "stiksy-pk-002-05",
+      "file": "05.webp",
+      "caption": "Abhi chai chal rahi hai",
+      "accessibilityText": "Pehle Chai, Phir Baat: Abhi chai chal rahi hai",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28256,
+      "sha256": "b12a728b41221f05b78783575823ccd5d04cd1031e90543b90632191b0fd98d2",
+      "quality": 68,
+      "renderSha256": "731c7e8be437f73e874fa2560dc22ff6c001fb3c198a61cb1f1d6d2fe0542941"
+    },
+    {
+      "id": "stiksy-pk-002-06",
+      "file": "06.webp",
+      "caption": "Chai tak ruk jao",
+      "accessibilityText": "Pehle Chai, Phir Baat: Chai tak ruk jao",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22362,
+      "sha256": "3a44343165a0dfaa9b8d4d17312151df78209e5d8939be452cb8ca2b195d789b",
+      "quality": 68,
+      "renderSha256": "6d7642e71a02dfc9107f59daba26241417e0c85108441ddd199ebb73f58a2b86"
+    },
+    {
+      "id": "stiksy-pk-002-07",
+      "file": "07.webp",
+      "caption": "Chai mera fuel hai",
+      "accessibilityText": "Pehle Chai, Phir Baat: Chai mera fuel hai",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28658,
+      "sha256": "b4bc10045c76bfb87f3c0fbafd75c1a842cfacf2327833ab5cc56bca8dc0aa9b",
+      "quality": 68,
+      "renderSha256": "24e9ad49d80d024a8eb09dde6f8dad254d2cb71cb21348eb0b78b3092fa18932"
+    },
+    {
+      "id": "stiksy-pk-002-08",
+      "file": "08.webp",
+      "caption": "Meeting chai ke baad",
+      "accessibilityText": "Pehle Chai, Phir Baat: Meeting chai ke baad",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31216,
+      "sha256": "dec20e51d8e2ebf8cee5d534f1efe3bfa7e3f06bc337b56bb2cb068ed11a0032",
+      "quality": 68,
+      "renderSha256": "f023630803034b35448b30a46de88d41d26cae678b5e96ffb2c2336c2f3f4284"
+    },
+    {
+      "id": "stiksy-pk-002-09",
+      "file": "09.webp",
+      "caption": "Chai ke bina nahi",
+      "accessibilityText": "Pehle Chai, Phir Baat: Chai ke bina nahi",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33244,
+      "sha256": "70141b7695a594271ae93579108892705c5f58213081aa527f41368074de9d72",
+      "quality": 68,
+      "renderSha256": "5465ea0bdb20c4bca408cbce1073ba2a5426e96eadf855d6c50fb25bf5c5b356"
+    },
+    {
+      "id": "stiksy-pk-002-10",
+      "file": "10.webp",
+      "caption": "Chai first, boss",
+      "accessibilityText": "Pehle Chai, Phir Baat: Chai first, boss",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32168,
+      "sha256": "97529f5b3327ddc21aa602b1270b7488538f81485da55f0d56c4a79b73118406",
+      "quality": 68,
+      "renderSha256": "31cb1d913db2f7bbffddbfbca833a5735eee1df9341be7cbf2e8521be18ecbc4"
+    }
+  ]
+}

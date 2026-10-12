@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-023",
+  "identifier": "stiksy-pk-023",
+  "title": "Scene On Hai!",
+  "name": "Scene On Hai!",
+  "publisher": "Stiksy",
+  "category": "Desi Reactions",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "desi-reactions"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-023-01",
+      "file": "01.webp",
+      "caption": "Scene on hai!",
+      "accessibilityText": "Scene On Hai!: Scene on hai!",
+      "emojis": [
+        "🔥"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 36384,
+      "sha256": "e94d6330eccc3b1b07ecca3bae18963470e9421e3506beee0afd8191dc7de333",
+      "quality": 68,
+      "renderSha256": "100ffa975608d63f8cbaea0190f6bd16cb4a7e90cf1a71b2af57332f20cdb70e"
+    },
+    {
+      "id": "stiksy-pk-023-02",
+      "file": "02.webp",
+      "caption": "Chalo phir nikalte hain",
+      "accessibilityText": "Scene On Hai!: Chalo phir nikalte hain",
+      "emojis": [
+        "🔥"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32506,
+      "sha256": "c2265848185fd9deeb40979b589767947f30cbf0edd49ec3d0287100b91bf709",
+      "quality": 68,
+      "renderSha256": "b7a37dbef831c40d444bc376c5bc4d78724b91d2718fc2c957cc9ad2b1667198"
+    },
+    {
+      "id": "stiksy-pk-023-03",
+      "file": "03.webp",
+      "caption": "Plan final hai",
+      "accessibilityText": "Scene On Hai!: Plan final hai",
+      "emojis": [
+        "🔥"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33946,
+      "sha256": "179f5679f54e41c7112e068023cf770620bd89df6659a617dbfbf1cb09600a09",
+      "quality": 68,
+      "renderSha256": "774f1322383d73a9f0028266b5d8c21d3b879da4806f3bb8c6dd1141d927c0f5"
+    },
+    {
+      "id": "stiksy-pk-023-04",
+      "file": "04.webp",
+      "caption": "Sab set hai boss",
+      "accessibilityText": "Scene On Hai!: Sab set hai boss",
+      "emojis": [
+        "🔥"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23562,
+      "sha256": "fe8d9e3b77a79f56ff74dc587652a73e0e64b031d25baf6dec4ab860cf6854b5",
+      "quality": 68,
+      "renderSha256": "1742dab354190ceab0dd399db1c9087c6088b0e562ec5af59f0cc1d89fbe9eb5"
+    },
+    {
+      "id": "stiksy-pk-023-05",
+      "file": "05.webp",
+      "caption": "Aaj full scene",
+      "accessibilityText": "Scene On Hai!: Aaj full scene",
+      "emojis": [
+        "🔥"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32730,
+      "sha256": "e60d2c9461c1ce676beb32246c715a5e37d1ce1aad616255077f98327dd603fd",
+      "quality": 68,
+      "renderSha256": "dcc69a526cb473b0eca310dbdcf18a5ab0f2c830e6cb6eab358747441a944f93"
+    },
+    {
+      "id": "stiksy-pk-023-06",
+      "file": "06.webp",
+      "caption": "Party shuru karo",
+      "accessibilityText": "Scene On Hai!: Party shuru karo",
+      "emojis": [
+        "🔥"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27670,
+      "sha256": "794b90fef99b10edaeada23874ce28f27808d3df524257d422970e0f7a4a0893",
+      "quality": 68,
+      "renderSha256": "592fdebd1691a89dbd9e4680cfd1dfebdc8e4c704b020e871cbaec3487df5e62"
+    },
+    {
+      "id": "stiksy-pk-023-07",
+      "file": "07.webp",
+      "caption": "Hum aa rahe hain",
+      "accessibilityText": "Scene On Hai!: Hum aa rahe hain",
+      "emojis": [
+        "🔥"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34564,
+      "sha256": "5dfef7332750ffd62eafb6088ce704d09e221b2c501973dacf4b2fe872b7d6a6",
+      "quality": 68,
+      "renderSha256": "0e37aa1d4a3edc8192e34d14c47f644efe1f537ca74f0ba62db4831b04357acd"
+    },
+    {
+      "id": "stiksy-pk-023-08",
+      "file": "08.webp",
+      "caption": "Mood bhi on hai",
+      "accessibilityText": "Scene On Hai!: Mood bhi on hai",
+      "emojis": [
+        "🔥"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 36392,
+      "sha256": "52a2d5e2677130ced6fb300c55f923c73da96848e421cc914fdda0618f1bfcc2",
+      "quality": 68,
+      "renderSha256": "08bbea8f8a3a3970f0ca852a3d974dd1436d816500f0d0a5b1c36e2f6b45e03c"
+    },
+    {
+      "id": "stiksy-pk-023-09",
+      "file": "09.webp",
+      "caption": "Ready ho jao",
+      "accessibilityText": "Scene On Hai!: Ready ho jao",
+      "emojis": [
+        "🔥"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 37592,
+      "sha256": "c358bbbc2a74849ed861c9408470739032fee563344d6830a8c222afc303a8f1",
+      "quality": 68,
+      "renderSha256": "6b36fecb3a2210d56e87f8538de469b9fd23fd08304bbe6267ca1159f38aca13"
+    },
+    {
+      "id": "stiksy-pk-023-10",
+      "file": "10.webp",
+      "caption": "Aaj ki raat apni",
+      "accessibilityText": "Scene On Hai!: Aaj ki raat apni",
+      "emojis": [
+        "🔥"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 37840,
+      "sha256": "3a4252ca6b589e2f12e6d67dacf636cf9f4e3ed53418b0d78e08c1c39524139f",
+      "quality": 68,
+      "renderSha256": "dab10d7016c2ef3cbc0f1725f1d78c02a0d24fb601509781305179a5fcad806c"
+    }
+  ]
+}

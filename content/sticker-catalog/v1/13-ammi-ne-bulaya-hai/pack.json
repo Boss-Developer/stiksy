@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-013",
+  "identifier": "stiksy-pk-013",
+  "title": "Ammi Ne Bulaya Hai",
+  "name": "Ammi Ne Bulaya Hai",
+  "publisher": "Stiksy",
+  "category": "Family & Mehmaan",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "family-mehmaan"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-013-01",
+      "file": "01.webp",
+      "caption": "Ammi ne bulaya hai",
+      "accessibilityText": "Ammi Ne Bulaya Hai: Ammi ne bulaya hai",
+      "emojis": [
+        "📣"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 36158,
+      "sha256": "d3ad8cbb4fa4b536017987eea24105f58fa2f547769d4ece125d66688cea0d9a",
+      "quality": 68,
+      "renderSha256": "aa7a153b82b6b87ee287fb04c70cf1735ca2241c0b99474d922e83a258004a03"
+    },
+    {
+      "id": "stiksy-pk-013-02",
+      "file": "02.webp",
+      "caption": "Ji Ammi, aa raha hoon",
+      "accessibilityText": "Ammi Ne Bulaya Hai: Ji Ammi, aa raha hoon",
+      "emojis": [
+        "📣"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30510,
+      "sha256": "9e5db586add6cc1efe9795999a3d17689c5dbe3de083ab729fa1d68984ee8343",
+      "quality": 68,
+      "renderSha256": "003f03c874ca8348d6ef67c3ba2f71c0d397d3047f4bbb2b9b13285aef7c9094"
+    },
+    {
+      "id": "stiksy-pk-013-03",
+      "file": "03.webp",
+      "caption": "Ammi ka hukum hai",
+      "accessibilityText": "Ammi Ne Bulaya Hai: Ammi ka hukum hai",
+      "emojis": [
+        "📣"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33170,
+      "sha256": "f409b382dcedc654f2db2ae4e38cbeaf9dd97dae22d05458f62208b7f7786db6",
+      "quality": 68,
+      "renderSha256": "ea2b593805c4abb490e7c44f239d9f9ab624095df4b7e54f86036f9cf1d14f01"
+    },
+    {
+      "id": "stiksy-pk-013-04",
+      "file": "04.webp",
+      "caption": "Bas do minute Ammi",
+      "accessibilityText": "Ammi Ne Bulaya Hai: Bas do minute Ammi",
+      "emojis": [
+        "📣"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25130,
+      "sha256": "c498168ffd203815e5ebe760ffa95d0cc295e11c4511e08d586ea134a16bd700",
+      "quality": 68,
+      "renderSha256": "b44c0131c8689a33a6fc88220e8c24829ae84e9628036acecd4077887dc306c3"
+    },
+    {
+      "id": "stiksy-pk-013-05",
+      "file": "05.webp",
+      "caption": "Ammi sab jaanti hain",
+      "accessibilityText": "Ammi Ne Bulaya Hai: Ammi sab jaanti hain",
+      "emojis": [
+        "📣"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30664,
+      "sha256": "82164897ea017d2c9305c62749eab59d1f58b7835cf62fedb5db8c0ed2ddd54f",
+      "quality": 68,
+      "renderSha256": "333511e77685886d31d355fc192453b9426a06fb5594a2c9c00ceb31b4479855"
+    },
+    {
+      "id": "stiksy-pk-013-06",
+      "file": "06.webp",
+      "caption": "Ammi ko mat batana",
+      "accessibilityText": "Ammi Ne Bulaya Hai: Ammi ko mat batana",
+      "emojis": [
+        "📣"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26018,
+      "sha256": "edd877567a3762f35bc676ec34dab63c58ee6d40335cff933ae8d53576a8179d",
+      "quality": 68,
+      "renderSha256": "71d919c3ae52cb6185e23324cd37d6896ba19ae69802b666335db4eb719f50bc"
+    },
+    {
+      "id": "stiksy-pk-013-07",
+      "file": "07.webp",
+      "caption": "Ammi ki chai banao",
+      "accessibilityText": "Ammi Ne Bulaya Hai: Ammi ki chai banao",
+      "emojis": [
+        "📣"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32334,
+      "sha256": "cb630c6d8aed00d98f6258dd357b977904fa18ab7bd2c5f153ff372faa1b262c",
+      "quality": 68,
+      "renderSha256": "d8773e8dd88cbc345f82804fcf346f86f52b9f9acef8778e4274d0023ea092e5"
+    },
+    {
+      "id": "stiksy-pk-013-08",
+      "file": "08.webp",
+      "caption": "Ammi ka laadla",
+      "accessibilityText": "Ammi Ne Bulaya Hai: Ammi ka laadla",
+      "emojis": [
+        "📣"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33706,
+      "sha256": "4e0860b5356e7337f983af2cc6ef9668a11eb72ae89deebe6e271d1267357e47",
+      "quality": 68,
+      "renderSha256": "42e8a36cf7cd29d8f3e28d22bda1f61d0d12e936afba89b8f5949cd564b64ac3"
+    },
+    {
+      "id": "stiksy-pk-013-09",
+      "file": "09.webp",
+      "caption": "Ammi ki dua saath hai",
+      "accessibilityText": "Ammi Ne Bulaya Hai: Ammi ki dua saath hai",
+      "emojis": [
+        "📣"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 39094,
+      "sha256": "cd6aa94f41f2c43a13a60a1b95258f95cdaabb01b7e2ce33a7b2fb055206958e",
+      "quality": 68,
+      "renderSha256": "742f1c4c1c23a0deed313f0387d76705ae7f20280e2ca0dcd558ef390a60f9e4"
+    },
+    {
+      "id": "stiksy-pk-013-10",
+      "file": "10.webp",
+      "caption": "Ammi se pooch lo",
+      "accessibilityText": "Ammi Ne Bulaya Hai: Ammi se pooch lo",
+      "emojis": [
+        "📣"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 36446,
+      "sha256": "7be14f17a7c06a1ea02225dccc4afa21f3753b8f56c7007023fce14a66a4a137",
+      "quality": 68,
+      "renderSha256": "50412817199df182f78e148a85f894f0c67236b63b653a49ba507b85eab17d24"
+    }
+  ]
+}

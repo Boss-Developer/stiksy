@@ -9,9 +9,6 @@ abstract class AdService {
   static bool get android => defaultTargetPlatform == TargetPlatform.android;
   static bool get supported =>
       !kIsWeb && (android || defaultTargetPlatform == TargetPlatform.iOS);
-  static String get bannerId => android
-      ? 'ca-app-pub-3940256099942544/6300978111'
-      : 'ca-app-pub-3940256099942544/2934735716';
   static String get nativeId => android
       ? 'ca-app-pub-3940256099942544/2247696110'
       : 'ca-app-pub-3940256099942544/3986624511';

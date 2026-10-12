@@ -30,3 +30,7 @@ flutter build apk --debug
 Four transparent 320px WebP illustrations plus the splash wordmark total 127.7 KiB. Full-resolution generation sources are excluded from Flutter assets. Fonts are bundled for offline use: Noto Nastaliq Urdu, Noto Naskh Arabic, Poppins and Montserrat, with their SIL OFL licenses. Naskh and Montserrat use fixed bold instances to reduce payload. Generation prompt summaries and exact sizes are in `docs/sticker-assets.md`.
 
 Mobile layout review screenshots are in `output/ui-preview/` (test-rendered at 390 × 844). Flutter tests cover splash, editor state, export contracts and watermark rendering. Six Android instrumentation tests passed on a Samsung phone for encoding, pack metadata, limits and provider security. Actual WhatsApp confirmation/chat sending and ad delivery still require a manual device check. The twelve screenshots and overview reflect the latest UI. Preview packs are local test fixtures; WebP encoding in the preview was performed with Pillow at quality 70, while the app uses Android compression. See `docs/mockup-implementation.md` for screen coverage.
+
+## Server-ready Pakistani culture stickers
+
+40 packs × 10 predefined stickers are stored in `content/sticker-catalog/v1/`, separately from bundled app assets. Upload instructions: `content/sticker-catalog/v1/README.md`. Sources and rebuild instructions: `content/sticker-catalog-source/README.md`. Preview: `output/sticker-catalog-preview/index.html`. Upload archive: `output/stiksy-pakistani-culture-v1.zip`.

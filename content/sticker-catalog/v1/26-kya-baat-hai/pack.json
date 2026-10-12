@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-026",
+  "identifier": "stiksy-pk-026",
+  "title": "Kya Baat Hai!",
+  "name": "Kya Baat Hai!",
+  "publisher": "Stiksy",
+  "category": "Desi Reactions",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "desi-reactions"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-026-01",
+      "file": "01.webp",
+      "caption": "Kya baat hai!",
+      "accessibilityText": "Kya Baat Hai!: Kya baat hai!",
+      "emojis": [
+        "👏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33510,
+      "sha256": "1ad09dcc20a73c1530e7aa63d9f9fac77a98ca6a5cacee67189d2e9668e69af1",
+      "quality": 68,
+      "renderSha256": "19ad40cfe62b30bf04bdc9345edc50c4b020eb4b9d5bb5778d076c63da8c052f"
+    },
+    {
+      "id": "stiksy-pk-026-02",
+      "file": "02.webp",
+      "caption": "Wah bhai wah",
+      "accessibilityText": "Kya Baat Hai!: Wah bhai wah",
+      "emojis": [
+        "👏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28970,
+      "sha256": "9f64f0479d120f46492bb12ff293ebb467b40110091e572a4993f644b761ef9d",
+      "quality": 68,
+      "renderSha256": "1572f212fe95e157d3035e14284f10bae8b56a375987f26543755da91b6d5198"
+    },
+    {
+      "id": "stiksy-pk-026-03",
+      "file": "03.webp",
+      "caption": "Kamaal kar diya",
+      "accessibilityText": "Kya Baat Hai!: Kamaal kar diya",
+      "emojis": [
+        "👏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31428,
+      "sha256": "ca7255e993fa079203ea7b42fd0fbcc15600ef6203c1655aa16112911b5f8187",
+      "quality": 68,
+      "renderSha256": "135aa5c13c7b5599d9774c4f80fc25ae329b5ee6a32792f3bb5a51388abff742"
+    },
+    {
+      "id": "stiksy-pk-026-04",
+      "file": "04.webp",
+      "caption": "Zabardast yaar",
+      "accessibilityText": "Kya Baat Hai!: Zabardast yaar",
+      "emojis": [
+        "👏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 21214,
+      "sha256": "c10f871120e26c41dacf160810709dd5ed77980631e6c8e25d92a9b4ff6b06f2",
+      "quality": 68,
+      "renderSha256": "a8c871d2b4eb676a7b90c44a5cce0cde6bbd01cfe2ab2f1bf657ed683dbdf4e9"
+    },
+    {
+      "id": "stiksy-pk-026-05",
+      "file": "05.webp",
+      "caption": "Dil jeet liya",
+      "accessibilityText": "Kya Baat Hai!: Dil jeet liya",
+      "emojis": [
+        "👏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30126,
+      "sha256": "a26dcce6704df5dc6742a324b3db332e5e64937e75aaf409d793f54de1ac5cf5",
+      "quality": 68,
+      "renderSha256": "9ba573a3202500c4530e0ccbf1f7638a9f1e6de5c9295d0ae0b3221f2ad88c29"
+    },
+    {
+      "id": "stiksy-pk-026-06",
+      "file": "06.webp",
+      "caption": "Shabaash mere sher",
+      "accessibilityText": "Kya Baat Hai!: Shabaash mere sher",
+      "emojis": [
+        "👏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25590,
+      "sha256": "c96dc7ebcddbf1bc10ae73c6c33a963c96ddd189292f39ebe81209d11b011ced",
+      "quality": 68,
+      "renderSha256": "2f41bcfbb4a4eea178245502bdf9793b85e27b7e381258ab3a40f1c3f36d954d"
+    },
+    {
+      "id": "stiksy-pk-026-07",
+      "file": "07.webp",
+      "caption": "Bohat khoob!",
+      "accessibilityText": "Kya Baat Hai!: Bohat khoob!",
+      "emojis": [
+        "👏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32056,
+      "sha256": "c83f5608c05f38f4be6a7df5e488c2ae8334066f7f7b8f11735bc54d110f6e44",
+      "quality": 68,
+      "renderSha256": "d804d9726b6dc5a924aeea56ab19595e94a9eb415e85345ed83deeb25d7e2f78"
+    },
+    {
+      "id": "stiksy-pk-026-08",
+      "file": "08.webp",
+      "caption": "Aap to chha gaye",
+      "accessibilityText": "Kya Baat Hai!: Aap to chha gaye",
+      "emojis": [
+        "👏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32786,
+      "sha256": "166c96319f11cf336a9552f2de4033e10f7af76534bc8e4a9153919e75bf993b",
+      "quality": 68,
+      "renderSha256": "a421cae98f24100d41833f8c3e64012bc2fcfd301b59f7f0552dc7ef5df4212e"
+    },
+    {
+      "id": "stiksy-pk-026-09",
+      "file": "09.webp",
+      "caption": "Tareef banti hai",
+      "accessibilityText": "Kya Baat Hai!: Tareef banti hai",
+      "emojis": [
+        "👏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 35038,
+      "sha256": "2e03e52bb58c8d3545b188fa4fb09b44288217cd05fc0e353529c451d049d38d",
+      "quality": 68,
+      "renderSha256": "3bbaa7f912f24f7deaa3e2ebb3ce7d88a9fb0f4b701bc4c751877eae2463f6b4"
+    },
+    {
+      "id": "stiksy-pk-026-10",
+      "file": "10.webp",
+      "caption": "Salam hai boss",
+      "accessibilityText": "Kya Baat Hai!: Salam hai boss",
+      "emojis": [
+        "👏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34572,
+      "sha256": "6915a3184860b05b329c9fc3d3163e0b0d1db84253cdc33daf45731486016e41",
+      "quality": 68,
+      "renderSha256": "21ef1447438707701c1f4eabea4e6c27bcc0b9fe1083275301ad6b7751c84bd8"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-005",
+  "identifier": "stiksy-pk-005",
+  "title": "Ek Cup Aur Ho Jaye",
+  "name": "Ek Cup Aur Ho Jaye",
+  "publisher": "Stiksy",
+  "category": "Chai & Gup Shup",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "chai-gup-shup"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-005-01",
+      "file": "01.webp",
+      "caption": "Ek cup aur ho jaye",
+      "accessibilityText": "Ek Cup Aur Ho Jaye: Ek cup aur ho jaye",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32924,
+      "sha256": "ac780ab9e72c11c124791540fde3ee648f9bed335ccc0e76ed94291bdacb9775",
+      "quality": 68,
+      "renderSha256": "c221e4efa959151362b6410dd27f38b012496a0d4bcf043b900c0c3b73b6c2ec"
+    },
+    {
+      "id": "stiksy-pk-005-02",
+      "file": "02.webp",
+      "caption": "Refill please",
+      "accessibilityText": "Ek Cup Aur Ho Jaye: Refill please",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26980,
+      "sha256": "f44e21acca73b5b9b7b3b5213b7cf0dd4c33f261d7313bb1dbccfb1e97ed3306",
+      "quality": 68,
+      "renderSha256": "5004637c5b50e96b4531f3d962770731039c58426686644ac47287ff473d3954"
+    },
+    {
+      "id": "stiksy-pk-005-03",
+      "file": "03.webp",
+      "caption": "Abhi dil nahi bhara",
+      "accessibilityText": "Ek Cup Aur Ho Jaye: Abhi dil nahi bhara",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29768,
+      "sha256": "35b5888ea8d9921659c3a75954f3d452a66d0ad8324b3095ac759832f3a6bb8b",
+      "quality": 68,
+      "renderSha256": "31f9f76ebede602f42b608c8ccdbf22981c29243f84c8262d73293ef05b0a56b"
+    },
+    {
+      "id": "stiksy-pk-005-04",
+      "file": "04.webp",
+      "caption": "Chai dobara lao",
+      "accessibilityText": "Ek Cup Aur Ho Jaye: Chai dobara lao",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22434,
+      "sha256": "e8fddb59758d90371eae496de5cea88eb3d16e02592fd449bd285432c2737f10",
+      "quality": 68,
+      "renderSha256": "9bef936c7fb0965ca0458e00746c5c2f673fe51535feac95110828a22533453d"
+    },
+    {
+      "id": "stiksy-pk-005-05",
+      "file": "05.webp",
+      "caption": "Bas ek aur cup",
+      "accessibilityText": "Ek Cup Aur Ho Jaye: Bas ek aur cup",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27774,
+      "sha256": "e0eb68a69c318ff32188108dac2cb1dde7ab9496df0c766115cc0da25ee35c51",
+      "quality": 68,
+      "renderSha256": "bab5d453e5afdd3b8699b52b556343bc4fc91f4a50a935284263767addafb4bc"
+    },
+    {
+      "id": "stiksy-pk-005-06",
+      "file": "06.webp",
+      "caption": "Round two ki chai",
+      "accessibilityText": "Ek Cup Aur Ho Jaye: Round two ki chai",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23832,
+      "sha256": "e40360d95b2d518aed191772377c68264bc633e222adca659b6f851f52615435",
+      "quality": 68,
+      "renderSha256": "dfc8a4c23b1082cb0314b8386030826a3c94a3abea394ea72242a680a00b5b64"
+    },
+    {
+      "id": "stiksy-pk-005-07",
+      "file": "07.webp",
+      "caption": "Kettle phir chalao",
+      "accessibilityText": "Ek Cup Aur Ho Jaye: Kettle phir chalao",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30246,
+      "sha256": "9ee7ea746640c596f0a80aa9fed6bdc87a24c2afa3c21f31f6b4b12fc40b4192",
+      "quality": 68,
+      "renderSha256": "2741dd65721e1cf1b3742d187796f58233c90c470d34e4fe5f20320e1b1d3c7d"
+    },
+    {
+      "id": "stiksy-pk-005-08",
+      "file": "08.webp",
+      "caption": "Chai khatam? Nahi!",
+      "accessibilityText": "Ek Cup Aur Ho Jaye: Chai khatam? Nahi!",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31260,
+      "sha256": "15e9225d28de924750f8a93c75330f5a41172acc69ebe7c5b680707fbb85f0ef",
+      "quality": 68,
+      "renderSha256": "f21bb93dcd83155ee4b26a03c74b25cadf1f31becc421facd66447de7cd1a713"
+    },
+    {
+      "id": "stiksy-pk-005-09",
+      "file": "09.webp",
+      "caption": "Doosra cup mera",
+      "accessibilityText": "Ek Cup Aur Ho Jaye: Doosra cup mera",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33598,
+      "sha256": "0e5d995a780ee1872e1a987f3dad2de4c82a91e4f8da37580c8b1cd4076e061e",
+      "quality": 68,
+      "renderSha256": "b096ea1c3365f8f40990547798282e416a95b9c106107552c47d76626f78611c"
+    },
+    {
+      "id": "stiksy-pk-005-10",
+      "file": "10.webp",
+      "caption": "Chai chalti rehni chahiye",
+      "accessibilityText": "Ek Cup Aur Ho Jaye: Chai chalti rehni chahiye",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 35868,
+      "sha256": "1355aa45d22df0c61108d80453199c835b47717395a4cf47af685377402495b7",
+      "quality": 68,
+      "renderSha256": "f1f07e54ed5cdfe33df1421e850d2de235c7988f050ac7c8b95e302f1b8efad8"
+    }
+  ]
+}

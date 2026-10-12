@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-030",
+  "identifier": "stiksy-pk-030",
+  "title": "Duaon Mein Yaad Rakhna",
+  "name": "Duaon Mein Yaad Rakhna",
+  "publisher": "Stiksy",
+  "category": "Dua & Greetings",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "dua-greetings"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-030-01",
+      "file": "01.webp",
+      "caption": "Duaon mein yaad rakhna",
+      "accessibilityText": "Duaon Mein Yaad Rakhna: Duaon mein yaad rakhna",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34602,
+      "sha256": "7479251aed49c479b16d1154eb68921cacd190cd343a3aa5300482ad231c75f1",
+      "quality": 68,
+      "renderSha256": "3b45cd189038265b0f40ecba6a458ee9e9f7cc122f1d7c6c3a678ee2a6904991"
+    },
+    {
+      "id": "stiksy-pk-030-02",
+      "file": "02.webp",
+      "caption": "Aap ke liye dua hai",
+      "accessibilityText": "Duaon Mein Yaad Rakhna: Aap ke liye dua hai",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27602,
+      "sha256": "9453b8efb5cbb268a0c8184f0647c238b93c46037f7c001253b8f7f9e0eb800e",
+      "quality": 68,
+      "renderSha256": "f7150667383062ee62c034b743aacacaed80ce3b23a08e37089bf92dbdd804fc"
+    },
+    {
+      "id": "stiksy-pk-030-03",
+      "file": "03.webp",
+      "caption": "Dua chahiye bas",
+      "accessibilityText": "Duaon Mein Yaad Rakhna: Dua chahiye bas",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28614,
+      "sha256": "1ebd54232f32f8d14a1ead50b0ce45fe28e26807e45ec1303840f29e4bdd85d3",
+      "quality": 68,
+      "renderSha256": "07c28f7218a26bcf2f1f93e7b0b355c814f5a14328b82edcc541be57fc5bc541"
+    },
+    {
+      "id": "stiksy-pk-030-04",
+      "file": "04.webp",
+      "caption": "Duaon ka rishta",
+      "accessibilityText": "Duaon Mein Yaad Rakhna: Duaon ka rishta",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22146,
+      "sha256": "c7a511b8e7e5026a828dfab5d22cc18b261f7c35c77bcc090af1251c46653b65",
+      "quality": 68,
+      "renderSha256": "01f217b5573112e744a82f1d0e660d2c47f47bab2af2148281f7a3fffa7b4568"
+    },
+    {
+      "id": "stiksy-pk-030-05",
+      "file": "05.webp",
+      "caption": "Allah qubool kare",
+      "accessibilityText": "Duaon Mein Yaad Rakhna: Allah qubool kare",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27942,
+      "sha256": "630e39e18e0a15cd4c76dfceb97272a0f9712e42f0c4199fba54a46f0a3c1a23",
+      "quality": 68,
+      "renderSha256": "2d042e4990f3f42baebe1b66930ecf3e1385d9375f77aa82b40d6729f4a5a416"
+    },
+    {
+      "id": "stiksy-pk-030-06",
+      "file": "06.webp",
+      "caption": "Dua mein yaad ho",
+      "accessibilityText": "Duaon Mein Yaad Rakhna: Dua mein yaad ho",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23848,
+      "sha256": "27cd4884c78b05d3e586bce7f039929a857a02683f2ab453a9cff9dca7f92bab",
+      "quality": 68,
+      "renderSha256": "64d0c09ff7d30d888a39b4af0b7e041f1b36b3e8a79b656974c5ef32981a3d90"
+    },
+    {
+      "id": "stiksy-pk-030-07",
+      "file": "07.webp",
+      "caption": "Dil se dua di",
+      "accessibilityText": "Duaon Mein Yaad Rakhna: Dil se dua di",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28814,
+      "sha256": "5dd9973911e90575ae4f074d6250722785a406201d357207b7c411861289df3f",
+      "quality": 68,
+      "renderSha256": "b51fef5934518f270dc103717985af4b877dbd8617e32575114a6753a51197dc"
+    },
+    {
+      "id": "stiksy-pk-030-08",
+      "file": "08.webp",
+      "caption": "Dua sab badal deti hai",
+      "accessibilityText": "Duaon Mein Yaad Rakhna: Dua sab badal deti hai",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30242,
+      "sha256": "b0c4ea64a2482646a86b403437ac2e3f47769712415d7f87cb52d7be58ffb613",
+      "quality": 68,
+      "renderSha256": "773dabfdb42d150c7df5c43546b5b37a2c8953a48e7363b100719a4417eba3e0"
+    },
+    {
+      "id": "stiksy-pk-030-09",
+      "file": "09.webp",
+      "caption": "Ameen keh do",
+      "accessibilityText": "Duaon Mein Yaad Rakhna: Ameen keh do",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31810,
+      "sha256": "651d17547202f98ee4956b172cde0faa86704f414af78c7638f28c43a74ed29c",
+      "quality": 68,
+      "renderSha256": "26ca574ddbad42f0a3351e4abb512e451949e4e97e9733de30eb0b1936f56265"
+    },
+    {
+      "id": "stiksy-pk-030-10",
+      "file": "10.webp",
+      "caption": "Aap bhi dua karna",
+      "accessibilityText": "Duaon Mein Yaad Rakhna: Aap bhi dua karna",
+      "emojis": [
+        "🤲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32346,
+      "sha256": "e356626b968f4450f00563de556277bead9b65ed9213597205ad9a7667163ccf",
+      "quality": 68,
+      "renderSha256": "0b4b3e34417a1f15bbe57d2f693692feb9c3d635c85ef2caed51db003dc524ba"
+    }
+  ]
+}

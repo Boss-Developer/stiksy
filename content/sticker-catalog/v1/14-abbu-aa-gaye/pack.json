@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-014",
+  "identifier": "stiksy-pk-014",
+  "title": "Abbu Aa Gaye",
+  "name": "Abbu Aa Gaye",
+  "publisher": "Stiksy",
+  "category": "Family & Mehmaan",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "family-mehmaan"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-014-01",
+      "file": "01.webp",
+      "caption": "Abbu aa gaye",
+      "accessibilityText": "Abbu Aa Gaye: Abbu aa gaye",
+      "emojis": [
+        "😶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 18672,
+      "sha256": "d7d689ab529a8c0bf3612aba1f9220bc6a1516db33e715008e14047c24de7486",
+      "quality": 68,
+      "renderSha256": "5796661ee8d3844654061d3cd3d61148bc0b734b983cf137aa62d205dc7f6b53"
+    },
+    {
+      "id": "stiksy-pk-014-02",
+      "file": "02.webp",
+      "caption": "Sab seedhay ho jao",
+      "accessibilityText": "Abbu Aa Gaye: Sab seedhay ho jao",
+      "emojis": [
+        "😶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 17482,
+      "sha256": "c06b477319c2f844e6e5dc1e102d305169d19f3791f54105aadbdbbd4311cbce",
+      "quality": 68,
+      "renderSha256": "d3efbfe3208efbfb1acc1e98e32e40a13f824407d6b1169485e043ab195eb187"
+    },
+    {
+      "id": "stiksy-pk-014-03",
+      "file": "03.webp",
+      "caption": "Ji Abbu!",
+      "accessibilityText": "Abbu Aa Gaye: Ji Abbu!",
+      "emojis": [
+        "😶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 15458,
+      "sha256": "6b2874f046528bdb2e95d32a805dc832010e4d5a64144787032090a72dc6ae80",
+      "quality": 68,
+      "renderSha256": "a9768f71df2e26c3162827d749e7d1fad056797b61e03151ccc73b79ef39fd5d"
+    },
+    {
+      "id": "stiksy-pk-014-04",
+      "file": "04.webp",
+      "caption": "TV band kar do",
+      "accessibilityText": "Abbu Aa Gaye: TV band kar do",
+      "emojis": [
+        "😶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 14350,
+      "sha256": "320c156c13e2b9c0f78283bbd182b8b50b9d0e57c429312a4e9c6f36b41fd8ec",
+      "quality": 68,
+      "renderSha256": "a2a4f295753bcf283ae0b3360449fd22d1166b41b046fb60e6976c09e4383edd"
+    },
+    {
+      "id": "stiksy-pk-014-05",
+      "file": "05.webp",
+      "caption": "Abbu ko salam karo",
+      "accessibilityText": "Abbu Aa Gaye: Abbu ko salam karo",
+      "emojis": [
+        "😶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 16454,
+      "sha256": "2a5b4c58a576da39cce3ea93a7c98ba4f25b960b02ce29ebcefc4ae05addc50e",
+      "quality": 68,
+      "renderSha256": "ec8c058c85bcc333ba23a83782ee9e810c7c57c501249dd2392ee0b10ba93cc0"
+    },
+    {
+      "id": "stiksy-pk-014-06",
+      "file": "06.webp",
+      "caption": "Homework yaad aa gaya",
+      "accessibilityText": "Abbu Aa Gaye: Homework yaad aa gaya",
+      "emojis": [
+        "😶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 14564,
+      "sha256": "08f23697fdef412afda97a65c74999a7e0d075653ccc77bb093cb060898e690b",
+      "quality": 68,
+      "renderSha256": "371c6e769a075276422cfce2d7d9d6bd48dfbd627ef613e189d0a5927c635d10"
+    },
+    {
+      "id": "stiksy-pk-014-07",
+      "file": "07.webp",
+      "caption": "Abbu ka mood acha hai",
+      "accessibilityText": "Abbu Aa Gaye: Abbu ka mood acha hai",
+      "emojis": [
+        "😶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 18770,
+      "sha256": "198d671702be639dbc070e103d36b236c102f3afa755cfab108507e41ee320df",
+      "quality": 68,
+      "renderSha256": "fb67eb54ea07b6e8b2d3d78d9f38779d08cceca70002c34588be4a4e8b60dd1b"
+    },
+    {
+      "id": "stiksy-pk-014-08",
+      "file": "08.webp",
+      "caption": "Abbu ke saath chai",
+      "accessibilityText": "Abbu Aa Gaye: Abbu ke saath chai",
+      "emojis": [
+        "😶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 19274,
+      "sha256": "676ae38607d1c883712b1038ad4f8ffcbee184ad39d628e1633a2bbf54fb01f9",
+      "quality": 68,
+      "renderSha256": "d787388c32a8c5d318f972067c8f5ac2866af1207832c688d41576216d1eb13d"
+    },
+    {
+      "id": "stiksy-pk-014-09",
+      "file": "09.webp",
+      "caption": "Abbu se poochte hain",
+      "accessibilityText": "Abbu Aa Gaye: Abbu se poochte hain",
+      "emojis": [
+        "😶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22574,
+      "sha256": "35a30c9e4971d041cde43c8b7478f106244e02bd01cc08b22a27bdacecda0c31",
+      "quality": 68,
+      "renderSha256": "85156ead217a12efc7442c44661586a946ecb19abc70f92aa5e4c6d61730626b"
+    },
+    {
+      "id": "stiksy-pk-014-10",
+      "file": "10.webp",
+      "caption": "Abbu ki izzat, boss",
+      "accessibilityText": "Abbu Aa Gaye: Abbu ki izzat, boss",
+      "emojis": [
+        "😶"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 20242,
+      "sha256": "3b730f32058b08581f92cde9214714856a3789e7df396f038b61417ff144a56a",
+      "quality": 68,
+      "renderSha256": "12d30f6ec0346acd6db9292a8a66cc37d580fb63e374abe658ea4dd21f30e1be"
+    }
+  ]
+}

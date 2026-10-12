@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-001",
+  "identifier": "stiksy-pk-001",
+  "title": "Chai Ho Jaye?",
+  "name": "Chai Ho Jaye?",
+  "publisher": "Stiksy",
+  "category": "Chai & Gup Shup",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "chai-gup-shup"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-001-01",
+      "file": "01.webp",
+      "caption": "Chai ho jaye?",
+      "accessibilityText": "Chai Ho Jaye?: Chai ho jaye?",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26844,
+      "sha256": "1977a3ccb3afdb241f66da27ee351f34897e2200cf3b28b2903c79dc5995101c",
+      "quality": 68,
+      "renderSha256": "c710d47e1b7ccdd68b84594b6d82997c4d6b04ef81f6a1578334ddf7452b1222"
+    },
+    {
+      "id": "stiksy-pk-001-02",
+      "file": "02.webp",
+      "caption": "Ek cup tumhara",
+      "accessibilityText": "Chai Ho Jaye?: Ek cup tumhara",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22520,
+      "sha256": "2fca8edb3b30c7be436a3ed8bf2b90e492e5e32630a1a93d6627db54e6cff4a4",
+      "quality": 68,
+      "renderSha256": "78e7175689a273ff74df1fe601a8613188f9cc3a55cb835baa64d98589cb4586"
+    },
+    {
+      "id": "stiksy-pk-001-03",
+      "file": "03.webp",
+      "caption": "Chai pe milte hain",
+      "accessibilityText": "Chai Ho Jaye?: Chai pe milte hain",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 24598,
+      "sha256": "9795b23d8177843a339dde1c158bb913b6244f060dc8d8125cdd917793f47d3a",
+      "quality": 68,
+      "renderSha256": "ffb34b28c5e51517f21319582889e7ddd867277e6a04ac08e2213504713ebed1"
+    },
+    {
+      "id": "stiksy-pk-001-04",
+      "file": "04.webp",
+      "caption": "Chai ka waqt hai",
+      "accessibilityText": "Chai Ho Jaye?: Chai ka waqt hai",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 18962,
+      "sha256": "f46fa978fdb5a7247be47d8b08afd568cdb2fb38624babf7129d522cee68c8b8",
+      "quality": 68,
+      "renderSha256": "4fff1df7aa1e9a9b4cb4afdbecf78214e3832bfd43733a56bd8ae3ab48e46d4c"
+    },
+    {
+      "id": "stiksy-pk-001-05",
+      "file": "05.webp",
+      "caption": "Chai pilao yaar",
+      "accessibilityText": "Chai Ho Jaye?: Chai pilao yaar",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23902,
+      "sha256": "247648c3a79bfe5e62e9cf9455cab360603698fc0e6c00d4ed0bfa77a980cb3c",
+      "quality": 68,
+      "renderSha256": "2c0d86adf6a2de432e9091c71179f4adaf67d451132ea181d1edfdd245ea9aa8"
+    },
+    {
+      "id": "stiksy-pk-001-06",
+      "file": "06.webp",
+      "caption": "Garam garam chai",
+      "accessibilityText": "Chai Ho Jaye?: Garam garam chai",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 20024,
+      "sha256": "c16d0650f0493ece5debffcfa9961bc7367968474bd6841c77e12eb0254c3cf5",
+      "quality": 68,
+      "renderSha256": "5fa9bb11ee865b061cb4c7161802b201eb4bfb108fb9ebe9d72874ceb8a997d8"
+    },
+    {
+      "id": "stiksy-pk-001-07",
+      "file": "07.webp",
+      "caption": "Chai aur tum",
+      "accessibilityText": "Chai Ho Jaye?: Chai aur tum",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23736,
+      "sha256": "849e1191f632b7132b20aa91ba3ae4419650b31264ac7a82e9b5e4f2ae82d90e",
+      "quality": 68,
+      "renderSha256": "e703d192fb8219c1319b19c2df1c4f4af27a090f9e4ad81f77f398427aafe367"
+    },
+    {
+      "id": "stiksy-pk-001-08",
+      "file": "08.webp",
+      "caption": "Chai ka scene banao",
+      "accessibilityText": "Chai Ho Jaye?: Chai ka scene banao",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26378,
+      "sha256": "1c25d84280450e95d1ded9569d1849b85cca5442e0d58eabf8505172be94d82f",
+      "quality": 68,
+      "renderSha256": "3e0f5a26221d8e5746fe221fd4ad212b27be2beecf2a33db3221a2213e94026d"
+    },
+    {
+      "id": "stiksy-pk-001-09",
+      "file": "09.webp",
+      "caption": "Chai party on",
+      "accessibilityText": "Chai Ho Jaye?: Chai party on",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27132,
+      "sha256": "c4f45440b4cbde3dbd8fd6556f7c06cf50fc87877eaf84af4b5d0400406006b1",
+      "quality": 68,
+      "renderSha256": "442d634d863c8ba5f2d36c73bfeef2020099e331359f05b81b8ed9c0d313ad0b"
+    },
+    {
+      "id": "stiksy-pk-001-10",
+      "file": "10.webp",
+      "caption": "Haan, chai chahiye",
+      "accessibilityText": "Chai Ho Jaye?: Haan, chai chahiye",
+      "emojis": [
+        "☕"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28028,
+      "sha256": "8dd649b3c1c15f266c799744d7c8f5931bdb230bb2a4404e1831a3d5497e849c",
+      "quality": 68,
+      "renderSha256": "4996dda4381ee5318cfd850b47b8e2b9ad1acd170d1f30fe03cdb264d65a2666"
+    }
+  ]
+}

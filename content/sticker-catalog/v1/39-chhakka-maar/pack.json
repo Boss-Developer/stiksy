@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-039",
+  "identifier": "stiksy-pk-039",
+  "title": "Chhakka Maar!",
+  "name": "Chhakka Maar!",
+  "publisher": "Stiksy",
+  "category": "Pakistan & Cricket",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "pakistan-cricket"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-039-01",
+      "file": "01.webp",
+      "caption": "Chhakka maar!",
+      "accessibilityText": "Chhakka Maar!: Chhakka maar!",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25828,
+      "sha256": "40f2f4ec1df79cf0d92f4902b57fe7b2a77d82820cc40bf9feb21c32b6a7d027",
+      "quality": 68,
+      "renderSha256": "c85718968db6b7c0e78a95faabbb390283f03f6632d8c7d4237d14df5daf946e"
+    },
+    {
+      "id": "stiksy-pk-039-02",
+      "file": "02.webp",
+      "caption": "Ball boundary ke paar",
+      "accessibilityText": "Chhakka Maar!: Ball boundary ke paar",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23844,
+      "sha256": "9d75ab77123c0d5f6e1528be76461078b63c52f16a30b699baef6e07bb29bcd2",
+      "quality": 68,
+      "renderSha256": "11c3c7905e652843b3dfbd79a2ab7fd255792537342a62d04b7d448438f698d4"
+    },
+    {
+      "id": "stiksy-pk-039-03",
+      "file": "03.webp",
+      "caption": "Wah, kya shot hai",
+      "accessibilityText": "Chhakka Maar!: Wah, kya shot hai",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 24314,
+      "sha256": "4da44fc437fcb0013832e2515389afdcf878f97357e7f184565dd709ff2ba252",
+      "quality": 68,
+      "renderSha256": "79e93e930d6f63f007a528e3a09ce210ea983fe550bbf9c22a7550c22030eb2b"
+    },
+    {
+      "id": "stiksy-pk-039-04",
+      "file": "04.webp",
+      "caption": "Chaar nahi, chhay chahiye",
+      "accessibilityText": "Chhakka Maar!: Chaar nahi, chhay chahiye",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 20582,
+      "sha256": "259e81218b8c8239704ac352d0ceb1e3a6bcea7fa2edbae956dfea400b17a302",
+      "quality": 68,
+      "renderSha256": "37de78cb89066baa56a56ebf4e8095aa24160aa70181ceff7dec40ee39cf7585"
+    },
+    {
+      "id": "stiksy-pk-039-05",
+      "file": "05.webp",
+      "caption": "Bat ghoomao bhai",
+      "accessibilityText": "Chhakka Maar!: Bat ghoomao bhai",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23188,
+      "sha256": "20e5257d54668697bc5ee00f2854e4d77c6e2439eba17d5402bbd26511a85665",
+      "quality": 68,
+      "renderSha256": "f1c97fae204aa8c4c7053012989a3461dd53688f4e8fd9ae9891b24ffb9e42ab"
+    },
+    {
+      "id": "stiksy-pk-039-06",
+      "file": "06.webp",
+      "caption": "Last over ka scene",
+      "accessibilityText": "Chhakka Maar!: Last over ka scene",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 19324,
+      "sha256": "e46286bbd827eda98d8f78fb43e6641dc137cdfe08bccd9d6054e34f9e647b6d",
+      "quality": 68,
+      "renderSha256": "c4fda8a8536c18e44bcc43f851bb755dd27a90151aad53b6ec6d98288c476051"
+    },
+    {
+      "id": "stiksy-pk-039-07",
+      "file": "07.webp",
+      "caption": "Full toss ka faida lo",
+      "accessibilityText": "Chhakka Maar!: Full toss ka faida lo",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25172,
+      "sha256": "e23b335aeb2343a61b7655585b5cd204892c2d0300dbef59d8495cba6b91881d",
+      "quality": 68,
+      "renderSha256": "c1248b7ae0e3c32fce969c4b35fad456081a3c33e85edf7ec94231d6fc0160e0"
+    },
+    {
+      "id": "stiksy-pk-039-08",
+      "file": "08.webp",
+      "caption": "Stadium goonj utha",
+      "accessibilityText": "Chhakka Maar!: Stadium goonj utha",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25904,
+      "sha256": "bcb501af15a9a7d942a34a311115d7b5c209170922f55f44ec221716f0b59282",
+      "quality": 68,
+      "renderSha256": "b31803e55fec7df845ac1e0d04588d8f1a02b4923d7f4a188fdcff2c3887f6a2"
+    },
+    {
+      "id": "stiksy-pk-039-09",
+      "file": "09.webp",
+      "caption": "Chhakka aur chai",
+      "accessibilityText": "Chhakka Maar!: Chhakka aur chai",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28106,
+      "sha256": "79b3aceb7217fa392b33204642b89575cb7a1c1484547790532dc14dbe976409",
+      "quality": 68,
+      "renderSha256": "eb3abd16c82bbad756f8f567784f8db7c7157628af196281ce4003bf343fe45f"
+    },
+    {
+      "id": "stiksy-pk-039-10",
+      "file": "10.webp",
+      "caption": "Aaj batting chalegi",
+      "accessibilityText": "Chhakka Maar!: Aaj batting chalegi",
+      "emojis": [
+        "🏏"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28318,
+      "sha256": "89c3a2bae2874e0fb21a0134690688576b0ba898986c6dfb518f901664d80eaa",
+      "quality": 68,
+      "renderSha256": "de08b48e5dae7fe8b183d5e92e022ce6a171befe76740a66ee27c48e8aacc1f5"
+    }
+  ]
+}

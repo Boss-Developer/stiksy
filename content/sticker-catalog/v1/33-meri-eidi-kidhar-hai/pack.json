@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-033",
+  "identifier": "stiksy-pk-033",
+  "title": "Meri Eidi Kidhar Hai?",
+  "name": "Meri Eidi Kidhar Hai?",
+  "publisher": "Stiksy",
+  "category": "Eid & Ramadan",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "eid-ramadan"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-033-01",
+      "file": "01.webp",
+      "caption": "Meri Eidi kidhar hai?",
+      "accessibilityText": "Meri Eidi Kidhar Hai?: Meri Eidi kidhar hai?",
+      "emojis": [
+        "💸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29780,
+      "sha256": "bb1472c8854eafb9271c9c44efb9c61e4d9af26ff9355dff18a4cb4c1ed88c60",
+      "quality": 68,
+      "renderSha256": "e9a88a45e881bbed310f01bfd48bf0d1df42422a9a581bad21be42496c7672ce"
+    },
+    {
+      "id": "stiksy-pk-033-02",
+      "file": "02.webp",
+      "caption": "Eidi nikaalo ji",
+      "accessibilityText": "Meri Eidi Kidhar Hai?: Eidi nikaalo ji",
+      "emojis": [
+        "💸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23576,
+      "sha256": "a484c34dcda094a7baa52bd369c978a2cf98346ebf22dfa5bd7a11dbb0bf7f38",
+      "quality": 68,
+      "renderSha256": "c3001173c39979c78f08a8266187cc00e540abb41f018caf0a23d1b85ea97b13"
+    },
+    {
+      "id": "stiksy-pk-033-03",
+      "file": "03.webp",
+      "caption": "Pehle Eidi, phir selfie",
+      "accessibilityText": "Meri Eidi Kidhar Hai?: Pehle Eidi, phir selfie",
+      "emojis": [
+        "💸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27214,
+      "sha256": "26bc0ed2290db57342561ad90387007d7eb8f9ed47d94b905c6d8339381f8ad7",
+      "quality": 68,
+      "renderSha256": "6cec3f18715b3d888ddb5938afc6f72ef9458759a8c2590081c369119f569f64"
+    },
+    {
+      "id": "stiksy-pk-033-04",
+      "file": "04.webp",
+      "caption": "Eidi double chahiye",
+      "accessibilityText": "Meri Eidi Kidhar Hai?: Eidi double chahiye",
+      "emojis": [
+        "💸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 21728,
+      "sha256": "557069c360851a0dd1b17e98fad836c75d778f5106f12e4a8eb80220071b254a",
+      "quality": 68,
+      "renderSha256": "7a016058dda6c0ad63fb7a1fa1aed370a905a9569719a86ccb3515aebea73395"
+    },
+    {
+      "id": "stiksy-pk-033-05",
+      "file": "05.webp",
+      "caption": "Abbu, Eidi please",
+      "accessibilityText": "Meri Eidi Kidhar Hai?: Abbu, Eidi please",
+      "emojis": [
+        "💸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25266,
+      "sha256": "a6efc44683945ff006acf996e40d9d916ef231c35c069609ca654cb1d710d696",
+      "quality": 68,
+      "renderSha256": "6b580201772a62566085054ff08509926f33c6739d4e3fa15ed072e06c046517"
+    },
+    {
+      "id": "stiksy-pk-033-06",
+      "file": "06.webp",
+      "caption": "Eidi ka intezar",
+      "accessibilityText": "Meri Eidi Kidhar Hai?: Eidi ka intezar",
+      "emojis": [
+        "💸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 19698,
+      "sha256": "85eabcf0aaf7483a0aed2db31f5032287e0b0608385585fa997c80c341bca653",
+      "quality": 68,
+      "renderSha256": "d17985ae92651e9fd443f6ecd1724cf64d3ecc84e75d5e7985e72e20e9074aac"
+    },
+    {
+      "id": "stiksy-pk-033-07",
+      "file": "07.webp",
+      "caption": "Chhoti Eidi nahi chalegi",
+      "accessibilityText": "Meri Eidi Kidhar Hai?: Chhoti Eidi nahi chalegi",
+      "emojis": [
+        "💸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27102,
+      "sha256": "0c9052b1f2260a4a1c586c385238bcb0ac65a2f94296df6cb25a785d7a3f0721",
+      "quality": 68,
+      "renderSha256": "677f7593bdf0b2a147bb3e9c128c6543e35a601c6fb7c390c11e2591da2cebe5"
+    },
+    {
+      "id": "stiksy-pk-033-08",
+      "file": "08.webp",
+      "caption": "Eidi mil gayi!",
+      "accessibilityText": "Meri Eidi Kidhar Hai?: Eidi mil gayi!",
+      "emojis": [
+        "💸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28134,
+      "sha256": "abcb2384f53fccddcc4e5e1f2eef0d38e9f3b98210b2f290d06cb28334c65ded",
+      "quality": 68,
+      "renderSha256": "653e43fd80dc730e3fd26c6da506bff80502f9f1ec7c6ed6c345006413685de6"
+    },
+    {
+      "id": "stiksy-pk-033-09",
+      "file": "09.webp",
+      "caption": "Eidi meri, marzi meri",
+      "accessibilityText": "Meri Eidi Kidhar Hai?: Eidi meri, marzi meri",
+      "emojis": [
+        "💸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31762,
+      "sha256": "914d68831deb0944123c244ef828b893dafb698bd641a6d3b7a9a09ae5f312f2",
+      "quality": 68,
+      "renderSha256": "0b435b84f3fc2dd64e501ec622a0920b7930fd5e75000daaae21a3aa5694ad66"
+    },
+    {
+      "id": "stiksy-pk-033-10",
+      "file": "10.webp",
+      "caption": "Agla envelope please",
+      "accessibilityText": "Meri Eidi Kidhar Hai?: Agla envelope please",
+      "emojis": [
+        "💸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30990,
+      "sha256": "73e0d28d1db1f7830dbe1bb53569a825eef9274e074aa4a567c225fc22da1bc1",
+      "quality": 68,
+      "renderSha256": "cdeaa63d1ed80a0523d000b01690bff456cc5dc33a86ead22896d66af027ee1a"
+    }
+  ]
+}

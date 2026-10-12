@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-009",
+  "identifier": "stiksy-pk-009",
+  "title": "Nihari Ka Nashta",
+  "name": "Nihari Ka Nashta",
+  "publisher": "Stiksy",
+  "category": "Desi Food",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "desi-food"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-009-01",
+      "file": "01.webp",
+      "caption": "Nihari ka nashta",
+      "accessibilityText": "Nihari Ka Nashta: Nihari ka nashta",
+      "emojis": [
+        "🍲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 35222,
+      "sha256": "251cca1a4e8fa8b7c5346e43f0c951e2accc096154243b4e470848bbca93f0c0",
+      "quality": 68,
+      "renderSha256": "6fd7332a7901a652e3de4a090bd7a50376d54c45ccd57391f76daa8658ce56b1"
+    },
+    {
+      "id": "stiksy-pk-009-02",
+      "file": "02.webp",
+      "caption": "Naan garam lao",
+      "accessibilityText": "Nihari Ka Nashta: Naan garam lao",
+      "emojis": [
+        "🍲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31666,
+      "sha256": "d9550ed25ed09770622398e5be2b4bcc6e573dd747a4bbe524ede332ce8b3cc2",
+      "quality": 68,
+      "renderSha256": "0ac2fd5b2d4b8d5a37ec59215eef12de0c79103a20aebbd7858f1af5e525534c"
+    },
+    {
+      "id": "stiksy-pk-009-03",
+      "file": "03.webp",
+      "caption": "Subah ka asli scene",
+      "accessibilityText": "Nihari Ka Nashta: Subah ka asli scene",
+      "emojis": [
+        "🍲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34240,
+      "sha256": "8d4e2cb86cc18e114f5162f4f8b69970493bd2fb0ca66e4d4d312154fb041d8f",
+      "quality": 68,
+      "renderSha256": "b9967fbe809894476f7ecf7b400a27800b7be94690ba13b300546b0d5f5b169a"
+    },
+    {
+      "id": "stiksy-pk-009-04",
+      "file": "04.webp",
+      "caption": "Nihari ho to baat bane",
+      "accessibilityText": "Nihari Ka Nashta: Nihari ho to baat bane",
+      "emojis": [
+        "🍲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26456,
+      "sha256": "cf2a0b49afd5735012aa6a80499aa382dce49a633b0824f67b6ed4bbc1a59986",
+      "quality": 68,
+      "renderSha256": "70f600911ed0c444b5b742df0cb5d964d6883e602e65def9f8fadbc69f3fe6a6"
+    },
+    {
+      "id": "stiksy-pk-009-05",
+      "file": "05.webp",
+      "caption": "Nashta desi hona chahiye",
+      "accessibilityText": "Nihari Ka Nashta: Nashta desi hona chahiye",
+      "emojis": [
+        "🍲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33542,
+      "sha256": "0f0a5505090dbad115b0b4dc1d9a654e0ea5167feab4e37b11c6b4007173e514",
+      "quality": 68,
+      "renderSha256": "d2e99a45b227c857b6367d3d65bcc1cf1d2a386dee8bb448a73ef8ad067a8ae0"
+    },
+    {
+      "id": "stiksy-pk-009-06",
+      "file": "06.webp",
+      "caption": "Nalli wali please",
+      "accessibilityText": "Nihari Ka Nashta: Nalli wali please",
+      "emojis": [
+        "🍲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 25256,
+      "sha256": "1c4e3b2e42694176da913a8122e558b77490944c35fa5fe778c68992e54300fd",
+      "quality": 68,
+      "renderSha256": "512f5dd4f07953abb21cc6931a13f1898357deb9e1871390406f65d8b151a6e3"
+    },
+    {
+      "id": "stiksy-pk-009-07",
+      "file": "07.webp",
+      "caption": "Aaj nihari khayenge",
+      "accessibilityText": "Nihari Ka Nashta: Aaj nihari khayenge",
+      "emojis": [
+        "🍲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 35798,
+      "sha256": "7d5c478c2c246339daa6f379ff9a96dded3311e52576e1e68676446c4a493e15",
+      "quality": 68,
+      "renderSha256": "d454b116d4632a683f1baf6f1452db6daac6aab7b0b02adf819d96bb756402a3"
+    },
+    {
+      "id": "stiksy-pk-009-08",
+      "file": "08.webp",
+      "caption": "Naan aur nihari",
+      "accessibilityText": "Nihari Ka Nashta: Naan aur nihari",
+      "emojis": [
+        "🍲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34402,
+      "sha256": "f3a315666327da9ec4ee7ee372135e300ee70644d699c50b7e7c31fcc6dd79bd",
+      "quality": 68,
+      "renderSha256": "cbaf441a1a104d6842455ea9f3f1ffc3978414a9495c5346bef7f8bea4d5f7ee"
+    },
+    {
+      "id": "stiksy-pk-009-09",
+      "file": "09.webp",
+      "caption": "Weekend wala nashta",
+      "accessibilityText": "Nihari Ka Nashta: Weekend wala nashta",
+      "emojis": [
+        "🍲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 39202,
+      "sha256": "20c51461ef90547d8b91c0859abc9277bec91a0e1dfcfd4808af5944d534789f",
+      "quality": 68,
+      "renderSha256": "04437f3773a09dc60b734db57832ff067e2cb5be7a60bf771c7d966f4a549c23"
+    },
+    {
+      "id": "stiksy-pk-009-10",
+      "file": "10.webp",
+      "caption": "Pet bhar, dil khush",
+      "accessibilityText": "Nihari Ka Nashta: Pet bhar, dil khush",
+      "emojis": [
+        "🍲"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 37196,
+      "sha256": "ae3d78af2fb336c67685854934318aae22296528459d959caa2e7784d7281835",
+      "quality": 68,
+      "renderSha256": "c782fa5b9d2c638732588ed0e4993d97fd8782697f2788332e879bc9e1feb268"
+    }
+  ]
+}

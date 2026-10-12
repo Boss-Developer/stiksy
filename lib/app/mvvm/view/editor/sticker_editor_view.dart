@@ -14,7 +14,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../config/app_colors.dart';
 import '../../../custom_widgets/sticker_components.dart';
 import '../../../custom_widgets/sticker_background.dart';
-import '../../../custom_widgets/stiksy_ads.dart';
 import '../../../services/sticker_export_service.dart';
 import '../../../services/sticker_renderer.dart';
 import '../../model/editor_layer.dart';
@@ -1624,8 +1623,6 @@ class _StickerEditorViewState extends State<StickerEditorView> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const StiksyAd(),
-            const SizedBox(height: 6),
             Row(
               children: [
                 for (final e in [

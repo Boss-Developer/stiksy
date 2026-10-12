@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-025",
+  "identifier": "stiksy-pk-025",
+  "title": "Dil Garden Garden",
+  "name": "Dil Garden Garden",
+  "publisher": "Stiksy",
+  "category": "Desi Reactions",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "desi-reactions"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-025-01",
+      "file": "01.webp",
+      "caption": "Dil garden garden",
+      "accessibilityText": "Dil Garden Garden: Dil garden garden",
+      "emojis": [
+        "🌸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33490,
+      "sha256": "e8a7962cb566e09be40f3dfaee2160b767acbd5e3e5866028a5daea2d6b62e1f",
+      "quality": 68,
+      "renderSha256": "ee2fe363265717c017fb66a3f2b5da48c357027ca0c9427249de5664075c9062"
+    },
+    {
+      "id": "stiksy-pk-025-02",
+      "file": "02.webp",
+      "caption": "Dil khush ho gaya",
+      "accessibilityText": "Dil Garden Garden: Dil khush ho gaya",
+      "emojis": [
+        "🌸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28524,
+      "sha256": "52c94fd45d61e849ae98b996d9c7c67a82ded929c62a721b2f6910754d6473c5",
+      "quality": 68,
+      "renderSha256": "6795169cf538d606b186fd3236e6bc994bc32814f1d6ce252cea31e84d2844dc"
+    },
+    {
+      "id": "stiksy-pk-025-03",
+      "file": "03.webp",
+      "caption": "Aaj khushi double",
+      "accessibilityText": "Dil Garden Garden: Aaj khushi double",
+      "emojis": [
+        "🌸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30348,
+      "sha256": "6a0027af66b31800826497bc191a647c6ae71717487141fdd0c0166aa5821e69",
+      "quality": 68,
+      "renderSha256": "c1d2831c795a580019a37cef355731a8dee0f197dbcc410148a25e17ef0088a3"
+    },
+    {
+      "id": "stiksy-pk-025-04",
+      "file": "04.webp",
+      "caption": "Phool khil gaye",
+      "accessibilityText": "Dil Garden Garden: Phool khil gaye",
+      "emojis": [
+        "🌸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23904,
+      "sha256": "9510a858ebf71fdaa4f4a7ac5734a442962913813a192fd561c50e2bd4629f67",
+      "quality": 68,
+      "renderSha256": "95f669c1350a19f07c8760583ad91d842df99ee348776ffebf23b307f29089b5"
+    },
+    {
+      "id": "stiksy-pk-025-05",
+      "file": "05.webp",
+      "caption": "Tum ne din bana diya",
+      "accessibilityText": "Dil Garden Garden: Tum ne din bana diya",
+      "emojis": [
+        "🌸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29102,
+      "sha256": "cb00009fcf35424d7cc4601f654905476fb804007307cbbb9473bcdbaec25900",
+      "quality": 68,
+      "renderSha256": "d62cbff81594268d6e21b489b154bdae29e1d026188456cccdb8a33d9c2d6ecb"
+    },
+    {
+      "id": "stiksy-pk-025-06",
+      "file": "06.webp",
+      "caption": "Dil se shukriya",
+      "accessibilityText": "Dil Garden Garden: Dil se shukriya",
+      "emojis": [
+        "🌸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23244,
+      "sha256": "257608c39185b1a5e4f311c568a712e141709580c47dbca094afd17db840a9ed",
+      "quality": 68,
+      "renderSha256": "1768e82dd94b88298cccc71e1bcc903e60c0310fff7220c66d1f5efe4bcc9b06"
+    },
+    {
+      "id": "stiksy-pk-025-07",
+      "file": "07.webp",
+      "caption": "Khushi ka scene",
+      "accessibilityText": "Dil Garden Garden: Khushi ka scene",
+      "emojis": [
+        "🌸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31288,
+      "sha256": "4152442cedc323db2d600886dfd61e689ab8438cfbba88800600bd41dc41e360",
+      "quality": 68,
+      "renderSha256": "554342120e614441173168a61658f7076401c8b8fe0c6abf4cf9e71c469f2174"
+    },
+    {
+      "id": "stiksy-pk-025-08",
+      "file": "08.webp",
+      "caption": "Aaj dil nach raha hai",
+      "accessibilityText": "Dil Garden Garden: Aaj dil nach raha hai",
+      "emojis": [
+        "🌸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 31706,
+      "sha256": "65569ad1679d180c9eece2f186fd5e37d37426ec1cbd95e4a3546a2b40e5727e",
+      "quality": 68,
+      "renderSha256": "ef37c559de98d11616e21fd234e95fb013b68925431479da4749a542eb8aca9f"
+    },
+    {
+      "id": "stiksy-pk-025-09",
+      "file": "09.webp",
+      "caption": "Bohat acha laga",
+      "accessibilityText": "Dil Garden Garden: Bohat acha laga",
+      "emojis": [
+        "🌸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34134,
+      "sha256": "8bf777e3d5da277465dd67fb19e8e9463b9552131e6ac331c4d10d3a822a74f5",
+      "quality": 68,
+      "renderSha256": "b6c2b3f448ff7db80394ffbe75883ff22dbcf9ff52cd88166a40d695ec8a39d9"
+    },
+    {
+      "id": "stiksy-pk-025-10",
+      "file": "10.webp",
+      "caption": "Smile aa gayi yaar",
+      "accessibilityText": "Dil Garden Garden: Smile aa gayi yaar",
+      "emojis": [
+        "🌸"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 34612,
+      "sha256": "7b8b759bcc259912c12da90b65548d372fe37939fb1c1514f5112aba08bc5f72",
+      "quality": 68,
+      "renderSha256": "02a56cf3ee12f7321186ce39f31d91dcc23b2f2d64f93222c7e87690f5540a79"
+    }
+  ]
+}

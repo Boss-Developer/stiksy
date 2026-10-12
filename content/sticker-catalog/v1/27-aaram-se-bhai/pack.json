@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-027",
+  "identifier": "stiksy-pk-027",
+  "title": "Aaram Se Bhai",
+  "name": "Aaram Se Bhai",
+  "publisher": "Stiksy",
+  "category": "Desi Reactions",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "desi-reactions"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-027-01",
+      "file": "01.webp",
+      "caption": "Aaram se bhai",
+      "accessibilityText": "Aaram Se Bhai: Aaram se bhai",
+      "emojis": [
+        "😌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30786,
+      "sha256": "ba9e068fe4ca1d2e8b5f78fb00ff774d8d69c46e55fd2bf96b55129045ae23cd",
+      "quality": 68,
+      "renderSha256": "a178b9e22f5e17197bcc972f3f6ee1da38bf5d7a5800c7d4b5c19b16767ecb5f"
+    },
+    {
+      "id": "stiksy-pk-027-02",
+      "file": "02.webp",
+      "caption": "Tension na lo",
+      "accessibilityText": "Aaram Se Bhai: Tension na lo",
+      "emojis": [
+        "😌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 26726,
+      "sha256": "2ea3076cf9c8d20af948be3f9fe80a26aa1723ec9cd322bbbf63f5bd5cf8a1dc",
+      "quality": 68,
+      "renderSha256": "493b60721eb5984e509431481e965999a267f22efe41091852c9a51acac6b10e"
+    },
+    {
+      "id": "stiksy-pk-027-03",
+      "file": "03.webp",
+      "caption": "Sab ho jayega",
+      "accessibilityText": "Aaram Se Bhai: Sab ho jayega",
+      "emojis": [
+        "😌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 28598,
+      "sha256": "2d12e5a0e4c3e348785c2e9b9133be277e74977c29b014506c92eac599294697",
+      "quality": 68,
+      "renderSha256": "6213440ade4393bcc39d849c6aa29379e53fb53c85b2ca8c72ea6b7050317ef0"
+    },
+    {
+      "id": "stiksy-pk-027-04",
+      "file": "04.webp",
+      "caption": "Thora chill karo",
+      "accessibilityText": "Aaram Se Bhai: Thora chill karo",
+      "emojis": [
+        "😌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 22088,
+      "sha256": "b309c1ed5615c98b5ba78631534302e4e05163ee4a94543f47746dbc6d635241",
+      "quality": 68,
+      "renderSha256": "d7dc2532fae954881c66f22d94dcd4994a7254fb60f68d7ee24bbf6c06e42806"
+    },
+    {
+      "id": "stiksy-pk-027-05",
+      "file": "05.webp",
+      "caption": "Saans to le lo",
+      "accessibilityText": "Aaram Se Bhai: Saans to le lo",
+      "emojis": [
+        "😌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 27794,
+      "sha256": "bc52a8eb09981f695061911f97cdefaf2c307a7955f4cfbc155faf2c9579f2b3",
+      "quality": 68,
+      "renderSha256": "7f2c677058dd89b60f3436d7c29960f7ff608349110a3c3a5239dedf0e4a49ef"
+    },
+    {
+      "id": "stiksy-pk-027-06",
+      "file": "06.webp",
+      "caption": "Jaldi kis baat ki?",
+      "accessibilityText": "Aaram Se Bhai: Jaldi kis baat ki?",
+      "emojis": [
+        "😌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 21872,
+      "sha256": "a29087d99e42939abfc047c60300b6d98aa50e312cc850aba03f394272b74735",
+      "quality": 68,
+      "renderSha256": "9096bbd7c19eb061321ed704fa5b3975bfebeac18b467070be9ec978fbc04261"
+    },
+    {
+      "id": "stiksy-pk-027-07",
+      "file": "07.webp",
+      "caption": "Chai pi, relax kar",
+      "accessibilityText": "Aaram Se Bhai: Chai pi, relax kar",
+      "emojis": [
+        "😌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 29706,
+      "sha256": "2e4fd6f7c73f43f9949282abbee4d6dfe5cb6211d6447521788d24a94c2f2d38",
+      "quality": 68,
+      "renderSha256": "e4006351dafc470034e1753f7bfad77dfa0bdb26c9b2e82ae1360391a112c5b7"
+    },
+    {
+      "id": "stiksy-pk-027-08",
+      "file": "08.webp",
+      "caption": "Sukoon se baitho",
+      "accessibilityText": "Aaram Se Bhai: Sukoon se baitho",
+      "emojis": [
+        "😌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30784,
+      "sha256": "28c8d595fee822f634deaff7bf7e043a144487576b4fbee59bfdb7bfb8863ec9",
+      "quality": 68,
+      "renderSha256": "0e103e89b3cbf162d3f77f0588b90e1daa61e760e0ecfaadd70466e6f9f2008c"
+    },
+    {
+      "id": "stiksy-pk-027-09",
+      "file": "09.webp",
+      "caption": "Apna time aayega",
+      "accessibilityText": "Aaram Se Bhai: Apna time aayega",
+      "emojis": [
+        "😌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 33710,
+      "sha256": "b4a5be10689c2bb20f2ab27ccb3254c971c6c809c98e3faac4c555358152b26d",
+      "quality": 68,
+      "renderSha256": "77e12cecfc7f64e25b35b279b36a26683e02ebc39e3265fd15cfedaa3597feb0"
+    },
+    {
+      "id": "stiksy-pk-027-10",
+      "file": "10.webp",
+      "caption": "Aaj aaram ka din",
+      "accessibilityText": "Aaram Se Bhai: Aaj aaram ka din",
+      "emojis": [
+        "😌"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32310,
+      "sha256": "0859f9f6e35b62a21fb39cfe4087272a49be4715a991f3eead171a6e895fb128",
+      "quality": 68,
+      "renderSha256": "b60f73d11fa3f5543aa2d6131888710b35a8c45239eb654a591eadcb9071a844"
+    }
+  ]
+}

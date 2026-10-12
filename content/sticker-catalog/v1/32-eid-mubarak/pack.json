@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "stiksy-pk-032",
+  "identifier": "stiksy-pk-032",
+  "title": "Eid Mubarak!",
+  "name": "Eid Mubarak!",
+  "publisher": "Stiksy",
+  "category": "Eid & Ramadan",
+  "locale": "ur-Latn-PK",
+  "tags": [
+    "pakistani",
+    "desi",
+    "eid-ramadan"
+  ],
+  "version": "1",
+  "animated": false,
+  "premium": false,
+  "tray": "tray.png",
+  "cover": "cover.webp",
+  "stickerCount": 10,
+  "stickers": [
+    {
+      "id": "stiksy-pk-032-01",
+      "file": "01.webp",
+      "caption": "Eid Mubarak!",
+      "accessibilityText": "Eid Mubarak!: Eid Mubarak!",
+      "emojis": [
+        "🌙"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32636,
+      "sha256": "8bcce56bcf2d492bb84b1317b2f97354113b5386831e6b0994e51c567c1a476a",
+      "quality": 68,
+      "renderSha256": "9745825d96f16c64ee044943b363881a98d9b3810a21613a13725d5c93087eae"
+    },
+    {
+      "id": "stiksy-pk-032-02",
+      "file": "02.webp",
+      "caption": "Dil se Eid Mubarak",
+      "accessibilityText": "Eid Mubarak!: Dil se Eid Mubarak",
+      "emojis": [
+        "🌙"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30050,
+      "sha256": "9237732671cfaa9a2850233a36f61ae905d768cd616826c25efcb9accb4cc1b7",
+      "quality": 68,
+      "renderSha256": "d757a25fd0ef3b0ab3aa9ae8330b9baab617a03fe806d8441ab846561822ef7e"
+    },
+    {
+      "id": "stiksy-pk-032-03",
+      "file": "03.webp",
+      "caption": "Eid ki khushiyan",
+      "accessibilityText": "Eid Mubarak!: Eid ki khushiyan",
+      "emojis": [
+        "🌙"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30896,
+      "sha256": "a02b977105d2ee64801e569682a16f905c3f35fa1dd5a9a44f7b59c3b84fc962",
+      "quality": 68,
+      "renderSha256": "a89476bd4f64eed868b6e74a20e5d2cf79920bb6e83663aeb884c4aa721a9198"
+    },
+    {
+      "id": "stiksy-pk-032-04",
+      "file": "04.webp",
+      "caption": "Gale milo bhai",
+      "accessibilityText": "Eid Mubarak!: Gale milo bhai",
+      "emojis": [
+        "🌙"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 23696,
+      "sha256": "1cee4719e2c4e3624e90bb274cddfe9b5c60f37b764c04bbd200a5f74177b996",
+      "quality": 68,
+      "renderSha256": "361885b4e024571ce9b4de16192a57deee74b1d3ce869677c3bb706198cf59c8"
+    },
+    {
+      "id": "stiksy-pk-032-05",
+      "file": "05.webp",
+      "caption": "Meethi Eid mubarak",
+      "accessibilityText": "Eid Mubarak!: Meethi Eid mubarak",
+      "emojis": [
+        "🌙"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 30402,
+      "sha256": "f322cfb74953055d545e229364309cede4be7aa35d04eb90eae4b1cb222f166b",
+      "quality": 68,
+      "renderSha256": "b42f05238135d9e572fc1c3acdeb57637ab89d1a676b0a0877d11c475591aba7"
+    },
+    {
+      "id": "stiksy-pk-032-06",
+      "file": "06.webp",
+      "caption": "Aaj Eid ka din hai",
+      "accessibilityText": "Eid Mubarak!: Aaj Eid ka din hai",
+      "emojis": [
+        "🌙"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 24642,
+      "sha256": "c868da28184f53b179b8963d30ad29146f562c5db79e6b3cff9f9a94d235d13d",
+      "quality": 68,
+      "renderSha256": "52813cd97b0fe8f3e433fe9547cc776de1f3299eadb6e0a80dba73608fd1dcad"
+    },
+    {
+      "id": "stiksy-pk-032-07",
+      "file": "07.webp",
+      "caption": "Sab ko Eid Mubarak",
+      "accessibilityText": "Eid Mubarak!: Sab ko Eid Mubarak",
+      "emojis": [
+        "🌙"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32256,
+      "sha256": "96d34833efeb34e280b9907e109bbc8e41f78856a74aa97e955dc03030b0bfa7",
+      "quality": 68,
+      "renderSha256": "28faa6d0cfbc08d57023fda95fe577b1b92596c7d5ac0f5798e5172dd589830b"
+    },
+    {
+      "id": "stiksy-pk-032-08",
+      "file": "08.webp",
+      "caption": "Khushiyon wali Eid",
+      "accessibilityText": "Eid Mubarak!: Khushiyon wali Eid",
+      "emojis": [
+        "🌙"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 32702,
+      "sha256": "669ef514b94cc2574cfaee66868463fbe05f5167e466706e3e0478a2e68b840f",
+      "quality": 68,
+      "renderSha256": "80eed615274d993b32b40e09861a1fe845a9f56b78c8efb2bed80fe55fd555df"
+    },
+    {
+      "id": "stiksy-pk-032-09",
+      "file": "09.webp",
+      "caption": "Eid pe muskuraiye",
+      "accessibilityText": "Eid Mubarak!: Eid pe muskuraiye",
+      "emojis": [
+        "🌙"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 36228,
+      "sha256": "13f457e7dc7d62e026e69047fa27ee87666267834bfb9cf5df12e7de3a51c6a0",
+      "quality": 68,
+      "renderSha256": "2efbe978eef3a8ed21f35dce4b822ba4ad0512052052303af2129fd251b85521"
+    },
+    {
+      "id": "stiksy-pk-032-10",
+      "file": "10.webp",
+      "caption": "Apnon ke saath Eid",
+      "accessibilityText": "Eid Mubarak!: Apnon ke saath Eid",
+      "emojis": [
+        "🌙"
+      ],
+      "width": 512,
+      "height": 512,
+      "bytes": 35998,
+      "sha256": "2100b9cd0ac333f54a00e04bb288dd99467b924e2b89ad35ef36a262b5b7dadc",
+      "quality": 68,
+      "renderSha256": "ffa404aa67bd0acf2dcd409ce612b9ccd70cb3339cfac0be10e9364d00d7bff1"
+    }
+  ]
+}
