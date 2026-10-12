@@ -63,7 +63,7 @@ class TemplatePreviewView extends GetView<HomeController> {
                               template.title,
                               style: const TextStyle(
                                 fontSize: 18,
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                             const SizedBox(height: 5),

@@ -39,7 +39,7 @@ class StickerArtwork extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: showBackground ? const Color(0xfffaf5ed) : Colors.transparent,
+          color: showBackground ? const Color(0xfff0f3f1) : Colors.transparent,
           borderRadius: BorderRadius.circular(16),
         ),
         child: embedded

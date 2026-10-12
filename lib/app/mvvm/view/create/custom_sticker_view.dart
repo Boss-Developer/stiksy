@@ -122,21 +122,21 @@ class _CustomStickerViewState extends State<CustomStickerView> {
     padding: const EdgeInsets.only(bottom: 14),
     child: Material(
       color: Colors.white,
-      borderRadius: BorderRadius.circular(24),
+      borderRadius: BorderRadius.circular(16),
       child: InkWell(
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(16),
         onTap: busy ? null : action,
         child: Padding(
-          padding: const EdgeInsets.all(22),
+          padding: const EdgeInsets.all(18),
           child: Row(
             children: [
               Container(
                 padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
-                  color: color.withValues(alpha: .1),
+                  color: const Color(0xffe8f5ee),
                   borderRadius: BorderRadius.circular(18),
                 ),
-                child: Icon(icon, color: color, size: 28),
+                child: Icon(icon, color: const Color(0xff059669), size: 24),
               ),
               const SizedBox(width: 18),
               Expanded(
@@ -146,7 +146,7 @@ class _CustomStickerViewState extends State<CustomStickerView> {
                     Text(
                       title,
                       style: const TextStyle(
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         fontSize: 18,
                       ),
                     ),
@@ -175,12 +175,12 @@ class _CustomStickerViewState extends State<CustomStickerView> {
       padding: const EdgeInsets.all(24),
       children: [
         const Text(
-          'A little you.\nA lot of expression.',
+          'Choose your starting point',
           style: TextStyle(
-            fontSize: 34,
+            fontSize: 24,
             height: 1.12,
-            fontWeight: FontWeight.w800,
-            letterSpacing: -1.2,
+            fontWeight: FontWeight.w600,
+            letterSpacing: -.4,
           ),
         ),
         const SizedBox(height: 12),

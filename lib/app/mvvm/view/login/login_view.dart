@@ -35,7 +35,7 @@ class LoginView extends GetView<LoginController> {
                     borderRadius: BorderRadius.circular(18.r),
                   ),
                   child: Text(
-                    'LX',
+                    'S',
                     style: AppTextStyles.subtitle.copyWith(
                       color: AppColors.white,
                     ),

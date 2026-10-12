@@ -164,7 +164,7 @@ class _StickerPackDetailViewState extends State<StickerPackDetailView> {
                   child: Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: const Color(0xfffaf6ef),
+                      color: const Color(0xfff2f4f3),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: PackStickerThumbnail(

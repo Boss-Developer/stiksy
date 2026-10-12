@@ -28,7 +28,7 @@ class HomeView extends GetView<HomeController> {
           style: const TextStyle(
             fontSize: 20,
             letterSpacing: -.5,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
@@ -49,13 +49,17 @@ class HomeView extends GetView<HomeController> {
         borderRadius: BorderRadius.circular(14),
         child: Container(
           decoration: BoxDecoration(
-            color: name == 'All' ? color : color.withValues(alpha: 0.07),
+            color: name == 'All' ? AppColors.primary : Colors.white,
             borderRadius: BorderRadius.circular(14),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon, size: 22, color: name == 'All' ? Colors.white : color),
+              Icon(
+                icon,
+                size: 22,
+                color: name == 'All' ? Colors.white : AppColors.primary,
+              ),
               const SizedBox(height: 6),
               Text(
                 name == 'Political satire'
@@ -82,7 +86,7 @@ class HomeView extends GetView<HomeController> {
     child: Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: const Color(0xffebeae3)),
+        border: Border.all(color: const Color(0xffe5e9e6)),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -91,10 +95,10 @@ class HomeView extends GetView<HomeController> {
           Container(
             padding: const EdgeInsets.all(9),
             decoration: BoxDecoration(
-              color: color.withValues(alpha: .12),
+              color: AppColors.primaryLight.withValues(alpha: .5),
               borderRadius: BorderRadius.circular(13),
             ),
-            child: Icon(icon, color: color, size: 23),
+            child: Icon(icon, color: AppColors.primary, size: 23),
           ),
           const SizedBox(height: 7),
           Text(
@@ -109,7 +113,7 @@ class HomeView extends GetView<HomeController> {
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
             style: const TextStyle(
-              color: Color(0xff243d33),
+              color: AppColors.textDarkColor,
               fontWeight: FontWeight.w700,
               fontSize: 11,
               height: 1.2,
@@ -134,9 +138,9 @@ class HomeView extends GetView<HomeController> {
             'Your favorites',
           ][controller.tab.value],
           style: const TextStyle(
-            fontSize: 26,
-            color: Color(0xff123f31),
-            fontWeight: FontWeight.w900,
+            fontSize: 24,
+            color: AppColors.textDarkColor,
+            fontWeight: FontWeight.w700,
           ),
         ),
         actions: [
@@ -156,25 +160,10 @@ class HomeView extends GetView<HomeController> {
               children: [
                 if (controller.tab.value == 0) ...[
                   const Text(
-                    'SMALL STICKERS. BIG FEELINGS.',
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 1.6,
-                      color: Color(0xff728077),
-                    ),
+                    'Stickers for every mood.',
+                    style: TextStyle(fontSize: 16, color: Colors.black54),
                   ),
-                  const SizedBox(height: 10),
-                  const Text(
-                    'Make every chat\na little more you.',
-                    style: TextStyle(
-                      fontSize: 32,
-                      letterSpacing: -1.2,
-                      height: 1.08,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  const SizedBox(height: 22),
+                  const SizedBox(height: 20),
                   _creatorCard(),
                   const SizedBox(height: 24),
                 ],
@@ -279,15 +268,23 @@ class HomeView extends GetView<HomeController> {
                       },
                     ),
                   ),
-                  heading(
-                    'Pakistani Sticker Packs',
-                    () => Get.to(() => const CatalogView()),
+                  const SizedBox(height: 8),
+                  ListTile(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+                    tileColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    leading: const Icon(
+                      Icons.collections_bookmark_outlined,
+                      color: AppColors.primary,
+                    ),
+                    title: const Text('Pakistani Sticker Packs'),
+                    subtitle: const Text('Download and use offline'),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: () => Get.to(() => const CatalogView()),
                   ),
-                  const Text(
-                    '40 packs · download once, use offline',
-                    style: TextStyle(fontSize: 12, color: Colors.black54),
-                  ),
-                  const SizedBox(height: 14),
+                  const SizedBox(height: 12),
                   heading('Categories', () => controller.openCategory('All')),
                   GridView.count(
                     shrinkWrap: true,
@@ -393,7 +390,7 @@ class HomeView extends GetView<HomeController> {
         child: Container(
           decoration: const BoxDecoration(
             color: Colors.white,
-            border: Border(top: BorderSide(color: Color(0xffebeae3))),
+            border: Border(top: BorderSide(color: Color(0xffe5e9e6))),
           ),
           padding: const EdgeInsets.symmetric(vertical: 6),
           child: Row(
@@ -461,83 +458,35 @@ class HomeView extends GetView<HomeController> {
     ),
   );
   Widget _creatorCard() => Material(
-    color: const Color(0xff123f31),
-    borderRadius: BorderRadius.circular(28),
+    color: AppColors.primaryLight.withValues(alpha: .45),
+    borderRadius: BorderRadius.circular(16),
     child: InkWell(
       onTap: () => Get.to(() => const CustomStickerView()),
-      borderRadius: BorderRadius.circular(28),
-      child: Padding(
-        padding: const EdgeInsets.all(22),
+      borderRadius: BorderRadius.circular(16),
+      child: const Padding(
+        padding: EdgeInsets.all(20),
         child: Row(
           children: [
+            Icon(Icons.add_circle_outline, color: AppColors.primary, size: 32),
+            SizedBox(width: 16),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'YOUR OWN CREATION',
-                    style: TextStyle(
-                      color: Color(0xffbdd8bf),
-                      fontSize: 9,
-                      letterSpacing: 1.5,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  const Text(
+                  Text(
                     'Create a sticker',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: -.6,
-                    ),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
-                  const SizedBox(height: 7),
-                  const Text(
-                    'Photo · Emoji · Text',
-                    style: TextStyle(color: Color(0xffc2d5c9), fontSize: 12),
-                  ),
-                  const SizedBox(height: 18),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 13,
-                      vertical: 9,
-                    ),
-                    decoration: BoxDecoration(
-                      color: const Color(0xffe3edba),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'Make it yours',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w800,
-                              fontSize: 11,
-                            ),
-                          ),
-                          SizedBox(width: 8),
-                          Icon(Icons.arrow_forward_rounded, size: 16),
-                        ],
-                      ),
-                    ),
+                  SizedBox(height: 5),
+                  Text(
+                    'Start with a photo, emoji or text',
+                    style: TextStyle(fontSize: 12, color: Colors.black54),
                   ),
                 ],
               ),
             ),
-            const SizedBox(width: 8),
-            Transform.rotate(
-              angle: .12,
-              child: Image.asset(
-                'assets/stickers/mood-cat.webp',
-                width: 95,
-                height: 125,
-              ),
-            ),
+            SizedBox(width: 8),
+            Icon(Icons.arrow_forward, color: AppColors.primary, size: 20),
           ],
         ),
       ),
