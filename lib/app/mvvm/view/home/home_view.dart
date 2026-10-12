@@ -41,88 +41,6 @@ class HomeView extends GetView<HomeController> {
       ),
     ],
   );
-  Widget miniCategory(String name, IconData icon, Color color) => Expanded(
-    child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 3),
-      child: InkWell(
-        onTap: () => controller.openCategory(name),
-        borderRadius: BorderRadius.circular(14),
-        child: Container(
-          decoration: BoxDecoration(
-            color: name == 'All' ? AppColors.primary : Colors.white,
-            borderRadius: BorderRadius.circular(14),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                icon,
-                size: 22,
-                color: name == 'All' ? Colors.white : AppColors.primary,
-              ),
-              const SizedBox(height: 6),
-              Text(
-                name == 'Political satire'
-                    ? 'Political'
-                    : name == 'Eid / Ramadan'
-                    ? 'Eid'
-                    : name,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 10,
-                  color: name == 'All' ? Colors.white : Colors.black87,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ),
-  );
-  Widget category(String name, IconData icon, Color color) => InkWell(
-    onTap: () => controller.openCategory(name),
-    borderRadius: BorderRadius.circular(14),
-    child: Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: const Color(0xffe5e9e6)),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(9),
-            decoration: BoxDecoration(
-              color: AppColors.primaryLight.withValues(alpha: .5),
-              borderRadius: BorderRadius.circular(13),
-            ),
-            child: Icon(icon, color: AppColors.primary, size: 23),
-          ),
-          const SizedBox(height: 7),
-          Text(
-            name == 'Urdu'
-                ? 'Urdu\nCalligraphy'
-                : name == 'Cricket'
-                ? 'Cricket\nMemes'
-                : name == 'Political satire'
-                ? 'Political\nSatire'
-                : name,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: AppColors.textDarkColor,
-              fontWeight: FontWeight.w700,
-              fontSize: 11,
-              height: 1.2,
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
   @override
   Widget build(BuildContext context) => Obx(
     () => Scaffold(
@@ -159,181 +77,70 @@ class HomeView extends GetView<HomeController> {
               padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 8),
               children: [
                 if (controller.tab.value == 0) ...[
+                  const SizedBox(height: 8),
                   const Text(
-                    'Stickers for every mood.',
-                    style: TextStyle(fontSize: 16, color: Colors.black54),
-                  ),
-                  const SizedBox(height: 20),
-                  _creatorCard(),
-                  const SizedBox(height: 24),
-                ],
-                if (controller.tab.value != 2) ...[
-                  TextField(
-                    onChanged: (v) {
-                      controller.query.value = v;
-                      if (v.isNotEmpty) controller.tab.value = 1;
-                    },
-                    decoration: const InputDecoration(
-                      hintText: 'Search templates...',
-                      prefixIcon: Icon(Icons.search, size: 20),
-                      isDense: true,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  if (controller.tab.value == 0)
-                    SizedBox(
-                      height: 66,
-                      child: Row(
-                        children: [
-                          miniCategory(
-                            'All',
-                            Icons.public,
-                            const Color(0xff059669),
-                          ),
-                          miniCategory(
-                            'Urdu',
-                            Icons.draw_outlined,
-                            const Color(0xff3b67dc),
-                          ),
-                          miniCategory(
-                            'Cricket',
-                            Icons.sports_cricket,
-                            const Color(0xff039755),
-                          ),
-                          miniCategory(
-                            'Political satire',
-                            Icons.campaign_outlined,
-                            const Color(0xffef4c64),
-                          ),
-                          miniCategory(
-                            'Eid / Ramadan',
-                            Icons.mosque_outlined,
-                            const Color(0xfff18c30),
-                          ),
-                        ],
-                      ),
-                    )
-                  else
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: templateCategories
-                            .map(
-                              (c) => Padding(
-                                padding: const EdgeInsets.only(right: 8),
-                                child: ChoiceChip(
-                                  label: Text(c),
-                                  selected: controller.category.value == c,
-                                  onSelected: (_) => controller.openCategory(c),
-                                ),
-                              ),
-                            )
-                            .toList(),
-                      ),
-                    ),
-                ],
-                if (controller.tab.value == 0) ...[
-                  heading(
-                    'Trending Templates',
-                    () => controller.openCategory('All'),
-                  ),
-                  SizedBox(
-                    height: 184,
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 4,
-                      separatorBuilder: (_, _) => const SizedBox(width: 10),
-                      itemBuilder: (_, i) {
-                        final t = stickerTemplates[[3, 0, 7, 2][i]];
-                        return SizedBox(
-                          width:
-                              (MediaQuery.sizeOf(context).width.clamp(0, 400) -
-                                  56) /
-                              3,
-                          child: InkWell(
-                            onTap: () => preview(t),
-                            child: Column(
-                              children: [
-                                StickerArtwork(template: t),
-                                const SizedBox(height: 6),
-                                Text(
-                                  t.title,
-                                  style: const TextStyle(fontSize: 12),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      },
+                    'A little more you.',
+                    style: TextStyle(
+                      fontSize: 32,
+                      letterSpacing: -1,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                   const SizedBox(height: 8),
-                  ListTile(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-                    tileColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+                  const Text(
+                    'Turn everyday moments into stickers worth sending.',
+                    style: TextStyle(
+                      fontSize: 14,
+                      height: 1.5,
+                      color: AppColors.textLightBlack,
                     ),
-                    leading: const Icon(
-                      Icons.collections_bookmark_outlined,
-                      color: AppColors.primary,
-                    ),
-                    title: const Text('Pakistani Sticker Packs'),
-                    subtitle: const Text('Download and use offline'),
-                    trailing: const Icon(Icons.chevron_right),
-                    onTap: () => Get.to(() => const CatalogView()),
                   ),
-                  const SizedBox(height: 12),
-                  heading('Categories', () => controller.openCategory('All')),
-                  GridView.count(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    crossAxisCount: 3,
-                    childAspectRatio: 1.05,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
+                  const SizedBox(height: 24),
+                  _creatorCard(),
+                  const SizedBox(height: 24),
+                  Row(
                     children: [
-                      category(
-                        'Urdu',
-                        Icons.draw_outlined,
-                        const Color(0xffd89b56),
+                      Expanded(
+                        child: _shortcut(
+                          'My packs',
+                          'Your sticker collection',
+                          Icons.collections_bookmark_outlined,
+                          const Color(0xffeeeafa),
+                          () => Get.to(() => const StickerPacksView()),
+                        ),
                       ),
-                      category(
-                        'Cricket',
-                        Icons.sports_cricket,
-                        const Color(0xff087353),
-                      ),
-                      category(
-                        'Political satire',
-                        Icons.campaign_outlined,
-                        const Color(0xffed4b4b),
-                      ),
-                      category(
-                        'Wedding',
-                        Icons.card_giftcard,
-                        const Color(0xffff8288),
-                      ),
-                      category(
-                        'Eid / Ramadan',
-                        Icons.nights_stay_outlined,
-                        const Color(0xff2685d9),
-                      ),
-                      category(
-                        'Funny',
-                        Icons.sentiment_very_satisfied,
-                        const Color(0xffe8b33d),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: _shortcut(
+                          'Favorites',
+                          '${controller.favorites.length} saved templates',
+                          Icons.favorite_border_rounded,
+                          const Color(0xffffede8),
+                          () => controller.tab.value = 2,
+                        ),
                       ),
                     ],
                   ),
-                  if (controller.recent.isNotEmpty) ...[
-                    heading(
-                      'Recently viewed',
-                      () => controller.openCategory('All'),
+                  const SizedBox(height: 28),
+                  const Text(
+                    'Made for your conversations',
+                    style: TextStyle(
+                      fontSize: 19,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: -.4,
                     ),
+                  ),
+                  const SizedBox(height: 14),
+                  _catalogCard(),
+                  const SizedBox(height: 16),
+                  _templateLink(),
+                  if (controller.recent.isNotEmpty) ...[
+                    const SizedBox(height: 24),
+                    heading('Recently viewed', () => controller.tab.value = 1),
                     TemplateGrid(
                       templates: stickerTemplates
                           .where((t) => controller.recent.contains(t.id))
+                          .take(4)
                           .toList(),
                       favorites: controller.favorites.toList(),
                       onTap: preview,
@@ -341,27 +148,126 @@ class HomeView extends GetView<HomeController> {
                     ),
                   ],
                 ] else if (controller.tab.value == 1) ...[
-                  const SizedBox(height: 16),
-                  SegmentedButton<String>(
-                    segments: const [
-                      ButtonSegment(value: 'All', label: Text('All')),
-                      ButtonSegment(value: 'Free', label: Text('Free')),
-                      ButtonSegment(value: 'Premium', label: Text('Premium')),
-                    ],
-                    selected: {controller.tier.value},
-                    onSelectionChanged: (v) => controller.tier.value = v.first,
+                  _templateHero(),
+                  const SizedBox(height: 24),
+                  TextField(
+                    onChanged: (v) => controller.query.value = v,
+                    decoration: InputDecoration(
+                      hintText: 'Search templates...',
+                      prefixIcon: const Icon(Icons.search_rounded, size: 20),
+                      hintStyle: const TextStyle(
+                        fontSize: 13,
+                        color: AppColors.textLightBlack,
+                      ),
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 16,
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(14),
+                        borderSide: const BorderSide(
+                          color: AppColors.borderColor,
+                        ),
+                      ),
+                    ),
                   ),
-                  const SizedBox(height: 12),
-                  FilterChip(
-                    label: const Text('Favorites only'),
-                    selected: controller.favoritesOnly.value,
-                    onSelected: (v) => controller.favoritesOnly.value = v,
+                  const SizedBox(height: 18),
+                  Container(
+                    padding: const EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      children: ['All', 'Free', 'Premium']
+                          .map(
+                            (tier) => Expanded(
+                              child: Semantics(
+                                selected: controller.tier.value == tier,
+                                child: Material(
+                                  color: controller.tier.value == tier
+                                      ? const Color(0xff163e32)
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(9),
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(9),
+                                    onTap: () => controller.tier.value = tier,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 11,
+                                      ),
+                                      child: Text(
+                                        tier,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600,
+                                          color: controller.tier.value == tier
+                                              ? Colors.white
+                                              : AppColors.textLightBlack,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                          .toList(),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          '${controller.filtered.length} templates',
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: AppColors.textLightBlack,
+                          ),
+                        ),
+                      ),
+                      Tooltip(
+                        message: 'Favorites only',
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(20),
+                          onTap: () => controller.favoritesOnly.toggle(),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 8,
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  controller.favoritesOnly.value
+                                      ? Icons.favorite_rounded
+                                      : Icons.favorite_border_rounded,
+                                  size: 16,
+                                  color: controller.favoritesOnly.value
+                                      ? AppColors.primary
+                                      : AppColors.textLightBlack,
+                                ),
+                                const SizedBox(width: 6),
+                                Text(
+                                  'Saved',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: controller.favoritesOnly.value
+                                        ? AppColors.primary
+                                        : AppColors.textLightBlack,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   const StiksyAd(),
-                  Text(
-                    '${controller.filtered.length} templates',
-                    style: const TextStyle(color: Colors.black54),
-                  ),
                   const SizedBox(height: 16),
                   TemplateGrid(
                     templates: controller.filtered,
@@ -457,41 +363,369 @@ class HomeView extends GetView<HomeController> {
       ),
     ),
   );
+  Widget _templateHero() => Container(
+    padding: const EdgeInsets.all(24),
+    decoration: BoxDecoration(
+      gradient: const LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [Color(0xff203f35), Color(0xff10291f)],
+      ),
+      borderRadius: BorderRadius.circular(26),
+      border: Border.all(color: const Color(0xff365548)),
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Row(
+          children: [
+            Icon(Icons.auto_awesome, size: 14, color: Color(0xffd7c493)),
+            SizedBox(width: 8),
+            Text(
+              'THE TEMPLATE STUDIO',
+              style: TextStyle(
+                fontSize: 9,
+                letterSpacing: 1.6,
+                fontWeight: FontWeight.w600,
+                color: Color(0xffd7c493),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 20),
+        const Text(
+          'Small canvas.\nEndless expression.',
+          style: TextStyle(
+            fontSize: 30,
+            height: 1.12,
+            letterSpacing: -.8,
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+          ),
+        ),
+        const SizedBox(height: 12),
+        const Text(
+          'Beautiful beginnings for your next sticker.',
+          style: TextStyle(fontSize: 12, height: 1.5, color: Color(0xffafc8ba)),
+        ),
+        const SizedBox(height: 24),
+        SizedBox(
+          height: 100,
+          child: Row(
+            children: [3, 2, 7]
+                .asMap()
+                .entries
+                .map(
+                  (entry) => Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: Transform.rotate(
+                        angle: (entry.key - 1) * .10,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: [
+                              const Color(0xfff5e8ce),
+                              const Color(0xffe3eedb),
+                              const Color(0xffe9e3f3),
+                            ][entry.key],
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: Colors.white.withValues(alpha: .6),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withValues(alpha: .15),
+                                blurRadius: 10,
+                                offset: const Offset(0, 5),
+                              ),
+                            ],
+                          ),
+                          child: StickerArtwork(
+                            template: stickerTemplates[entry.value],
+                            showBackground: false,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
+          ),
+        ),
+        const SizedBox(height: 20),
+        const Row(
+          children: [
+            Icon(Icons.tune_rounded, color: Color(0xffd7c493), size: 14),
+            SizedBox(width: 7),
+            Expanded(
+              child: Text(
+                'Pick it. Personalize it. Send it.',
+                style: TextStyle(color: Color(0xffafc8ba), fontSize: 11),
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+
   Widget _creatorCard() => Material(
-    color: AppColors.primaryLight.withValues(alpha: .45),
-    borderRadius: BorderRadius.circular(16),
+    color: const Color(0xff123f31),
+    borderRadius: BorderRadius.circular(24),
+    clipBehavior: Clip.antiAlias,
     child: InkWell(
       onTap: () => Get.to(() => const CustomStickerView()),
-      borderRadius: BorderRadius.circular(16),
-      child: const Padding(
-        padding: EdgeInsets.all(20),
-        child: Row(
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.add_circle_outline, color: AppColors.primary, size: 32),
-            SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Create a sticker',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'YOUR MINI CREATIVE STUDIO',
+                        style: TextStyle(
+                          fontSize: 9,
+                          letterSpacing: 1.4,
+                          color: Color(0xffb9d5c4),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      Text(
+                        'Create a sticker',
+                        style: TextStyle(
+                          fontSize: 25,
+                          height: 1.15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Your photo. Your words.\nYour kind of fun.',
+                        style: TextStyle(
+                          fontSize: 13,
+                          height: 1.5,
+                          color: Color(0xffc8ded1),
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 5),
-                  Text(
-                    'Start with a photo, emoji or text',
-                    style: TextStyle(fontSize: 12, color: Colors.black54),
+                ),
+                const SizedBox(width: 8),
+                Transform.rotate(
+                  angle: .1,
+                  child: Image.asset(
+                    'assets/stickers/mood-cat.webp',
+                    width: 76,
+                    height: 106,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 24),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              decoration: BoxDecoration(
+                color: const Color(0xffe0edb9),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: const Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Flexible(
+                    child: Text(
+                      'Start creating',
+                      style: TextStyle(
+                        color: Color(0xff123f31),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 18),
+                  Icon(
+                    Icons.arrow_forward_rounded,
+                    color: Color(0xff123f31),
+                    size: 18,
                   ),
                 ],
               ),
             ),
-            SizedBox(width: 8),
-            Icon(Icons.arrow_forward, color: AppColors.primary, size: 20),
           ],
         ),
       ),
     ),
   );
+
+  Widget _shortcut(
+    String title,
+    String subtitle,
+    IconData icon,
+    Color tint,
+    VoidCallback action,
+  ) => Material(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(18),
+    child: InkWell(
+      onTap: action,
+      borderRadius: BorderRadius.circular(18),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: tint,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Icon(icon, size: 22, color: AppColors.textDarkColor),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              title,
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              subtitle,
+              style: const TextStyle(
+                fontSize: 11,
+                height: 1.4,
+                color: AppColors.textLightBlack,
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+
+  Widget _catalogCard() => Material(
+    color: const Color(0xfff0e8da),
+    borderRadius: BorderRadius.circular(20),
+    child: InkWell(
+      onTap: () => Get.to(() => const CatalogView()),
+      borderRadius: BorderRadius.circular(20),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Row(
+              children: [
+                Icon(
+                  Icons.auto_awesome_outlined,
+                  size: 18,
+                  color: Color(0xff82663b),
+                ),
+                SizedBox(width: 8),
+                Text(
+                  'DESI AT HEART',
+                  style: TextStyle(
+                    fontSize: 10,
+                    letterSpacing: 1,
+                    color: Color(0xff82663b),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 14),
+            const Text(
+              'Pakistani Sticker Packs',
+              style: TextStyle(
+                fontSize: 21,
+                fontWeight: FontWeight.w600,
+                letterSpacing: -.5,
+              ),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'A little chai, a little drama, a lot of expression.',
+              style: TextStyle(
+                fontSize: 13,
+                height: 1.5,
+                color: Color(0xff7a7062),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: 86,
+                    child: Row(
+                      children: [3, 7, 2]
+                          .map(
+                            (i) => Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 6),
+                                child: StickerArtwork(
+                                  template: stickerTemplates[i],
+                                  showBackground: false,
+                                ),
+                              ),
+                            ),
+                          )
+                          .toList(),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                const CircleAvatar(
+                  backgroundColor: Colors.white,
+                  foregroundColor: AppColors.textDarkColor,
+                  child: Icon(Icons.arrow_forward_rounded, size: 20),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            const Text(
+              'Explore catalog · Save and use offline',
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+                color: Color(0xff82663b),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+
+  Widget _templateLink() => Material(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(16),
+    child: ListTile(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      leading: const Icon(
+        Icons.dashboard_customize_outlined,
+        color: AppColors.primary,
+      ),
+      title: const Text(
+        'Need a starting point?',
+        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+      ),
+      subtitle: const Text(
+        'Browse ready-to-edit templates',
+        style: TextStyle(fontSize: 12),
+      ),
+      trailing: const Icon(Icons.chevron_right_rounded, size: 20),
+      onTap: () => controller.openCategory('All'),
+    ),
+  );
+
   Widget nav(String title, IconData icon, int index) => InkWell(
     onTap: () => controller.tab.value = index,
     child: Padding(

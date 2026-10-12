@@ -1,3 +1,4 @@
+import '../../../custom_widgets/stiksy_loader.dart';
 import '../../../custom_widgets/snackbars/app_snackbar.dart';
 
 import 'package:flutter/material.dart';
@@ -316,7 +317,7 @@ class _ExportStickerViewState extends State<ExportStickerView> {
                 ),
               ),
               const SizedBox(height: 16),
-              if (busy) const LinearProgressIndicator(),
+              if (busy) const StiksyLoader(compact: true),
               if (error != null) ...[
                 Text(error!, style: const TextStyle(color: Colors.red)),
                 TextButton(onPressed: prepare, child: const Text('Try again')),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../config/app_colors.dart';
+import '../stiksy_loader.dart';
 import '../../config/app_text_styles.dart';
 import '../../services/haptic_service.dart';
 
@@ -86,14 +87,7 @@ class _AppButtonState extends State<AppButton> {
                 alignment: Alignment.center,
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: widget.isLoading
-                    ? SizedBox(
-                        height: 22.r,
-                        width: 22.r,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2.4,
-                          valueColor: AlwaysStoppedAnimation<Color>(textColor),
-                        ),
-                      )
+                    ? StiksyLoader(compact: true, color: textColor)
                     : Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [

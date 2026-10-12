@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -28,14 +29,21 @@ void main() {
     expect(find.text('Get started'), findsNothing);
     await tester.pump(const Duration(seconds: 3));
     await tester.pumpAndSettle();
-    expect(find.text('Trending Templates'), findsOneWidget);
+    expect(find.text('Create a sticker'), findsOneWidget);
+    expect(find.text('Trending Templates'), findsNothing);
+    expect(find.text('Categories'), findsNothing);
+    expect(find.byType(ChoiceChip), findsNothing);
     expect(Get.find<SharedPreferences>().getBool('stiksy_onboarded'), true);
     await tester.tap(find.text('Templates').last);
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), 'Chai first');
     await tester.pumpAndSettle();
+    await tester.drag(find.byType(ListView).first, const Offset(0, -350));
+    await tester.pumpAndSettle();
     expect(find.text('1 templates'), findsOneWidget);
-    await tester.tap(find.byType(StickerArtwork).first);
+    await tester.ensureVisible(find.byType(TemplateCard).first);
+    await tester.pumpAndSettle();
+    await tester.tap(find.byType(TemplateCard).first);
     await tester.pumpAndSettle();
     expect(find.text('Template preview'), findsOneWidget);
     await tester.ensureVisible(find.byTooltip('Save to favorites'));
@@ -66,6 +74,15 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Create a sticker'), findsOneWidget);
     expect(tester.takeException(), isNull);
+    debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
+    addTearDown(() => debugDefaultTargetPlatformOverride = null);
+    await tester.tap(find.text('My Packs').last);
+    await tester.pumpAndSettle();
+    expect(find.text('Your sticker library'), findsOneWidget);
+    expect(find.text('Create your first pack'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox.shrink());
+    debugDefaultTargetPlatformOverride = null;
   });
 
   testWidgets('editor applies text and supports undo and redo', (tester) async {

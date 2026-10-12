@@ -1,3 +1,4 @@
+import '../../../custom_widgets/stiksy_loader.dart';
 import '../../../custom_widgets/snackbars/app_snackbar.dart';
 
 import 'package:flutter/material.dart';
@@ -142,7 +143,7 @@ class _StickerPackDetailViewState extends State<StickerPackDetailView> {
           style: const TextStyle(color: Colors.black54),
         ),
         const SizedBox(height: 16),
-        if (busy) const LinearProgressIndicator(),
+        if (busy) const StiksyLoader(compact: true),
         if (pack.count == 0)
           const Padding(
             padding: EdgeInsets.all(24),

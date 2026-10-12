@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../mvvm/model/sticker_template.dart';
+import '../config/app_colors.dart';
 import 'stiksy_crown.dart';
 
 class StickerArtwork extends StatelessWidget {
@@ -94,36 +95,144 @@ class TemplateCard extends StatelessWidget {
   final bool favorite;
   final VoidCallback onTap, onFavorite;
   @override
-  Widget build(BuildContext context) => Stack(
-    children: [
-      Positioned.fill(
-        child: Semantics(
-          label: template.title,
-          button: true,
-          child: InkWell(
-            onTap: onTap,
-            onLongPress: onFavorite,
-            borderRadius: BorderRadius.circular(14),
-            child: StickerArtwork(template: template),
-          ),
+  Widget build(BuildContext context) => Material(
+    color: Colors.white,
+    elevation: 3,
+    shadowColor: const Color(0xff203f35).withValues(alpha: .10),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20),
+      side: const BorderSide(color: AppColors.borderColor),
+    ),
+    clipBehavior: Clip.antiAlias,
+    child: InkWell(
+      onTap: onTap,
+      onLongPress: onFavorite,
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Stack(
+                children: [
+                  Positioned.fill(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color.lerp(template.color, Colors.white, .2)!,
+                            Color.lerp(template.color, Colors.white, .7)!,
+                          ],
+                        ),
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(14),
+                        child: CustomPaint(
+                          painter: const _TemplateBackdrop(),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: StickerArtwork(
+                              template: template,
+                              showBackground: false,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  if (template.premium)
+                    Positioned(
+                      top: 6,
+                      left: 6,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 7,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: const Color(0xff223d32),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            StiksyCrown(size: 13),
+                            SizedBox(width: 4),
+                            Text(
+                              'PRO',
+                              style: TextStyle(
+                                fontSize: 8,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xffe5d4a0),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  Positioned(
+                    right: 0,
+                    bottom: 0,
+                    child: IconButton(
+                      tooltip: favorite ? 'Remove favorite' : 'Add favorite',
+                      style: IconButton.styleFrom(
+                        backgroundColor: Colors.white.withValues(alpha: .9),
+                      ),
+                      onPressed: onFavorite,
+                      icon: Icon(
+                        favorite
+                            ? Icons.favorite_rounded
+                            : Icons.favorite_border_rounded,
+                        size: 18,
+                        color: favorite
+                            ? const Color(0xffd95c70)
+                            : AppColors.textLightBlack,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              template.title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: AppColors.textDarkColor,
+              ),
+            ),
+            const SizedBox(height: 5),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    template.category,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 11,
+                      color: AppColors.textLightBlack,
+                    ),
+                  ),
+                ),
+                const Icon(
+                  Icons.arrow_outward_rounded,
+                  size: 14,
+                  color: AppColors.textLightBlack,
+                ),
+              ],
+            ),
+            const SizedBox(height: 4),
+          ],
         ),
       ),
-      if (template.premium)
-        const Positioned(right: 7, top: 5, child: StiksyCrown(size: 22)),
-      Positioned(
-        right: 0,
-        bottom: 0,
-        child: IconButton(
-          tooltip: favorite ? 'Remove favorite' : 'Add favorite',
-          onPressed: onFavorite,
-          icon: Icon(
-            favorite ? Icons.favorite : Icons.favorite_border,
-            size: 18,
-            color: favorite ? const Color(0xffff4b75) : Colors.black38,
-          ),
-        ),
-      ),
-    ],
+    ),
   );
 }
 
@@ -156,11 +265,11 @@ class TemplateGrid extends StatelessWidget {
         itemCount: templates.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: constraints.maxWidth >= 650 ? 4 : 2,
-          crossAxisSpacing: 16,
-          mainAxisSpacing: 20,
+          crossAxisSpacing: 12,
+          mainAxisSpacing: 16,
           mainAxisExtent: constraints.maxWidth >= 650
-              ? 210
-              : (constraints.maxWidth - 16) / 2,
+              ? 250
+              : (constraints.maxWidth - 12) / 2 + 105,
         ),
         itemBuilder: (_, i) => TemplateCard(
           template: templates[i],
@@ -189,4 +298,28 @@ class StickerCheckerPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(StickerCheckerPainter oldDelegate) => false;
+}
+
+class _TemplateBackdrop extends CustomPainter {
+  const _TemplateBackdrop();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final center = Offset(size.width * .85, size.height * .15);
+    final paint = Paint()
+      ..color = Colors.white.withValues(alpha: .4)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+    for (final scale in [.4, .65, .9, 1.15]) {
+      canvas.drawCircle(center, size.width * scale, paint);
+    }
+    canvas.drawCircle(
+      Offset(size.width * .12, size.height * .85),
+      size.width * .28,
+      Paint()..color = Colors.white.withValues(alpha: .18),
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant _TemplateBackdrop oldDelegate) => false;
 }
