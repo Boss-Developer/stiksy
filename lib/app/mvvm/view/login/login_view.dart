@@ -30,13 +30,26 @@ class LoginView extends GetView<LoginController> {
                   width: 56.r,
                   height: 56.r,
                   alignment: Alignment.center,
-                  decoration: BoxDecoration(color: AppColors.primary, borderRadius: BorderRadius.circular(18.r)),
-                  child: Text('S', style: AppTextStyles.subtitle.copyWith(color: AppColors.white)),
+                  decoration: BoxDecoration(
+                    color: AppColors.primary,
+                    borderRadius: BorderRadius.circular(18.r),
+                  ),
+                  child: Text(
+                    'S',
+                    style: AppTextStyles.subtitle.copyWith(
+                      color: AppColors.white,
+                    ),
+                  ),
                 ).paddingBottom(24.h),
-                Text(AppStrings.loginTitle, style: AppTextStyles.displayLarge).paddingBottom(8.h),
+                Text(
+                  AppStrings.loginTitle,
+                  style: AppTextStyles.displayLarge,
+                ).paddingBottom(8.h),
                 Text(
                   AppStrings.loginSubtitle,
-                  style: AppTextStyles.bodyMedium.copyWith(color: AppColors.textLightBlack),
+                  style: AppTextStyles.bodyMedium.copyWith(
+                    color: AppColors.textLightBlack,
+                  ),
                 ).paddingBottom(36.h),
                 AppTextField(
                   controller: controller.emailController,
@@ -57,8 +70,14 @@ class LoginView extends GetView<LoginController> {
                     obscureText: controller.obscurePassword.value,
                     prefixIcon: const Icon(Icons.lock_outline_rounded),
                     suffixIcon: IconButton(
-                      tooltip: controller.obscurePassword.value ? 'Show password' : 'Hide password',
-                      icon: Icon(controller.obscurePassword.value ? Icons.visibility_off_outlined : Icons.visibility_outlined),
+                      tooltip: controller.obscurePassword.value
+                          ? 'Show password'
+                          : 'Hide password',
+                      icon: Icon(
+                        controller.obscurePassword.value
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility_outlined,
+                      ),
                       onPressed: controller.togglePasswordVisibility,
                     ),
                     validator: controller.validatePassword,
@@ -73,7 +92,12 @@ class LoginView extends GetView<LoginController> {
                     onPressed: controller.login,
                   ),
                 ).paddingBottom(16.h),
-                Center(child: Text(AppStrings.loginHint, style: AppTextStyles.caption)),
+                Center(
+                  child: Text(
+                    AppStrings.loginHint,
+                    style: AppTextStyles.caption,
+                  ),
+                ),
               ],
             ),
           ),
