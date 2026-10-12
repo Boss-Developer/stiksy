@@ -16,13 +16,13 @@ abstract class AppColors {
   static const Color negativeRed = Color(0xffEA4334);
   static const Color warning = Color(0xffFFB020);
 
-  static const Color textDarkColor = Color(0xff16352D);
-  static const Color textLightBlack = Color(0xff777E90);
+  static const Color textDarkColor = Color(0xff202724);
+  static const Color textLightBlack = Color(0xff717975);
 
-  static const Color bgColor = Color(0xFFFFFFFF);
+  static const Color bgColor = Color(0xFFF7F8F7);
   static const Color darkBgColor = Color(0xFF1B1C1E);
 
-  static const Color borderColor = Color(0xFFE6E7E9);
+  static const Color borderColor = Color(0xFFE5E9E6);
   static const Color borderGrey = Color(0xFFD7DDE5);
 
   static const Color transparent = Colors.transparent;

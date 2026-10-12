@@ -13,10 +13,10 @@ class _PremiumViewState extends State<PremiumView> {
   bool yearly = true;
   @override
   Widget build(BuildContext context) => Scaffold(
-    backgroundColor: const Color(0xff546b79),
+    backgroundColor: AppColors.bgColor,
     appBar: AppBar(
       backgroundColor: Colors.transparent,
-      foregroundColor: Colors.white,
+      foregroundColor: AppColors.textDarkColor,
       leading: IconButton(
         onPressed: () => Navigator.pop(context),
         icon: const Icon(Icons.close),
@@ -29,22 +29,22 @@ class _PremiumViewState extends State<PremiumView> {
           child: ListView(
             padding: const EdgeInsets.all(24),
             children: [
-              const Center(child: StiksyCrown(size: 64)),
+              const Center(child: StiksyCrown(size: 40)),
               const SizedBox(height: 12),
               const Text(
                 'Go Premium',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 28,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w800,
+                  color: AppColors.textDarkColor,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(height: 12),
               const Text(
                 'Remove watermark, unlock all templates,\nfonts and effects.',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, height: 1.5),
+                style: TextStyle(color: AppColors.textLightBlack, height: 1.5),
               ),
               const SizedBox(height: 28),
               Container(
@@ -134,7 +134,7 @@ class _PremiumViewState extends State<PremiumView> {
             const SizedBox(height: 6),
             Text(
               price,
-              style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 18),
+              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
             ),
             const SizedBox(height: 4),
             Text(

@@ -181,7 +181,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
       appBar: AppBar(
         title: const Text(
           'My Sticker Packs',
-          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
         ),
         actions: [
           Padding(
@@ -207,7 +207,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
           if (drafts.isNotEmpty) ...[
             const Text(
               'Your saved designs',
-              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 12),
             ...drafts.reversed.map((raw) {
@@ -217,7 +217,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
                 orElse: () => customStickerTemplate,
               );
               return Card(
-                color: const Color(0xfffaf7f2),
+                color: const Color(0xfff2f4f3),
                 child: ListTile(
                   leading: Text(
                     d['emoji'],
@@ -250,7 +250,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
           if (loadingPacks) const LinearProgressIndicator(),
           ...nativePacks.map(
             (pack) => Card(
-              color: const Color(0xfffaf7f2),
+              color: const Color(0xfff2f4f3),
               child: Padding(
                 padding: const EdgeInsets.all(12),
                 child: Column(
@@ -281,7 +281,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
                         Expanded(
                           child: Text(
                             pack.name,
-                            style: const TextStyle(fontWeight: FontWeight.w800),
+                            style: const TextStyle(fontWeight: FontWeight.w600),
                           ),
                         ),
                         Text('${pack.count}/30'),
@@ -422,7 +422,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
             ),
           const Text(
             'Explore collections',
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 12),
           ...['Urdu', 'Eid / Ramadan', 'Cricket', 'Funny'].map((category) {
@@ -433,7 +433,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
               margin: const EdgeInsets.only(bottom: 14),
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: const Color(0xfffaf8f5),
+                color: const Color(0xfff2f4f3),
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Column(
@@ -468,7 +468,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
                                   ? 'Chai Vibes'
                                   : 'Eid Special',
                               style: const TextStyle(
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                             Text(

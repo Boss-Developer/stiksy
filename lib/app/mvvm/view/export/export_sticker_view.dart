@@ -137,7 +137,7 @@ class _ExportStickerViewState extends State<ExportStickerView> {
               const ListTile(
                 title: Text(
                   'Choose sticker pack',
-                  style: TextStyle(fontWeight: FontWeight.w800),
+                  style: TextStyle(fontWeight: FontWeight.w600),
                 ),
               ),
               ...packs.map(
@@ -219,7 +219,7 @@ class _ExportStickerViewState extends State<ExportStickerView> {
                 children: [
                   const Text(
                     'Share to WhatsApp',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(height: 14),
                   SizedBox(
@@ -298,7 +298,7 @@ class _ExportStickerViewState extends State<ExportStickerView> {
     appBar: AppBar(
       title: const Text(
         'Export Sticker',
-        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
       ),
     ),
     body: SafeArea(

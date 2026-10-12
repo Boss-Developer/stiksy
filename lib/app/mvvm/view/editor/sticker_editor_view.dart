@@ -837,7 +837,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                               borderRadius: BorderRadius.circular(8),
                               border: Border.all(
                                 color: l.font == f.key
-                                    ? const Color(0xff1685ff)
+                                    ? AppColors.primary
                                     : Colors.transparent,
                               ),
                             ),
@@ -857,7 +857,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                                     style: TextStyle(
                                       fontSize: 10,
                                       color: l.font == f.key
-                                          ? const Color(0xff1685ff)
+                                          ? AppColors.primary
                                           : Colors.black54,
                                     ),
                                   ),
@@ -1142,7 +1142,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
     const SizedBox(height: 22),
     const Text(
       'Stickers & Elements',
-      style: TextStyle(fontWeight: FontWeight.w800),
+      style: TextStyle(fontWeight: FontWeight.w600),
     ),
     const SizedBox(height: 10),
     ...elementTools(),
@@ -1211,7 +1211,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                   height: 52,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: const Color(0xfffaf8f4),
+                    color: const Color(0xfff2f4f3),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(
@@ -1458,7 +1458,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                     ][tool],
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                       fontSize: 16,
                     ),
                   ),
@@ -1580,18 +1580,11 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(24),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(0xff123f31)
-                                .withValues(alpha: .08),
-                            blurRadius: 28,
-                            offset: const Offset(0, 10),
-                          ),
-                        ],
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: AppColors.borderColor),
                       ),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(24),
+                        borderRadius: BorderRadius.circular(16),
                         child: CustomPaint(
                           painter: StickerCheckerPainter(),
                           child: composition(interactive: true),
@@ -1617,7 +1610,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
       child: Container(
         decoration: const BoxDecoration(
           color: Colors.white,
-          border: Border(top: BorderSide(color: Color(0xffebeae3))),
+          border: Border(top: BorderSide(color: Color(0xffe5e9e6))),
         ),
         padding: const EdgeInsets.symmetric(vertical: 10),
         child: Column(

@@ -10,13 +10,7 @@ class SplashView extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) => Scaffold(
     body: Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [Color(0xff087653), Color(0xff092d24)],
-        ),
-      ),
+      color: const Color(0xfff7f8f7),
       child: SafeArea(
         child: Center(
           child: ConstrainedBox(
@@ -43,8 +37,8 @@ class SplashView extends GetView<SplashController> {
                     style: TextStyle(
                       fontSize: 23,
                       height: 1.25,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w800,
+                      color: Color(0xff202724),
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -82,7 +76,7 @@ class SplashView extends GetView<SplashController> {
                     'MADE FOR YOUR EVERYDAY EXPRESSIONS',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white70,
+                      color: Colors.black54,
                       fontSize: 10,
                       letterSpacing: 1.8,
                       fontWeight: FontWeight.w600,
