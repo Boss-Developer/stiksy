@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 abstract class StickerRenderer {
-  /// Bound decode memory and fit imported photos without stretching them.
   static Future<Uint8List> normalizeImage(
     Uint8List bytes, {
     bool cover = false,

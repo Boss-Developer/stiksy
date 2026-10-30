@@ -1,4 +1,6 @@
+import 'app_radius.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'app_colors.dart';
 
@@ -16,22 +18,51 @@ abstract class AppTheme {
     dialogTheme: const DialogThemeData(
       backgroundColor: Colors.white,
       surfaceTintColor: Colors.transparent,
+      shape: RoundedRectangleBorder(borderRadius: AppRadius.lgAll),
     ),
     bottomSheetTheme: const BottomSheetThemeData(
       backgroundColor: Colors.white,
       surfaceTintColor: Colors.transparent,
       showDragHandle: true,
+      shape: RoundedRectangleBorder(borderRadius: AppRadius.sheet),
+    ),
+    popupMenuTheme: const PopupMenuThemeData(
+      color: Colors.white,
+      surfaceTintColor: Colors.transparent,
+      shape: RoundedRectangleBorder(borderRadius: AppRadius.mdAll),
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        shape: const RoundedRectangleBorder(borderRadius: AppRadius.smAll),
+      ),
+    ),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      shape: RoundedRectangleBorder(borderRadius: AppRadius.smAll),
+    ),
+    iconButtonTheme: IconButtonThemeData(
+      style: IconButton.styleFrom(
+        shape: const RoundedRectangleBorder(borderRadius: AppRadius.smAll),
+      ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         minimumSize: const Size(0, 48),
         foregroundColor: AppColors.textDarkColor,
         side: const BorderSide(color: AppColors.borderColor),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(borderRadius: AppRadius.smAll),
       ),
     ),
     scaffoldBackgroundColor: AppColors.bgColor,
     appBarTheme: const AppBarTheme(
+      // A transparent AppBar would otherwise pick light status-bar icons,
+      // which vanish on this light page.
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.light,
+        systemNavigationBarColor: AppColors.bgColor,
+        systemNavigationBarIconBrightness: Brightness.dark,
+      ),
       backgroundColor: AppColors.bgColor,
       surfaceTintColor: Colors.transparent,
       elevation: 0,
@@ -49,20 +80,16 @@ abstract class AppTheme {
         backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
         minimumSize: const Size(0, 52),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(borderRadius: AppRadius.smAll),
       ),
     ),
     cardTheme: const CardThemeData(
       elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(16)),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: AppRadius.mdAll),
     ),
     chipTheme: const ChipThemeData(
       side: BorderSide(color: AppColors.borderColor),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: AppRadius.smAll),
     ),
     sliderTheme: const SliderThemeData(
       activeTrackColor: AppColors.primary,
@@ -75,7 +102,7 @@ abstract class AppTheme {
       filled: true,
       fillColor: Colors.white,
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: AppRadius.smAll,
         borderSide: const BorderSide(color: AppColors.borderColor),
       ),
     ),

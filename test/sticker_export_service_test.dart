@@ -86,8 +86,9 @@ void main() {
     'watermark preserves 512px transparent canvas and stamps the footer',
     (tester) async {
       await tester.runAsync(() async {
-        final input = File('test/fixtures/transparent-sticker.png')
-            .readAsBytesSync();
+        final input = File(
+          'test/fixtures/transparent-sticker.png',
+        ).readAsBytesSync();
         final marked = await StickerRenderer.watermark(input);
         final codec = await ui.instantiateImageCodec(marked);
         final image = (await codec.getNextFrame()).image;
@@ -121,9 +122,9 @@ void main() {
         );
         final picture = recorder.endRecording();
         final source = await picture.toImage(512, 128);
-        final input = (await source.toByteData(format: ui.ImageByteFormat.png))!
-            .buffer
-            .asUint8List();
+        final input = (await source.toByteData(
+          format: ui.ImageByteFormat.png,
+        ))!.buffer.asUint8List();
         for (final cover in [false, true]) {
           final normalized = await StickerRenderer.normalizeImage(
             input,

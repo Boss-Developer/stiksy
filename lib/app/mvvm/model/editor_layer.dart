@@ -1,6 +1,8 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 
-/// Coordinates and bounds are in the exported 512px canvas, not screen pixels.
 class EditorLayer {
   EditorLayer({
     required this.id,
@@ -30,6 +32,24 @@ class EditorLayer {
   double outlineWidth, shadowBlur, lineHeight;
   int color, alignment;
   bool outline, shadow, visible, locked;
+  Uint8List? _bytes;
+  String? _bytesSource;
+
+  Uint8List get imageBytes {
+    if (_bytes != null && !identical(_bytesSource, content)) {
+      if (_bytesSource == content) {
+        _bytesSource = content;
+      } else {
+        _bytes = null;
+      }
+    }
+    if (_bytes == null) {
+      _bytes = base64Decode(content);
+      _bytesSource = content;
+    }
+    return _bytes!;
+  }
+
   TextAlign get textAlign => [
     TextAlign.left,
     TextAlign.center,
@@ -62,9 +82,9 @@ class EditorLayer {
     double n(String key, double fallback) =>
         (v[key] as num?)?.toDouble() ?? fallback;
     return EditorLayer(
-      id: v['id'],
-      kind: v['kind'],
-      content: v['content'],
+      id: '${v['id'] ?? DateTime.now().microsecondsSinceEpoch}',
+      kind: '${v['kind'] ?? 'text'}',
+      content: '${v['content'] ?? ''}',
       x: n('x', 256),
       y: n('y', 256),
       width: n('width', 320),

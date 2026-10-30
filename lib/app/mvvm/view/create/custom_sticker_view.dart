@@ -1,3 +1,4 @@
+import '../../../config/app_radius.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -20,7 +21,10 @@ const customStickerTemplate = StickerTemplate(
 );
 
 Future<String?> askForEmoji(BuildContext context) async {
-  final input = TextEditingController();
+  // Pre-filled and selected: tapping "Use emoji" always works, and anything
+  // typed or pasted replaces it.
+  final input = TextEditingController(text: '😎')
+    ..selection = const TextSelection(baseOffset: 0, extentOffset: 2);
   final result = await showDialog<String>(
     context: context,
     builder: (c) => AlertDialog(
@@ -33,8 +37,8 @@ Future<String?> askForEmoji(BuildContext context) async {
           fontFamilyFallback: ['Apple Color Emoji', 'Noto Color Emoji'],
         ),
         decoration: const InputDecoration(
-          hintText: '😎',
-          helperText: 'Type or paste an emoji from your keyboard',
+          helperText: 'Type or paste an emoji',
+          helperMaxLines: 2,
         ),
       ),
       actions: [
@@ -45,203 +49,162 @@ Future<String?> askForEmoji(BuildContext context) async {
         FilledButton(
           onPressed: () {
             final value = input.text.trim();
-            if (value.isNotEmpty) Navigator.pop(c, value.characters.first);
+            Navigator.pop(c, value.isEmpty ? '😎' : value.characters.first);
           },
           child: const Text('Use emoji'),
         ),
       ],
     ),
   );
-  // Dispose after the closing route animation has released its text field.
   Future.delayed(const Duration(milliseconds: 400), input.dispose);
   return result;
 }
 
-class CustomStickerView extends StatefulWidget {
-  const CustomStickerView({super.key});
-  @override
-  State<CustomStickerView> createState() => _CustomStickerViewState();
+void _openEditor(EditorLayer? layer) => Get.to(
+  () => StickerEditorView(
+    template: customStickerTemplate,
+    initialDesign: {
+      'version': 2,
+      'layers': [if (layer != null) layer.toJson()],
+      'selectedId': layer?.id,
+      'background': 0,
+      'mode': 0,
+    },
+  ),
+);
+
+Future<void> startFromPhoto() async {
+  try {
+    final image = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      maxWidth: 1024,
+      maxHeight: 1024,
+      imageQuality: 85,
+    );
+    if (image == null) return;
+    final normalized = await StickerRenderer.normalizeImage(
+      await image.readAsBytes(),
+    );
+    _openEditor(
+      EditorLayer(
+        id: 'photo-0',
+        kind: 'image',
+        content: base64Encode(normalized),
+        width: 440,
+        height: 440,
+        x: 256,
+        y: 256,
+      ),
+    );
+  } catch (_) {
+    'Could not open this photo. Please try another image.'.showError();
+  }
 }
 
-class _CustomStickerViewState extends State<CustomStickerView> {
-  bool busy = false;
-  void open(EditorLayer? layer) => Get.to(
-    () => StickerEditorView(
-      template: customStickerTemplate,
-      initialDesign: {
-        'version': 2,
-        'layers': [if (layer != null) layer.toJson()],
-        'selectedId': layer?.id,
-        'background': 0,
-        'mode': 0,
-      },
+Future<void> startFromEmoji(BuildContext context) async {
+  final emoji = await askForEmoji(context);
+  if (emoji == null) return;
+  _openEditor(
+    EditorLayer(
+      id: 'emoji-0',
+      kind: 'emoji',
+      content: emoji,
+      width: 410,
+      height: 410,
+      x: 256,
+      y: 256,
     ),
   );
-  Future<void> photo() async {
-    setState(() => busy = true);
-    try {
-      final image = await ImagePicker().pickImage(
-        source: ImageSource.gallery,
-        maxWidth: 1024,
-        maxHeight: 1024,
-        imageQuality: 85,
-      );
-      if (image == null || !mounted) return;
-      final normalized = await StickerRenderer.normalizeImage(
-        await image.readAsBytes(),
-      );
-      if (mounted) {
-        open(
-          EditorLayer(
-            id: 'photo-0',
-            kind: 'image',
-            content: base64Encode(normalized),
-            width: 440,
-            height: 440,
-            x: 256,
-            y: 256,
-          ),
-        );
-      }
-    } catch (_) {
-      if (mounted) {
-        'Could not open this photo. Please try another image.'.showError();
-      }
-    } finally {
-      if (mounted) setState(() => busy = false);
-    }
-  }
+}
 
-  Widget option(
-    String title,
-    String detail,
-    IconData icon,
-    Color color,
-    VoidCallback action,
-  ) => Padding(
-    padding: const EdgeInsets.only(bottom: 14),
-    child: Material(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(16),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(16),
-        onTap: busy ? null : action,
-        child: Padding(
-          padding: const EdgeInsets.all(18),
-          child: Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(14),
-                decoration: BoxDecoration(
-                  color: const Color(0xffe8f5ee),
-                  borderRadius: BorderRadius.circular(18),
+void startFromText() => _openEditor(
+  EditorLayer(
+    id: 'text-0',
+    kind: 'text',
+    content: 'Your words',
+    font: 'Poppins',
+    fontSize: 48,
+    width: 440,
+    height: 320,
+    x: 256,
+    y: 256,
+  ),
+);
+
+void startBlank() => _openEditor(null);
+
+Future<void> showCreateSheet(
+  BuildContext context,
+) => showModalBottomSheet<void>(
+  context: context,
+  showDragHandle: true,
+  isScrollControlled: true,
+  builder: (sheet) {
+    Widget option(
+      IconData icon,
+      String title,
+      String detail,
+      VoidCallback action,
+    ) => ListTile(
+      leading: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: const Color(0xffe8f5ee),
+          borderRadius: AppRadius.mdAll,
+        ),
+        child: Icon(icon, color: const Color(0xff059669)),
+      ),
+      title: Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
+      subtitle: Text(detail),
+      onTap: () {
+        Navigator.pop(sheet);
+        action();
+      },
+    );
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Padding(
+              padding: EdgeInsets.fromLTRB(24, 0, 24, 8),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Start with…',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
-                child: Icon(icon, color: const Color(0xff059669), size: 24),
               ),
-              const SizedBox(width: 18),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      detail,
-                      style: const TextStyle(
-                        color: Colors.black54,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const Icon(Icons.arrow_forward_rounded, size: 20),
-            ],
-          ),
+            ),
+            option(
+              Icons.add_photo_alternate_outlined,
+              'From a photo',
+              'Your gallery, your memories',
+              startFromPhoto,
+            ),
+            option(
+              Icons.sentiment_very_satisfied_rounded,
+              'From any emoji',
+              'Use your keyboard or paste an emoji',
+              () => startFromEmoji(context),
+            ),
+            option(
+              Icons.text_fields_rounded,
+              'Start with text',
+              'Urdu, English or your own words',
+              startFromText,
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(sheet);
+                startBlank();
+              },
+              child: const Text('Start with a blank canvas'),
+            ),
+            const SizedBox(height: 8),
+          ],
         ),
       ),
-    ),
-  );
-  @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: const Text('Create your sticker')),
-    body: ListView(
-      padding: const EdgeInsets.all(24),
-      children: [
-        const Text(
-          'Choose your starting point',
-          style: TextStyle(
-            fontSize: 24,
-            height: 1.12,
-            fontWeight: FontWeight.w600,
-            letterSpacing: -.4,
-          ),
-        ),
-        const SizedBox(height: 12),
-        const Text(
-          'Start with something you love. Add text, layers and a background, then save or share.',
-          style: TextStyle(color: Colors.black54, height: 1.5),
-        ),
-        const SizedBox(height: 30),
-        option(
-          busy ? 'Preparing photo…' : 'From a photo',
-          'Your gallery, your memories',
-          Icons.add_photo_alternate_outlined,
-          const Color(0xff087653),
-          photo,
-        ),
-        option(
-          'From any emoji',
-          'Use your keyboard or paste an emoji',
-          Icons.sentiment_very_satisfied_rounded,
-          const Color(0xffb87e29),
-          () async {
-            final emoji = await askForEmoji(context);
-            if (emoji != null && mounted) {
-              open(
-                EditorLayer(
-                  id: 'emoji-0',
-                  kind: 'emoji',
-                  content: emoji,
-                  width: 410,
-                  height: 410,
-                  x: 256,
-                  y: 256,
-                ),
-              );
-            }
-          },
-        ),
-        option(
-          'Start with text',
-          'Urdu, English or your own words',
-          Icons.text_fields_rounded,
-          const Color(0xff8661a5),
-          () => open(
-            EditorLayer(
-              id: 'text-0',
-              kind: 'text',
-              content: 'Your words',
-              font: 'Poppins',
-              fontSize: 48,
-              width: 440,
-              height: 320,
-              x: 256,
-              y: 256,
-            ),
-          ),
-        ),
-        TextButton(
-          onPressed: () => open(null),
-          child: const Text('Start with a blank canvas'),
-        ),
-      ],
-    ),
-  );
-}
+    );
+  },
+);

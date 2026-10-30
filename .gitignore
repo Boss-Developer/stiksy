@@ -49,3 +49,12 @@ app.*.map.json
 
 # Local secrets / build-time config
 /env/
+/output/
+
+/android/key.properties
+*.jks
+*.keystore
+
+# Icon tooling
+/tools/icons/node_modules/
+/tools/icons/preview.png

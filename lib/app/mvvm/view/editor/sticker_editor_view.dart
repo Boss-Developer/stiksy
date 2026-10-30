@@ -1,10 +1,17 @@
+import '../../../config/app_radius.dart';
 import '../../../custom_widgets/snackbars/app_snackbar.dart';
 
+import 'dart:async';
 import 'dart:convert';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import '../../../custom_widgets/art_image.dart';
+import '../../../services/draft_images.dart';
+import '../../../services/remote_content.dart';
+import '../../../services/haptic_service.dart';
+import '../../../services/template_access.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
@@ -49,7 +56,101 @@ class _StickerEditorViewState extends State<StickerEditorView> {
   String elementCategory = 'All';
   StateSetter? panelUpdate;
   double startScale = 1, startRotation = 0, displayScale = 1;
+  double rawX = 0, rawY = 0;
+  bool snapX = false, snapY = false, snapRotation = false;
   bool importing = false, exporting = false;
+  bool showTip = false;
+  bool typing = false;
+  Uint8List? _bgBytes;
+  String? _bgSource;
+
+  Uint8List get _backgroundBytes {
+    final source = backgroundImage!;
+    if (_bgBytes == null || _bgSource != source) {
+      _bgBytes = base64Decode(source);
+      _bgSource = source;
+    }
+    return _bgBytes!;
+  }
+
+  static const _tipKey = 'stiksy_editor_tip_seen';
+
+  void dismissTip() {
+    if (!showTip) return;
+    setState(() => showTip = false);
+    Get.find<SharedPreferences>().setBool(_tipKey, true);
+  }
+
+  Widget _tipBanner() => Container(
+    padding: const EdgeInsets.fromLTRB(12, 4, 4, 4),
+    decoration: BoxDecoration(
+      color: const Color(0xffe8f5ee).withValues(alpha: .96),
+      borderRadius: AppRadius.mdAll,
+      border: Border.all(color: AppColors.borderColor),
+    ),
+    child: Row(
+      children: [
+        const Icon(
+          Icons.touch_app_outlined,
+          size: 18,
+          color: AppColors.primary,
+        ),
+        const SizedBox(width: 8),
+        const Expanded(
+          child: Text(
+            'Drag to move · Pinch to resize · Double-tap text to type',
+            style: TextStyle(fontSize: 12),
+          ),
+        ),
+        TextButton(onPressed: dismissTip, child: const Text('Got it')),
+      ],
+    ),
+  );
+
+  Widget _blankPrompt() => Center(
+    child: Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Text(
+            'Start your sticker',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            alignment: WrapAlignment.center,
+            children: [
+              FilledButton.tonalIcon(
+                onPressed: () {
+                  addText();
+                  final l = selected;
+                  if (l != null) editText(l);
+                },
+                icon: const Icon(Icons.text_fields_rounded),
+                label: const Text('Add text'),
+              ),
+              FilledButton.tonalIcon(
+                onPressed: importImage,
+                icon: const Icon(Icons.add_photo_alternate_outlined),
+                label: const Text('Add photo'),
+              ),
+              FilledButton.tonalIcon(
+                onPressed: () async {
+                  final emoji = await askForEmoji(context);
+                  if (emoji != null && mounted) addElement('emoji', emoji);
+                },
+                icon: const Icon(Icons.emoji_emotions_outlined),
+                label: const Text('Add emoji'),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
   static const colors = [
     Colors.transparent,
     Colors.white,
@@ -75,10 +176,14 @@ class _StickerEditorViewState extends State<StickerEditorView> {
   @override
   void initState() {
     super.initState();
+    showTip = !(Get.find<SharedPreferences>().getBool(_tipKey) ?? false);
     if (widget.initialDesign != null) {
       apply(widget.initialDesign!);
       draftId = widget.initialDesign!['draftId'];
     } else {
+      // The chai picture has no words of its own, so like an emoji it gets
+      // the template text above it. The layout matches the template preview,
+      // so the user edits exactly the design they picked.
       final embedded =
           widget.template.asset != null &&
           widget.template.asset != 'assets/stickers/chai.webp';
@@ -88,8 +193,8 @@ class _StickerEditorViewState extends State<StickerEditorView> {
             id: 'text-0',
             kind: 'text',
             content: widget.template.text,
-            x: widget.template.asset == 'assets/stickers/chai.webp' ? 200 : 256,
-            y: widget.template.asset == 'assets/stickers/chai.webp' ? 190 : 166,
+            x: 256,
+            y: 166,
             width: 360,
             height: 280,
             fontSize: RegExp(r'[\u0600-\u06ff]').hasMatch(widget.template.text)
@@ -106,39 +211,13 @@ class _StickerEditorViewState extends State<StickerEditorView> {
           id: 'element-0',
           kind: widget.template.asset == null ? 'emoji' : 'asset',
           content: widget.template.asset ?? widget.template.emoji,
-          x: widget.template.asset == 'assets/stickers/chai.webp' ? 375 : 256,
-          y: embedded
-              ? 256
-              : widget.template.asset == 'assets/stickers/chai.webp'
-              ? 375
-              : 338,
-          width: embedded
-              ? 410
-              : widget.template.asset == 'assets/stickers/chai.webp'
-              ? 230
-              : 260,
-          height: embedded
-              ? 410
-              : widget.template.asset == 'assets/stickers/chai.webp'
-              ? 230
-              : 260,
+          x: 256,
+          y: embedded ? 256 : 338,
+          width: embedded ? 410 : 260,
+          height: embedded ? 410 : 260,
         ),
       );
       selectedId = layers.last.id;
-      if (widget.template.asset == 'assets/stickers/chai.webp') {
-        layers.add(
-          EditorLayer(
-            id: 'heart-0',
-            kind: 'shape',
-            content: 'heart',
-            x: 426,
-            y: 222,
-            width: 56,
-            height: 56,
-            color: 0xffff7097,
-          ),
-        );
-      }
     }
     record();
     if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
@@ -233,19 +312,82 @@ class _StickerEditorViewState extends State<StickerEditorView> {
     text.text = selected?.kind == 'text' ? selected!.content : '';
   }
 
-  void record() {
+  int get maxDrafts => RemoteContent.settings.value.maxDrafts;
+
+  int savedCursor = 0;
+  bool get dirty => cursor != savedCursor;
+  bool leaving = false;
+
+  Future<bool> confirmLeave() async {
+    final choice = await showDialog<String>(
+      context: context,
+      builder: (c) => AlertDialog(
+        title: const Text('Save your design?'),
+        content: const Text('You have changes that haven’t been saved.'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(c, 'discard'),
+            child: const Text('Discard'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(c, 'stay'),
+            child: const Text('Keep editing'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(c, 'save'),
+            child: const Text('Save'),
+          ),
+        ],
+      ),
+    );
+    if (choice == 'save') {
+      await save();
+      return true;
+    }
+    return choice == 'discard';
+  }
+
+  static dynamic _clone(dynamic v) => v is Map
+      ? {for (final e in v.entries) '${e.key}': _clone(e.value)}
+      : v is List
+      ? [for (final e in v) _clone(e)]
+      : v;
+
+  void record({bool replace = false}) {
+    if (replace && cursor == history.length - 1 && history.length > 1) {
+      history[cursor] = _clone(snapshot()) as Map<String, dynamic>;
+      return;
+    }
     history.removeRange(cursor + 1, history.length);
-    history.add(jsonDecode(jsonEncode(snapshot())) as Map<String, dynamic>);
-    if (history.length > 80) history.removeAt(0);
+    history.add(_clone(snapshot()) as Map<String, dynamic>);
+    if (history.length > 80) {
+      history.removeAt(0);
+      savedCursor--;
+    }
     cursor = history.length - 1;
   }
 
-  void change(VoidCallback action) {
+  String? lastGroup;
+  DateTime lastGroupAt = DateTime.fromMillisecondsSinceEpoch(0);
+
+  void change(VoidCallback action, {String? group}) {
+    final now = DateTime.now();
+    final merge =
+        group != null &&
+        group == lastGroup &&
+        now.difference(lastGroupAt) < const Duration(seconds: 1);
     setState(() {
       action();
-      record();
+      record(replace: merge);
     });
+    lastGroup = group;
+    lastGroupAt = now;
     panelUpdate?.call(() {});
+    if (showTip) dismissTip();
+    _autosave?.cancel();
+    _autosave = Timer(const Duration(seconds: 2), () {
+      if (mounted && dirty) save(silent: true);
+    });
   }
 
   void select(EditorLayer layer) {
@@ -257,6 +399,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
   }
 
   void restore(int index) {
+    lastGroup = null;
     setState(() {
       cursor = index;
       apply(history[index]);
@@ -303,6 +446,463 @@ class _StickerEditorViewState extends State<StickerEditorView> {
     });
   }
 
+  final Map<int, Offset> _pointers = {};
+  final ValueNotifier<int> _canvasTick = ValueNotifier(0);
+  final Map<int, String> _pointerOwner = {};
+  double _pinchStartDistance = 1, _lastAngle = 0, _rotationSum = 0;
+  Offset _lastFocal = Offset.zero;
+  bool _dragged = false;
+
+  Offset _focal(Iterable<Offset> points) =>
+      points.fold(Offset.zero, (a, b) => a + b) / points.length.toDouble();
+
+  void _rebaseline(EditorLayer l) {
+    startScale = l.scale;
+    startRotation = l.rotation;
+    rawX = l.x;
+    rawY = l.y;
+    final points = _pointers.values.toList();
+    _lastFocal = _focal(points);
+    _rotationSum = 0;
+    if (points.length >= 2) {
+      final span = points[1] - points[0];
+      _pinchStartDistance = math.max(span.distance, 1);
+      _lastAngle = span.direction;
+    }
+  }
+
+  void _pointerDown(EditorLayer l, PointerDownEvent e) {
+    if (l.locked || _pointerOwner.containsKey(e.pointer)) return;
+
+    if (_pointerOwner.isEmpty) {
+      _pointers.clear();
+      _dragged = false;
+    }
+    _pointerOwner[e.pointer] = l.id;
+    _pointers[e.pointer] = e.position;
+    _rebaseline(l);
+  }
+
+  void _pointerMove(EditorLayer l, PointerMoveEvent e) {
+    if (_pointerOwner[e.pointer] != l.id) return;
+    _pointers[e.pointer] = e.position;
+    final points = _pointers.values.toList();
+    final focal = _focal(points);
+    final delta = focal - _lastFocal;
+    _lastFocal = focal;
+    var scale = 1.0, rotation = 0.0;
+    if (points.length >= 2) {
+      final span = points[1] - points[0];
+      scale = span.distance / _pinchStartDistance;
+      var step = span.direction - _lastAngle;
+      if (step > math.pi) step -= 2 * math.pi;
+      if (step < -math.pi) step += 2 * math.pi;
+      _rotationSum += step;
+      _lastAngle = span.direction;
+      rotation = _rotationSum;
+    }
+    if (!_dragged && delta == Offset.zero && scale == 1 && rotation == 0) {
+      return;
+    }
+    if (!_dragged) {
+      _dragged = true;
+      if (selectedId != l.id) select(l);
+    }
+    dragLayer(l, delta, scale, rotation);
+  }
+
+  EditorLayer? _ownerLayer(int pointer) =>
+      layers.where((x) => x.id == _pointerOwner[pointer]).firstOrNull;
+
+  void _canvasMove(PointerMoveEvent e) {
+    final l = _ownerLayer(e.pointer);
+    if (l != null) _pointerMove(l, e);
+  }
+
+  void _canvasEnd(PointerEvent e) {
+    final l = _ownerLayer(e.pointer);
+    if (l != null) {
+      _pointerEnd(l, e);
+    } else if (_pointerOwner[e.pointer]?.contains(':') ?? false) {
+      // A handle that never saw its own release.
+      _pointerOwner.remove(e.pointer);
+      _handleOrigin.remove(e.pointer);
+    }
+  }
+
+  void _pointerEnd(EditorLayer l, PointerEvent e) {
+    if (_pointerOwner[e.pointer] != l.id) return;
+    _pointerOwner.remove(e.pointer);
+    _pointers.remove(e.pointer);
+    if (_pointers.isNotEmpty) {
+      _rebaseline(l); // One finger lifted: carry on with the other.
+      return;
+    }
+    snapX = snapY = snapRotation = false;
+    if (_dragged) {
+      _dragged = false;
+      change(() {});
+    } else if (mounted) {
+      setState(() {}); // Clear any guide lines.
+    }
+  }
+
+  final Map<String, Size> _extentCache = {};
+
+  Size _textExtent(EditorLayer l) {
+    final key =
+        '${l.content}|${l.font}|${l.fontSize}|${l.width}|${l.lineHeight}|${l.alignment}';
+    final cached = _extentCache[key];
+    if (cached != null) return cached;
+    if (_extentCache.length > 64) _extentCache.clear();
+    return _extentCache[key] = _measureText(l);
+  }
+
+  Size _measureText(EditorLayer l) {
+    final painter = TextPainter(
+      text: TextSpan(
+        text: l.content.isEmpty ? ' ' : l.content,
+        style: TextStyle(
+          fontFamily: l.font.isEmpty ? null : l.font,
+          fontSize: l.fontSize,
+          fontWeight: FontWeight.w700,
+          height: l.lineHeight,
+        ),
+      ),
+      textDirection: RegExp(r'[\u0600-\u06ff]').hasMatch(l.content)
+          ? TextDirection.rtl
+          : TextDirection.ltr,
+      textAlign: l.textAlign,
+    )..layout(maxWidth: l.width);
+    final size = Size(painter.width, painter.height);
+    painter.dispose();
+    return size;
+  }
+
+  Rect _touchRect(EditorLayer l) {
+    final box = Offset.zero & Size(l.width * l.scale, l.height * l.scale);
+    if (l.kind != 'text') return box;
+    final words = _textExtent(l);
+    final fit = math.min(
+      1.0,
+      math.min(l.width / words.width, l.height / words.height),
+    );
+    final pad = 10.0 * l.scale;
+    final minSide = 56 / displayScale; // never smaller than a fingertip
+    final w = math.max(words.width * fit * l.scale + 2 * pad, minSide);
+    final h = math.max(words.height * fit * l.scale + 2 * pad, minSide);
+    return Rect.fromCenter(
+      center: box.center,
+      width: math.min(box.width, w),
+      height: math.min(box.height, h),
+    );
+  }
+
+  Widget _interactiveLayer(EditorLayer l) => Stack(
+    clipBehavior: Clip.none,
+    children: [Positioned.fromRect(rect: _touchRect(l), child: _touchArea(l))],
+  );
+
+  Widget _touchArea(EditorLayer l) {
+    final selectedHere = selectedId == l.id;
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Positioned.fill(
+          child: Listener(
+            behavior: HitTestBehavior.translucent,
+            onPointerDown: (e) => _pointerDown(l, e),
+            child: GestureDetector(
+              key: ValueKey('canvas-layer-${l.id}'),
+              behavior: HitTestBehavior.translucent,
+              onTapDown: (_) => select(l),
+              onDoubleTap: l.kind == 'text' ? () => editText(l) : null,
+              child: selectedHere
+                  ? CustomPaint(painter: SelectionBorderPainter(l.locked))
+                  : const SizedBox.expand(),
+            ),
+          ),
+        ),
+        if (selectedHere) ...[
+          Positioned(
+            left: -24 / displayScale,
+            top: -24 / displayScale,
+            child: handle(
+              Icons.delete_outline,
+              const Color(0xffff4b85),
+              l.locked ? null : removeSelected,
+              'Delete selected layer',
+              owner: 'delete:${l.id}',
+            ),
+          ),
+          Positioned(
+            right: -24 / displayScale,
+            top: -24 / displayScale,
+            child: handle(
+              l.locked ? Icons.lock : Icons.copy,
+              AppColors.primary,
+              duplicate,
+              'Duplicate selected layer',
+              owner: 'duplicate:${l.id}',
+            ),
+          ),
+          Positioned(
+            right: -24 / displayScale,
+            bottom: -24 / displayScale,
+            child: handle(
+              Icons.open_in_full,
+              AppColors.primary,
+              null,
+              'Resize layer',
+              owner: 'resize:${l.id}',
+              onDrag: l.locked
+                  ? (_) {}
+                  : (dx) {
+                      l.scale = (l.scale + dx / (l.width * displayScale)).clamp(
+                        .2,
+                        3,
+                      );
+                      _canvasTick.value++;
+                    },
+              onDragEnd: () {
+                if (!l.locked) change(() {});
+              },
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+
+  static const _snapDistance = 7.0; // canvas px (of 512)
+  static const _snapAngle = .05; // radians, about 3 degrees
+
+  void dragLayer(EditorLayer l, Offset delta, double scale, double rotation) {
+    rawX = (rawX + delta.dx / displayScale).clamp(0, 512);
+    rawY = (rawY + delta.dy / displayScale).clamp(0, 512);
+    final nearX = (rawX - 256).abs() < _snapDistance;
+    final nearY = (rawY - 256).abs() < _snapDistance;
+    final raw = startRotation + rotation;
+    final quarter = math.pi / 2;
+    final nearest = (raw / quarter).roundToDouble() * quarter;
+    // Only snap rotation once the user is actually twisting.
+    final nearAngle = rotation != 0 && (raw - nearest).abs() < _snapAngle;
+    if ((nearX && !snapX) ||
+        (nearY && !snapY) ||
+        (nearAngle && !snapRotation)) {
+      HapticService.light();
+    }
+    snapX = nearX;
+    snapY = nearY;
+    snapRotation = nearAngle;
+    l.x = nearX ? 256 : rawX;
+    l.y = nearY ? 256 : rawY;
+    l.scale = (startScale * scale).clamp(.2, 3);
+    l.rotation = nearAngle ? nearest : raw;
+    _canvasTick.value++;
+  }
+
+  List<TextPreset> get _presets => RemoteContent.settings.value.presets;
+
+  bool _matches(EditorLayer l, TextPreset p) =>
+      l.color == p.color &&
+      l.outline == p.outline &&
+      l.shadow == p.shadow &&
+      (!p.outline || l.outlineWidth == p.outlineWidth);
+
+  Future<void> showStyles(EditorLayer l) async {
+    if (l.locked) return;
+    await showModalBottomSheet<void>(
+      context: context,
+      barrierColor: Colors.transparent,
+      backgroundColor: Colors.white,
+      elevation: 12,
+      builder: (sheet) => StatefulBuilder(
+        builder: (sheet, setSheet) => SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 8, 12),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  children: [
+                    const Expanded(
+                      child: Text(
+                        'Pick a look',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      tooltip: 'Done',
+                      onPressed: () => Navigator.pop(sheet),
+                      icon: const Icon(Icons.check),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 84,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      for (final p in _presets)
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: InkWell(
+                            borderRadius: AppRadius.mdAll,
+                            onTap: () {
+                              change(() {
+                                l.color = p.color;
+                                l.outline = p.outline;
+                                l.outlineWidth = p.outlineWidth;
+                                l.shadow = p.shadow;
+                                l.shadowBlur = p.shadowBlur;
+                              });
+                              setSheet(() {});
+                            },
+                            child: Container(
+                              width: 76,
+                              decoration: BoxDecoration(
+                                color: const Color(0xffeef2ef),
+                                borderRadius: AppRadius.mdAll,
+                                border: Border.all(
+                                  color: _matches(l, p)
+                                      ? AppColors.primary
+                                      : Colors.transparent,
+                                  width: 2,
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      if (p.outline)
+                                        Text(
+                                          'Aa',
+                                          style: TextStyle(
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.w800,
+                                            foreground: Paint()
+                                              ..style = PaintingStyle.stroke
+                                              ..strokeWidth = p.outlineWidth / 2
+                                              ..color = Colors.white,
+                                          ),
+                                        ),
+                                      Text(
+                                        'Aa',
+                                        style: TextStyle(
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.w800,
+                                          color: Color(p.color),
+                                          shadows: p.shadow
+                                              ? const [
+                                                  Shadow(
+                                                    color: Colors.black45,
+                                                    blurRadius: 4,
+                                                    offset: Offset(1, 2),
+                                                  ),
+                                                ]
+                                              : null,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    p.name,
+                                    style: const TextStyle(fontSize: 11),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void deselect() {
+    if (selectedId == null) return;
+    setState(() {
+      selectedId = null;
+      syncText();
+    });
+    panelUpdate?.call(() {});
+  }
+
+  Future<void> editText(EditorLayer l) async {
+    if (l.locked) {
+      notify('Unlock this text to edit it.');
+      return;
+    }
+    select(l);
+    setState(() => typing = true);
+    final input = TextEditingController(text: l.content);
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      barrierColor: Colors.transparent,
+      backgroundColor: Colors.white,
+      elevation: 12,
+      builder: (sheet) => Padding(
+        padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(sheet).bottom),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 12, 8, 12),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: input,
+                    autofocus: true,
+                    minLines: 1,
+                    maxLines: 3,
+                    maxLength: 160,
+                    textInputAction: TextInputAction.newline,
+                    onChanged: (v) =>
+                        change(() => l.content = v, group: 'text:${l.id}'),
+                    decoration: const InputDecoration(
+                      hintText: 'Urdu, English or Roman Urdu…',
+                      counterText: '',
+                    ),
+                  ),
+                ),
+                IconButton.filled(
+                  tooltip: 'Done',
+                  onPressed: () => Navigator.pop(sheet),
+                  icon: const Icon(Icons.check),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    Future.delayed(const Duration(milliseconds: 400), input.dispose);
+    if (mounted) setState(() => typing = false);
+    // A text layer left empty would be invisible clutter.
+    if (mounted && l.content.trim().isEmpty && layers.contains(l)) {
+      change(() {
+        layers.remove(l);
+        selectedId = layers.lastOrNull?.id;
+        syncText();
+      });
+    } else {
+      syncText();
+    }
+  }
+
   void removeSelected() {
     final l = selected;
     if (l == null || l.locked) return;
@@ -313,12 +913,20 @@ class _StickerEditorViewState extends State<StickerEditorView> {
     });
   }
 
-  Future<void> save() async {
+  Future<void> _saveQueue = Future.value();
+  Timer? _autosave;
+  Future<void> save({bool silent = false}) {
+    final run = _saveQueue.then((_) => _save(silent));
+    _saveQueue = run.catchError((_) {});
+    return run;
+  }
+
+  Future<void> _save(bool silent) async {
     final prefs = Get.find<SharedPreferences>();
     final drafts = prefs.getStringList('stiksy_drafts') ?? [];
     draftId ??= identifier();
     final raw = jsonEncode({
-      ...snapshot(),
+      ...await DraftImages.externalize(snapshot()),
       'draftId': draftId,
       'template': widget.template.id,
       'savedAt': DateTime.now().toIso8601String(),
@@ -326,11 +934,19 @@ class _StickerEditorViewState extends State<StickerEditorView> {
     final index = drafts.indexWhere((v) => jsonDecode(v)['draftId'] == draftId);
     if (index < 0) {
       drafts.add(raw);
+      if (drafts.length > maxDrafts) {
+        drafts.removeRange(0, drafts.length - maxDrafts);
+      }
     } else {
       drafts[index] = raw;
     }
     await prefs.setStringList('stiksy_drafts', drafts);
-    notify('Design saved on this device.');
+    savedCursor = cursor;
+    // Rebuild so the back-button guard sees there is nothing left unsaved.
+    if (mounted) setState(() {});
+    lastGroup = null; // Edits after a save never fold into the saved step.
+    await DraftImages.collect(drafts);
+    if (!silent && mounted) 'Design saved on this device.'.showSuccess();
   }
 
   void notify(String message) {
@@ -339,8 +955,16 @@ class _StickerEditorViewState extends State<StickerEditorView> {
     }
   }
 
+  void notifyError(String message) {
+    if (mounted) {
+      message.showError();
+    }
+  }
+
   @override
   void dispose() {
+    _canvasTick.dispose();
+    _autosave?.cancel();
     text.dispose();
     super.dispose();
   }
@@ -378,16 +1002,22 @@ class _StickerEditorViewState extends State<StickerEditorView> {
     switch (l.kind) {
       case 'text':
         return Center(
-          child: Stack(
-            alignment: Alignment.center,
-            children: [if (l.outline) words(l, stroke: true), words(l)],
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: SizedBox(
+              width: l.width,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [if (l.outline) words(l, stroke: true), words(l)],
+              ),
+            ),
           ),
         );
       case 'asset':
-        return Image.asset(l.content, fit: BoxFit.contain);
+        return artImage(l.content);
       case 'image':
         return Image.memory(
-          base64Decode(l.content),
+          l.imageBytes,
           fit: BoxFit.contain,
           gaplessPlayback: true,
         );
@@ -417,6 +1047,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
   }
 
   Widget position(EditorLayer l, Widget child) => Positioned(
+    key: ValueKey('layer-position-${l.id}'),
     left: l.x - l.width * l.scale / 2,
     top: l.y - l.height * l.scale / 2,
     width: l.width * l.scale,
@@ -438,7 +1069,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
       fit: StackFit.expand,
       children: [
         if (backgroundMode == 3 && backgroundImage != null)
-          Image.memory(base64Decode(backgroundImage!), fit: BoxFit.cover),
+          Image.memory(_backgroundBytes, fit: BoxFit.cover),
         if (backgroundMode == 2)
           CustomPaint(painter: StickerPatternPainter(pattern, gradientEnd)),
       ],
@@ -491,105 +1122,29 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                     ),
                   ),
                   if (interactive)
-                    for (final l in layers)
-                      if (l.visible)
-                        position(
-                          l,
-                          GestureDetector(
-                            key: ValueKey('canvas-layer-${l.id}'),
-                            behavior: HitTestBehavior.translucent,
-                            onTap: () => select(l),
-                            onScaleStart: l.locked
-                                ? null
-                                : (d) {
-                                    select(l);
-                                    startScale = l.scale;
-                                    startRotation = l.rotation;
-                                  },
-                            onScaleUpdate: l.locked
-                                ? null
-                                : (d) => setState(() {
-                                    l.x =
-                                        (l.x +
-                                                d.focalPointDelta.dx /
-                                                    displayScale)
-                                            .clamp(0, 512);
-                                    l.y =
-                                        (l.y +
-                                                d.focalPointDelta.dy /
-                                                    displayScale)
-                                            .clamp(0, 512);
-                                    l.scale = (startScale * d.scale).clamp(
-                                      .2,
-                                      3,
-                                    );
-                                    l.rotation = startRotation + d.rotation;
-                                  }),
-                            onScaleEnd: l.locked ? null : (_) => change(() {}),
-                            child: selectedId != l.id
-                                ? const SizedBox.expand()
-                                : Stack(
-                                    clipBehavior: Clip.none,
-                                    children: [
-                                      Positioned.fill(
-                                        child: CustomPaint(
-                                          painter: SelectionBorderPainter(
-                                            l.locked,
-                                          ),
-                                        ),
-                                      ),
-                                      Positioned(
-                                        left: -14,
-                                        top: -14,
-                                        child: handle(
-                                          Icons.delete_outline,
-                                          const Color(0xffff4b85),
-                                          l.locked ? null : removeSelected,
-                                          'Delete selected layer',
-                                        ),
-                                      ),
-                                      Positioned(
-                                        right: -14,
-                                        top: -14,
-                                        child: handle(
-                                          l.locked ? Icons.lock : Icons.copy,
-                                          AppColors.primary,
-                                          duplicate,
-                                          'Duplicate selected layer',
-                                        ),
-                                      ),
-                                      Positioned(
-                                        right: -14,
-                                        bottom: -14,
-                                        child: GestureDetector(
-                                          onPanStart: l.locked
-                                              ? null
-                                              : (_) => startScale = l.scale,
-                                          onPanUpdate: l.locked
-                                              ? null
-                                              : (d) => setState(
-                                                  () => l.scale =
-                                                      (l.scale +
-                                                              d.delta.dx /
-                                                                  (l.width *
-                                                                      displayScale))
-                                                          .clamp(.2, 3),
-                                                ),
-                                          onPanEnd: l.locked
-                                              ? null
-                                              : (_) => change(() {}),
-                                          child: handle(
-                                            Icons.open_in_full,
-                                            AppColors.primary,
-                                            null,
-                                            'Resize layer',
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                    Positioned.fill(
+                      key: const ValueKey('snap-guides'),
+                      child: IgnorePointer(
+                        child: CustomPaint(
+                          painter: SnapGuidePainter(
+                            vertical: snapX,
+                            horizontal: snapY,
                           ),
                         ),
+                      ),
+                    ),
+                  if (interactive)
+                    Positioned.fill(
+                      key: const ValueKey('canvas-empty-area'),
+                      child: GestureDetector(
+                        key: const ValueKey('canvas-empty'),
+                        behavior: HitTestBehavior.opaque,
+                        onTap: deselect,
+                      ),
+                    ),
+                  if (interactive)
+                    for (final l in layers)
+                      if (l.visible) position(l, _interactiveLayer(l)),
                 ],
               ),
             ),
@@ -598,27 +1153,67 @@ class _StickerEditorViewState extends State<StickerEditorView> {
       );
     },
   );
+
+  final Map<int, Offset> _handleOrigin = {};
+
   Widget handle(
     IconData icon,
     Color color,
     VoidCallback? action,
-    String label,
-  ) => Semantics(
-    label: label,
-    child: GestureDetector(
-      onTap: action,
-      child: Container(
-        width: 28,
-        height: 28,
-        decoration: BoxDecoration(
-          color: color,
-          shape: BoxShape.circle,
-          border: Border.all(color: Colors.white, width: 2),
+    String label, {
+    required String owner,
+    void Function(double dx)? onDrag,
+    VoidCallback? onDragEnd,
+  }) {
+    final k = 1 / displayScale.clamp(.3, 3);
+    return Semantics(
+      label: label,
+      button: true,
+      child: Listener(
+        behavior: HitTestBehavior.opaque,
+        onPointerDown: (e) {
+          if (_pointerOwner.containsKey(e.pointer)) return;
+          _pointerOwner[e.pointer] = owner;
+          _handleOrigin[e.pointer] = e.position;
+        },
+        onPointerMove: (e) {
+          if (_pointerOwner[e.pointer] == owner) onDrag?.call(e.delta.dx);
+        },
+        onPointerUp: (e) {
+          if (_pointerOwner[e.pointer] != owner) return;
+          _pointerOwner.remove(e.pointer);
+          final origin = _handleOrigin.remove(e.pointer) ?? e.position;
+          if (onDrag != null) {
+            onDragEnd?.call();
+          } else if ((e.position - origin).distance < 14) {
+            action?.call(); // A tap, not a drag that ended on the handle.
+          }
+        },
+        onPointerCancel: (e) {
+          if (_pointerOwner[e.pointer] != owner) return;
+          _pointerOwner.remove(e.pointer);
+          _handleOrigin.remove(e.pointer);
+        },
+        child: SizedBox(
+          width: 48 * k,
+          height: 48 * k,
+          child: Center(
+            child: Container(
+              width: 34 * k,
+              height: 34 * k,
+              decoration: BoxDecoration(
+                color: color,
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.white, width: 2 * k),
+              ),
+              child: Icon(icon, color: Colors.white, size: 18 * k),
+            ),
+          ),
         ),
-        child: Icon(icon, color: Colors.white, size: 16),
       ),
-    ),
-  );
+    );
+  }
+
   Future<void> export() async {
     if (exporting) return;
     setState(() => exporting = true);
@@ -632,6 +1227,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
       if (data != null && mounted) {
         await Get.to(
           () => ExportStickerView(
+            template: widget.template,
             bytes: data.buffer.asUint8List(),
             text: layers
                 .where((l) => l.kind == 'text' && l.visible)
@@ -641,7 +1237,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
         );
       }
     } catch (_) {
-      notify('Unable to render this design. Please try again.');
+      notifyError('Couldn’t make this sticker. Please try again.');
     } finally {
       if (mounted) setState(() => exporting = false);
     }
@@ -663,7 +1259,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
         await acceptImage(file, asBackground: asBackground);
       }
     } catch (_) {
-      notify('Unable to open this photo. Please choose another image.');
+      notifyError('Couldn’t open this photo. Please choose another one.');
     } finally {
       if (mounted) setState(() => importing = false);
       panelUpdate?.call(() {});
@@ -731,7 +1327,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
               height: 38,
               decoration: BoxDecoration(
                 color: c,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: AppRadius.smAll,
                 border: Border.all(
                   color: current == c ? AppColors.primary : Colors.black12,
                   width: current == c ? 3 : 1,
@@ -763,7 +1359,9 @@ class _StickerEditorViewState extends State<StickerEditorView> {
           value: value.clamp(min, max),
           min: min,
           max: max,
-          onChanged: enabled ? (v) => change(() => pick(v)) : null,
+          onChanged: enabled
+              ? (v) => change(() => pick(v), group: 'slider:$label:$selectedId')
+              : null,
         ),
       ),
       SizedBox(
@@ -796,7 +1394,8 @@ class _StickerEditorViewState extends State<StickerEditorView> {
               readOnly: !enabled,
               maxLines: 2,
               maxLength: 160,
-              onChanged: (v) => change(() => l.content = v),
+              onChanged: (v) =>
+                  change(() => l.content = v, group: 'text:${l.id}'),
               decoration: const InputDecoration(
                 labelText: 'Your words',
                 hintText: 'Urdu, English or Roman Urdu…',
@@ -834,7 +1433,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               color: const Color(0xfff6f7f8),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: AppRadius.smAll,
                               border: Border.all(
                                 color: l.font == f.key
                                     ? AppColors.primary
@@ -1102,7 +1701,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                 height: 60,
                 decoration: BoxDecoration(
                   color: const Color(0xfffaf3e7),
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: AppRadius.smAll,
                   border: Border.all(
                     color: backgroundMode == 2 && pattern == p
                         ? AppColors.primary
@@ -1148,45 +1747,19 @@ class _StickerEditorViewState extends State<StickerEditorView> {
     ...elementTools(),
   ];
   List<Widget> elementTools() {
-    const items = {
-      '☕': 'Emojis',
-      '💚': 'Emojis',
-      '❤️': 'Emojis',
-      '😎': 'Emojis',
-      '😂': 'Emojis',
-      '👑': 'Emojis',
-      '💐': 'Emojis',
-      '⭐': 'Emojis',
-      '🎉': 'Emojis',
-      '🏏': 'Cricket',
-      '🏆': 'Cricket',
-      '⚾': 'Cricket',
-      '🇵🇰': 'Flags',
-      '🌙': 'Flags',
-    };
+    final sets = RemoteContent.settings.value.elements;
+    final items = [
+      for (final set in sets)
+        for (final emoji in set.emojis) MapEntry(emoji, set.category),
+    ];
+    // Emoji tabs come from the admin panel; "Shapes" is built in.
+    final tabNames = ['All', ...sets.map((e) => e.category), 'Shapes'];
+    if (!tabNames.contains(elementCategory)) elementCategory = 'All';
     return [
-      tabs(
-        ['All', 'Emojis', 'Shapes', 'Cricket', 'Flags'],
-        [
-          'All',
-          'Emojis',
-          'Shapes',
-          'Cricket',
-          'Flags',
-        ].indexOf(elementCategory),
-        (v) {
-          setState(
-            () => elementCategory = [
-              'All',
-              'Emojis',
-              'Shapes',
-              'Cricket',
-              'Flags',
-            ][v],
-          );
-          panelUpdate?.call(() {});
-        },
-      ),
+      tabs(tabNames, tabNames.indexOf(elementCategory), (v) {
+        setState(() => elementCategory = tabNames[v]);
+        panelUpdate?.call(() {});
+      }),
       const SizedBox(height: 12),
       Wrap(
         spacing: 10,
@@ -1202,7 +1775,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                   child: Image.asset('assets/stickers/$asset.webp'),
                 ),
               ),
-          for (final e in items.entries)
+          for (final e in items)
             if (elementCategory == 'All' || elementCategory == e.value)
               InkWell(
                 onTap: () => addElement('emoji', e.key),
@@ -1212,7 +1785,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: const Color(0xfff2f4f3),
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: AppRadius.smAll,
                   ),
                   child: Text(
                     e.key,
@@ -1423,6 +1996,18 @@ class _StickerEditorViewState extends State<StickerEditorView> {
   }
 
   Future<void> openTool(int value) async {
+    if (value != 0) return openPanel(value);
+    var target = selected?.kind == 'text'
+        ? selected
+        : layers.where((l) => l.kind == 'text').lastOrNull;
+    if (target == null) {
+      addText();
+      target = selected;
+    }
+    if (target != null) await editText(target);
+  }
+
+  Future<void> openPanel(int value) async {
     tool = value;
     if (value == 0 && selected?.kind != 'text') {
       final existing = layers.where((l) => l.kind == 'text').firstOrNull;
@@ -1454,7 +2039,7 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                       'Text Style',
                       'Stickers & Elements',
                       'Backgrounds',
-                      'Layers',
+                      'Arrange',
                     ][tool],
                     textAlign: TextAlign.center,
                     style: const TextStyle(
@@ -1503,8 +2088,216 @@ class _StickerEditorViewState extends State<StickerEditorView> {
     panelUpdate = null;
   }
 
+  static const _quickColors = [
+    Colors.white,
+    Colors.black,
+    Color(0xffef4444),
+    Color(0xfff59e0b),
+    Color(0xfffacc15),
+    Color(0xff059669),
+    Color(0xff0ea5e9),
+    Color(0xff8b5cf6),
+    Color(0xfff472b6),
+  ];
+
+  Widget _stripButton(
+    IconData icon,
+    String tooltip,
+    VoidCallback? onTap, {
+    bool active = false,
+  }) => IconButton(
+    tooltip: tooltip,
+    onPressed: onTap,
+    isSelected: active,
+    visualDensity: VisualDensity.compact,
+    icon: Icon(icon, size: 22),
+    style: active
+        ? IconButton.styleFrom(
+            backgroundColor: AppColors.primary.withValues(alpha: .14),
+          )
+        : null,
+  );
+
+  Widget _row(List<Widget> items) => Row(
+    children: [
+      for (final item in items)
+        Expanded(
+          child: FittedBox(fit: BoxFit.scaleDown, child: item),
+        ),
+    ],
+  );
+
+  Widget contextStrip() {
+    final l = selected;
+    if (l == null) {
+      return const Padding(
+        padding: EdgeInsets.symmetric(vertical: 14),
+        child: Text(
+          'Tap an item to edit it · Double-tap text to type',
+          style: TextStyle(fontSize: 12, color: Colors.black45),
+        ),
+      );
+    }
+    final unlocked = !l.locked;
+    if (l.kind != 'text') {
+      return _row([
+        _stripButton(
+          Icons.zoom_out,
+          'Make smaller',
+          unlocked
+              ? () => change(
+                  () => l.scale = (l.scale - .15).clamp(.2, 3),
+                  group: 'scale:${l.id}',
+                )
+              : null,
+        ),
+        _stripButton(
+          Icons.zoom_in,
+          'Make bigger',
+          unlocked
+              ? () => change(
+                  () => l.scale = (l.scale + .15).clamp(.2, 3),
+                  group: 'scale:${l.id}',
+                )
+              : null,
+        ),
+        _stripButton(Icons.copy_outlined, 'Duplicate item', duplicate),
+        _stripButton(
+          Icons.delete_outline,
+          'Delete item',
+          unlocked ? removeSelected : null,
+        ),
+        _stripButton(
+          l.locked ? Icons.lock : Icons.lock_open,
+          l.locked ? 'Unlock item' : 'Lock item',
+          () => change(() => l.locked = !l.locked),
+          active: l.locked,
+        ),
+        _stripButton(Icons.tune, 'More options', () => openPanel(3)),
+      ]);
+    }
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        _row([
+          _stripButton(
+            Icons.edit_outlined,
+            'Edit words',
+            unlocked ? () => editText(l) : null,
+          ),
+          _stripButton(
+            Icons.auto_awesome_outlined,
+            'Style presets',
+            unlocked ? () => showStyles(l) : null,
+          ),
+          PopupMenuButton<String>(
+            tooltip: 'Font',
+            enabled: unlocked,
+            onSelected: (f) => change(() => l.font = f),
+            itemBuilder: (_) => [
+              for (final f in fonts.entries)
+                PopupMenuItem(
+                  value: f.key,
+                  child: Text(
+                    f.value,
+                    style: TextStyle(
+                      fontFamily: f.key.isEmpty ? null : f.key,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+            ],
+            child: const Padding(
+              padding: EdgeInsets.all(10),
+              child: Icon(Icons.font_download_outlined, size: 22),
+            ),
+          ),
+          _stripButton(
+            Icons.text_decrease,
+            'Smaller text',
+            unlocked
+                ? () => change(
+                    () => l.fontSize = (l.fontSize - 4).clamp(16, 90),
+                    group: 'size:${l.id}',
+                  )
+                : null,
+          ),
+          _stripButton(
+            Icons.text_increase,
+            'Bigger text',
+            unlocked
+                ? () => change(
+                    () => l.fontSize = (l.fontSize + 4).clamp(16, 90),
+                    group: 'size:${l.id}',
+                  )
+                : null,
+          ),
+          _stripButton(
+            [
+              Icons.format_align_left,
+              Icons.format_align_center,
+              Icons.format_align_right,
+            ][l.alignment.clamp(0, 2)],
+            'Text alignment',
+            unlocked
+                ? () => change(() => l.alignment = (l.alignment + 1) % 3)
+                : null,
+          ),
+          _stripButton(
+            Icons.border_style,
+            'Outline',
+            unlocked ? () => change(() => l.outline = !l.outline) : null,
+            active: l.outline,
+          ),
+          _stripButton(Icons.tune, 'More options', () => openPanel(0)),
+        ]),
+        const SizedBox(height: 2),
+        _row([
+          for (final c in _quickColors)
+            InkResponse(
+              radius: 22,
+              onTap: unlocked
+                  ? () => change(() => l.color = c.toARGB32())
+                  : null,
+              child: Padding(
+                padding: const EdgeInsets.all(6),
+                child: Container(
+                  width: 24,
+                  height: 24,
+                  decoration: BoxDecoration(
+                    color: c,
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: l.color == c.toARGB32()
+                          ? AppColors.primary
+                          : Colors.black26,
+                      width: l.color == c.toARGB32() ? 3 : 1,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+        ]),
+      ],
+    );
+  }
+
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => PopScope(
+    canPop: !dirty || leaving,
+    onPopInvokedWithResult: (didPop, _) async {
+      if (didPop) return;
+      final ok = await confirmLeave();
+      if (!mounted || !ok) return;
+      final navigator = Navigator.of(this.context);
+      setState(() => leaving = true);
+      // Pop once the rebuilt PopScope allows it, so it doesn't ask again.
+      WidgetsBinding.instance.addPostFrameCallback((_) => navigator.pop());
+    },
+    child: _scaffold(context),
+  );
+
+  Widget _scaffold(BuildContext context) => Scaffold(
     appBar: AppBar(
       title: const Text('Sticker Editor', style: TextStyle(fontSize: 16)),
       actions: [
@@ -1527,50 +2320,31 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                 ? null
                 : () async {
                     await save();
+                    // Premium templates are free to edit; the video is asked
+                    // for only now, when the user is about to take the result.
+                    if (!mounted) return;
+                    if (!await TemplateAccess.allow(
+                      this.context,
+                      widget.template,
+                    )) {
+                      return;
+                    }
                     if (mounted) await export();
                   },
             style: FilledButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 18),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(9),
-              ),
+              shape: RoundedRectangleBorder(borderRadius: AppRadius.smAll),
             ),
-            child: Text(exporting ? '…' : 'Save'),
+            child: Text(exporting ? '…' : 'Finish'),
           ),
         ),
       ],
     ),
     body: SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(18),
+        padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20, top: 8),
-              child: Row(
-                children: [
-                  const Icon(
-                    Icons.auto_awesome_outlined,
-                    size: 18,
-                    color: AppColors.primary,
-                  ),
-                  const SizedBox(width: 8),
-                  const Expanded(
-                    child: Text(
-                      'Make it yours',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    '${layers.length} layers',
-                    style: const TextStyle(fontSize: 12, color: Colors.black54),
-                  ),
-                ],
-              ),
-            ),
             Expanded(
               child: Center(
                 child: ConstrainedBox(
@@ -1580,14 +2354,36 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: AppRadius.mdAll,
                         border: Border.all(color: AppColors.borderColor),
                       ),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: AppRadius.mdAll,
                         child: CustomPaint(
                           painter: StickerCheckerPainter(),
-                          child: composition(interactive: true),
+                          child: Stack(
+                            children: [
+                              Listener(
+                                behavior: HitTestBehavior.translucent,
+                                onPointerMove: _canvasMove,
+                                onPointerUp: _canvasEnd,
+                                onPointerCancel: _canvasEnd,
+                                child: ListenableBuilder(
+                                  listenable: _canvasTick,
+                                  builder: (_, _) =>
+                                      composition(interactive: true),
+                                ),
+                              ),
+                              if (layers.isEmpty) _blankPrompt(),
+                              if (showTip)
+                                Positioned(
+                                  left: 8,
+                                  right: 8,
+                                  top: 8,
+                                  child: _tipBanner(),
+                                ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -1595,13 +2391,14 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 22, bottom: 10),
-              child: Text(
-                'Drag to move · Pinch to resize',
-                style: TextStyle(fontSize: 11, color: Colors.black45),
+            if (typing)
+              // Room for the typing bar that floats above the keyboard.
+              const SizedBox(height: 84)
+            else
+              Padding(
+                padding: const EdgeInsets.only(top: 8, bottom: 4),
+                child: contextStrip(),
               ),
-            ),
           ],
         ),
       ),
@@ -1633,7 +2430,12 @@ class _StickerEditorViewState extends State<StickerEditorView> {
                           Icon(e.value, size: 24),
                           const SizedBox(height: 6),
                           Text(
-                            ['Text', 'Stickers', 'Background', 'Layers'][e.key],
+                            [
+                              'Text',
+                              'Stickers',
+                              'Background',
+                              'Arrange',
+                            ][e.key],
                             style: const TextStyle(fontSize: 11),
                           ),
                         ],
@@ -1766,4 +2568,29 @@ class ElementShapePainter extends CustomPainter {
   @override
   bool shouldRepaint(ElementShapePainter old) =>
       old.kind != kind || old.color != color;
+}
+
+class SnapGuidePainter extends CustomPainter {
+  const SnapGuidePainter({required this.vertical, required this.horizontal});
+  final bool vertical, horizontal;
+  @override
+  void paint(Canvas c, Size s) {
+    final p = Paint()
+      ..color = AppColors.primary
+      ..strokeWidth = 1.5;
+    if (vertical) {
+      for (double y = 0; y < s.height; y += 10) {
+        c.drawLine(Offset(s.width / 2, y), Offset(s.width / 2, y + 5), p);
+      }
+    }
+    if (horizontal) {
+      for (double x = 0; x < s.width; x += 10) {
+        c.drawLine(Offset(x, s.height / 2), Offset(x + 5, s.height / 2), p);
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(SnapGuidePainter old) =>
+      old.vertical != vertical || old.horizontal != horizontal;
 }

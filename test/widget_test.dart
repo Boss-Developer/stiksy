@@ -9,8 +9,11 @@ import 'package:stiksy/app/custom_widgets/sticker_components.dart';
 import 'package:stiksy/app/mvvm/model/sticker_template.dart';
 import 'package:stiksy/app/mvvm/view_model/home/home_controller.dart';
 
+import 'fake_paths.dart';
+
 void main() {
   setUp(() async {
+    installFakePaths();
     Get.testMode = true;
     SharedPreferences.setMockInitialValues({});
     Get.put<SharedPreferences>(
@@ -59,6 +62,43 @@ void main() {
     ]);
   });
 
+  testWidgets('home offers direct starts and a Catalog tab, not a Settings tab', (
+    tester,
+  ) async {
+    await Get.find<SharedPreferences>().setBool('stiksy_onboarded', true);
+    tester.view.physicalSize = const Size(360, 760);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(const LayerXApp());
+    await tester.pump(const Duration(seconds: 1));
+    await tester.pumpAndSettle();
+    // Photo / Emoji / Text start the editor without an intermediate screen.
+    expect(find.text('Photo'), findsOneWidget);
+    expect(find.text('Emoji'), findsOneWidget);
+    expect(find.text('Text'), findsOneWidget);
+    expect(find.text('Settings'), findsNothing);
+    await tester.tap(find.text('Text'));
+    await tester.pumpAndSettle();
+    expect(find.text('Sticker Editor'), findsOneWidget);
+    expect(find.byKey(const ValueKey('canvas-layer-text-0')), findsOneWidget);
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    // The + button opens a sheet instead of a screen.
+    await tester.tap(find.byTooltip('Create sticker'));
+    await tester.pumpAndSettle();
+    expect(find.text('Start with…'), findsOneWidget);
+    await tester.tapAt(const Offset(10, 10));
+    await tester.pumpAndSettle();
+    // Catalog is a bottom-bar tab; the bar stays visible.
+    await tester.tap(find.text('Catalog').last);
+    // The catalog loader animates while loading, so do not wait for it to settle.
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.text('Sticker catalog'), findsOneWidget);
+    expect(find.text('My Packs'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('returning user reaches home at a narrow width', (tester) async {
     await Get.find<SharedPreferences>().setBool('stiksy_onboarded', true);
     tester.view.physicalSize = const Size(320, 640);
@@ -79,6 +119,11 @@ void main() {
     await tester.tap(find.text('My Packs').last);
     await tester.pumpAndSettle();
     expect(find.text('Your sticker library'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Create your first pack'),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('Create your first pack'), findsOneWidget);
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox.shrink());

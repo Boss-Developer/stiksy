@@ -1,3 +1,4 @@
+import '../../../config/app_radius.dart';
 import '../../../custom_widgets/stiksy_loader.dart';
 import '../../../custom_widgets/snackbars/app_snackbar.dart';
 
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../services/sticker_export_service.dart';
+import '../../../services/user_messages.dart';
 import '../../../config/app_colors.dart';
 
 class PackStickerThumbnail extends StatefulWidget {
@@ -67,9 +69,9 @@ class _StickerPackDetailViewState extends State<StickerPackDetailView> {
     pack = widget.pack;
   }
 
-  void notify(String text) {
+  void notifyError(Object error, String fallback) {
     if (mounted) {
-      text.showInfo();
+      friendlyError(error, fallback).showError();
     }
   }
 
@@ -97,11 +99,7 @@ class _StickerPackDetailViewState extends State<StickerPackDetailView> {
       final updated = await StickerExportService.removeSticker(pack, file);
       if (mounted) setState(() => pack = updated);
     } catch (e) {
-      notify(
-        e is PlatformException
-            ? e.message ?? 'Unable to delete sticker.'
-            : 'Unable to delete sticker.',
-      );
+      notifyError(e, 'Couldn’t delete this sticker. Please try again.');
     } finally {
       if (mounted) setState(() => busy = false);
     }
@@ -114,19 +112,9 @@ class _StickerPackDetailViewState extends State<StickerPackDetailView> {
         pack,
         business: business,
       );
-      notify(
-        result['status'] == 'added'
-            ? 'Pack added to WhatsApp.'
-            : result['status'] == 'rejected'
-            ? 'WhatsApp rejected this pack: ${result['message']}'
-            : 'Installation cancelled.',
-      );
+      if (mounted) showPackResult(result);
     } catch (e) {
-      notify(
-        e is PlatformException
-            ? e.message ?? 'Unable to install pack.'
-            : 'Unable to install pack.',
-      );
+      notifyError(e, 'Couldn’t add this pack to WhatsApp. Please try again.');
     } finally {
       if (mounted) setState(() => busy = false);
     }
@@ -148,7 +136,7 @@ class _StickerPackDetailViewState extends State<StickerPackDetailView> {
           const Padding(
             padding: EdgeInsets.all(24),
             child: Text(
-              'This pack is empty. Create a sticker and choose this pack on the export screen.',
+              'This pack is empty. Make a sticker and it will be added here.',
             ),
           ),
         GridView.count(
@@ -166,7 +154,7 @@ class _StickerPackDetailViewState extends State<StickerPackDetailView> {
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       color: const Color(0xfff2f4f3),
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: AppRadius.mdAll,
                     ),
                     child: PackStickerThumbnail(
                       key: ValueKey(file),

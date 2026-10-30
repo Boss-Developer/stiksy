@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+
+import '../../../services/remote_content.dart';
 import 'package:get/get.dart';
+import '../../../config/app_radius.dart';
+import '../../../config/app_colors.dart';
 
 import '../../../custom_widgets/sticker_components.dart';
 import '../../model/sticker_template.dart';
@@ -7,6 +11,41 @@ import '../../view_model/splash/splash_controller.dart';
 
 class SplashView extends GetView<SplashController> {
   const SplashView({super.key});
+
+  Widget _setup(BuildContext context) {
+    switch (controller.phase.value) {
+      case SplashPhase.logo:
+        return const SizedBox.shrink();
+      case SplashPhase.loading:
+        return Column(
+          children: [
+            ClipRRect(
+              borderRadius: AppRadius.xsAll,
+              child: LinearProgressIndicator(
+                value: controller.progress.value,
+                minHeight: 10,
+                color: AppColors.primary,
+                // Visible against the page background, not a faint tint.
+                backgroundColor: const Color(0xffC3E8D8),
+                trackGap: 0,
+                stopIndicatorColor: Colors.transparent,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              controller.label.value,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
+                color: AppColors.textDarkColor,
+              ),
+            ),
+          ],
+        );
+    }
+  }
+
   @override
   Widget build(BuildContext context) => Scaffold(
     body: Container(
@@ -31,8 +70,8 @@ class SplashView extends GetView<SplashController> {
                     ),
                   ),
                   const SizedBox(height: 14),
-                  const Text(
-                    'Type Anything\nMake it a Sticker',
+                  Text(
+                    RemoteContent.settings.value.splashTagline,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 23,
@@ -52,10 +91,11 @@ class SplashView extends GetView<SplashController> {
                       mainAxisSpacing: 4,
                       children:
                           [
-                                stickerTemplates[10],
-                                stickerTemplates[7],
-                                stickerTemplates[3],
-                                stickerTemplates[2],
+                                // A published list may be shorter than the built-in one.
+                                if (stickerTemplates.isNotEmpty)
+                                  for (final i in [10, 7, 3, 2])
+                                    stickerTemplates[i %
+                                        stickerTemplates.length],
                               ]
                               .asMap()
                               .entries
@@ -72,6 +112,8 @@ class SplashView extends GetView<SplashController> {
                     ),
                   ),
                   const Spacer(),
+                  Obx(() => _setup(context)),
+                  const SizedBox(height: 16),
                   const Text(
                     'MADE FOR YOUR EVERYDAY EXPRESSIONS',
                     textAlign: TextAlign.center,

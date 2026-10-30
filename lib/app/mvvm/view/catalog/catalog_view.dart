@@ -1,22 +1,33 @@
+import '../../../config/app_radius.dart';
 import '../../../custom_widgets/stiksy_loader.dart';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../config/app_colors.dart';
 
 import '../../../custom_widgets/snackbars/app_snackbar.dart';
 import '../../../services/catalog_service.dart';
+import '../../../services/remote_content.dart';
 import '../../../services/sticker_export_service.dart';
+import '../../../services/user_messages.dart';
 
-/// Pakistani culture packs served from Supabase and cached on the device.
 class CatalogView extends StatefulWidget {
-  const CatalogView({super.key});
+  const CatalogView({super.key, this.embedded = false});
+
+  final bool embedded;
   @override
   State<CatalogView> createState() => _CatalogViewState();
 }
 
 class _CatalogViewState extends State<CatalogView> {
   late Future<List<CatalogPack>> packs = CatalogService.loadCatalog();
+
+  /// Packs downloaded at setup, so the first frame already shows them.
+  List<CatalogPack>? initial = CatalogService.cachedPacks();
   final progress = <String, double>{};
   final downloaded = <String>{};
 
@@ -24,8 +35,32 @@ class _CatalogViewState extends State<CatalogView> {
   String category = 'All';
   final savedChecks = <String, Future<bool>>{};
 
+  @override
+  void initState() {
+    super.initState();
+    RemoteContent.revision.addListener(_onNewContent);
+    CatalogService.warmCovers();
+  }
+
+  @override
+  void dispose() {
+    RemoteContent.revision.removeListener(_onNewContent);
+    super.dispose();
+  }
+
+  /// A background check found a newer release: re-read it from the cache.
+  void _onNewContent() {
+    if (!mounted) return;
+    CatalogService.warmCovers();
+    setState(() {
+      initial = CatalogService.cachedPacks();
+      packs = CatalogService.loadCatalog();
+      savedChecks.clear();
+    });
+  }
+
   void reload() => setState(() {
-    packs = CatalogService.loadCatalog();
+    packs = CatalogService.loadCatalog(force: true);
     downloaded.clear();
     savedChecks.clear();
   });
@@ -41,70 +76,97 @@ class _CatalogViewState extends State<CatalogView> {
       );
       downloaded.add(pack.id);
     } catch (e) {
-      if (mounted) '$e'.showError();
+      if (mounted) {
+        friendlyError(
+          e,
+          'Couldn’t download this pack. Check your internet and try again.',
+        ).showError();
+      }
     } finally {
       if (mounted) setState(() => progress.remove(pack.id));
     }
   }
 
+  static const _linksKey = CatalogService.linksKey;
+
+  Future<LocalStickerPack> _localPack(CatalogPack pack) async {
+    final prefs = Get.find<SharedPreferences>();
+    final links = Map<String, dynamic>.from(
+      jsonDecode(prefs.getString(_linksKey) ?? '{}') as Map,
+    );
+    final linked = links[pack.id] as Map?;
+    final existing = await StickerExportService.packs();
+    final current = linked == null
+        ? null
+        : existing.where((p) => p.id == linked['local']).firstOrNull;
+    if (current != null &&
+        linked!['version'] == pack.version &&
+        current.count == pack.stickerCount) {
+      return current;
+    }
+    if (current != null) {
+      // Older versions let people add their own stickers to catalog packs.
+      // A pack with extra stickers is theirs now: keep it, never delete it.
+      if (current.count > pack.stickerCount) {
+        await StickerExportService.renamePack(
+          current,
+          '${pack.title} (mine)',
+        ).catchError((_) => current);
+      } else {
+        await StickerExportService.deletePack(current);
+      }
+    }
+    final manifest = await CatalogService.manifestOf(pack);
+    final files = await CatalogService.stickerFiles(pack);
+    final stickers = (manifest['stickers'] as List).cast<Map>();
+    var local = await StickerExportService.createPack(pack.title);
+    try {
+      for (var i = 0; i < files.length; i++) {
+        local = await StickerExportService.addSticker(
+          local,
+          await files[i].readAsBytes(),
+          '${stickers[i]['caption']}',
+        );
+      }
+    } catch (_) {
+      await StickerExportService.deletePack(local).catchError((_) {});
+      rethrow;
+    }
+    links[pack.id] = {'local': local.id, 'version': pack.version};
+    await prefs.setString(_linksKey, jsonEncode(links));
+    return local;
+  }
+
   /// Copies a downloaded pack into the native pack store, then asks WhatsApp.
   Future<void> addToWhatsApp(CatalogPack pack, {bool business = false}) async {
     try {
-      final existing = (await StickerExportService.packs())
-          .where((p) => p.name == pack.title && p.count == pack.stickerCount)
-          .firstOrNull;
-      var local = existing;
-      if (local == null) {
-        final manifest = await CatalogService.manifestOf(pack);
-        final files = await CatalogService.stickerFiles(pack);
-        final stickers = (manifest['stickers'] as List).cast<Map>();
-        local = await StickerExportService.createPack(pack.title);
-        for (var i = 0; i < files.length; i++) {
-          local = await StickerExportService.addSticker(
-            local!,
-            await files[i].readAsBytes(),
-            '${stickers[i]['caption']}',
-          );
-        }
-      }
+      final local = await _localPack(pack);
       final result = await StickerExportService.addToWhatsApp(
-        local!,
+        local,
         business: business,
       );
-      if (!mounted) return;
-      (result['status'] == 'added'
-              ? 'Pack added. Open WhatsApp’s sticker picker to send it.'
-              : result['status'] == 'rejected'
-              ? 'WhatsApp rejected this pack: ${result['message']}'
-              : 'Installation cancelled. Your pack is saved.')
-          .showInfo();
+      if (mounted) showPackResult(result);
     } catch (e) {
       if (mounted) {
-        (e is PlatformException
-                ? e.message ?? 'Unable to add this pack.'
-                : 'Unable to add this pack.')
-            .showError();
+        friendlyError(
+          e,
+          'Couldn’t add this pack to WhatsApp. Please try again.',
+        ).showError();
       }
     }
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      title: const Text('Sticker catalog'),
-      actions: [
-        IconButton(
-          tooltip: 'Refresh catalog',
-          onPressed: reload,
-          icon: const Icon(Icons.refresh_rounded),
-        ),
-        const SizedBox(width: 8),
-      ],
-    ),
+    appBar: widget.embedded
+        ? null
+        : AppBar(title: const Text('Sticker catalog')),
     body: FutureBuilder<List<CatalogPack>>(
       future: packs,
+      initialData: initial,
       builder: (context, snapshot) {
-        if (snapshot.connectionState != ConnectionState.done) {
+        // Keep showing packs while a refresh runs; spin only with nothing to show.
+        if (!snapshot.hasData && !snapshot.hasError) {
           return const Center(
             child: StiksyLoader(label: 'Finding your next favorite stickers…'),
           );
@@ -166,7 +228,7 @@ class _CatalogViewState extends State<CatalogView> {
                     padding: const EdgeInsets.all(24),
                     decoration: BoxDecoration(
                       color: const Color(0xff123f31),
-                      borderRadius: BorderRadius.circular(24),
+                      borderRadius: AppRadius.mdAll,
                     ),
                     child: Row(
                       children: [
@@ -333,7 +395,7 @@ class _CatalogViewState extends State<CatalogView> {
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: AppRadius.mdAll,
             border: Border.all(color: AppColors.borderColor),
           ),
           child: Column(
@@ -345,7 +407,7 @@ class _CatalogViewState extends State<CatalogView> {
                   padding: const EdgeInsets.all(14),
                   decoration: BoxDecoration(
                     color: tones[index % tones.length],
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: AppRadius.mdAll,
                   ),
                   child: Stack(
                     children: [
@@ -401,19 +463,24 @@ class _CatalogViewState extends State<CatalogView> {
               ),
               const SizedBox(height: 12),
               if (busy != null)
+                // One line, so it fits the fixed 40px slot at any text size.
                 SizedBox(
                   height: 40,
-                  child: Column(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       StiksyLoader(
                         compact: true,
                         value: busy == 0 ? null : busy,
                       ),
-                      const SizedBox(height: 6),
-                      Text(
-                        'Downloading${busy > 0 ? ' ${(busy * 100).round()}%' : '…'}',
-                        style: const TextStyle(fontSize: 11),
+                      const SizedBox(width: 10),
+                      Flexible(
+                        child: Text(
+                          'Downloading${busy > 0 ? ' ${(busy * 100).round()}%' : '…'}',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(fontSize: 12),
+                        ),
                       ),
                     ],
                   ),
@@ -512,8 +579,21 @@ class _CoverState extends State<_Cover> {
   @override
   Widget build(BuildContext context) => FutureBuilder<Uint8List?>(
     future: cover,
+    initialData: CatalogService.coverInMemory(widget.pack),
     builder: (_, s) => s.hasData
-        ? Image.memory(s.data!, fit: BoxFit.contain)
+        ? Image.memory(
+            s.data!,
+            fit: BoxFit.contain,
+            gaplessPlayback: true,
+            // Ease in instead of popping, in case decoding takes a frame.
+            frameBuilder: (_, child, frame, sync) => sync
+                ? child
+                : AnimatedOpacity(
+                    opacity: frame == null ? 0 : 1,
+                    duration: const Duration(milliseconds: 160),
+                    child: child,
+                  ),
+          )
         : Icon(
             s.hasError
                 ? Icons.image_not_supported_outlined

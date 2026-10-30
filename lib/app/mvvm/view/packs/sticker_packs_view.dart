@@ -1,7 +1,8 @@
+import '../../../config/app_radius.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import '../../../services/draft_images.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -9,7 +10,7 @@ import '../../../config/app_colors.dart';
 import '../../../custom_widgets/stiksy_loader.dart';
 import '../../../custom_widgets/snackbars/app_snackbar.dart';
 import '../../../services/sticker_export_service.dart';
-import '../../../services/template_access.dart';
+import '../../../services/user_messages.dart';
 import '../../../custom_widgets/sticker_components.dart';
 import '../../model/sticker_template.dart';
 import '../editor/sticker_editor_view.dart';
@@ -17,7 +18,9 @@ import '../create/custom_sticker_view.dart';
 import 'sticker_pack_detail_view.dart';
 
 class StickerPacksView extends StatefulWidget {
-  const StickerPacksView({super.key});
+  const StickerPacksView({super.key, this.embedded = false});
+
+  final bool embedded;
   @override
   State<StickerPacksView> createState() => _StickerPacksViewState();
 }
@@ -55,9 +58,9 @@ class _StickerPacksViewState extends State<StickerPacksView> {
     }
   }
 
-  void notify(String text) {
+  void notifyError(Object error, String fallback) {
     if (mounted) {
-      text.showInfo();
+      friendlyError(error, fallback).showError();
     }
   }
 
@@ -67,19 +70,9 @@ class _StickerPacksViewState extends State<StickerPacksView> {
         pack,
         business: business,
       );
-      notify(
-        result['status'] == 'added'
-            ? 'Pack added. Use WhatsApp’s sticker picker to send it.'
-            : result['status'] == 'rejected'
-            ? 'WhatsApp rejected this pack: ${result['message']}'
-            : 'Installation cancelled. Your pack is saved.',
-      );
+      if (mounted) showPackResult(result);
     } catch (e) {
-      notify(
-        e is PlatformException
-            ? e.message ?? 'Unable to add this pack.'
-            : 'Unable to add this pack.',
-      );
+      notifyError(e, 'Couldn’t add this pack to WhatsApp. Please try again.');
     }
   }
 
@@ -123,11 +116,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
         ]);
       }
     } catch (e) {
-      notify(
-        e is PlatformException
-            ? e.message ?? 'Unable to create pack.'
-            : 'Unable to create pack.',
-      );
+      notifyError(e, 'Couldn’t create the pack. Please try again.');
     }
     if (mounted) setState(() {});
   }
@@ -160,11 +149,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
       await StickerExportService.renamePack(pack, result);
       await refreshPacks();
     } catch (e) {
-      notify(
-        e is PlatformException
-            ? e.message ?? 'Unable to rename pack.'
-            : 'Unable to rename pack.',
-      );
+      notifyError(e, 'Couldn’t rename the pack. Please try again.');
     }
   }
 
@@ -177,36 +162,49 @@ class _StickerPacksViewState extends State<StickerPacksView> {
   Widget build(BuildContext context) {
     final drafts = prefs.getStringList('stiksy_drafts') ?? [];
     final packs = prefs.getStringList('stiksy_packs') ?? [];
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Your sticker library',
-          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-            child: FilledButton.icon(
-              style: FilledButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                minimumSize: const Size(0, 34),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(9),
-                ),
-              ),
-              onPressed: newPack,
-              icon: const Icon(Icons.add, size: 16),
-              label: const Text('New Pack', style: TextStyle(fontSize: 12)),
-            ),
-          ),
-        ],
+    const libraryTitle = Text(
+      'Your sticker library',
+      style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+    );
+    final newPackButton = FilledButton.icon(
+      style: FilledButton.styleFrom(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        minimumSize: const Size(0, 34),
+        shape: RoundedRectangleBorder(borderRadius: AppRadius.smAll),
       ),
+      onPressed: newPack,
+      icon: const Icon(Icons.add, size: 16),
+      label: const Text('New Pack', style: TextStyle(fontSize: 12)),
+    );
+    return Scaffold(
+      appBar: widget.embedded
+          ? null
+          : AppBar(
+              title: libraryTitle,
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 10,
+                  ),
+                  child: newPackButton,
+                ),
+              ],
+            ),
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 820),
           child: ListView(
             padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
             children: [
+              if (widget.embedded)
+                Row(
+                  children: [
+                    const Expanded(child: libraryTitle),
+                    newPackButton,
+                  ],
+                ),
+              if (widget.embedded) const SizedBox(height: 16),
               _libraryHeader(
                 drafts.length,
                 StickerExportService.supported
@@ -230,7 +228,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
                     color: Colors.white,
                     margin: const EdgeInsets.only(bottom: 10),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18),
+                      borderRadius: AppRadius.mdAll,
                       side: const BorderSide(color: AppColors.borderColor),
                     ),
                     child: ListTile(
@@ -244,10 +242,13 @@ class _StickerPacksViewState extends State<StickerPacksView> {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           color: const Color(0xfff1eadc),
-                          borderRadius: BorderRadius.circular(14),
+                          borderRadius: AppRadius.mdAll,
                         ),
                         child: Text(
-                          d['emoji'] as String? ?? '✦',
+                          // A design made from text and stickers has no emoji.
+                          (d['emoji'] as String?)?.isNotEmpty == true
+                              ? d['emoji'] as String
+                              : '✦',
                           style: const TextStyle(fontSize: 26),
                         ),
                       ),
@@ -261,10 +262,11 @@ class _StickerPacksViewState extends State<StickerPacksView> {
                       subtitle: const Text('Saved design · tap to edit'),
                       trailing: const Icon(Icons.chevron_right),
                       onTap: () async {
+                        final design = await DraftImages.inline(d);
                         await Get.to(
                           () => StickerEditorView(
                             template: template,
-                            initialDesign: d,
+                            initialDesign: design,
                           ),
                         );
                         await refreshPacks();
@@ -288,7 +290,12 @@ class _StickerPacksViewState extends State<StickerPacksView> {
                     ),
                   ),
                   Text(
-                    '${StickerExportService.supported ? nativePacks.length : packs.length} collections',
+                    () {
+                      final n = StickerExportService.supported
+                          ? nativePacks.length
+                          : packs.length;
+                      return '$n ${n == 1 ? 'collection' : 'collections'}';
+                    }(),
                     style: const TextStyle(
                       fontSize: 12,
                       color: AppColors.textLightBlack,
@@ -310,7 +317,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
                   elevation: 3,
                   shadowColor: const Color(0xff183d30).withValues(alpha: .08),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(22),
+                    borderRadius: AppRadius.mdAll,
                     side: const BorderSide(color: AppColors.borderColor),
                   ),
                   child: Padding(
@@ -355,7 +362,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
                               ),
                               decoration: BoxDecoration(
                                 color: const Color(0xffeef4ef),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: AppRadius.smAll,
                               ),
                               child: Text(
                                 '${pack.count}/30',
@@ -438,8 +445,11 @@ class _StickerPacksViewState extends State<StickerPacksView> {
                                         pack,
                                       );
                                       await refreshPacks();
-                                    } catch (_) {
-                                      notify('Unable to delete pack.');
+                                    } catch (e) {
+                                      notifyError(
+                                        e,
+                                        'Couldn’t delete the pack. Please try again.',
+                                      );
                                     }
                                   }
                                 }
@@ -571,7 +581,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
         end: Alignment.bottomRight,
         colors: [Color(0xff264b3d), Color(0xff102a21)],
       ),
-      borderRadius: BorderRadius.circular(26),
+      borderRadius: AppRadius.mdAll,
       border: Border.all(color: const Color(0xff385748)),
     ),
     child: Column(
@@ -656,7 +666,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
     padding: const EdgeInsets.all(24),
     decoration: BoxDecoration(
       color: Colors.white,
-      borderRadius: BorderRadius.circular(22),
+      borderRadius: AppRadius.mdAll,
       border: Border.all(color: AppColors.borderColor),
     ),
     child: Column(
@@ -665,7 +675,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: const Color(0xfff1eadc),
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: AppRadius.mdAll,
           ),
           child: const Icon(
             Icons.layers_outlined,
@@ -720,7 +730,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: tones[index],
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: AppRadius.mdAll,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -741,7 +751,7 @@ class _StickerPacksViewState extends State<StickerPacksView> {
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
                 decoration: BoxDecoration(
                   color: Colors.white.withValues(alpha: .7),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: AppRadius.smAll,
                 ),
                 child: Text(
                   '${templates.length} designs',
@@ -774,15 +784,13 @@ class _StickerPacksViewState extends State<StickerPacksView> {
                   width: 94,
                   child: Material(
                     color: Colors.white.withValues(alpha: .7),
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: AppRadius.mdAll,
                     child: InkWell(
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: AppRadius.mdAll,
                       onTap: () async {
-                        if (await TemplateAccess.allow(context, t)) {
-                          await Get.to(() => StickerEditorView(template: t));
-                          await refreshPacks();
-                          if (mounted) setState(() {});
-                        }
+                        await Get.to(() => StickerEditorView(template: t));
+                        await refreshPacks();
+                        if (mounted) setState(() {});
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(5),

@@ -3,17 +3,40 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-/// Official Google sample IDs only. No production ad traffic in this build.
 abstract class AdService {
   static final ready = ValueNotifier(false);
   static bool get android => defaultTargetPlatform == TargetPlatform.android;
   static bool get supported =>
-      !kIsWeb && (android || defaultTargetPlatform == TargetPlatform.iOS);
-  static String get nativeId => android
-      ? 'ca-app-pub-3940256099942544/2247696110'
+      !kIsWeb &&
+      (android || defaultTargetPlatform == TargetPlatform.iOS) &&
+      configured;
+  static const _nativeOverride = String.fromEnvironment('ADMOB_NATIVE_ID');
+  static const _rewardedOverride = String.fromEnvironment('ADMOB_REWARDED_ID');
+
+  /// Real users must never see Google's "Test Ad" placeholders: a release
+  /// build without the real unit IDs shows no ads at all, and every rewarded
+  /// unlock is simply granted. Android ships its real IDs; iOS still needs
+  /// them passed as defines.
+  static bool get configured =>
+      !kReleaseMode ||
+      android ||
+      (_nativeOverride.isNotEmpty && _rewardedOverride.isNotEmpty);
+
+  /// Debug and profile builds keep Google's test units so our own taps never
+  /// count against the AdMob account.
+  static String get nativeId => _nativeOverride.isNotEmpty
+      ? _nativeOverride
+      : android
+      ? (kReleaseMode
+            ? 'ca-app-pub-9008446165886687/6456702836'
+            : 'ca-app-pub-3940256099942544/2247696110')
       : 'ca-app-pub-3940256099942544/3986624511';
-  static String get rewardedId => android
-      ? 'ca-app-pub-3940256099942544/5224354917'
+  static String get rewardedId => _rewardedOverride.isNotEmpty
+      ? _rewardedOverride
+      : android
+      ? (kReleaseMode
+            ? 'ca-app-pub-9008446165886687/2511000225'
+            : 'ca-app-pub-3940256099942544/5224354917')
       : 'ca-app-pub-3940256099942544/1712485313';
   static Future<void> initialize() async {
     if (!supported) return;
@@ -26,10 +49,24 @@ abstract class AdService {
   }
 
   static bool _showing = false;
-  static Future<bool> watchReward() async {
-    if (!ready.value || _showing) return false;
+  static Completer<RewardedAd?>? _loading;
+
+  /// Stops a video that is still loading; [requestReward] then returns
+  /// [RewardResult.cancelled]. A video already on screen is not affected.
+  static void cancelLoading() {
+    final loading = _loading;
+    if (loading != null && !loading.isCompleted) loading.complete(null);
+    _cancelled = true;
+  }
+
+  static bool _cancelled = false;
+
+  static Future<RewardResult> requestReward() async {
+    if (!supported || !ready.value) return RewardResult.unavailable;
+    if (_showing) return RewardResult.dismissed;
     _showing = true;
-    final loaded = Completer<RewardedAd?>();
+    _cancelled = false;
+    final loaded = _loading = Completer<RewardedAd?>();
     try {
       await RewardedAd.load(
         adUnitId: rewardedId,
@@ -47,32 +84,44 @@ abstract class AdService {
           },
         ),
       );
+
       final ad = await loaded.future.timeout(
-        const Duration(seconds: 20),
+        const Duration(seconds: 8),
         onTimeout: () {
           if (!loaded.isCompleted) loaded.complete(null);
           return null;
         },
       );
-      if (ad == null) return false;
-      final done = Completer<bool>();
+      if (_cancelled) {
+        ad?.dispose();
+        return RewardResult.cancelled;
+      }
+      if (ad == null) return RewardResult.unavailable;
+      final done = Completer<RewardResult>();
       bool earned = false;
       ad.fullScreenContentCallback = FullScreenContentCallback(
         onAdDismissedFullScreenContent: (ad) {
           ad.dispose();
-          if (!done.isCompleted) done.complete(earned);
+          if (!done.isCompleted) {
+            done.complete(
+              earned ? RewardResult.earned : RewardResult.dismissed,
+            );
+          }
         },
         onAdFailedToShowFullScreenContent: (ad, _) {
           ad.dispose();
-          if (!done.isCompleted) done.complete(false);
+          if (!done.isCompleted) done.complete(RewardResult.unavailable);
         },
       );
       await ad.show(onUserEarnedReward: (_, _) => earned = true);
       return await done.future;
     } catch (_) {
-      return false;
+      return RewardResult.unavailable;
     } finally {
       _showing = false;
+      _loading = null;
     }
   }
 }
+
+enum RewardResult { earned, dismissed, unavailable, cancelled }

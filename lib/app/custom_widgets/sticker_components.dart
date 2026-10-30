@@ -1,4 +1,7 @@
+import '../config/app_radius.dart';
 import 'package:flutter/material.dart';
+
+import 'art_image.dart';
 
 import '../mvvm/model/sticker_template.dart';
 import '../config/app_colors.dart';
@@ -41,10 +44,10 @@ class StickerArtwork extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: showBackground ? const Color(0xfff0f3f1) : Colors.transparent,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: AppRadius.mdAll,
         ),
         child: embedded
-            ? Image.asset(template.asset!, fit: BoxFit.contain)
+            ? artImage(template.asset!)
             : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -62,7 +65,7 @@ class StickerArtwork extends StatelessWidget {
                   Flexible(
                     flex: 4,
                     child: template.asset != null
-                        ? Image.asset(template.asset!, fit: BoxFit.contain)
+                        ? artImage(template.asset!)
                         : FittedBox(
                             child: Text(
                               template.emoji,
@@ -100,7 +103,7 @@ class TemplateCard extends StatelessWidget {
     elevation: 3,
     shadowColor: const Color(0xff203f35).withValues(alpha: .10),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: AppRadius.mdAll,
       side: const BorderSide(color: AppColors.borderColor),
     ),
     clipBehavior: Clip.antiAlias,
@@ -126,10 +129,10 @@ class TemplateCard extends StatelessWidget {
                             Color.lerp(template.color, Colors.white, .7)!,
                           ],
                         ),
-                        borderRadius: BorderRadius.circular(14),
+                        borderRadius: AppRadius.mdAll,
                       ),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(14),
+                        borderRadius: AppRadius.mdAll,
                         child: CustomPaint(
                           painter: const _TemplateBackdrop(),
                           child: Padding(
@@ -154,7 +157,7 @@ class TemplateCard extends StatelessWidget {
                         ),
                         decoration: BoxDecoration(
                           color: const Color(0xff223d32),
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: AppRadius.smAll,
                         ),
                         child: const Row(
                           mainAxisSize: MainAxisSize.min,

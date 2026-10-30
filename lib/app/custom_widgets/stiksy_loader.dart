@@ -1,10 +1,10 @@
+import '../config/app_radius.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
 import '../config/app_colors.dart';
 
-/// Branded loading animation with compact and determinate variants.
 class StiksyLoader extends StatefulWidget {
   const StiksyLoader({
     super.key,
@@ -83,7 +83,7 @@ class _StiksyLoaderState extends State<StiksyLoader>
               return SizedBox(
                 height: 6,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(6),
+                  borderRadius: AppRadius.xsAll,
                   child: TweenAnimationBuilder<double>(
                     tween: Tween(end: widget.value!.clamp(0, 1)),
                     duration: MediaQuery.disableAnimationsOf(context)
@@ -130,7 +130,6 @@ class _StiksyLoaderState extends State<StiksyLoader>
   );
 }
 
-/// Two fine arcs counter-rotate around a softly breathing center.
 class _OrbitPainter extends CustomPainter {
   const _OrbitPainter({
     required this.phase,

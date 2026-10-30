@@ -14,6 +14,7 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
+import com.google.android.play.core.review.ReviewManagerFactory
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -48,31 +49,21 @@ class MainActivity : FlutterActivity() {
                 result.success(mapOf("whatsapp" to installed("com.whatsapp"), "business" to installed("com.whatsapp.w4b")))
                 return@setMethodCallHandler
             }
-            if (call.method == "copySticker") {
-                try {
-                    val bytes = requireNotNull(call.argument<ByteArray>("bytes"))
-                    val dir = File(cacheDir, "shared_stickers").apply { mkdirs() }
-                    val file = File(dir, "clipboard_${System.currentTimeMillis()}.webp").apply { writeBytes(bytes) }
-                    val uri = FileProvider.getUriForFile(this, "$packageName.stickerfiles", file)
-                    (getSystemService(CLIPBOARD_SERVICE) as ClipboardManager).setPrimaryClip(ClipData.newUri(contentResolver, "Stiksy sticker", uri))
-                    result.success(null)
-                } catch (e: Exception) { result.error("clipboard_error", e.message, null) }
+            if (call.method == "openWhatsApp") {
+                // WhatsApp's chat list; a whatsapp:// link with no chat closes straight away.
+                val launch = listOf("com.whatsapp", "com.whatsapp.w4b").firstNotNullOfOrNull { packageManager.getLaunchIntentForPackage(it) }
+                if (launch == null) { result.success(false); return@setMethodCallHandler }
+                startActivity(launch)
+                result.success(true)
                 return@setMethodCallHandler
             }
-            if (call.method == "shareToWhatsApp") {
-                try {
-                    val bytes = requireNotNull(call.argument<ByteArray>("bytes"))
-                    val dir = File(cacheDir, "shared_stickers").apply { mkdirs() }
-                    val file = File(dir, "stiksy_${System.currentTimeMillis()}.webp").apply { writeBytes(bytes) }
-                    val uri = FileProvider.getUriForFile(this, "$packageName.stickerfiles", file)
-                    val intent = Intent(Intent.ACTION_SEND).setType("image/webp")
-                        .setPackage(if (call.argument<Boolean>("business") == true) "com.whatsapp.w4b" else "com.whatsapp")
-                        .putExtra(Intent.EXTRA_STREAM, uri).addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                    intent.clipData = ClipData.newUri(contentResolver, "Stiksy sticker", uri)
-                    startActivity(intent)
-                    result.success(null)
-                } catch (_: ActivityNotFoundException) { result.error("whatsapp_unavailable", "Install or update the selected WhatsApp app first.", null) }
-                catch (e: Exception) { result.error("share_error", e.message, null) }
+            if (call.method == "requestReview") {
+                // Play decides whether the card really appears; either way the flow just ends.
+                val manager = ReviewManagerFactory.create(this)
+                manager.requestReviewFlow().addOnCompleteListener { request ->
+                    if (!request.isSuccessful) { result.success(false); return@addOnCompleteListener }
+                    manager.launchReviewFlow(this, request.result).addOnCompleteListener { result.success(true) }
+                }
                 return@setMethodCallHandler
             }
             if (call.method == "saveToGallery" && Build.VERSION.SDK_INT < 29 && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -101,6 +92,20 @@ class MainActivity : FlutterActivity() {
                             contentResolver.notifyChange(Uri.parse("content://$authority/stickers/$id"), null)
                             data.toString()
                         }
+                        "copySticker" -> {
+                            val uri = shareUri(requireNotNull(call.argument<ByteArray>("bytes")), "clipboard")
+                            runOnUiThread { (getSystemService(CLIPBOARD_SERVICE) as ClipboardManager).setPrimaryClip(ClipData.newUri(contentResolver, "Stiksy sticker", uri)) }
+                            null
+                        }
+                        "shareToWhatsApp" -> {
+                            val uri = shareUri(requireNotNull(call.argument<ByteArray>("bytes")), "stiksy")
+                            val intent = Intent(Intent.ACTION_SEND).setType("image/webp")
+                                .setPackage(if (call.argument<Boolean>("business") == true) "com.whatsapp.w4b" else "com.whatsapp")
+                                .putExtra(Intent.EXTRA_STREAM, uri).addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                            intent.clipData = ClipData.newUri(contentResolver, "Stiksy sticker", uri)
+                            runOnUiThread { try { startActivity(intent) } catch (_: ActivityNotFoundException) { result.error("whatsapp_unavailable", "Install or update the selected WhatsApp app first.", null); return@runOnUiThread }; result.success(null) }
+                            return@execute
+                        }
                         "deletePack" -> { StickerStore.delete(this, requireNotNull(call.argument<String>("id"))); null }
                         "saveToGallery" -> saveToGallery(requireNotNull(call.argument<ByteArray>("bytes")))
                         else -> { runOnUiThread { result.notImplemented() }; return@execute }
@@ -109,6 +114,14 @@ class MainActivity : FlutterActivity() {
                 } catch (e: Exception) { runOnUiThread { result.error("sticker_error", e.message ?: "Sticker operation failed", null) } }
             }
         }
+    }
+    /** Writes a temporary shareable file, first deleting stale ones so the cache stays small. */
+    private fun shareUri(bytes: ByteArray, prefix: String): Uri {
+        val dir = File(cacheDir, "shared_stickers").apply { mkdirs() }
+        val cutoff = System.currentTimeMillis() - 60 * 60 * 1000
+        dir.listFiles()?.filter { it.lastModified() < cutoff }?.forEach { it.delete() }
+        val file = File(dir, "${prefix}_${System.currentTimeMillis()}.webp").apply { writeBytes(bytes) }
+        return FileProvider.getUriForFile(this, "$packageName.stickerfiles", file)
     }
     private fun saveToGallery(bytes: ByteArray): String {
         val name = "Stiksy_${System.currentTimeMillis()}.webp"

@@ -1,8 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-/// Keeps the Supabase session (refresh token) in the Android Keystore
-/// instead of plain SharedPreferences.
 class SecureSessionStorage extends LocalStorage {
   const SecureSessionStorage();
   static const _key = 'stiksy_supabase_session';

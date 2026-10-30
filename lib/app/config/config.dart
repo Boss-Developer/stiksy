@@ -1,4 +1,3 @@
-/// Defines app configuration for the LayerX app.
 class AppConfig {
   AppConfig._();
 

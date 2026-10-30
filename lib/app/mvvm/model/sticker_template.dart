@@ -17,7 +17,7 @@ class StickerTemplate {
   final String? asset;
 }
 
-const templateCategories = [
+const builtInCategories = [
   'All',
   'Urdu',
   'Cricket',
@@ -29,7 +29,7 @@ const templateCategories = [
   'Love',
   'Greetings',
 ];
-const stickerTemplates = [
+const builtInTemplates = [
   StickerTemplate(
     'urdu1',
     'Bas bol diya',
@@ -78,7 +78,8 @@ const stickerTemplates = [
     'Best friends',
     'Love',
     'Yaari forever',
-    '🫶',
+    // Not 🫶: it is from 2021 and shows as an empty box on Android 11 and older.
+    '🤝',
     Color(0xFFEDE9FE),
   ),
   StickerTemplate(
@@ -185,3 +186,14 @@ const stickerTemplates = [
     asset: 'assets/stickers/chai.webp',
   ),
 ];
+
+final ValueNotifier<List<StickerTemplate>> templatesNotifier = ValueNotifier(
+  builtInTemplates,
+);
+final ValueNotifier<List<String>> categoriesNotifier = ValueNotifier(
+  builtInCategories,
+);
+
+List<StickerTemplate> get stickerTemplates => templatesNotifier.value;
+
+List<String> get templateCategories => categoriesNotifier.value;

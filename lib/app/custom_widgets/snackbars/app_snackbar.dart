@@ -1,19 +1,21 @@
+import '../../config/app_radius.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../config/app_colors.dart';
 
-enum AlertStatus { success, warning, error }
+enum AlertStatus { success, info, warning, error }
 
 class PremiumSnackbar {
   PremiumSnackbar._();
 
   static const _defaultDuration = Duration(seconds: 3);
 
-  /// Public helpers
   static void success(List<String> messages) =>
       _show(messages, AlertStatus.success);
+
+  static void info(List<String> messages) => _show(messages, AlertStatus.info);
 
   static void warning(List<String> messages) =>
       _show(messages, AlertStatus.warning);
@@ -36,7 +38,7 @@ class PremiumSnackbar {
       snackPosition: SnackPosition.TOP,
       snackStyle: SnackStyle.FLOATING,
       backgroundColor: Colors.white,
-      borderRadius: 12,
+      borderRadius: AppRadius.md,
       margin: EdgeInsets.fromLTRB(50, 60, 50, 0),
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       duration: _defaultDuration,
@@ -102,6 +104,14 @@ class PremiumSnackbar {
           iconColor: Colors.white,
           textColor: Colors.black,
         );
+      // Neutral news: calm brand colour, so it never reads as a problem.
+      case AlertStatus.info:
+        return const _SnackConfig(
+          icon: CupertinoIcons.info,
+          iconBgColor: Color(0xff5b7f72),
+          iconColor: Colors.white,
+          textColor: Colors.black,
+        );
       case AlertStatus.warning:
         return const _SnackConfig(
           icon: CupertinoIcons.info,
@@ -154,7 +164,6 @@ class _MessageBlock extends StatelessWidget {
       );
     }
 
-    // Multiple lines → small, minimal bullet-ish spacing (no scroll)
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -178,7 +187,6 @@ class _MessageBlock extends StatelessWidget {
   }
 }
 
-/// Extensions
 extension QuickSnackbar on List<String> {
   void showSuccess() => PremiumSnackbar.success(this);
   void showWarning() => PremiumSnackbar.warning(this);
@@ -192,5 +200,5 @@ extension QuickStringSnackbar on String {
 }
 
 extension InformationalToast on String {
-  void showInfo() => PremiumSnackbar.warning([this]);
+  void showInfo() => PremiumSnackbar.info([this]);
 }

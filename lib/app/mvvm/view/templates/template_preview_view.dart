@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../custom_widgets/sticker_components.dart';
-import '../../../services/template_access.dart';
 import '../../model/sticker_template.dart';
 import '../editor/sticker_editor_view.dart';
 import '../../view_model/home/home_controller.dart';
@@ -18,17 +17,19 @@ class TemplatePreviewView extends GetView<HomeController> {
         body: const Center(child: Text('Choose a template from the gallery.')),
       );
     }
+    // Hide the whole section when the category has nothing else to show.
+    final similar = [
+      for (final t in stickerTemplates)
+        if (t.category == template.category && t.id != template.id) t,
+    ];
     return Scaffold(
       appBar: AppBar(title: const Text('Template preview')),
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(24, 8, 24, 16),
           child: FilledButton(
-            onPressed: () async {
-              if (await TemplateAccess.allow(context, template)) {
-                Get.to(() => StickerEditorView(template: template));
-              }
-            },
+            onPressed: () =>
+                Get.to(() => StickerEditorView(template: template)),
             child: const Text('Use This Template'),
           ),
         ),
@@ -68,7 +69,9 @@ class TemplatePreviewView extends GetView<HomeController> {
                             ),
                             const SizedBox(height: 5),
                             Text(
-                              template.premium ? 'Premium' : 'Free',
+                              template.premium
+                                  ? 'Premium · edit free, one short video to use it, no watermark'
+                                  : 'Free',
                               style: const TextStyle(
                                 color: Colors.black54,
                                 fontSize: 12,
@@ -93,46 +96,34 @@ class TemplatePreviewView extends GetView<HomeController> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 30),
-                  const Text(
-                    'Similar Templates',
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
-                  ),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    height: 110,
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: stickerTemplates
-                          .where(
-                            (t) =>
-                                t.category == template.category &&
-                                t.id != template.id,
-                          )
-                          .length,
-                      separatorBuilder: (_, _) => const SizedBox(width: 10),
-                      itemBuilder: (context, i) {
-                        final t = stickerTemplates
-                            .where(
-                              (t) =>
-                                  t.category == template.category &&
-                                  t.id != template.id,
-                            )
-                            .elementAt(i);
-                        return SizedBox(
+                  if (similar.isNotEmpty) ...[
+                    const SizedBox(height: 30),
+                    const Text(
+                      'Similar Templates',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 13,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    SizedBox(
+                      height: 110,
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: similar.length,
+                        separatorBuilder: (_, _) => const SizedBox(width: 10),
+                        itemBuilder: (context, i) => SizedBox(
                           width: 98,
                           child: InkWell(
-                            onTap: () async {
-                              if (await TemplateAccess.allow(context, t)) {
-                                Get.to(() => StickerEditorView(template: t));
-                              }
-                            },
-                            child: StickerArtwork(template: t),
+                            onTap: () => Get.to(
+                              () => StickerEditorView(template: similar[i]),
+                            ),
+                            child: StickerArtwork(template: similar[i]),
                           ),
-                        );
-                      },
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ],
               ),
             ),

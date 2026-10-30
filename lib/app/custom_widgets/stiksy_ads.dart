@@ -1,7 +1,10 @@
+import '../config/app_radius.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../services/ad_service.dart';
+import '../services/purchase_service.dart';
+import '../services/remote_content.dart';
 
 class StiksyAd extends StatefulWidget {
   const StiksyAd({super.key});
@@ -34,11 +37,14 @@ class _StiksyAdState extends State<StiksyAd> {
     ad = NativeAd(
       adUnitId: AdService.nativeId,
       request: const AdRequest(),
-      listener: NativeAdListener(onAdLoaded: success, onAdFailedToLoad: failure),
+      listener: NativeAdListener(
+        onAdLoaded: success,
+        onAdFailedToLoad: failure,
+      ),
       nativeTemplateStyle: NativeTemplateStyle(
         templateType: TemplateType.small,
-        mainBackgroundColor: const Color(0xfff3f7f5),
-        cornerRadius: 14,
+        mainBackgroundColor: const Color(0xfffaf7f0),
+        cornerRadius: AppRadius.md,
       ),
     );
     ad!.load();
@@ -52,16 +58,70 @@ class _StiksyAdState extends State<StiksyAd> {
   }
 
   @override
-  Widget build(BuildContext context) => !loaded || ad == null
+  Widget build(BuildContext context) => ListenableBuilder(
+    listenable: Listenable.merge([
+      PurchaseService.unlocked,
+      RemoteContent.settings,
+    ]),
+    builder: (_, _) =>
+        PurchaseService.unlocked.value || !RemoteContent.settings.value.ads
+        ? const SizedBox.shrink()
+        : _ad(),
+  );
+
+  Widget _ad() => !loaded || ad == null
       ? const SizedBox.shrink()
       : LayoutBuilder(
           builder: (_, constraints) {
             if (constraints.maxWidth < 320) return const SizedBox.shrink();
+            // Framed and labelled so nobody mistakes it for a template: a
+            // tap on an ad should always be on purpose.
             return Center(
-              child: SizedBox(
+              child: Container(
                 width: constraints.maxWidth.clamp(320, 400),
-                height: 120,
-                child: AdWidget(ad: ad!),
+                padding: const EdgeInsets.fromLTRB(10, 8, 10, 10),
+                decoration: BoxDecoration(
+                  color: const Color(0xfffaf7f0),
+                  borderRadius: AppRadius.mdAll,
+                  border: Border.all(color: const Color(0xffe6dcc6)),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 6,
+                            vertical: 2,
+                          ),
+                          decoration: BoxDecoration(
+                            color: const Color(0xff82663b),
+                            borderRadius: AppRadius.xsAll,
+                          ),
+                          child: const Text(
+                            'Ad',
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        const Text(
+                          'Sponsored · helps keep Stiksy free',
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: Color(0xff82663b),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    SizedBox(height: 120, child: AdWidget(ad: ad!)),
+                  ],
+                ),
               ),
             );
           },

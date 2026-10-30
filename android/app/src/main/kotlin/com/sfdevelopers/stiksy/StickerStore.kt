@@ -33,11 +33,11 @@ object StickerStore {
     @Synchronized fun pack(context: Context, id: String): JSONObject? {
         if (!validId(id)) return null
         val file = File(directory(context, id), "metadata.json")
-        return if (file.exists()) JSONObject(file.readText()) else null
+        return try { if (file.exists()) JSONObject(file.readText()) else null } catch (_: Exception) { null }
     }
     @Synchronized fun create(context: Context, name: String): JSONObject {
         require(packs(context).size < 10) { "You can keep up to 10 sticker packs. Remove a pack before creating another." }
-        require(name.isNotBlank() && name.length <= 128) { "Enter a pack name (up to 128 characters)" }
+        require(name.isNotBlank() && name.trim().length <= 128) { "Enter a pack name (up to 128 characters)" }
         val id = "pack_" + UUID.randomUUID().toString().replace("-", "")
         val data = JSONObject().put("identifier", id).put("name", name.trim())
             .put("publisher", "Stiksy").put("tray", "tray.png").put("version", "1")
@@ -97,7 +97,7 @@ object StickerStore {
         return File(directory(context, id), filename).readBytes()
     }
     @Synchronized fun rename(context: Context, id: String, name: String): JSONObject {
-        require(name.isNotBlank() && name.trim().length <= 32) { "Enter a pack name (up to 32 characters)" }
+        require(name.isNotBlank() && name.trim().length <= 128) { "Enter a pack name (up to 128 characters)" }
         val data = pack(context, id) ?: error("Pack not found")
         data.put("name", name.trim()).put("version", (data.getString("version").toLong() + 1).toString())
         writeJson(File(directory(context, id), "metadata.json"), data)

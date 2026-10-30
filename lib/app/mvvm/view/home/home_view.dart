@@ -1,16 +1,21 @@
+import '../../../config/app_radius.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../../config/app_colors.dart';
 import '../../../config/app_routes.dart';
 import '../../../custom_widgets/sticker_components.dart';
 import '../../../custom_widgets/stiksy_ads.dart';
+import '../../../custom_widgets/snackbars/app_snackbar.dart';
 import '../../../custom_widgets/stiksy_crown.dart';
 import '../../model/sticker_template.dart';
 import '../../view_model/home/home_controller.dart';
 import '../catalog/catalog_view.dart';
 import '../create/custom_sticker_view.dart';
-import '../premium/premium_view.dart';
+import '../favorites/favorites_view.dart';
+import '../premium/upgrade_view.dart';
+import '../settings/settings_view.dart';
 import '../packs/sticker_packs_view.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -41,328 +46,359 @@ class HomeView extends GetView<HomeController> {
       ),
     ],
   );
+
+  void _onBack() {
+    switch (controller.onBack()) {
+      case BackAction.switchedToFirstTab:
+        break;
+      case BackAction.askToConfirmExit:
+        'Press back again to exit'.showInfo();
+      case BackAction.exit:
+        SystemNavigator.pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) => Obx(
-    () => Scaffold(
-      appBar: AppBar(
-        title: Text(
-          [
-            'Stiksy',
-            controller.category.value == 'Urdu'
-                ? 'Urdu Calligraphy'
-                : controller.category.value == 'All'
-                ? 'Templates'
-                : controller.category.value,
-            'Your favorites',
-          ][controller.tab.value],
-          style: const TextStyle(
-            fontSize: 24,
-            color: AppColors.textDarkColor,
-            fontWeight: FontWeight.w700,
+    () => PopScope(
+      // Pages pushed on top of Home still close normally; only Home itself is
+      // intercepted, so Back never drops out of the app from a side tab.
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _onBack();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            [
+              'Stiksy',
+              controller.category.value == 'Urdu'
+                  ? 'Urdu Calligraphy'
+                  : controller.category.value == 'All'
+                  ? 'Templates'
+                  : controller.category.value,
+              'My packs',
+              'Sticker catalog',
+            ][controller.tab.value],
+            style: const TextStyle(
+              fontSize: 24,
+              color: AppColors.textDarkColor,
+              fontWeight: FontWeight.w700,
+            ),
           ),
+          actions: [
+            if (controller.s.purchase)
+              IconButton(
+                tooltip: 'Remove ads',
+                onPressed: () => Get.to(() => const UpgradeView()),
+                icon: const StiksyCrown(),
+              ),
+            IconButton(
+              tooltip: 'Settings',
+              onPressed: () => Get.to(() => const SettingsView()),
+              icon: const Icon(Icons.settings_outlined),
+            ),
+          ],
         ),
-        actions: [
-          IconButton(
-            tooltip: 'Premium',
-            onPressed: () => Get.to(() => const PremiumView()),
-            icon: const StiksyCrown(),
-          ),
-        ],
-      ),
-      body: SafeArea(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 760),
-            child: ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 8),
-              children: [
-                if (controller.tab.value == 0) ...[
-                  const SizedBox(height: 8),
-                  const Text(
-                    'A little more you.',
-                    style: TextStyle(
-                      fontSize: 32,
-                      letterSpacing: -1,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  const Text(
-                    'Turn everyday moments into stickers worth sending.',
-                    style: TextStyle(
-                      fontSize: 14,
-                      height: 1.5,
-                      color: AppColors.textLightBlack,
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  _creatorCard(),
-                  const SizedBox(height: 24),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: _shortcut(
-                          'My packs',
-                          'Your sticker collection',
-                          Icons.collections_bookmark_outlined,
-                          const Color(0xffeeeafa),
-                          () => Get.to(() => const StickerPacksView()),
-                        ),
+        body: controller.tab.value == 2
+            ? const StickerPacksView(embedded: true)
+            : controller.tab.value == 3 && controller.s.catalog
+            ? const CatalogView(embedded: true)
+            : SafeArea(
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 760),
+                    child: ListView(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 22,
+                        vertical: 8,
                       ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: _shortcut(
-                          'Favorites',
-                          '${controller.favorites.length} saved templates',
-                          Icons.favorite_border_rounded,
-                          const Color(0xffffede8),
-                          () => controller.tab.value = 2,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 28),
-                  const Text(
-                    'Made for your conversations',
-                    style: TextStyle(
-                      fontSize: 19,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: -.4,
-                    ),
-                  ),
-                  const SizedBox(height: 14),
-                  _catalogCard(),
-                  const SizedBox(height: 16),
-                  _templateLink(),
-                  if (controller.recent.isNotEmpty) ...[
-                    const SizedBox(height: 24),
-                    heading('Recently viewed', () => controller.tab.value = 1),
-                    TemplateGrid(
-                      templates: stickerTemplates
-                          .where((t) => controller.recent.contains(t.id))
-                          .take(4)
-                          .toList(),
-                      favorites: controller.favorites.toList(),
-                      onTap: preview,
-                      onFavorite: controller.toggleFavorite,
-                    ),
-                  ],
-                ] else if (controller.tab.value == 1) ...[
-                  _templateHero(),
-                  const SizedBox(height: 24),
-                  TextField(
-                    onChanged: (v) => controller.query.value = v,
-                    decoration: InputDecoration(
-                      hintText: 'Search templates...',
-                      prefixIcon: const Icon(Icons.search_rounded, size: 20),
-                      hintStyle: const TextStyle(
-                        fontSize: 13,
-                        color: AppColors.textLightBlack,
-                      ),
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 16,
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(14),
-                        borderSide: const BorderSide(
-                          color: AppColors.borderColor,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 18),
-                  Container(
-                    padding: const EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Row(
-                      children: ['All', 'Free', 'Premium']
-                          .map(
-                            (tier) => Expanded(
-                              child: Semantics(
-                                selected: controller.tier.value == tier,
-                                child: Material(
-                                  color: controller.tier.value == tier
-                                      ? const Color(0xff163e32)
-                                      : Colors.transparent,
-                                  borderRadius: BorderRadius.circular(9),
-                                  child: InkWell(
-                                    borderRadius: BorderRadius.circular(9),
-                                    onTap: () => controller.tier.value = tier,
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: 11,
-                                      ),
-                                      child: Text(
-                                        tier,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600,
+                      children: [
+                        if (controller.tab.value == 0) ...[
+                          Text(
+                            controller.s.homeTitle,
+                            style: TextStyle(
+                              fontSize: 32,
+                              letterSpacing: -1,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            controller.s.homeSubtitle,
+                            style: TextStyle(
+                              fontSize: 14,
+                              height: 1.5,
+                              color: AppColors.textLightBlack,
+                            ),
+                          ),
+                          const SizedBox(height: 24),
+                          _creatorCard(),
+                          const SizedBox(height: 24),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: _shortcut(
+                                  'My packs',
+                                  'Your sticker collection',
+                                  Icons.collections_bookmark_outlined,
+                                  const Color(0xffeeeafa),
+                                  () => controller.tab.value = 2,
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: _shortcut(
+                                  'Favorites',
+                                  '${controller.favorites.length} saved templates',
+                                  Icons.favorite_border_rounded,
+                                  const Color(0xffffede8),
+                                  () => Get.to(() => const FavoritesView()),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 28),
+                          const Text(
+                            'Made for your conversations',
+                            style: TextStyle(
+                              fontSize: 19,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: -.4,
+                            ),
+                          ),
+                          const SizedBox(height: 14),
+                          if (controller.s.catalog) ...[
+                            _catalogCard(),
+                            const SizedBox(height: 16),
+                          ],
+                          _templateLink(),
+                          if (controller.recent.isNotEmpty) ...[
+                            const SizedBox(height: 24),
+                            heading(
+                              'Recently viewed',
+                              () => controller.tab.value = 1,
+                            ),
+                            TemplateGrid(
+                              templates: stickerTemplates
+                                  .where(
+                                    (t) => controller.recent.contains(t.id),
+                                  )
+                                  .take(4)
+                                  .toList(),
+                              favorites: controller.favorites.toList(),
+                              onTap: preview,
+                              onFavorite: controller.toggleFavorite,
+                            ),
+                          ],
+                        ] else ...[
+                          _templateHero(),
+                          const SizedBox(height: 24),
+                          TextField(
+                            onChanged: (v) => controller.query.value = v,
+                            decoration: InputDecoration(
+                              hintText: 'Search templates...',
+                              prefixIcon: const Icon(
+                                Icons.search_rounded,
+                                size: 20,
+                              ),
+                              hintStyle: const TextStyle(
+                                fontSize: 13,
+                                color: AppColors.textLightBlack,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: AppRadius.mdAll,
+                                borderSide: const BorderSide(
+                                  color: AppColors.borderColor,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 18),
+                          Container(
+                            padding: const EdgeInsets.all(4),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: AppRadius.mdAll,
+                            ),
+                            child: Row(
+                              children: ['All', 'Free', 'Premium']
+                                  .map(
+                                    (tier) => Expanded(
+                                      child: Semantics(
+                                        selected: controller.tier.value == tier,
+                                        child: Material(
                                           color: controller.tier.value == tier
-                                              ? Colors.white
-                                              : AppColors.textLightBlack,
+                                              ? const Color(0xff163e32)
+                                              : Colors.transparent,
+                                          borderRadius: AppRadius.smAll,
+                                          child: InkWell(
+                                            borderRadius: AppRadius.smAll,
+                                            onTap: () =>
+                                                controller.tier.value = tier,
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                    vertical: 11,
+                                                  ),
+                                              child: Text(
+                                                tier,
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w600,
+                                                  color:
+                                                      controller.tier.value ==
+                                                          tier
+                                                      ? Colors.white
+                                                      : AppColors
+                                                            .textLightBlack,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                       ),
+                                    ),
+                                  )
+                                  .toList(),
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          SizedBox(
+                            height: 40,
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                for (final name in controller.categories)
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 8),
+                                    child: ChoiceChip(
+                                      label: Text(name),
+                                      selected:
+                                          controller.category.value == name,
+                                      onSelected: (_) =>
+                                          controller.category.value = name,
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  '${controller.filtered.length} templates',
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    color: AppColors.textLightBlack,
+                                  ),
+                                ),
+                              ),
+                              Tooltip(
+                                message: 'Favorites only',
+                                child: InkWell(
+                                  borderRadius: AppRadius.mdAll,
+                                  onTap: () =>
+                                      controller.favoritesOnly.toggle(),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 10,
+                                      vertical: 8,
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Icon(
+                                          controller.favoritesOnly.value
+                                              ? Icons.favorite_rounded
+                                              : Icons.favorite_border_rounded,
+                                          size: 16,
+                                          color: controller.favoritesOnly.value
+                                              ? AppColors.primary
+                                              : AppColors.textLightBlack,
+                                        ),
+                                        const SizedBox(width: 6),
+                                        Text(
+                                          'Favorites',
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            color:
+                                                controller.favoritesOnly.value
+                                                ? AppColors.primary
+                                                : AppColors.textLightBlack,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          )
-                          .toList(),
+                            ],
+                          ),
+                          const SizedBox(height: 16),
+                          TemplateGrid(
+                            templates: controller.filtered,
+                            favorites: controller.favorites.toList(),
+                            onTap: preview,
+                            onFavorite: controller.toggleFavorite,
+                          ),
+                          // Below the designs, so it is never mistaken for one.
+                          const SizedBox(height: 16),
+                          const StiksyAd(),
+                        ],
+                        const SizedBox(height: 20),
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          '${controller.filtered.length} templates',
-                          style: const TextStyle(
-                            fontSize: 12,
-                            color: AppColors.textLightBlack,
-                          ),
-                        ),
-                      ),
-                      Tooltip(
-                        message: 'Favorites only',
-                        child: InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () => controller.favoritesOnly.toggle(),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 10,
-                              vertical: 8,
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(
-                                  controller.favoritesOnly.value
-                                      ? Icons.favorite_rounded
-                                      : Icons.favorite_border_rounded,
-                                  size: 16,
-                                  color: controller.favoritesOnly.value
-                                      ? AppColors.primary
-                                      : AppColors.textLightBlack,
-                                ),
-                                const SizedBox(width: 6),
-                                Text(
-                                  'Saved',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: controller.favoritesOnly.value
-                                        ? AppColors.primary
-                                        : AppColors.textLightBlack,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const StiksyAd(),
-                  const SizedBox(height: 16),
-                  TemplateGrid(
-                    templates: controller.filtered,
-                    favorites: controller.favorites.toList(),
-                    onTap: preview,
-                    onFavorite: controller.toggleFavorite,
-                  ),
-                ] else ...[
-                  const SizedBox(height: 16),
-                  TemplateGrid(
-                    templates: stickerTemplates
-                        .where((t) => controller.favorites.contains(t.id))
-                        .toList(),
-                    favorites: controller.favorites.toList(),
-                    onTap: preview,
-                    onFavorite: controller.toggleFavorite,
-                  ),
-                ],
-                const SizedBox(height: 20),
-              ],
+                ),
+              ),
+        bottomNavigationBar: SafeArea(
+          child: Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              border: Border(top: BorderSide(color: Color(0xffe5e9e6))),
             ),
-          ),
-        ),
-      ),
-      bottomNavigationBar: SafeArea(
-        child: Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            border: Border(top: BorderSide(color: Color(0xffe5e9e6))),
-          ),
-          padding: const EdgeInsets.symmetric(vertical: 6),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children:
-                [
-                      nav('Home', Icons.home_outlined, 0),
-                      nav('Templates', Icons.style_outlined, 1),
-                      FloatingActionButton.small(
-                        heroTag: 'create',
-                        backgroundColor: AppColors.primary,
-                        foregroundColor: Colors.white,
-                        tooltip: 'Create sticker',
-                        onPressed: () =>
-                            Get.to(() => const CustomStickerView()),
-                        child: const Icon(Icons.add, size: 30),
-                      ),
-                      InkWell(
-                        onTap: () => Get.to(() => const StickerPacksView()),
-                        child: const Padding(
-                          padding: EdgeInsets.all(8),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(Icons.style_outlined, size: 23),
-                              SizedBox(height: 4),
-                              Text('My Packs', style: TextStyle(fontSize: 10)),
-                            ],
-                          ),
+            padding: const EdgeInsets.symmetric(vertical: 6),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children:
+                  [
+                        nav('Home', Icons.home_outlined, 0),
+                        nav('Templates', Icons.style_outlined, 1),
+                        FloatingActionButton.small(
+                          heroTag: 'create',
+                          backgroundColor: AppColors.primary,
+                          foregroundColor: Colors.white,
+                          tooltip: 'Create sticker',
+                          onPressed: () => showCreateSheet(context),
+                          child: const Icon(Icons.add, size: 30),
                         ),
-                      ),
-                      InkWell(
-                        onTap: () => showAboutDialog(
-                          context: context,
-                          applicationName: 'Stiksy',
-                          applicationVersion: '1.0',
-                          children: const [
-                            Text(
-                              'Create Pakistani-inspired stickers offline. Your favorites and designs stay on this device.',
-                            ),
-                          ],
+                        if (controller.s.catalog)
+                          nav('Catalog', Icons.auto_awesome_mosaic_outlined, 3),
+                        nav('My Packs', Icons.collections_bookmark_outlined, 2),
+                      ]
+                      .map(
+                        (item) => Expanded(
+                          child: FittedBox(fit: BoxFit.scaleDown, child: item),
                         ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(8),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(Icons.settings_outlined, size: 23),
-                              SizedBox(height: 4),
-                              Text('Settings', style: TextStyle(fontSize: 10)),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ]
-                    .map(
-                      (item) => Expanded(
-                        child: FittedBox(fit: BoxFit.scaleDown, child: item),
-                      ),
-                    )
-                    .toList(),
+                      )
+                      .toList(),
+            ),
           ),
         ),
       ),
     ),
   );
+
+  StickerTemplate _featured(int position) =>
+      stickerTemplates[position % stickerTemplates.length];
+
   Widget _templateHero() => Container(
     padding: const EdgeInsets.all(24),
     decoration: BoxDecoration(
@@ -371,7 +407,7 @@ class HomeView extends GetView<HomeController> {
         end: Alignment.bottomRight,
         colors: [Color(0xff203f35), Color(0xff10291f)],
       ),
-      borderRadius: BorderRadius.circular(26),
+      borderRadius: AppRadius.mdAll,
       border: Border.all(color: const Color(0xff365548)),
     ),
     child: Column(
@@ -428,7 +464,7 @@ class HomeView extends GetView<HomeController> {
                               const Color(0xffe3eedb),
                               const Color(0xffe9e3f3),
                             ][entry.key],
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: AppRadius.mdAll,
                             border: Border.all(
                               color: Colors.white.withValues(alpha: .6),
                             ),
@@ -441,7 +477,7 @@ class HomeView extends GetView<HomeController> {
                             ],
                           ),
                           child: StickerArtwork(
-                            template: stickerTemplates[entry.value],
+                            template: _featured(entry.value),
                             showBackground: false,
                           ),
                         ),
@@ -471,10 +507,10 @@ class HomeView extends GetView<HomeController> {
 
   Widget _creatorCard() => Material(
     color: const Color(0xff123f31),
-    borderRadius: BorderRadius.circular(24),
+    borderRadius: AppRadius.mdAll,
     clipBehavior: Clip.antiAlias,
     child: InkWell(
-      onTap: () => Get.to(() => const CustomStickerView()),
+      onTap: () => showCreateSheet(Get.context!),
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
@@ -483,7 +519,7 @@ class HomeView extends GetView<HomeController> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Expanded(
+                Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -498,7 +534,7 @@ class HomeView extends GetView<HomeController> {
                       ),
                       SizedBox(height: 16),
                       Text(
-                        'Create a sticker',
+                        controller.s.creatorTitle,
                         style: TextStyle(
                           fontSize: 25,
                           height: 1.15,
@@ -508,7 +544,7 @@ class HomeView extends GetView<HomeController> {
                       ),
                       SizedBox(height: 10),
                       Text(
-                        'Your photo. Your words.\nYour kind of fun.',
+                        controller.s.creatorSubtitle,
                         style: TextStyle(
                           fontSize: 13,
                           height: 1.5,
@@ -529,40 +565,55 @@ class HomeView extends GetView<HomeController> {
                 ),
               ],
             ),
-            const SizedBox(height: 24),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              decoration: BoxDecoration(
-                color: const Color(0xffe0edb9),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: const Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Flexible(
-                    child: Text(
-                      'Start creating',
-                      style: TextStyle(
-                        color: Color(0xff123f31),
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 18),
-                  Icon(
-                    Icons.arrow_forward_rounded,
-                    color: Color(0xff123f31),
-                    size: 18,
-                  ),
-                ],
-              ),
+            const SizedBox(height: 22),
+            Row(
+              children: [
+                _startChip(Icons.add_photo_alternate_outlined, 'Photo', () {
+                  startFromPhoto();
+                }),
+                const SizedBox(width: 10),
+                _startChip(Icons.emoji_emotions_outlined, 'Emoji', () {
+                  startFromEmoji(Get.context!);
+                }),
+                const SizedBox(width: 10),
+                _startChip(Icons.text_fields_rounded, 'Text', startFromText),
+              ],
             ),
           ],
         ),
       ),
     ),
   );
+
+  Widget _startChip(IconData icon, String label, VoidCallback onTap) =>
+      Expanded(
+        child: Material(
+          color: const Color(0xffe0edb9),
+          borderRadius: AppRadius.mdAll,
+          child: InkWell(
+            borderRadius: AppRadius.mdAll,
+            onTap: onTap,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(icon, color: const Color(0xff123f31), size: 22),
+                  const SizedBox(height: 4),
+                  Text(
+                    label,
+                    style: const TextStyle(
+                      color: Color(0xff123f31),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
 
   Widget _shortcut(
     String title,
@@ -572,10 +623,10 @@ class HomeView extends GetView<HomeController> {
     VoidCallback action,
   ) => Material(
     color: Colors.white,
-    borderRadius: BorderRadius.circular(18),
+    borderRadius: AppRadius.mdAll,
     child: InkWell(
       onTap: action,
-      borderRadius: BorderRadius.circular(18),
+      borderRadius: AppRadius.mdAll,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -585,7 +636,7 @@ class HomeView extends GetView<HomeController> {
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: tint,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: AppRadius.mdAll,
               ),
               child: Icon(icon, size: 22, color: AppColors.textDarkColor),
             ),
@@ -611,10 +662,10 @@ class HomeView extends GetView<HomeController> {
 
   Widget _catalogCard() => Material(
     color: const Color(0xfff0e8da),
-    borderRadius: BorderRadius.circular(20),
+    borderRadius: AppRadius.mdAll,
     child: InkWell(
-      onTap: () => Get.to(() => const CatalogView()),
-      borderRadius: BorderRadius.circular(20),
+      onTap: () => controller.tab.value = 3,
+      borderRadius: AppRadius.mdAll,
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -640,8 +691,8 @@ class HomeView extends GetView<HomeController> {
               ],
             ),
             const SizedBox(height: 14),
-            const Text(
-              'Pakistani Sticker Packs',
+            Text(
+              controller.s.catalogTitle,
               style: TextStyle(
                 fontSize: 21,
                 fontWeight: FontWeight.w600,
@@ -649,8 +700,8 @@ class HomeView extends GetView<HomeController> {
               ),
             ),
             const SizedBox(height: 8),
-            const Text(
-              'A little chai, a little drama, a lot of expression.',
+            Text(
+              controller.s.catalogSubtitle,
               style: TextStyle(
                 fontSize: 13,
                 height: 1.5,
@@ -670,7 +721,7 @@ class HomeView extends GetView<HomeController> {
                               child: Padding(
                                 padding: const EdgeInsets.only(right: 6),
                                 child: StickerArtwork(
-                                  template: stickerTemplates[i],
+                                  template: _featured(i),
                                   showBackground: false,
                                 ),
                               ),
@@ -705,9 +756,9 @@ class HomeView extends GetView<HomeController> {
 
   Widget _templateLink() => Material(
     color: Colors.white,
-    borderRadius: BorderRadius.circular(16),
+    borderRadius: AppRadius.mdAll,
     child: ListTile(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      shape: RoundedRectangleBorder(borderRadius: AppRadius.mdAll),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       leading: const Icon(
         Icons.dashboard_customize_outlined,

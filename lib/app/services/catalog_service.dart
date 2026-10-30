@@ -1,12 +1,15 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
 import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../config/supabase_config.dart';
+import 'remote_content.dart';
 import 'secure_session_storage.dart';
 
 class CatalogPack {
@@ -22,7 +25,6 @@ class CatalogPack {
   String get manifestSha256 => data['manifestSha256'] as String;
   String get cover => data['cover'] as String;
 
-  /// Remote folder name, e.g. `01-chai-ho-jaye`.
   String get folder => manifest.split('/').first;
 }
 
@@ -33,22 +35,51 @@ class CatalogException implements Exception {
   String toString() => message;
 }
 
-/// Loads the sticker catalog from a private Supabase bucket and keeps
-/// verified copies in app-private storage.
 abstract class CatalogService {
+  /// Catalog packs copied into the device's pack store: catalog id →
+  /// {local: pack id, version}.
+  static const linksKey = 'stiksy_catalog_links';
+
+  /// Local packs that mirror a catalog pack. They are rebuilt whenever the
+  /// catalog pack changes, so a user's own stickers must never go into them.
+  static Set<String> linkedLocalPackIds(SharedPreferences prefs) {
+    try {
+      final links = jsonDecode(prefs.getString(linksKey) ?? '{}') as Map;
+      return {
+        for (final link in links.values)
+          if (link is Map && link['local'] is String) link['local'] as String,
+      };
+    } catch (_) {
+      return const {};
+    }
+  }
+
   static final _safeName = RegExp(r'^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$');
-  static bool _ready = false;
   static SupabaseClient get _client => Supabase.instance.client;
   static StorageFileApi get _bucket =>
       _client.storage.from(SupabaseConfig.bucket);
 
-  /// Starts Supabase and signs in anonymously. Safe to call repeatedly.
-  static Future<void> initialize() async {
-    if (_ready) return;
+  static Future<void>? _init;
+
+  static Future<void> initialize() {
     if (!SupabaseConfig.configured) {
-      throw CatalogException('Online catalog is not configured.');
+      return Future.error(
+        CatalogException('Online catalog is not configured.'),
+      );
     }
+    return _init ??= _start().catchError((Object e) {
+      _init = null;
+      throw e;
+    });
+  }
+
+  static Future<void> _start() async {
     try {
+      // Reading the client throws if Supabase is not initialised yet. Don't
+      // rely on `Supabase.instance` alone: its own check is an assert, which
+      // release builds remove.
+      Supabase.instance.client;
+    } catch (_) {
       await Supabase.initialize(
         url: SupabaseConfig.url,
         publishableKey: SupabaseConfig.anonKey,
@@ -56,22 +87,21 @@ abstract class CatalogService {
           localStorage: const SecureSessionStorage(),
         ),
       );
-    } catch (_) {
-      // Already initialised (hot restart).
     }
     if (_client.auth.currentSession == null) {
-      await _client.auth.signInAnonymously();
+      await _client.auth.signInAnonymously().timeout(RemoteContent.timeout);
     }
-    _ready = true;
+  }
+
+  static Future<Uint8List> downloadPublished(String relativePath) async {
+    await initialize();
+    return _bucket.download('v1/$relativePath').timeout(RemoteContent.timeout);
   }
 
   static Future<Directory> _root() async {
     final base = await getApplicationSupportDirectory();
     return Directory('${base.path}/catalog/v1').create(recursive: true);
   }
-
-  static Future<File> _catalogFile() async =>
-      File('${(await _root()).path}/catalog.json');
 
   static String _hex(List<int> bytes) => sha256.convert(bytes).toString();
 
@@ -81,39 +111,83 @@ abstract class CatalogService {
     }
   }
 
-  /// Fetches the catalog; falls back to the last cached copy when offline.
-  static Future<List<CatalogPack>> loadCatalog() async {
-    final cache = await _catalogFile();
-    try {
-      await initialize();
-      final bytes = await _bucket.download(SupabaseConfig.catalogPath);
-      final json = jsonDecode(utf8.decode(bytes)) as Map<String, dynamic>;
-      final packs = _parse(json);
-      await cache.writeAsBytes(bytes, flush: true);
-      return packs;
-    } catch (e) {
-      if (await cache.exists()) {
-        return _parse(jsonDecode(await cache.readAsString()));
-      }
-      if (e is CatalogException) rethrow;
-      throw CatalogException('Unable to load stickers. Check your connection.');
-    }
+  /// The packs already on the device, available instantly (no await), or null
+  /// when nothing has been downloaded yet.
+  static List<CatalogPack>? cachedPacks() {
+    final json = RemoteContent.catalogJson;
+    return json == null ? null : parsePacks(json);
   }
 
-  static List<CatalogPack> _parse(Map<String, dynamic> json) {
-    final packs = (json['packs'] as List)
-        .map((p) => CatalogPack(p as Map<String, dynamic>))
-        .toList();
+  static Future<List<CatalogPack>> loadCatalog({bool force = false}) async {
+    if (!SupabaseConfig.configured) {
+      throw CatalogException('Online catalog is not configured.');
+    }
+    // Already downloaded at setup: show it now and check for news behind the
+    // scenes. Only an explicit pull-to-refresh waits for the network.
+    if (!force && RemoteContent.catalogJson != null) {
+      unawaited(RemoteContent.refresh());
+      return parsePacks(RemoteContent.catalogJson);
+    }
+    final fresh = await RemoteContent.refresh(force: force);
+    final json = RemoteContent.catalogJson;
+    if (json == null) {
+      throw CatalogException(
+        fresh
+            ? 'No sticker packs are published yet.'
+            : 'Unable to load stickers. Check your connection.',
+      );
+    }
+    return parsePacks(json);
+  }
+
+  static List<CatalogPack> parsePacks(Map? catalog) {
+    final raw = catalog?['packs'];
+    if (raw is! List) return const [];
+    final packs = [for (final p in raw) CatalogPack(p as Map<String, dynamic>)];
     for (final p in packs) {
       _checkName(p.folder);
     }
     return packs;
   }
 
+  static Future<void> prefetchCovers(
+    List<CatalogPack> packs, {
+    void Function(int done, int total)? onProgress,
+  }) async {
+    var done = 0;
+    var next = 0;
+    Future<void> worker() async {
+      while (next < packs.length) {
+        final pack = packs[next++];
+        await cover(pack);
+        onProgress?.call(++done, packs.length);
+      }
+    }
+
+    await Future.wait(List.generate(6, (_) => worker()));
+  }
+
   static Future<Directory> packDir(CatalogPack pack) async =>
       Directory('${(await _root()).path}/${pack.folder}');
 
-  /// True when the pack is stored locally at the catalog's current version.
+  /// Disk space used by downloaded sticker packs and their covers.
+  static Future<int> downloadedBytes() async {
+    var total = 0;
+    final root = await _root();
+    await for (final entity in root.list(recursive: true)) {
+      if (entity is File) total += await entity.length();
+    }
+    return total;
+  }
+
+  /// Deletes downloaded packs and covers. Packs already added to My Packs are
+  /// separate copies and stay; the catalog just downloads again when needed.
+  static Future<void> clearDownloads() async {
+    final root = await _root();
+    await root.delete(recursive: true);
+    _covers.clear();
+  }
+
   static Future<bool> isDownloaded(CatalogPack pack) async {
     final manifest = File('${(await packDir(pack)).path}/pack.json');
     if (!await manifest.exists()) return false;
@@ -125,14 +199,43 @@ abstract class CatalogService {
     }
   }
 
-  /// Cover image bytes, cached after the first fetch.
+  static final _covers = <String, Uint8List>{};
+
+  /// Reads every already-downloaded cover into memory, so the Catalog tab
+  /// paints them on its first frame instead of showing placeholders.
+  static Future<void> warmCovers() async {
+    try {
+      for (final pack in cachedPacks() ?? const <CatalogPack>[]) {
+        final key = '${pack.id}@${pack.version}';
+        if (_covers.containsKey(key)) continue;
+        final file = File('${(await packDir(pack)).path}/cover.webp');
+        if (await file.exists()) _covers[key] = await file.readAsBytes();
+      }
+    } catch (_) {
+      // A cover that can't be read simply loads the normal way later.
+    }
+  }
+
+  /// A cover already read this session, so revisiting the tab paints at once.
+  static Uint8List? coverInMemory(CatalogPack pack) =>
+      _covers['${pack.id}@${pack.version}'];
+
   static Future<Uint8List?> cover(CatalogPack pack) async {
+    final key = '${pack.id}@${pack.version}';
+    final bytes = await _cover(pack);
+    if (bytes != null) _covers[key] = bytes;
+    return bytes;
+  }
+
+  static Future<Uint8List?> _cover(CatalogPack pack) async {
     final dir = await packDir(pack);
     final file = File('${dir.path}/cover.webp');
     if (await file.exists()) return file.readAsBytes();
     try {
       await initialize();
-      final bytes = await _bucket.download('v1/${pack.cover}');
+      final bytes = await _bucket
+          .download('v1/${pack.cover}')
+          .timeout(RemoteContent.timeout);
       await dir.create(recursive: true);
       await file.writeAsBytes(bytes, flush: true);
       return bytes;
@@ -141,14 +244,15 @@ abstract class CatalogService {
     }
   }
 
-  /// Downloads a pack, verifies every checksum, then swaps it in atomically.
   static Future<void> download(
     CatalogPack pack, {
     void Function(double progress)? onProgress,
   }) async {
     try {
       await initialize();
-      final manifestBytes = await _bucket.download('v1/${pack.manifest}');
+      final manifestBytes = await _bucket
+          .download('v1/${pack.manifest}')
+          .timeout(RemoteContent.timeout);
       if (_hex(manifestBytes) != pack.manifestSha256) {
         throw CatalogException('Pack manifest failed verification.');
       }
@@ -166,14 +270,22 @@ abstract class CatalogService {
         for (var i = 0; i < files.length; i++) {
           final name = files[i];
           _checkName(name);
-          final bytes = await _bucket.download('v1/${pack.folder}/$name');
+          final bytes = await _bucket
+              .download('v1/${pack.folder}/$name')
+              .timeout(RemoteContent.timeout);
+          final isTray = name == manifest['tray'];
           final entry = stickers.cast<Map?>().firstWhere(
             (s) => s!['file'] == name,
             orElse: () => null,
           );
-          if (entry != null &&
-              (bytes.length != entry['bytes'] ||
-                  _hex(bytes) != entry['sha256'])) {
+          final expected = isTray ? manifest['traySha256'] : entry?['sha256'];
+          // Older manifests carry no tray checksum; stickers always have one.
+          if (expected == null && !isTray) {
+            throw CatalogException('A sticker failed verification.');
+          }
+          if (expected != null &&
+              (_hex(bytes) != expected ||
+                  (entry != null && bytes.length != entry['bytes']))) {
             throw CatalogException('A sticker failed verification.');
           }
           await File('${temp.path}/$name').writeAsBytes(bytes, flush: true);
@@ -197,7 +309,6 @@ abstract class CatalogService {
     }
   }
 
-  /// Local sticker files for a downloaded pack, in manifest order.
   static Future<List<File>> stickerFiles(CatalogPack pack) async {
     final dir = await packDir(pack);
     final manifest = await manifestOf(pack);
