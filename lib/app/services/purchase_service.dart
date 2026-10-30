@@ -53,7 +53,7 @@ abstract class PurchaseService {
 
   static Future<void> _onPurchases(List<PurchaseDetails> updates) async {
     for (final p in updates) {
-      if (p.productID != productId) continue;
+      if (p.productID.isNotEmpty && p.productID != productId) continue;
       switch (p.status) {
         case PurchaseStatus.purchased:
         case PurchaseStatus.restored:

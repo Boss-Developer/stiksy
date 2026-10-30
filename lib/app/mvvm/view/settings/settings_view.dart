@@ -260,6 +260,11 @@ class _SettingsViewState extends State<SettingsView> {
                     title: 'Stiksy',
                     subtitle: version.isEmpty ? null : 'Version $version',
                   ),
+                  _row(
+                    icon: Icons.code_rounded,
+                    title: 'Developed by',
+                    subtitle: 'SF Developers',
+                  ),
                 ]),
                 const SizedBox(height: 20),
                 Center(
@@ -288,7 +293,7 @@ class _SettingsViewState extends State<SettingsView> {
       borderRadius: AppRadius.mdAll,
       child: InkWell(
         borderRadius: AppRadius.mdAll,
-        onTap: () => Get.to(() => const UpgradeView()),
+        onTap: owned ? null : () => Get.to(() => const UpgradeView()),
         child: Padding(
           padding: const EdgeInsets.all(18),
           child: Row(

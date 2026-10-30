@@ -13,17 +13,11 @@ abstract class AdService {
   static const _nativeOverride = String.fromEnvironment('ADMOB_NATIVE_ID');
   static const _rewardedOverride = String.fromEnvironment('ADMOB_REWARDED_ID');
 
-  /// Real users must never see Google's "Test Ad" placeholders: a release
-  /// build without the real unit IDs shows no ads at all, and every rewarded
-  /// unlock is simply granted. Android ships its real IDs; iOS still needs
-  /// them passed as defines.
   static bool get configured =>
       !kReleaseMode ||
       android ||
       (_nativeOverride.isNotEmpty && _rewardedOverride.isNotEmpty);
 
-  /// Debug and profile builds keep Google's test units so our own taps never
-  /// count against the AdMob account.
   static String get nativeId => _nativeOverride.isNotEmpty
       ? _nativeOverride
       : android
@@ -51,8 +45,6 @@ abstract class AdService {
   static bool _showing = false;
   static Completer<RewardedAd?>? _loading;
 
-  /// Stops a video that is still loading; [requestReward] then returns
-  /// [RewardResult.cancelled]. A video already on screen is not affected.
   static void cancelLoading() {
     final loading = _loading;
     if (loading != null && !loading.isCompleted) loading.complete(null);
